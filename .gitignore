@@ -1,0 +1,22 @@
+# OS and editor artifacts
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*~
+
+# Generated public export; build from the reviewed source tree.
+release/
+
+# Local dependencies, credentials and non-public working material.
+node_modules/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.log
+/private/
+/imports/
+/.local/

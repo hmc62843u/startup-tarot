@@ -1,0 +1,52 @@
+{
+  "_instruction": "Author a new fictional demo record, add its local specification to EXAMPLES.md and rebuild docs/examples.html, validate and register it. Do not relabel real research as fiction.",
+  "_legal_notice": "This template is for the separate fictional demo library. Real research belongs in a reviewed Guide Pack under its own terms.",
+  "id": "demo_new_example",
+  "name": "Fictional New Example",
+  "source_url": "./docs/examples.html#demo_new_example",
+  "retrieved_date": "2026-10-25",
+  "stage_focus": [
+    "pre-seed",
+    "seed"
+  ],
+  "_stage_options": [
+    "pre-company",
+    "idea",
+    "pre-seed",
+    "seed",
+    "series-a",
+    "growth"
+  ],
+  "sector_focus": [
+    "aerospace",
+    "deep-tech",
+    "robotics"
+  ],
+  "_sector_note": "Use the generalist tag only for an explicitly generalist scenario; leave [] for unknown focus.",
+  "geography_focus": [
+    "Illustrative region only"
+  ],
+  "check_size_range_usd": "Not specified",
+  "criteria_weights": {
+    "team_credibility": 0.3,
+    "problem_clarity": 0.25,
+    "technical_feasibility": 0.2,
+    "market_urgency": 0.15,
+    "traction_evidence": 0.1
+  },
+  "explicit_criteria": [
+    "Replace with an original invented preference."
+  ],
+  "anti_criteria": [],
+  "notes": "Draft fictional example. Replace invented fields and document them in the local scenario specification.",
+  "weights_basis": "editor_estimate",
+  "weight_notes": "Invented illustrative weights; not eligibility thresholds.",
+  "profile_basis": "Original fictional demo; no real investor represented.",
+  "comparison_enabled": false,
+  "eligibility_requirements": [],
+  "funding_type": "equity",
+  "organization_type": "vc",
+  "data_kind": "fictional",
+  "distribution_basis": "original_demo",
+  "data_license": "MIT"
+}

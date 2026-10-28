@@ -1,0 +1,39 @@
+{
+  "data_kind": "fictional",
+  "distribution_basis": "original_demo",
+  "data_license": "MIT",
+  "retrieved_date": "2026-10-25",
+  "geography_focus": [
+    "Illustrative region only"
+  ],
+  "check_size_range_usd": "Not specified in this fictional scenario",
+  "criteria_weights": {
+    "team_credibility": 0.2,
+    "problem_clarity": 0.2,
+    "technical_feasibility": 0.2,
+    "market_urgency": 0.2,
+    "traction_evidence": 0.2
+  },
+  "anti_criteria": [],
+  "eligibility_requirements": [],
+  "weights_basis": "editor_estimate",
+  "weight_notes": "Invented equal weights for demonstrating the interface; not used as eligibility thresholds.",
+  "profile_basis": "Original fictional demo scenario. No real investor or program is represented.",
+  "comparison_enabled": false,
+  "notes": "All preferences, stages and rules are invented for software demonstration. No funding is offered.",
+  "id": "demo_reference_award",
+  "name": "Fictional Reference Award",
+  "source_url": "./docs/examples.html#demo_reference_award",
+  "stage_focus": [
+    "idea",
+    "seed"
+  ],
+  "sector_focus": [
+    "generalist"
+  ],
+  "organization_type": "grant_program",
+  "funding_type": "grant",
+  "explicit_criteria": [
+    "Reference-only example used to demonstrate browsing without comparison."
+  ]
+}

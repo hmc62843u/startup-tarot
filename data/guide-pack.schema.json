@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Startup Guide import contract (v2 with legacy v1 support)",
+  "oneOf": [
+    {
+      "$ref": "guide-pack-v1.schema.json"
+    },
+    {
+      "$ref": "guide-pack-v2.schema.json"
+    }
+  ]
+}

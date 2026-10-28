@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="200" viewBox="0 0 840 200" role="img" aria-labelledby="title desc">
+  <title id="title">One step at a time</title>
+  <desc id="desc">Describe your situation, choose a next move, then try it and learn.</desc>
+  <rect x="1" y="1" width="838" height="198" rx="24" fill="#f5f2e8" stroke="#dcd7c8"/>
+  <g fill="#e7edd6" stroke="#b4c191"><rect x="22" y="27" width="240" height="145" rx="18"/><rect x="300" y="27" width="240" height="145" rx="18"/><rect x="578" y="27" width="240" height="145" rx="18"/></g>
+  <g font-family="Georgia,serif" font-size="36" text-anchor="middle" fill="#1c4938"><text x="142" y="92">Your</text><text x="142" y="135">situation</text><text x="420" y="92">Your</text><text x="420" y="135">next move</text><text x="698" y="92">Try it.</text><text x="698" y="135">Learn.</text></g>
+  <g fill="none" stroke="#507256" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M270 100q9-3 20 0m-6-7 7 7-7 7"/><path d="M548 100q9 3 20 0m-6-7 7 7-7 7"/><path d="M78 148q60 4 126-1M353 148q68-3 135 1M630 148q69 4 137-1"/></g>
+</svg>

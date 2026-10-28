@@ -1,0 +1,754 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Startup Guide Guide Pack v2",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "id",
+    "name",
+    "version",
+    "updated_date",
+    "license",
+    "rights_review",
+    "provider",
+    "dataset_kind",
+    "quality",
+    "components"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 2
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "repository_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri",
+      "pattern": "^https?://"
+    },
+    "updated_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "license": {
+      "type": "object",
+      "required": [
+        "id",
+        "url",
+        "scope",
+        "notice"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https?://"
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "notice": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "rights_review": {
+      "type": "object",
+      "required": [
+        "status",
+        "reviewed_date",
+        "statement"
+      ],
+      "properties": {
+        "status": {
+          "const": "reviewed_for_distribution"
+        },
+        "reviewed_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "provider": {
+      "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri",
+          "pattern": "^https?://"
+        }
+      }
+    },
+    "dataset_kind": {
+      "enum": [
+        "research",
+        "fictional"
+      ]
+    },
+    "quality": {
+      "type": "object",
+      "required": [
+        "research",
+        "matching",
+        "suggestions"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "research": {
+          "type": "object",
+          "required": [
+            "status",
+            "statement"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "not_evaluated",
+                "self_reviewed",
+                "independent_review"
+              ]
+            },
+            "statement": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reviewed_date": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          "allOf": [
+            {
+              "then": {
+                "required": [
+                  "reviewed_date"
+                ]
+              },
+              "if": {
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "self_reviewed",
+                      "independent_review"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "matching": {
+          "type": "object",
+          "required": [
+            "status",
+            "statement"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "not_evaluated",
+                "self_reviewed",
+                "independent_review"
+              ]
+            },
+            "statement": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reviewed_date": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          "allOf": [
+            {
+              "then": {
+                "required": [
+                  "reviewed_date"
+                ]
+              },
+              "if": {
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "self_reviewed",
+                      "independent_review"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "suggestions": {
+          "type": "object",
+          "required": [
+            "status",
+            "statement"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "not_evaluated",
+                "self_reviewed",
+                "independent_review"
+              ]
+            },
+            "statement": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reviewed_date": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          "allOf": [
+            {
+              "then": {
+                "required": [
+                  "reviewed_date"
+                ]
+              },
+              "if": {
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "self_reviewed",
+                      "independent_review"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "components": {
+      "type": "object",
+      "required": [
+        "research",
+        "matching",
+        "suggestions"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "research": {
+          "type": "object",
+          "required": [
+            "profiles",
+            "snapshots"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "profiles": {
+              "type": "array",
+              "maxItems": 250,
+              "items": {
+                "allOf": [
+                  {
+                    "$ref": "schema.json"
+                  },
+                  {
+                    "required": [
+                      "data_kind"
+                    ],
+                    "properties": {
+                      "data_kind": {
+                        "enum": [
+                          "research",
+                          "fictional"
+                        ]
+                      }
+                    },
+                    "not": {
+                      "required": [
+                        "preparation_topics"
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            "snapshots": {
+              "type": "array",
+              "maxItems": 250,
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "data_kind",
+                  "company",
+                  "snapshot_date",
+                  "sectors",
+                  "sector_basis",
+                  "stage",
+                  "fields",
+                  "metrics",
+                  "sources",
+                  "limitations"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$"
+                  },
+                  "data_kind": {
+                    "enum": [
+                      "research",
+                      "fictional"
+                    ]
+                  },
+                  "company": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "snapshot_date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "sectors": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "sector_basis": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "stage": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "fields": {
+                    "type": "object",
+                    "required": [
+                      "product",
+                      "customers",
+                      "team",
+                      "funding"
+                    ]
+                  },
+                  "metrics": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
+                  "sources": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "title",
+                        "url",
+                        "published_date",
+                        "retrieved_date",
+                        "evidence_type"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri-reference",
+                          "pattern": "^(https?://|\\./docs/examples\\.html#)"
+                        },
+                        "published_date": {
+                          "type": "string"
+                        },
+                        "retrieved_date": {
+                          "type": "string",
+                          "format": "date"
+                        },
+                        "evidence_type": {
+                          "enum": [
+                            "retrospective_account",
+                            "contemporary_correspondence_published_later",
+                            "contemporary_record",
+                            "fictional_scenario"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "limitations": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                },
+                "not": {
+                  "required": [
+                    "preparation_lessons"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "matching": {
+          "type": "object",
+          "required": [
+            "investor_topics",
+            "rules"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "investor_topics": {
+              "type": "array",
+              "maxItems": 500,
+              "items": {
+                "type": "object",
+                "required": [
+                  "profile_id",
+                  "topic",
+                  "statement",
+                  "source_url",
+                  "published_date",
+                  "retrieved_date"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "profile_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "topic": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "statement": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "source_url": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "published_date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "retrieved_date": {
+                    "type": "string",
+                    "format": "date"
+                  }
+                }
+              }
+            },
+            "rules": {
+              "type": "array",
+              "maxItems": 500,
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "type",
+                  "snapshot_id",
+                  "suggestion_id",
+                  "topic",
+                  "business_models",
+                  "startup_stages",
+                  "validation_focus",
+                  "evidence_fields",
+                  "source_ids"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+                  },
+                  "type": {
+                    "const": "context_topic_v1"
+                  },
+                  "snapshot_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "suggestion_id": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+                  },
+                  "topic": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "business_models": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "enum": [
+                        "marketplace",
+                        "service",
+                        "saas",
+                        "hardware",
+                        "consumer_product",
+                        "other"
+                      ]
+                    }
+                  },
+                  "startup_stages": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "enum": [
+                        "pre-company",
+                        "idea",
+                        "pre-seed",
+                        "seed",
+                        "series-a",
+                        "growth"
+                      ]
+                    }
+                  },
+                  "validation_focus": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "enum": [
+                        "customer_problem",
+                        "demand",
+                        "operations",
+                        "technical_feasibility"
+                      ]
+                    }
+                  },
+                  "evidence_fields": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "enum": [
+                        "product",
+                        "customers",
+                        "team",
+                        "funding"
+                      ]
+                    }
+                  },
+                  "source_ids": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              }
+            },
+            "evaluation_cases": {
+              "type": "array",
+              "maxItems": 50,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "name",
+                  "startup",
+                  "investor_ids",
+                  "expected_suggestion_ids",
+                  "rationale"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "startup": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "business_model",
+                      "current_stage",
+                      "validation_focus",
+                      "sectors"
+                    ],
+                    "properties": {
+                      "business_model": {
+                        "enum": [
+                          "marketplace",
+                          "service",
+                          "saas",
+                          "hardware",
+                          "consumer_product",
+                          "other",
+                          null
+                        ]
+                      },
+                      "current_stage": {
+                        "enum": [
+                          "pre-company",
+                          "idea",
+                          "pre-seed",
+                          "seed",
+                          "series-a",
+                          "growth",
+                          null
+                        ]
+                      },
+                      "validation_focus": {
+                        "enum": [
+                          "customer_problem",
+                          "demand",
+                          "operations",
+                          "technical_feasibility",
+                          null
+                        ]
+                      },
+                      "sectors": {
+                        "type": "array",
+                        "maxItems": 20,
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  },
+                  "investor_ids": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "expected_suggestion_ids": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "rationale": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "suggestions": {
+          "type": "array",
+          "maxItems": 500,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "title",
+              "target_task_id",
+              "approach",
+              "interpretation",
+              "caution"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "target_task_id": {
+                "enum": [
+                  "suggestion:customer-evidence",
+                  "suggestion:next-milestone",
+                  "suggestion:team-evidence",
+                  "suggestion:product-evidence"
+                ]
+              },
+              "approach": {
+                "type": "string",
+                "minLength": 1
+              },
+              "interpretation": {
+                "type": "string",
+                "minLength": 1
+              },
+              "caution": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "description": "Shape schema; app runtime additionally enforces dates, source protocols, kind consistency, reference integrity and applicable rule contexts. Quality declarations are not independently verified."
+}

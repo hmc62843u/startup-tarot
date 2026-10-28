@@ -1,0 +1,395 @@
+{
+  "schema_version": 2,
+  "id": "fictional_provider_demo",
+  "name": "Fictional Guide Pack",
+  "version": "1.2.0",
+  "repository_url": null,
+  "updated_date": "2026-10-26",
+  "license": {
+    "id": "MIT",
+    "url": "https://opensource.org/license/mit",
+    "scope": "Original fictional examples only.",
+    "notice": "Startup Field Guide contributors. No real investor or historical claims."
+  },
+  "rights_review": {
+    "status": "reviewed_for_distribution",
+    "reviewed_date": "2026-10-26",
+    "statement": "Original fictional examples under MIT. This is not research evidence."
+  },
+  "provider": {
+    "id": "startup_library_demo",
+    "name": "Guide Pack Demo",
+    "url": null
+  },
+  "dataset_kind": "fictional",
+  "quality": {
+    "research": {
+      "status": "self_reviewed",
+      "reviewed_date": "2026-10-26",
+      "statement": "Invented examples, not external research or anonymized companies."
+    },
+    "matching": {
+      "status": "self_reviewed",
+      "reviewed_date": "2026-10-26",
+      "statement": "Provider-authored example cases checked with the app matcher. Not independent validation, population accuracy or evidence of usefulness."
+    },
+    "suggestions": {
+      "status": "not_evaluated",
+      "statement": "Original editorial prompts; founder usefulness and outcomes have not been evaluated."
+    }
+  },
+  "components": {
+    "research": {
+      "profiles": [
+        {
+          "data_kind": "fictional",
+          "distribution_basis": "original_demo",
+          "data_license": "MIT",
+          "retrieved_date": "2026-10-25",
+          "geography_focus": [
+            "Illustrative region only"
+          ],
+          "check_size_range_usd": "Not specified in this fictional scenario",
+          "criteria_weights": {
+            "team_credibility": 0.2,
+            "problem_clarity": 0.2,
+            "technical_feasibility": 0.2,
+            "market_urgency": 0.2,
+            "traction_evidence": 0.2
+          },
+          "anti_criteria": [],
+          "eligibility_requirements": [],
+          "weights_basis": "editor_estimate",
+          "weight_notes": "Invented equal weights for demonstrating the interface; not used as eligibility thresholds.",
+          "profile_basis": "Original fictional demo scenario. No real investor or program is represented.",
+          "comparison_enabled": true,
+          "notes": "All preferences, stages and rules are invented for software demonstration. No funding is offered.",
+          "id": "demo_discovery",
+          "name": "Fictional Discovery Fund",
+          "source_url": "./docs/examples.html#demo_discovery",
+          "stage_focus": [
+            "idea",
+            "pre-seed",
+            "seed"
+          ],
+          "sector_focus": [
+            "generalist"
+          ],
+          "organization_type": "vc",
+          "funding_type": "equity",
+          "explicit_criteria": [
+            "The fictional fund considers early teams exploring a customer problem.",
+            "An idea may be discussed without a product or prior revenue."
+          ]
+        },
+        {
+          "data_kind": "fictional",
+          "distribution_basis": "original_demo",
+          "data_license": "MIT",
+          "retrieved_date": "2026-10-25",
+          "geography_focus": [
+            "Illustrative region only"
+          ],
+          "check_size_range_usd": "Not specified in this fictional scenario",
+          "criteria_weights": {
+            "team_credibility": 0.2,
+            "problem_clarity": 0.2,
+            "technical_feasibility": 0.2,
+            "market_urgency": 0.2,
+            "traction_evidence": 0.2
+          },
+          "anti_criteria": [],
+          "eligibility_requirements": [],
+          "weights_basis": "editor_estimate",
+          "weight_notes": "Invented equal weights for demonstrating the interface; not used as eligibility thresholds.",
+          "profile_basis": "Original fictional demo scenario. No real investor or program is represented.",
+          "comparison_enabled": true,
+          "notes": "All preferences, stages and rules are invented for software demonstration. No funding is offered.",
+          "id": "demo_formation",
+          "name": "Fictional Formation Studio",
+          "source_url": "./docs/examples.html#demo_formation",
+          "stage_focus": [
+            "pre-company",
+            "idea",
+            "pre-seed"
+          ],
+          "sector_focus": [
+            "generalist"
+          ],
+          "organization_type": "talent_investor",
+          "funding_type": "equity",
+          "explicit_criteria": [
+            "This invented studio explores team formation and complementary skills."
+          ]
+        }
+      ],
+      "snapshots": [
+        {
+          "id": "demo_tools_reservations",
+          "company": "Example Tool Library (fictional)",
+          "data_kind": "fictional",
+          "distribution_basis": "original_demo",
+          "data_license": "MIT",
+          "snapshot_date": "2025-02-04",
+          "sectors": [
+            "marketplace",
+            "equipment sharing"
+          ],
+          "sector_basis": "Invented scenario tags for testing filters.",
+          "stage": null,
+          "fields": {
+            "product": {
+              "value": "A shared inventory sheet and reservation form for borrowing craft tools.",
+              "source_id": "scenario"
+            },
+            "customers": {
+              "value": "Imagined neighborhood makers seeking occasional access to equipment.",
+              "source_id": "scenario"
+            },
+            "team": {
+              "value": "An equipment librarian and a software generalist list assumptions and review requests together.",
+              "source_id": "scenario"
+            },
+            "funding": {
+              "value": null,
+              "source_id": null
+            }
+          },
+          "metrics": [
+            {
+              "name": "Tool reservations",
+              "value": 8,
+              "unit": "reservations",
+              "period": "Invented count during this scenario exercise; not a target",
+              "as_of_date": "2025-02-04",
+              "source_id": "scenario"
+            }
+          ],
+          "sources": [
+            {
+              "id": "scenario",
+              "title": "Original fictional scenario specification",
+              "url": "./docs/examples.html#demo_tools_reservations",
+              "retrieved_date": "2026-10-25",
+              "published_date": "2026-10-25",
+              "evidence_type": "fictional_scenario"
+            }
+          ],
+          "limitations": [
+            "Entirely invented for demonstration; not an anonymized real company.",
+            "Dates and metrics are illustrative. No outcome, growth or survival is asserted.",
+            "Unspecified facts remain unknown."
+          ]
+        }
+      ]
+    },
+    "matching": {
+      "investor_topics": [
+        {
+          "profile_id": "demo_discovery",
+          "topic": "customer_learning",
+          "statement": "In this fictional scenario, the fund is interested in how teams investigate customer needs. No particular experiment or metric is required.",
+          "source_url": "./docs/examples.html#demo_discovery",
+          "published_date": "2026-10-25",
+          "retrieved_date": "2026-10-25"
+        }
+      ],
+      "rules": [
+        {
+          "id": "rule_demo_tools_reservations_0",
+          "type": "context_topic_v1",
+          "snapshot_id": "demo_tools_reservations",
+          "suggestion_id": "bounded-reservation-test",
+          "topic": "customer_learning",
+          "business_models": [
+            "marketplace",
+            "service"
+          ],
+          "startup_stages": [
+            "pre-company",
+            "idea",
+            "pre-seed"
+          ],
+          "validation_focus": [
+            "demand",
+            "operations"
+          ],
+          "evidence_fields": [
+            "product"
+          ],
+          "source_ids": [
+            "scenario"
+          ]
+        },
+        {
+          "id": "rule_demo_tools_reservations_1",
+          "type": "context_topic_v1",
+          "snapshot_id": "demo_tools_reservations",
+          "suggestion_id": "structured-needs-review",
+          "topic": "customer_learning",
+          "business_models": [
+            "marketplace",
+            "service"
+          ],
+          "startup_stages": [
+            "pre-company",
+            "idea",
+            "pre-seed"
+          ],
+          "validation_focus": [
+            "customer_problem"
+          ],
+          "evidence_fields": [
+            "team"
+          ],
+          "source_ids": [
+            "scenario"
+          ]
+        }
+      ],
+      "evaluation_cases": [
+        {
+          "id": "demand_match",
+          "name": "Demand with Discovery Fund",
+          "startup": {
+            "business_model": "marketplace",
+            "current_stage": "idea",
+            "validation_focus": "demand",
+            "sectors": [
+              "marketplace"
+            ]
+          },
+          "investor_ids": [
+            "demo_discovery"
+          ],
+          "expected_suggestion_ids": [
+            "bounded-reservation-test"
+          ],
+          "rationale": "The invented context and investor customer_learning topic support this exercise."
+        },
+        {
+          "id": "needs_match",
+          "name": "Customer problem with Discovery Fund",
+          "startup": {
+            "business_model": "marketplace",
+            "current_stage": "idea",
+            "validation_focus": "customer_problem",
+            "sectors": [
+              "marketplace"
+            ]
+          },
+          "investor_ids": [
+            "demo_discovery"
+          ],
+          "expected_suggestion_ids": [
+            "structured-needs-review"
+          ],
+          "rationale": "This context selects the structured-needs lesson, not the demand exercise."
+        },
+        {
+          "id": "model_mismatch",
+          "name": "Hardware does not match the lesson",
+          "startup": {
+            "business_model": "hardware",
+            "current_stage": "idea",
+            "validation_focus": "demand",
+            "sectors": [
+              "marketplace"
+            ]
+          },
+          "investor_ids": [
+            "demo_discovery"
+          ],
+          "expected_suggestion_ids": [],
+          "rationale": "Neither lesson targets hardware."
+        },
+        {
+          "id": "stage_mismatch",
+          "name": "Growth does not match the lesson",
+          "startup": {
+            "business_model": "marketplace",
+            "current_stage": "growth",
+            "validation_focus": "demand",
+            "sectors": [
+              "marketplace"
+            ]
+          },
+          "investor_ids": [
+            "demo_discovery"
+          ],
+          "expected_suggestion_ids": [],
+          "rationale": "The lessons and this investor focus target earlier stages."
+        },
+        {
+          "id": "unknown_stage",
+          "name": "Missing stage remains unknown",
+          "startup": {
+            "business_model": "marketplace",
+            "current_stage": null,
+            "validation_focus": "demand",
+            "sectors": [
+              "marketplace"
+            ]
+          },
+          "investor_ids": [
+            "demo_discovery"
+          ],
+          "expected_suggestion_ids": [],
+          "rationale": "The matcher requires an explicit matching stage."
+        },
+        {
+          "id": "missing_topic",
+          "name": "Formation Studio has no matching topic",
+          "startup": {
+            "business_model": "marketplace",
+            "current_stage": "idea",
+            "validation_focus": "demand",
+            "sectors": [
+              "marketplace"
+            ]
+          },
+          "investor_ids": [
+            "demo_formation"
+          ],
+          "expected_suggestion_ids": [],
+          "rationale": "Stage compatibility alone does not create an investor-topic connection."
+        },
+        {
+          "id": "preview_match",
+          "name": "No selected lens previews compatible examples",
+          "startup": {
+            "business_model": "marketplace",
+            "current_stage": "idea",
+            "validation_focus": "demand",
+            "sectors": [
+              "marketplace"
+            ]
+          },
+          "investor_ids": [],
+          "expected_suggestion_ids": [
+            "bounded-reservation-test"
+          ],
+          "rationale": "Empty investor_ids models an unselected lens; preview can use comparable active-library profiles."
+        }
+      ]
+    },
+    "suggestions": [
+      {
+        "id": "bounded-reservation-test",
+        "title": "Explore demand with a bounded reservation test",
+        "target_task_id": "suggestion:next-milestone",
+        "approach": "Offer a small, clearly scoped reservation experiment. Record requests, cancellations, constraints and a decision to continue, change or stop.",
+        "interpretation": "An original illustrative learning prompt, not a conclusion drawn from real startup history.",
+        "caution": "Fictional scenario: no observed outcome, survival evidence or predictive value. Choose your own scope and decision criteria."
+      },
+      {
+        "id": "structured-needs-review",
+        "title": "Review customer needs through structured conversations",
+        "target_task_id": "suggestion:customer-evidence",
+        "approach": "Ask a small group about a recent task, document the obstacles they describe, and identify a question to test next.",
+        "interpretation": "An original illustrative learning prompt, not a conclusion drawn from real startup history.",
+        "caution": "Fictional scenario: no observed outcome, survival evidence or predictive value. Choose your own scope and decision criteria."
+      }
+    ]
+  }
+}

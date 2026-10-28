@@ -1,0 +1,77 @@
+{
+  "id": "demo_tools_interviews",
+  "company": "Example Tool Library (fictional)",
+  "data_kind": "fictional",
+  "distribution_basis": "original_demo",
+  "data_license": "MIT",
+  "snapshot_date": "2025-04-09",
+  "sectors": [
+    "marketplace",
+    "equipment sharing"
+  ],
+  "sector_basis": "Invented scenario tags for testing filters.",
+  "stage": null,
+  "fields": {
+    "product": {
+      "value": "An annotated borrowing flow with reminders to inspect tools at return.",
+      "source_id": "scenario"
+    },
+    "customers": {
+      "value": "Imagined members describing how they plan infrequent repair projects.",
+      "source_id": "scenario"
+    },
+    "team": {
+      "value": "The scenario team reviews interview notes to distinguish tool access from instruction needs.",
+      "source_id": "scenario"
+    },
+    "funding": {
+      "value": null,
+      "source_id": null
+    }
+  },
+  "metrics": [],
+  "sources": [
+    {
+      "id": "scenario",
+      "title": "Original fictional scenario specification",
+      "url": "./docs/examples.html#demo_tools_interviews",
+      "retrieved_date": "2026-10-25",
+      "published_date": "2026-10-25",
+      "evidence_type": "fictional_scenario"
+    }
+  ],
+  "limitations": [
+    "Entirely invented for demonstration; not an anonymized real company.",
+    "Dates and metrics are illustrative. No outcome, growth or survival is asserted.",
+    "Unspecified facts remain unknown."
+  ],
+  "preparation_lessons": [
+    {
+      "id": "structured-needs-review",
+      "title": "Review customer needs through structured conversations",
+      "topic": "customer_learning",
+      "target_task_id": "suggestion:customer-evidence",
+      "business_models": [
+        "marketplace",
+        "service"
+      ],
+      "startup_stages": [
+        "pre-company",
+        "idea",
+        "pre-seed"
+      ],
+      "validation_focus": [
+        "customer_problem"
+      ],
+      "evidence_fields": [
+        "team"
+      ],
+      "source_ids": [
+        "scenario"
+      ],
+      "approach": "Ask a small group about a recent task, document the obstacles they describe, and identify a question to test next.",
+      "interpretation": "An original illustrative learning prompt, not a conclusion drawn from real startup history.",
+      "caution": "Fictional scenario: no observed outcome, survival evidence or predictive value. Choose your own scope and decision criteria."
+    }
+  ]
+}

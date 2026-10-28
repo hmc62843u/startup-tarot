@@ -1,0 +1,7 @@
+{
+  "snapshots": [
+    "../startups/demo_tools_reservations.json",
+    "../startups/demo_skills_schedule.json",
+    "../startups/demo_tools_interviews.json"
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Investor Profile Validation",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "source_url",
+    "retrieved_date",
+    "stage_focus",
+    "criteria_weights"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "angel",
+        "vc_seed",
+        "vc_series_a",
+        "accelerator",
+        "grant",
+        "corporate"
+      ],
+      "description": "Legacy field accepted for compatibility; new profiles use funding_type and organization_type."
+    },
+    "source_url": {
+      "type": "string",
+      "anyOf": [
+        {
+          "format": "uri"
+        },
+        {
+          "pattern": "^\\./docs/examples\\.html#[a-z0-9_-]+$"
+        }
+      ]
+    },
+    "retrieved_date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "stage_focus": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "pre-company",
+          "idea",
+          "pre-seed",
+          "seed",
+          "series-a",
+          "growth"
+        ]
+      },
+      "minItems": 1
+    },
+    "sector_focus": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "geography_focus": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "check_size_range_usd": {
+      "type": "string"
+    },
+    "criteria_weights": {
+      "type": "object",
+      "properties": {
+        "team_credibility": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "problem_clarity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "technical_feasibility": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "market_urgency": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "traction_evidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": [
+        "team_credibility",
+        "problem_clarity",
+        "technical_feasibility",
+        "market_urgency",
+        "traction_evidence"
+      ],
+      "description": "The five required weights must sum to 1.00 (runtime validator tolerance 0.001). Weights are descriptive, not eligibility rules."
+    },
+    "explicit_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "anti_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "string"
+    },
+    "weights_basis": {
+      "type": "string"
+    },
+    "weight_notes": {
+      "type": "string"
+    },
+    "profile_basis": {
+      "type": "string"
+    },
+    "review_status": {
+      "type": "string"
+    },
+    "reviewed_date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "comparison_enabled": {
+      "type": "boolean"
+    },
+    "eligibility_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "funding_type": {
+      "type": "string",
+      "enum": [
+        "equity",
+        "grant",
+        "unknown"
+      ]
+    },
+    "organization_type": {
+      "type": "string",
+      "enum": [
+        "vc",
+        "corporate_vc",
+        "angel",
+        "accelerator",
+        "talent_investor",
+        "grant_program",
+        "unknown"
+      ]
+    },
+    "preparation_topics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "topic",
+          "statement",
+          "source_url",
+          "published_date",
+          "retrieved_date"
+        ],
+        "properties": {
+          "topic": {
+            "type": "string",
+            "minLength": 1
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_url": {
+            "type": "string",
+            "anyOf": [
+              {
+                "format": "uri"
+              },
+              {
+                "pattern": "^\\./docs/examples\\.html#[a-z0-9_-]+$"
+              }
+            ]
+          },
+          "published_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "retrieved_date": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      }
+    },
+    "data_kind": {
+      "type": "string",
+      "enum": [
+        "fictional",
+        "research"
+      ]
+    },
+    "distribution_basis": {
+      "type": "string"
+    },
+    "data_license": {
+      "type": "string"
+    }
+  },
+  "anyOf": [
+    {
+      "required": [
+        "funding_type",
+        "organization_type"
+      ]
+    },
+    {
+      "required": [
+        "type"
+      ]
+    }
+  ],
+  "dependencies": {
+    "funding_type": [
+      "organization_type"
+    ],
+    "organization_type": [
+      "funding_type"
+    ]
+  }
+}

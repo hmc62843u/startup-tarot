@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#eeecdf">
+    <title>Startup Guide</title>
+    <link rel="stylesheet" href="css/style.css?v=a094127551d1">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="./icons/icon-192.png">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="#overview" aria-label="Startup Guide home"><span class="brand-mark" aria-hidden="true">s.</span><span>Startup<span class="brand-sub">FIELD GUIDE</span></span></a>
+            <p class="sidebar-caption">A field guide for your next move</p>
+            <nav aria-label="Main navigation">
+                <button data-view="overview" class="active" aria-pressed="true"><span class="nav-number" aria-hidden="true">01</span>Home</button>
+                <button data-view="compare" aria-pressed="false"><span class="nav-number" aria-hidden="true">02</span>Explore</button>
+                <button data-view="plan" aria-pressed="false"><span class="nav-number" aria-hidden="true">03</span>My moves</button>
+            </nav>
+            <button id="open-settings" type="button" aria-haspopup="dialog" aria-controls="workspace-settings" aria-expanded="false" class="text-button settings-link">Libraries &amp; settings</button>
+            <div class="sidebar-footer"><span class="local-dot" aria-hidden="true"></span> Local workspace<p>Your notes stay in this browser.</p></div>
+        </aside>
+        <main id="app">
+            <div class="workspace-bar"><details id="active-library-notice" class="demo-notice"><summary>Fictional examples</summary><p>Fictional demo. All bundled investor profiles and startup scenarios are invented for practice. <a href="docs/examples.html">About the examples ↗</a></p></details><span id="workspace-state" role="status">Start with three choices</span></div>
+            <section id="view-overview" class="view active">
+                <h1 class="sr-only">Your next move</h1>
+                <div id="situation-summary"></div>
+                <div id="investor-lens" hidden></div>
+                <section id="startup-editor" class="setup-panel" aria-labelledby="startup-editor-title" hidden>
+                    <h3 id="startup-editor-title">Your situation</h3>
+                    <form id="startup-form">
+                        <div class="quick-setup">
+                            <div class="setup-field"><label for="business-model"><span>01</span> What are you building?</label>
+                                <select id="business-model" name="business_model" required>
+                                    <option value="">Choose a business model</option><option value="marketplace">A marketplace</option><option value="service">A service business</option><option value="saas">Software / SaaS</option><option value="hardware">Hardware</option><option value="consumer_product">A consumer product</option><option value="other">Something else</option><option value="unknown">Not sure yet</option>
+                                </select>
+                            </div>
+                            <div class="setup-field"><label for="current-stage"><span>02</span> Where are you now?</label>
+                                <select id="current-stage" name="current_stage" required>
+                                    <option value="">Choose your stage</option><option value="pre-company">Before company formation</option><option value="idea">Exploring an idea</option><option value="pre-seed">Testing with users / pre-seed</option><option value="seed">Seed stage</option><option value="series-a">Series A</option><option value="growth">Growing / later stage</option><option value="unknown">Not sure yet</option>
+                                </select>
+                            </div>
+                            <div class="setup-field"><label for="validation-focus"><span>03</span> What do you need next?</label>
+                                <select id="validation-focus" name="validation_focus" required>
+                                    <option value="">Choose your next question</option><option value="customer_problem">Understand customer problems</option><option value="demand">Test demand</option><option value="operations">Test service operations</option><option value="technical_feasibility">Test technical feasibility</option><option value="investor_outreach">Explore investor conversations</option><option value="unknown">Not sure yet</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="setup-footer"><button id="save-startup" type="submit" class="btn-primary">Show my options</button><p id="save-status" role="status"></p></div>
+                        <details id="startup-details" class="optional-details">
+                            <summary>Add details when useful <span class="summary-hint">Optional</span></summary>
+                            <p class="text-muted">These help comparisons. A blank field stays unknown.</p>
+                            <div class="details-grid">
+                                <div><label for="startup-sectors">Sector tags</label><input id="startup-sectors" type="text" name="sectors" placeholder="e.g. AI, local delivery"></div>
+                                <div><label for="domain-experience">Founders’ domain experience</label><select id="domain-experience" name="founders_have_domain_expertise"><option value="">Not recorded</option><option value="false">No / partial</option><option value="true">Yes</option></select></div>
+                                <div><label for="product-status">Product progress</label><select id="product-status" name="prototype_status"><option value="">Not recorded</option><option value="idea_only">Idea only</option><option value="mockup">Mockups</option><option value="prototype">Prototype</option></select></div>
+                                <div><label for="pilot-count">Pilots / LOIs recorded</label><input id="pilot-count" type="number" name="paid_pilots" min="0" step="1" placeholder="Unknown"></div>
+                            </div>
+                        </details>
+                    </form>
+                </section>
+                <details id="demo-scenarios" class="section-details" hidden><summary>Try demo scenarios</summary><p>Choose a fictional example. Your saved work is kept.</p><div class="demo-choices"><button id="demo-complete" type="button" class="btn-secondary">Both connected</button><button id="demo-investor" type="button" class="btn-secondary">Investor interest only</button><button id="demo-snapshot" type="button" class="btn-secondary">Startup example only</button><button id="demo-neither" type="button" class="btn-secondary">Neither</button></div></details>
+                <div id="overview-dashboard" aria-live="polite"></div>
+            </section>
+            <section id="view-compare" class="view">
+                <div class="view-heading"><h1>Explore</h1><p id="compare-description" class="sr-only">Compare investor profiles and startup snapshots.</p></div>
+                <div class="compare-switch" role="group" aria-label="Comparison type">
+                    <button id="compare-investors" type="button" aria-pressed="true" class="active">Investor examples</button>
+                    <button id="compare-snapshots" type="button" aria-pressed="false">Example scenarios</button>
+                </div>
+        <section id="compare-investors-panel" class="compare-panel">
+            <div class="card">
+                <h3 id="investor-comparison-title" class="sr-only">Illustrative investor focus</h3>
+                <div class="report-toolbar">
+                    <p id="report-results" role="status"></p>
+                    <details id="report-filter-panel" class="report-filter-disclosure">
+                        <summary id="toggle-report-filters" class="btn-secondary">Filter &amp; group</summary>
+                        <div class="report-filter-content">
+                    <div class="form-group">
+                        <label for="analyze-target-select">Compare against</label>
+                        <select id="analyze-target-select">
+                            <option value="">All investor profiles</option>
+                        </select>
+                    </div>
+                    <div class="library-filters">
+                        <div><label for="report-filter-funding">Funding type</label><select id="report-filter-funding"><option value="">All</option></select></div>
+                        <div><label for="report-filter-stage">Investor entry stage</label><select id="report-filter-stage"><option value="">All</option></select></div>
+                        <div><label for="report-filter-sector">Sector</label><select id="report-filter-sector"><option value="">All</option></select></div>
+                        <div><label for="report-filter-focus">Focus gaps</label><select id="report-filter-focus">
+                            <option value="">All results</option><option value="stage">Stage differences</option><option value="sector">Sector differences</option><option value="none">No flagged differences</option>
+                        </select></div>
+                        <div><label for="report-group">Group results</label><select id="report-group"><option value="">Ungrouped</option><option value="funding">Funding type</option></select></div>
+                    </div>
+                    <p class="text-muted">Report filters are independent of library browsing. Sector searches include generalists.</p>
+                    <div class="report-actions">
+                        <button id="run-analysis-btn" type="button" class="btn-primary">Refresh Comparison</button>
+                    </div>
+                        </div>
+                    </details>
+                </div>
+                <div class="active-filter-row">
+                    <div id="active-report-filters" class="active-filter-chips" role="group" aria-label="Active report filters and grouping"></div>
+                    <button id="reset-report-filters" type="button" class="btn-secondary" hidden>Clear all</button>
+                </div>
+                <div id="report-output" aria-live="polite"></div>
+                <details id="comparison-summary" class="section-details"><summary>Comparison summary</summary><div id="report-overview"></div></details>
+            </div>
+            <details id="investor-library-browser" class="section-details"><summary>Browse investor library &amp; reference-only profiles</summary>
+            <div class="library-browser-controls">
+                <h2 id="investor-library-title">Fictional Investor Library</h2>
+                <p id="library-status" role="status">Loading the bundled library…</p>
+                <p class="text-muted">Browse the existing investor profiles below. Expand a profile to see its criteria, sources, and eligibility details.</p>
+                <div id="library-errors" role="alert"></div>
+                <div class="library-filters">
+                    <div><label for="filter-funding">Funding type</label><select id="filter-funding"><option value="">All</option></select></div>
+                    <div><label for="filter-stage">Entry stage</label><select id="filter-stage"><option value="">All</option></select></div>
+                    <div><label for="filter-sector">Sector</label><select id="filter-sector"><option value="">All</option></select></div>
+                </div>
+                <p class="text-muted">Sector searches include generalist profiles. These filters browse source profiles; comparison filters above operate independently.</p>
+                <button id="reset-filters" type="button" class="btn-primary">Clear filters</button>
+                <p id="filter-results" role="status"></p>
+            </div>
+            <div id="profile-list"></div>
+            </details>
+        </section>
+
+        <section id="compare-snapshots-panel" class="compare-panel" hidden>
+            <div class="card">
+                <h3 id="snapshot-comparison-title" class="sr-only">Explore an invented startup situation</h3>
+                <p id="snapshot-comparison-description" class="sr-only">Fictional scenarios for practice. The next step is yours to choose.</p>
+                <div id="snapshot-errors" role="alert"></div>
+                <div class="snapshot-picker">
+                <label for="snapshot-select">Startup snapshot</label>
+                <select id="snapshot-select"><option value="">Select a snapshot</option></select>
+                </div>
+                <div id="snapshot-comparison" aria-live="polite"></div>
+                <details class="section-details"><summary>Library summary</summary><p id="snapshot-status" role="status"></p><div id="snapshot-overview"></div></details>
+            </div>
+            <details id="snapshot-library-browser" class="section-details"><summary>Browse all example scenarios &amp; sources</summary><div id="snapshot-list"></div></details>
+        </section>
+
+            </section>
+        <section id="view-plan" class="view">
+            <div class="view-heading"><h1>My moves</h1></div>
+            <p id="preparation-status" role="status" tabindex="-1"></p>
+            <div id="preparation-board"></div>
+            <div id="preparation-suggestions"></div>
+            <details id="other-exercises" class="section-details other-exercises" hidden></details>
+            <details id="move-progress-summary" class="section-details"><summary>Progress summary</summary><div id="preparation-overview"></div></details>
+        </section>
+        </main>
+    </div>
+    <dialog id="workspace-settings" class="settings-dialog" aria-labelledby="workspace-settings-title">
+        <div class="settings-heading">
+            <h2 id="workspace-settings-title">Libraries &amp; settings</h2>
+            <button id="close-settings" type="button" class="btn-secondary" autofocus>Close</button>
+        </div>
+        <div class="settings-body">
+            <section id="library-manager" aria-labelledby="library-manager-title">
+                <h3 id="library-manager-title">Guide Packs</h3>
+                <p class="settings-current">Current library: <strong id="active-library-name">Fictional demo</strong></p>
+                <p class="text-muted">Choose a file, review it, then decide whether to use it. One library is active at a time. Files stay in this browser.</p>
+                <label for="research-file">Import a Guide Pack (.json, up to 5 MB)</label>
+                <input id="research-file" type="file" accept=".json,application/json">
+                <details class="settings-downloads"><summary>Get an example pack</summary>
+                <p><a href="packs/guide-pack.json" download="guide-pack.json">Download Research Guide Pack</a> · <a href="docs/guide-packs.html#included-research-download" target="_blank" rel="noopener noreferrer">Pack terms and sources ↗</a></p>
+                <p><a href="packs/demo-guide-pack.json" download="demo-guide-pack.json">Download Fictional Guide Pack</a> · invented examples for testing connected moves</p>
+                </details>
+                <div id="research-preview" aria-live="polite"></div>
+                <div class="report-actions settings-actions">
+                    <button id="activate-research" type="button" class="btn-primary" hidden>Use this Guide Pack</button>
+                    <button id="cancel-research" type="button" class="btn-secondary" hidden>Cancel preview</button>
+                    <button id="use-demo-library" type="button" class="btn-secondary" hidden>Try demo scenarios</button>
+                    <button id="use-bundled-research" type="button" class="btn-secondary">Use included research</button>
+                    <button id="use-research-library" type="button" class="btn-secondary" hidden>Use saved Guide Pack</button>
+                    <button id="remove-research" type="button" class="btn-secondary" hidden>Remove Guide Pack</button>
+                </div>
+                <p id="research-library-status" role="status" class="text-muted"></p>
+                <p id="imported-records-note" class="text-muted" hidden>Removing imported records keeps your saved notes and plans.</p>
+            </section>
+            <p class="settings-help"><a href="docs/guide.html" target="_blank" rel="noopener noreferrer">Help ↗</a></p>
+        </div>
+    </dialog>
+    <script defer src="js/app.bundle.js?v=a094127551d1"></script>
+</body>
+</html>

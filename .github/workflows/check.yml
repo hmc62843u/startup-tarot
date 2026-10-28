@@ -1,0 +1,32 @@
+name: App checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Test the committed app and data
+        run: node --test tests/*.test.mjs
+      - name: Check JavaScript syntax
+        run: |
+          node --check js/app.bundle.js
+          node --check sw.js
+      - name: Verify generated files are reproducible
+        run: |
+          node tools/build-demo.mjs
+          git diff --exit-code -- index.html docs/examples.html docs/guide.html docs/reference.html docs/guide-packs.html docs/data-license.html docs/license.html js/app.bundle.js sw.js icons/

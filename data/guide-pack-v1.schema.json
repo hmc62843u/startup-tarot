@@ -1,0 +1,258 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Startup Guide research Guide Pack v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "id",
+    "name",
+    "version",
+    "updated_date",
+    "license",
+    "rights_review",
+    "profiles",
+    "snapshots"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "repository_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri",
+      "pattern": "^https?://"
+    },
+    "updated_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "license": {
+      "type": "object",
+      "required": [
+        "id",
+        "url",
+        "scope",
+        "notice"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https?://"
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "notice": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "rights_review": {
+      "type": "object",
+      "required": [
+        "status",
+        "reviewed_date",
+        "statement"
+      ],
+      "properties": {
+        "status": {
+          "const": "reviewed_for_distribution"
+        },
+        "reviewed_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "profiles": {
+      "type": "array",
+      "maxItems": 250,
+      "items": {
+        "allOf": [
+          {
+            "$ref": "schema.json"
+          },
+          {
+            "required": [
+              "data_kind"
+            ],
+            "properties": {
+              "data_kind": {
+                "const": "research"
+              },
+              "source_url": {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^https?://"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "snapshots": {
+      "type": "array",
+      "maxItems": 250,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "data_kind",
+          "company",
+          "snapshot_date",
+          "sectors",
+          "sector_basis",
+          "stage",
+          "fields",
+          "metrics",
+          "sources",
+          "limitations"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$"
+          },
+          "data_kind": {
+            "const": "research"
+          },
+          "company": {
+            "type": "string",
+            "minLength": 1
+          },
+          "snapshot_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "sectors": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "sector_basis": {
+            "type": "string",
+            "minLength": 1
+          },
+          "stage": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "fields": {
+            "type": "object",
+            "required": [
+              "product",
+              "customers",
+              "team",
+              "funding"
+            ]
+          },
+          "metrics": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "title",
+                "url",
+                "published_date",
+                "retrieved_date",
+                "evidence_type"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri",
+                  "pattern": "^https?://"
+                },
+                "published_date": {
+                  "type": "string"
+                },
+                "retrieved_date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "evidence_type": {
+                  "enum": [
+                    "retrospective_account",
+                    "contemporary_correspondence_published_later",
+                    "contemporary_record"
+                  ]
+                }
+              }
+            }
+          },
+          "limitations": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    }
+  },
+  "anyOf": [
+    {
+      "properties": {
+        "profiles": {
+          "minItems": 1
+        }
+      }
+    },
+    {
+      "properties": {
+        "snapshots": {
+          "minItems": 1
+        }
+      }
+    }
+  ],
+  "description": "Companion shape schema. Runtime validation additionally checks duplicate IDs, dates, weights, per-claim references, lesson context and URL credentials. No schema validation establishes legal clearance."
+}

@@ -1,0 +1,114 @@
+{
+  "id": "demo_tools_reservations",
+  "company": "Example Tool Library (fictional)",
+  "data_kind": "fictional",
+  "distribution_basis": "original_demo",
+  "data_license": "MIT",
+  "snapshot_date": "2025-02-04",
+  "sectors": [
+    "marketplace",
+    "equipment sharing"
+  ],
+  "sector_basis": "Invented scenario tags for testing filters.",
+  "stage": null,
+  "fields": {
+    "product": {
+      "value": "A shared inventory sheet and reservation form for borrowing craft tools.",
+      "source_id": "scenario"
+    },
+    "customers": {
+      "value": "Imagined neighborhood makers seeking occasional access to equipment.",
+      "source_id": "scenario"
+    },
+    "team": {
+      "value": "An equipment librarian and a software generalist list assumptions and review requests together.",
+      "source_id": "scenario"
+    },
+    "funding": {
+      "value": null,
+      "source_id": null
+    }
+  },
+  "metrics": [
+    {
+      "name": "Tool reservations",
+      "value": 8,
+      "unit": "reservations",
+      "period": "Invented count during this scenario exercise; not a target",
+      "as_of_date": "2025-02-04",
+      "source_id": "scenario"
+    }
+  ],
+  "sources": [
+    {
+      "id": "scenario",
+      "title": "Original fictional scenario specification",
+      "url": "./docs/examples.html#demo_tools_reservations",
+      "retrieved_date": "2026-10-25",
+      "published_date": "2026-10-25",
+      "evidence_type": "fictional_scenario"
+    }
+  ],
+  "limitations": [
+    "Entirely invented for demonstration; not an anonymized real company.",
+    "Dates and metrics are illustrative. No outcome, growth or survival is asserted.",
+    "Unspecified facts remain unknown."
+  ],
+  "preparation_lessons": [
+    {
+      "id": "bounded-reservation-test",
+      "title": "Explore demand with a bounded reservation test",
+      "topic": "customer_learning",
+      "target_task_id": "suggestion:next-milestone",
+      "business_models": [
+        "marketplace",
+        "service"
+      ],
+      "startup_stages": [
+        "pre-company",
+        "idea",
+        "pre-seed"
+      ],
+      "validation_focus": [
+        "demand",
+        "operations"
+      ],
+      "evidence_fields": [
+        "product"
+      ],
+      "source_ids": [
+        "scenario"
+      ],
+      "approach": "Offer a small, clearly scoped reservation experiment. Record requests, cancellations, constraints and a decision to continue, change or stop.",
+      "interpretation": "An original illustrative learning prompt, not a conclusion drawn from real startup history.",
+      "caution": "Fictional scenario: no observed outcome, survival evidence or predictive value. Choose your own scope and decision criteria."
+    },
+    {
+      "id": "structured-needs-review",
+      "title": "Review customer needs through structured conversations",
+      "topic": "customer_learning",
+      "target_task_id": "suggestion:customer-evidence",
+      "business_models": [
+        "marketplace",
+        "service"
+      ],
+      "startup_stages": [
+        "pre-company",
+        "idea",
+        "pre-seed"
+      ],
+      "validation_focus": [
+        "customer_problem"
+      ],
+      "evidence_fields": [
+        "team"
+      ],
+      "source_ids": [
+        "scenario"
+      ],
+      "approach": "Ask a small group about a recent task, document the obstacles they describe, and identify a question to test next.",
+      "interpretation": "An original illustrative learning prompt, not a conclusion drawn from real startup history.",
+      "caution": "Fictional scenario: no observed outcome, survival evidence or predictive value. Choose your own scope and decision criteria."
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "id": "demo_skills_schedule",
+  "company": "Example Skill Sessions (fictional)",
+  "data_kind": "fictional",
+  "distribution_basis": "original_demo",
+  "data_license": "MIT",
+  "snapshot_date": "2025-03-12",
+  "sectors": [
+    "marketplace",
+    "education"
+  ],
+  "sector_basis": "Invented scenario tags for testing filters.",
+  "stage": null,
+  "fields": {
+    "product": {
+      "value": "A sample timetable and tentative booking form for short bookbinding workshops.",
+      "source_id": "scenario"
+    },
+    "customers": {
+      "value": "Imagined adult learners comparing workshop times and access needs.",
+      "source_id": "scenario"
+    },
+    "team": {
+      "value": "A workshop facilitator prepares a small scheduling exercise.",
+      "source_id": "scenario"
+    },
+    "funding": {
+      "value": null,
+      "source_id": null
+    }
+  },
+  "metrics": [
+    {
+      "name": "Workshop bookings",
+      "value": 5,
+      "unit": "bookings",
+      "period": "Invented count during this scenario exercise; not a target",
+      "as_of_date": "2025-03-12",
+      "source_id": "scenario"
+    }
+  ],
+  "sources": [
+    {
+      "id": "scenario",
+      "title": "Original fictional scenario specification",
+      "url": "./docs/examples.html#demo_skills_schedule",
+      "retrieved_date": "2026-10-25",
+      "published_date": "2026-10-25",
+      "evidence_type": "fictional_scenario"
+    }
+  ],
+  "limitations": [
+    "Entirely invented for demonstration; not an anonymized real company.",
+    "Dates and metrics are illustrative. No outcome, growth or survival is asserted.",
+    "Unspecified facts remain unknown."
+  ],
+  "preparation_lessons": [
+    {
+      "id": "bounded-reservation-test",
+      "title": "Explore demand with a bounded reservation test",
+      "topic": "customer_learning",
+      "target_task_id": "suggestion:next-milestone",
+      "business_models": [
+        "marketplace",
+        "service"
+      ],
+      "startup_stages": [
+        "pre-company",
+        "idea",
+        "pre-seed"
+      ],
+      "validation_focus": [
+        "demand",
+        "operations"
+      ],
+      "evidence_fields": [
+        "product"
+      ],
+      "source_ids": [
+        "scenario"
+      ],
+      "approach": "Offer a small, clearly scoped reservation experiment. Record requests, cancellations, constraints and a decision to continue, change or stop.",
+      "interpretation": "An original illustrative learning prompt, not a conclusion drawn from real startup history.",
+      "caution": "Fictional scenario: no observed outcome, survival evidence or predictive value. Choose your own scope and decision criteria."
+    }
+  ]
+}
