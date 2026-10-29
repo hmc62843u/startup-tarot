@@ -2,7 +2,11 @@
 
 **Choose a small experiment. Understand why. Record what you learn.**
 
-1. [Download the app](https://github.com/hmc62843u/startup-guide/archive/refs/heads/main.zip), unzip it and open **index.html**. No installation, Node or Python needed.
+[<img src="assets/startup-tarot-intro.jpg" width="280" alt="Watch the introduction: choose a situation, inspect sources, adapt and save a small test.">](assets/startup-tarot-intro.mp4)
+
+[Watch the 29-second introduction](assets/startup-tarot-intro.mp4) · Silent, with captions · [Caption file](assets/startup-tarot-intro.vtt)
+
+1. [Download the app](https://github.com/hmc62843u/startup-tarot/archive/refs/heads/main.zip), unzip it and open **index.html**. No installation, Node or Python needed.
 2. Describe your **Situation** with three choices.
 3. Review your **Next move**, adapt a plan and save it.
 

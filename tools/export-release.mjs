@@ -8,7 +8,7 @@ export async function exportRelease() {
     const hash=await buildFiles();
     await mkdir(new URL('release/',root),{recursive:true});
     const output=await mkdtemp(fileURLToPath(new URL('release/startup-guide-',root)));
-    const files=['index.html','docs/examples.html','docs/guide.html','docs/data-license.html','docs/license.html','manifest.json','sw.js','README.md','EXAMPLES.md','GUIDE.md','DEVELOPMENT.md','assets/how-it-works.svg','LICENSE','DATA_LICENSE.md','.gitignore','.gitattributes','.nojekyll','.github/workflows/check.yml',
+    const files=['index.html','docs/examples.html','docs/guide.html','docs/data-license.html','docs/license.html','manifest.json','sw.js','README.md','EXAMPLES.md','GUIDE.md','DEVELOPMENT.md','assets/how-it-works.svg','assets/startup-tarot-intro.mp4','assets/startup-tarot-intro.jpg','assets/startup-tarot-intro.vtt','LICENSE','DATA_LICENSE.md','.gitignore','.gitattributes','.nojekyll','.github/workflows/check.yml',
         'packs/active-pack.js','packs/guide-pack.json','packs/README.md','packs/LICENSE.md','packs/SOURCES.md','packs/THIRD_PARTY_NOTICES.md','packs/DATA_NOTICE.md',
         'css/style.css','js/app.js','js/lean.js','js/context.js','js/tasks.js','js/matching.js','js/evaluation.js','js/recommendation.js','js/explanations.js','js/analyzer.js','js/storage.js','js/validator.js','js/research-library.js','js/app.bundle.js',
         'icons/icon-192.png','icons/icon-512.png','icons/mark.svg','data/library.json','data/startup-library.json','data/schema.json','data/guide-pack.schema.json','data/guide-pack-v1.schema.json','data/guide-pack-v2.schema.json',
