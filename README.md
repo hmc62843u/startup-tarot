@@ -1,4 +1,4 @@
-# Startup Guide
+# Startup Tarot
 
 **Choose a small experiment. Understand why. Record what you learn.**
 
