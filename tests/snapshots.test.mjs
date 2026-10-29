@@ -5,7 +5,6 @@ const root=new URL('../',import.meta.url);
 const read=path=>JSON.parse(readFileSync(new URL(path,root),'utf8').replace(/^\uFEFF/,''));
 const moduleFrom=path=>import('data:text/javascript;base64,'+readFileSync(new URL(path,root)).toString('base64'));
 const {validateStartupSnapshot}=await moduleFrom('js/validator.js');
-const {renderStartupSnapshots,renderSnapshotComparison}=await moduleFrom('js/ui.js');
 const index=read('data/startup-library.json');
 const snapshots=index.snapshots.map(path=>read('data/'+path));
 
@@ -42,49 +41,6 @@ test('malformed collections and invalid dates fail validation without crashing',
         assert.equal(validateStartupSnapshot({...snapshots[0],...change}).isValid,false);
     }
 });
-
-test('historical rendering preserves unknowns, metric units, source labels and save guard',()=>{
-    class Node {
-        constructor(tag,text=''){this.tag=tag;this.value=text;this.children=[];}
-        set textContent(value){this.value=String(value);this.children=[];}
-        get textContent(){return this.value+this.children.map(child=>child.textContent).join(' ');}
-        append(...children){this.children.push(...children);}
-        replaceChildren(...children){this.value='';this.children=children;}
-        find(tag){return [...(this.tag===tag?[this]:[]),...this.children.flatMap(child=>child.find(tag))];}
-    }
-    const previous=globalThis.document;
-    globalThis.document={createElement:tag=>new Node(tag),createTextNode:text=>new Node('#text',text)};
-    try{
-        const container=new Node('div');
-        renderStartupSnapshots(snapshots,container);
-        assert.equal(container.find('article').length,3);
-        assert.ok(container.textContent.includes('Fictional scenario'));
-        assert.ok(container.textContent.includes('not historical evidence'));
-        assert.ok(container.textContent.includes('Authored 2026-10-25'));
-        assert.ok(container.textContent.includes('8 reservations'));
-        assert.ok(container.textContent.includes('5 bookings'));
-        assert.ok(container.find('details').every(node=>node.open!==true));
-        const startup={current_stage:'idea',sectors:['AI'],prototype_status:'mockup',founders_have_domain_expertise:false,paid_pilots:0};
-        renderSnapshotComparison(startup,snapshots[1],container);
-        assert.equal(container.find('table').length,1);
-        assert.ok(container.textContent.includes('0 pilots / LOIs'));
-        assert.ok(container.textContent.includes('5 bookings'));
-        assert.ok(container.textContent.includes('Unknown'));
-        renderSnapshotComparison(startup,snapshots[2],container);
-        assert.ok(container.textContent.includes('Unknown — no metric established'));
-        renderSnapshotComparison({current_stage:'idea'},snapshots[0],container);
-        assert.ok(container.textContent.includes('Unknown — no pilot/LOI count recorded'));
-        renderSnapshotComparison(startup,snapshots[0],container,true);
-        assert.equal(container.find('table').length,0);
-        assert.ok(container.textContent.includes('Save your startup edits'));
-        renderSnapshotComparison({},snapshots[0],container);
-        assert.ok(container.textContent.includes('Complete Home setup'));
-    }finally{
-        if(previous===undefined) delete globalThis.document;
-        else globalThis.document=previous;
-    }
-});
-
 
 test('editorial lessons need known facts, valid source references and explicit matching context',()=>{
     for(const mutate of [

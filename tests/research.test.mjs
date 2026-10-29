@@ -29,7 +29,7 @@ test('included optional research download validates independently of the fiction
     assert.equal(library.license.id,'CC-BY-4.0');
     assert.equal(library.repository_url,null);
     const shell=readFileSync(new URL('../index.html',import.meta.url),'utf8');
-    assert.ok(shell.includes('href="packs/guide-pack.json" download="guide-pack.json"'));
+    assert.ok(shell.includes('src="packs/active-pack.js"'));
     const exporter=readFileSync(new URL('../tools/export-release.mjs',import.meta.url),'utf8');
     for(const path of ['guide-pack.json','README.md','LICENSE.md','SOURCES.md','THIRD_PARTY_NOTICES.md','DATA_NOTICE.md']){
         assert.ok(readFileSync(new URL('../packs/'+path,import.meta.url)).length>0);

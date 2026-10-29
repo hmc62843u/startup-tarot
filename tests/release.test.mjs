@@ -20,7 +20,7 @@ test('PWA icon bytes match the declared sizes and reproducible vector mark',asyn
 test('every library file is registered, explicitly fictional and linked to a local specification',async()=>{
     await checkReleaseLibraries();
     const worker=await readFile(new URL('../sw.js',import.meta.url),'utf8');
-    for(const path of ['docs/examples.html','docs/guide.html','docs/guide-packs.html','docs/data-license.html','docs/license.html','LICENSE','DATA_LICENSE.md','README.md','EXAMPLES.md','GUIDE.md','REFERENCE.md','docs/reference.html','DEVELOPMENT.md','assets/how-it-works.svg','assets/methodology.svg','GUIDE_PACKS.md','data/guide-pack.schema.json']) assert.ok(worker.includes("'./"+path+"'"),'Offline resource: '+path);
+    for(const path of ['docs/examples.html','docs/guide.html','docs/data-license.html','docs/license.html','LICENSE','DATA_LICENSE.md','README.md','EXAMPLES.md','GUIDE.md','DEVELOPMENT.md','assets/how-it-works.svg','data/guide-pack.schema.json']) assert.ok(worker.includes("'./"+path+"'"),'Offline resource: '+path);
 });
 
 test('styled documentation stays synchronized with source files and supports direct-file navigation',async()=>{
@@ -44,7 +44,7 @@ test('styled documentation stays synchronized with source files and supports dir
     assert.ok(guide.includes('id="methodology"'));
     assert.ok(guide.includes('class="document-page visual-guide"'));
     assert.ok(guide.includes('<img src="../assets/how-it-works.svg"'));
-    assert.ok(guide.includes('href="reference.html#methodology"'));
+    assert.ok(guide.includes('href="https://github.com/hmc62843u/guide-pack-kit/blob/main/CONTRIBUTING.md"'));
     assert.ok(guide.includes('<table>'));
     assert.ok(guide.includes('href="data-license.html"'));
     assert.ok(renderMarkdown('<script>alert(1)</script>').includes('&lt;script&gt;'));
@@ -71,16 +71,15 @@ test('public build policy rejects research, external sources and false historica
     assert.doesNotThrow(()=>assertFictionalRecord(original));
 });
 
-test('README research animation is shipped with an honest walkthrough and no obsolete template',async()=>{
+test('four-screen documentation and local pack are shipped without obsolete interface claims',async()=>{
     const root=new URL('../',import.meta.url);
     const readme=await readFile(new URL('README.md',root),'utf8');
-    const gif=await readFile(new URL('assets/research-walkthrough.gif',root));
-    assert.ok(gif.subarray(0,6).toString().startsWith('GIF8'));
-    assert.ok(readme.includes('assets/research-walkthrough.gif'));
+    assert.ok(readme.includes('Next move'));
+    assert.ok(readme.includes('GUIDE.md#the-local-pack'));
     assert.ok(readme.includes('startup-only'));
     assert.ok(!readme.includes('TEST-RESEARCH-01 survived'));
     const exporter=await readFile(new URL('tools/export-release.mjs',root),'utf8');
-    assert.ok(exporter.includes("'assets/research-walkthrough.gif'"));
+    assert.ok(exporter.includes("'packs/active-pack.js'"));
     assert.ok(!exporter.includes('templates/example_fictional.json'));
     const template=JSON.parse(await readFile(new URL('templates/blank_investor.json',root),'utf8'));
     assert.ok(template.source_url.startsWith('./docs/examples.html#'));

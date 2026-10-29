@@ -40,7 +40,7 @@ test('offline install, documentation and navigation work under a repository subp
         let response;handlers.fetch({request:{method:'GET',url:new URL(path,scope).href,mode},respondWith:promise=>{response=promise;}});
         return response;
     };
-    for(const path of ['index.html','docs/examples.html','docs/guide.html','docs/guide-packs.html','docs/data-license.html','docs/license.html']){
+    for(const path of ['index.html','docs/examples.html','docs/guide.html','docs/data-license.html','docs/license.html']){
         const response=await offline(path);assert.equal(response.status,200,path);assert.ok((await response.text()).includes('<html'));
     }
     const index=await (await offline('data/library.json')).json();

@@ -23,16 +23,12 @@ real-world research records, names, trademarks, or user-supplied data. No owners
 is claimed over facts or material outside the contributors' rights. A project
 license cannot supply rights held by others.
 
-Optional research Guide Packs imported locally retain their publisher's terms.
-Importing a package does not apply this project's MIT license to it. Imports are
-not included in public builds or exports. See [GUIDE_PACKS.md](GUIDE_PACKS.md)
-for the package format, preview, switching and local storage behavior.
+Locally configured Guide Packs retain their publisher's terms. Configuring a package does not apply this project's MIT licence to it. See [the user guide](GUIDE.md#the-local-pack) for local configuration and browser storage behavior. The [pack format](https://github.com/hmc62843u/guide-pack-kit/blob/main/PACK_FORMAT.md) is maintained in Guide Pack Kit.
 
 The included reviewed package at `packs/guide-pack.json` is a convenience copy maintained
 in the separate research repository. It retains its [editorial licence](packs/LICENSE.md),
 [source bases](packs/SOURCES.md) and [third-party notices](packs/THIRD_PARTY_NOTICES.md).
-It is embedded in the app as the default for new browser workspaces, separately from
-the optional fictional demo. Existing saved library choices are preserved. No private archives or raw source material are included.
+Its browser wrapper is the configured local pack. Replacing it changes the active pack; previous pack workspaces remain stored separately. Fictional demo data stays separate. No private archives or raw source material are included.
 Merely adding attribution or marking a record reviewed does not establish permission.
 
 Build checks validate the included research package and enforce fictional metadata,

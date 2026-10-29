@@ -26,7 +26,8 @@ jobs:
         run: |
           node --check js/app.bundle.js
           node --check sw.js
+          node --check packs/active-pack.js
       - name: Verify generated files are reproducible
         run: |
           node tools/build-demo.mjs
-          git diff --exit-code -- index.html docs/examples.html docs/guide.html docs/reference.html docs/guide-packs.html docs/data-license.html docs/license.html js/app.bundle.js sw.js icons/
+          git diff --exit-code -- index.html docs/examples.html docs/guide.html docs/data-license.html docs/license.html js/app.bundle.js packs/active-pack.js sw.js icons/

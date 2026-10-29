@@ -3,8 +3,6 @@ import {readFile} from 'node:fs/promises';
 export const DOCUMENTS=[
     {source:'EXAMPLES.md',path:'docs/examples.html',title:'Fictional examples'},
     {source:'GUIDE.md',path:'docs/guide.html',title:'Guide and methodology'},
-    {source:'REFERENCE.md',path:'docs/reference.html',title:'Detailed reference'},
-    {source:'GUIDE_PACKS.md',path:'docs/guide-packs.html',title:'Guide Packs'},
     {source:'DATA_LICENSE.md',path:'docs/data-license.html',title:'Data license and scope'},
     {source:'LICENSE',path:'docs/license.html',title:'MIT license'}
 ];

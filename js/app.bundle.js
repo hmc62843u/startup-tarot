@@ -2,8 +2,6 @@
 (() => {
 "use strict";
 const APP_SCRIPT_URL = document.currentScript.src;
-const __DEFAULT_RESEARCH__ = {"schema_version":2,"id":"startup_field_guide_community_facts","name":"Research Guide Pack","version":"0.7.0","repository_url":null,"updated_date":"2026-10-26","license":{"id":"CC-BY-4.0","url":"https://creativecommons.org/licenses/by/4.0/","scope":"Original editorial contributions in the selected records only, to the extent rights are held by the publisher. No ownership of facts or public-domain text is claimed. Crown and Parliamentary information retain their source-specific terms; underlying publications, filings, images, logos and trademarks are excluded from this CC BY grant.","notice":"Andrew Leung and contributors, Startup Field Guide community facts (2026). Retain attribution, provenance and license links; indicate changes. Contains Parliamentary information licensed under the Open Parliament Licence v3.0. Contains public sector information licensed under the Open Government Licence v3.0. See THIRD_PARTY_NOTICES.md. No source endorsement or blanket licence of linked works is claimed."},"rights_review":{"status":"reviewed_for_distribution","reviewed_date":"2026-10-26","statement":"Editorial assessment of the exact selected bytes: independent factual summaries, source-specific government reuse bases and original annotations. Public availability of a corporate filing or contributed report is not treated as public-domain status. Historical references are excluded from automatic fit matching. This does not retrospectively clear previous source access or provide legal certification. See SOURCES.md, DATA_NOTICE.md and the review register."},"provider":{"id":"startup_library","name":"Guide Pack Kit","url":null},"dataset_kind":"research","quality":{"research":{"status":"self_reviewed","reviewed_date":"2026-10-26","statement":"Editorial source and reuse review of selected records, not independent verification."},"matching":{"status":"self_reviewed","reviewed_date":"2026-10-26","statement":"Provider-authored no-match/unknown-context cases only. No positive investor-connected case, independent accuracy rating or usefulness claim."},"suggestions":{"status":"not_evaluated","statement":"Original editorial prompts; founder usefulness and outcomes have not been evaluated."}},"components":{"research":{"profiles":[{"id":"500global_vc_emerging_001","name":"500 Startups (2025 SelectUSA reference)","source_url":"https://www.trade.gov/sites/default/files/2025-03/2025%20SelectUSA%20Investor%20Guide.pdf","retrieved_date":"2026-10-26","stage_focus":["seed"],"sector_focus":[],"geography_focus":[],"check_size_range_usd":"unknown; this reference does not establish a typical investment range","criteria_weights":{"team_credibility":0.5,"problem_clarity":0.2,"technical_feasibility":0.1,"market_urgency":0.15,"traction_evidence":0.05},"explicit_criteria":["The March 2025 SelectUSA Investor Guide includes 500 Startups among its examples of equity-based accelerators."],"anti_criteria":[],"notes":"A dated classification under the name used by the guide, not verification of the current name, fund mandate, geography, check size or participation requirements. Seed is an editorial category for the described accelerator model. The legacy record ID is retained for continuity. Reference-only: excluded from automatic fit comparisons. Numeric weights are original editorial compatibility data, not published scoring criteria.","eligibility_requirements":[],"reviewed_date":"2026-10-26","weights_basis":"editor_estimate","profile_basis":"Dated factual reference from an alternative government publication or public regulatory filing. It is not a current investor selection profile.","comparison_enabled":false,"weight_notes":"Estimated relative emphasis for discussion; not published investor scoring weights and not application requirements.","funding_type":"equity","organization_type":"vc","claim_sources":[{"field":"explicit_criteria[0]","source_url":"https://www.trade.gov/sites/default/files/2025-03/2025%20SelectUSA%20Investor%20Guide.pdf","source_locator":"Printed page 171 / PDF page 177, Equity-Based Accelerators","checked_date":"2026-10-26"}],"editorial_annotations":{"criteria_weights":"Original compatibility estimates; not used for matching because this record is reference-only.","stage_focus":"Historical browsing labels only. A dated classification under the name used by the guide, not verification of the current name, fund mandate, geography, check size or participation requirements. Seed is an editorial category for the described accelerator model. The legacy record ID is retained for continuity.","sector_focus":"Observed topic grouping; an empty list denotes no verified mandate."},"source_published_date":"2025-03","source_locator":"Printed page 171 / PDF page 177, Equity-Based Accelerators","review_status":"historical_reference_not_current_mandate","data_kind":"research"},{"id":"ef_talent_investor_001","name":"Entrepreneur First (2018 government reference)","source_url":"https://www.gov.uk/government/news/uk-and-france-to-strengthen-ties-in-ai-and-data","retrieved_date":"2026-10-26","stage_focus":["pre-company"],"sector_focus":["technology"],"geography_focus":["London (2018 reference)"],"check_size_range_usd":"unknown; this reference does not establish a typical investment range","criteria_weights":{"team_credibility":0.625,"problem_clarity":0.0625,"technical_feasibility":0.1875,"market_urgency":0.0625,"traction_evidence":0.0625},"explicit_criteria":["A July 2018 UK government release dates Entrepreneur First's founding in London to 2011.","The release describes helping individuals find cofounders and investment while forming technology companies."],"anti_criteria":[],"notes":"Historical account only. The former claims about current application eligibility, technical-background exceptions and worldwide program locations are removed. Current program availability and terms are unknown. Reference-only: excluded from automatic fit comparisons. Numeric weights are original editorial compatibility data, not published scoring criteria. Contains public sector information licensed under the Open Government Licence v3.0.","eligibility_requirements":[],"reviewed_date":"2026-10-26","weights_basis":"editor_estimate","profile_basis":"Dated factual reference from an alternative government publication or public regulatory filing. It is not a current investor selection profile.","comparison_enabled":false,"weight_notes":"Estimated relative emphasis for discussion; not published investor scoring weights and not application requirements.","funding_type":"equity","organization_type":"talent_investor","claim_sources":[{"field":"explicit_criteria[0]","source_url":"https://www.gov.uk/government/news/uk-and-france-to-strengthen-ties-in-ai-and-data","source_locator":"Entrepreneur First section","checked_date":"2026-10-26"},{"field":"explicit_criteria[1]","source_url":"https://www.gov.uk/government/news/uk-and-france-to-strengthen-ties-in-ai-and-data","source_locator":"Entrepreneur First section","checked_date":"2026-10-26"}],"editorial_annotations":{"criteria_weights":"Original compatibility estimates; not used for matching because this record is reference-only.","stage_focus":"Historical browsing labels only. Historical account only. The former claims about current application eligibility, technical-background exceptions and worldwide program locations are removed. Current program availability and terms are unknown.","sector_focus":"Observed topic grouping; an empty list denotes no verified mandate."},"source_published_date":"2018-07-05","source_locator":"Entrepreneur First section","review_status":"historical_reference_not_current_mandate","source_license":{"id":"OGL-UK-3.0","url":"https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/","scope":"Summarized Crown release content, excluding any third-party material or logos.","attribution":"Contains public sector information licensed under the Open Government Licence v3.0."},"data_kind":"research"},{"id":"firstminute_vc_seed_001","name":"firstminute capital","source_url":"https://www.firstminute.capital/about","retrieved_date":"2026-10-26","stage_focus":["pre-seed","seed"],"sector_focus":["vertical AI applications","deep tech","generalist"],"geography_focus":["Europe","UK","selective global"],"check_size_range_usd":"£1M - £3M","criteria_weights":{"team_credibility":0.35,"problem_clarity":0.2,"technical_feasibility":0.15,"market_urgency":0.15,"traction_evidence":0.15},"explicit_criteria":["Funds companies at pre-seed and seed.","Primarily invests in Europe and the UK, with some investments elsewhere.","Considers multiple sectors; AI software and deep technology are stated areas of expertise."],"anti_criteria":[],"notes":"Independent factual summary of the official About page, checked 2026-10-26. The GBP 1m-3m amount is not a USD conversion. Numeric weights are original editorial estimates, not the fund's scoring system. No endorsements, marketing quotations or testimonials are reproduced.","eligibility_requirements":[],"reviewed_date":"2026-10-26","weights_basis":"editor_estimate","profile_basis":"Independent factual summary with original editorial stage/sector mappings; not an official investor profile or exhaustive eligibility rules.","comparison_enabled":true,"weight_notes":"Estimated relative emphasis for discussion; not published investor scoring weights and not application requirements.","funding_type":"equity","organization_type":"vc","data_kind":"research"},{"id":"innovateuk_smart_grant_001","name":"Innovate UK Smart Grants (historical reference)","source_url":"https://questions-statements.parliament.uk/written-questions/detail/2025-02-21/31848","retrieved_date":"2026-10-26","stage_focus":["idea","pre-seed","seed"],"sector_focus":[],"geography_focus":["United Kingdom"],"check_size_range_usd":"unknown; the historical status answer does not establish award terms","criteria_weights":{"team_credibility":0.15,"problem_clarity":0.3,"technical_feasibility":0.15,"market_urgency":0.25,"traction_evidence":0.15},"explicit_criteria":["A ministerial answer published on 26 February 2025 reported that Innovate UK had paused Smart Grants.","The answer also reported an evaluation of the programme and plans to revise support for startups and smaller businesses."],"anti_criteria":[],"notes":"Historical status as of the ministerial answer, not confirmation of availability in October 2026. This answer establishes neither current award limits nor application eligibility. Stage labels are editorial browsing categories only; matching is disabled. Numeric weights are original editorial annotations retained for format compatibility, not source facts or published investor criteria. Contains Parliamentary information licensed under the Open Parliament Licence v3.0.","comparison_enabled":false,"review_status":"historical_reference_no_current_availability_claim","eligibility_requirements":[],"reviewed_date":"2026-10-26","weights_basis":"editor_estimate","profile_basis":"Independent factual summary. Structured stage/sector labels and numeric weights are explicitly editorial, separate from the dated source statements.","weight_notes":"Estimated relative emphasis for discussion; not published investor scoring weights and not application requirements.","funding_type":"grant","organization_type":"grant_program","claim_sources":[{"field":"explicit_criteria[0]","source_url":"https://questions-statements.parliament.uk/written-questions/detail/2025-02-21/31848","checked_date":"2026-10-26"},{"field":"explicit_criteria[1]","source_url":"https://questions-statements.parliament.uk/written-questions/detail/2025-02-21/31848","checked_date":"2026-10-26"}],"editorial_annotations":{"criteria_weights":"Original discussion estimates, not a factual claim about the organization.","stage_focus":"Historical status as of the ministerial answer, not confirmation of availability in October 2026. This answer establishes neither current award limits nor application eligibility. Stage labels are editorial browsing categories only; matching is disabled.","sector_focus":"Editorial topic labels; an empty list means no verified mandate, not an exclusion."},"source_published_date":"2025-02-26","source_license":{"id":"OPL-UK-3.0","url":"https://www.parliament.uk/site-information/copyright/open-parliament-licence/","attribution":"Contains Parliamentary information licensed under the Open Parliament Licence v3.0.","scope":"Parliamentary information from the ministerial answer. No images, logos, personal data or source material identified as outside that licence is reproduced."},"data_kind":"research"},{"id":"intelcapital_corporate_001","name":"Intel Capital (2026 transaction reference)","source_url":"https://www.sec.gov/Archives/edgar/data/50863/000005086326000066/intc-20260323.htm","retrieved_date":"2026-10-26","stage_focus":["series-a","growth"],"sector_focus":["semiconductors"],"geography_focus":[],"check_size_range_usd":"unknown; this reference does not establish a typical investment range","criteria_weights":{"team_credibility":0.25,"problem_clarity":0.15,"technical_feasibility":0.35,"market_urgency":0.2,"traction_evidence":0.05},"explicit_criteria":["Intel's March 2026 proxy describes an Intel Capital investment in a power-management chip company's Series A financing in January 2026.","It also describes a March 2026 Series D investment in an advanced-packaging substrate company."],"anti_criteria":[],"notes":"Two disclosed transactions, not a complete investor mandate or a promise of current funding. Growth is an editorial grouping of the Series D observation. The filing does not identify these companies by name in the cited section; no names or typical check range are inferred. Reference-only: excluded from automatic fit comparisons. Numeric weights are original editorial compatibility data, not published scoring criteria.","eligibility_requirements":[],"reviewed_date":"2026-10-26","weights_basis":"editor_estimate","profile_basis":"Dated factual reference from an alternative government publication or public regulatory filing. It is not a current investor selection profile.","comparison_enabled":false,"weight_notes":"Estimated relative emphasis for discussion; not published investor scoring weights and not application requirements.","funding_type":"equity","organization_type":"corporate_vc","claim_sources":[{"field":"explicit_criteria[0]","source_url":"https://www.sec.gov/Archives/edgar/data/50863/000005086326000066/intc-20260323.htm","source_locator":"Related Party Transactions, Company A and Company B","checked_date":"2026-10-26"},{"field":"explicit_criteria[1]","source_url":"https://www.sec.gov/Archives/edgar/data/50863/000005086326000066/intc-20260323.htm","source_locator":"Related Party Transactions, Company A and Company B","checked_date":"2026-10-26"}],"editorial_annotations":{"criteria_weights":"Original compatibility estimates; not used for matching because this record is reference-only.","stage_focus":"Historical browsing labels only. Two disclosed transactions, not a complete investor mandate or a promise of current funding. Growth is an editorial grouping of the Series D observation. The filing does not identify these companies by name in the cited section; no names or typical check range are inferred.","sector_focus":"Observed topic grouping; an empty list denotes no verified mandate."},"review_status":"historical_reference_not_current_mandate","source_published_date":"2026-03-23","source_locator":"Related Party Transactions, Company A and Company B","data_kind":"research"},{"id":"lux_vc_deeptech_001","name":"Lux Capital / Lux Ventures IV (2017 investment reference)","source_url":"https://www.sec.gov/Archives/edgar/data/1789029/000119312521185876/d139275ds1.htm","retrieved_date":"2026-10-26","stage_focus":["seed","series-a"],"sector_focus":[],"geography_focus":[],"check_size_range_usd":"unknown; this reference does not establish a typical investment range","criteria_weights":{"team_credibility":0.25,"problem_clarity":0.15,"technical_feasibility":0.35,"market_urgency":0.15,"traction_evidence":0.1},"explicit_criteria":["Aeva's June 2021 registration statement lists Lux Ventures IV as a participant in its 2017 seed and Series A financings.","The filing connects that fund to an Aeva director who was a Lux Capital partner."],"anti_criteria":[],"notes":"An observed investment by a specific affiliated fund, not evidence of today's Lux-wide stage, sector or geography mandate. Fund affiliation is checked in the filing rather than inferred solely from a similar name. Round totals are not reported as Lux's own investment amount. Reference-only: excluded from automatic fit comparisons. Numeric weights are original editorial compatibility data, not published scoring criteria.","eligibility_requirements":[],"review_status":"historical_reference_not_current_mandate","reviewed_date":"2026-10-26","weights_basis":"editor_estimate","profile_basis":"Dated factual reference from an alternative government publication or public regulatory filing. It is not a current investor selection profile.","comparison_enabled":false,"weight_notes":"Estimated relative emphasis for discussion; not published investor scoring weights and not application requirements.","funding_type":"equity","organization_type":"vc","claim_sources":[{"field":"explicit_criteria[0]","source_url":"https://www.sec.gov/Archives/edgar/data/1789029/000119312521185876/d139275ds1.htm","source_locator":"Printed pages 87-88 (Series A and Series Seed financings) and 91 (Lux partner affiliation)","checked_date":"2026-10-26"},{"field":"explicit_criteria[1]","source_url":"https://www.sec.gov/Archives/edgar/data/1789029/000119312521185876/d139275ds1.htm","source_locator":"Printed pages 87-88 (Series A and Series Seed financings) and 91 (Lux partner affiliation)","checked_date":"2026-10-26"}],"editorial_annotations":{"criteria_weights":"Original compatibility estimates; not used for matching because this record is reference-only.","stage_focus":"Historical browsing labels only. An observed investment by a specific affiliated fund, not evidence of today's Lux-wide stage, sector or geography mandate. Fund affiliation is checked in the filing rather than inferred solely from a similar name. Round totals are not reported as Lux's own investment amount.","sector_focus":"Observed topic grouping; an empty list denotes no verified mandate."},"source_published_date":"2021-06-08","source_locator":"Printed pages 87-88 (Series A and Series Seed financings) and 91 (Lux partner affiliation)","data_kind":"research"},{"id":"nsf_sbir_grant_001","name":"NSF SBIR Phase I","source_url":"https://www.nsf.gov/funding/opportunities/small-business-innovation-research-small-business-technology","retrieved_date":"2026-10-25","stage_focus":["idea","pre-seed"],"sector_focus":["generalist"],"geography_focus":["United States"],"check_size_range_usd":"Up to $305,000 for Phase I; verify NSF 26-510 and current award conditions","criteria_weights":{"team_credibility":0.25,"problem_clarity":0.3,"technical_feasibility":0.35,"market_urgency":0.1,"traction_evidence":0},"explicit_criteria":["Supports high-risk technology R&D with commercial impact.","Funding spans nearly all technology areas and market sectors.","Non-dilutive funding does not remove the need to establish commercialization potential."],"anti_criteria":[],"notes":"Updated source to the current NSF funding opportunity referencing NSF 26-510. Removed obsolete solicitation-specific budget instructions and the unsupported assertion that customer validation is not assessed. Zero traction weight is an editorial choice, not an NSF rule. Broad sector coverage is conditional on the program mission and eligibility.","eligibility_requirements":["Review current NSF 26-510 organization, principal-investigator, ownership, and submission eligibility.","Check the current proposal process and deadlines before applying."],"reviewed_date":"2026-10-25","weights_basis":"editor_estimate","profile_basis":"Curated summary of public sources. Stage and sector labels are editorial mappings, not exhaustive eligibility rules.","comparison_enabled":true,"weight_notes":"Estimated relative emphasis for discussion; not published investor scoring weights and not application requirements.","funding_type":"grant","organization_type":"grant_program","data_kind":"research"},{"id":"sequoia_vc_seed_001","name":"Sequoia-affiliated funds (2020 filing reference)","source_url":"https://www.sec.gov/Archives/edgar/data/1691421/000104746920003912/a2241997zs-1a.htm","retrieved_date":"2026-10-26","stage_focus":["seed","series-a"],"sector_focus":[],"geography_focus":[],"check_size_range_usd":"unknown; this reference does not establish a typical investment range","criteria_weights":{"team_credibility":0.4,"problem_clarity":0.2,"technical_feasibility":0.1,"market_urgency":0.2,"traction_evidence":0.1},"explicit_criteria":["Lemonade's June 2020 public registration statement lists a Sequoia Capital Israel-affiliated holding fund among its stockholders.","The cited ownership note lists seed, Series A and Series B preferred shares held by that entity."],"anti_criteria":[],"notes":"This describes a historical affiliated entity and its disclosed share classes, not the current scope of any Sequoia-branded firm. Browsing tags reflect observed share-class labels, not screening rules. The previous customer-learning topic and current-criteria claims are removed because this alternative source does not establish them. Reference-only: excluded from automatic fit comparisons. Numeric weights are original editorial compatibility data, not published scoring criteria.","eligibility_requirements":[],"reviewed_date":"2026-10-26","weights_basis":"editor_estimate","profile_basis":"Dated factual reference from an alternative government publication or public regulatory filing. It is not a current investor selection profile.","comparison_enabled":false,"weight_notes":"Estimated relative emphasis for discussion; not published investor scoring weights and not application requirements.","funding_type":"equity","organization_type":"vc","claim_sources":[{"field":"explicit_criteria[0]","source_url":"https://www.sec.gov/Archives/edgar/data/1691421/000104746920003912/a2241997zs-1a.htm","source_locator":"Principal Stockholders, footnote 2","checked_date":"2026-10-26"},{"field":"explicit_criteria[1]","source_url":"https://www.sec.gov/Archives/edgar/data/1691421/000104746920003912/a2241997zs-1a.htm","source_locator":"Principal Stockholders, footnote 2","checked_date":"2026-10-26"}],"editorial_annotations":{"criteria_weights":"Original compatibility estimates; not used for matching because this record is reference-only.","stage_focus":"Historical browsing labels only. This describes a historical affiliated entity and its disclosed share classes, not the current scope of any Sequoia-branded firm. Browsing tags reflect observed share-class labels, not screening rules. The previous customer-learning topic and current-criteria claims are removed because this alternative source does not establish them.","sector_focus":"Observed topic grouping; an empty list denotes no verified mandate."},"source_published_date":"2020-06-30","source_locator":"Principal Stockholders, footnote 2","review_status":"historical_reference_not_current_mandate","data_kind":"research"},{"id":"yc_accelerator_001","name":"Y Combinator (2017 government reference)","source_url":"https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/608409/business-incubators-accelerators-uk-report.pdf","retrieved_date":"2026-10-26","stage_focus":["seed"],"sector_focus":["digital technology"],"geography_focus":["United States (historical reference)"],"check_size_range_usd":"unknown; this reference does not establish a typical investment range","criteria_weights":{"team_credibility":0.35,"problem_clarity":0.25,"technical_feasibility":0.2,"market_urgency":0.1,"traction_evidence":0.1},"explicit_criteria":["An April 2017 report prepared for the UK business department identifies Y Combinator as a US accelerator established in 2005 for digital startups."],"anti_criteria":[],"notes":"Historical description only. Seed is an editorial accelerator-category tag, not established present eligibility. The former USD 500,000 amount, in-person location, worldwide eligibility, building-skills and full-time conditions are removed because this report does not verify them. Reference-only: excluded from automatic fit comparisons. Numeric weights are original editorial compatibility data, not published scoring criteria.","eligibility_requirements":[],"reviewed_date":"2026-10-26","weights_basis":"editor_estimate","profile_basis":"Dated factual reference from an alternative government publication or public regulatory filing. It is not a current investor selection profile.","comparison_enabled":false,"weight_notes":"Estimated relative emphasis for discussion; not published investor scoring weights and not application requirements.","funding_type":"equity","organization_type":"accelerator","claim_sources":[{"field":"explicit_criteria[0]","source_url":"https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/608409/business-incubators-accelerators-uk-report.pdf","source_locator":"Printed page 13 / PDF page 13, Accelerators","checked_date":"2026-10-26"}],"editorial_annotations":{"criteria_weights":"Original compatibility estimates; not used for matching because this record is reference-only.","stage_focus":"Historical browsing labels only. Historical description only. Seed is an editorial accelerator-category tag, not established present eligibility. The former USD 500,000 amount, in-person location, worldwide eligibility, building-skills and full-time conditions are removed because this report does not verify them.","sector_focus":"Observed topic grouping; an empty list denotes no verified mandate."},"source_published_date":"2017-04","source_locator":"Printed page 13 / PDF page 13, Accelerators","review_status":"historical_reference_not_current_mandate","data_kind":"research"}],"snapshots":[{"id":"airbnb_2009_01_23","company":"Airbnb (then AirbedAndBreakfast)","snapshot_date":"2009-01-23","sectors":["marketplace","accommodation"],"sector_basis":"Editorial tags for browsing, not original company terminology.","stage":null,"fields":{"product":{"value":null,"source_id":null},"customers":{"value":"The January 23 correspondence identifies New York City as the largest market at that time; it supplies no customer total.","source_id":"primary"},"team":{"value":"The founders were in New York City to meet users.","source_id":"primary"},"funding":{"value":"The company was in a YC batch; cereal sales are mentioned as earlier financing, without an amount.","source_id":"primary"}},"metrics":[],"sources":[{"id":"primary","retrieved_date":"2026-10-26","title":"Subject: Airbnb (January 2009 correspondence, published March 2011)","url":"https://paulgraham.com/airbnb.html","published_date":"2011-03","evidence_type":"contemporary_correspondence_published_later","evidence_date":"2009-01-23"}],"limitations":["Facts are limited to the January 23, 2009 messages made public in March 2011. Permission to publish those messages was given to their publisher; it is not a downstream open license.","This record contains independent factual statements and an original editorial learning prompt, not copied messages, a transcript, an essay mirror or a translation.","Product implementation, revenue, customer totals and pilot/LOI count remain unknown. User visits do not establish that this activity caused later survival or success."],"data_kind":"research"},{"id":"doordash_2013_01_12","company":"DoorDash (launch service in Palo Alto)","snapshot_date":"2013-01-12","sectors":["marketplace","local delivery"],"sector_basis":"Editorial browsing tags, not a historical investor classification.","stage":null,"fields":{"product":{"value":"A website listed restaurant menus for a local delivery service in Palo Alto.","source_id":"primary"},"customers":{"value":"The founders report receiving the first order within hours of launching and delivering it. No customer total is supplied for this snapshot.","source_id":"primary"},"team":{"value":null,"source_id":null},"funding":{"value":null,"source_id":null}},"metrics":[],"sources":[{"id":"primary","title":"DoorDash S-1/A, Our Mission (filed November 30, 2020)","url":"https://www.sec.gov/Archives/edgar/data/1792789/000119312520304953/d752207ds1a.htm","published_date":"2020-11-30","retrieved_date":"2026-10-26","evidence_type":"retrospective_account"}],"limitations":["Retrospective company account, not independently verified contemporary evidence. Later adoption, revenue, funding and outcomes are excluded from this snapshot.","Only independently written limited facts and original annotations are included; no article text, filing table, image, logo or code is reproduced.","Sector tags and learning prompts are editorial. Company stage, funding amount and customer totals remain unknown. The activity does not establish what caused later survival.","This is the January 12 launch, not the unresolved April 26, 2013 interview snapshot. No later delivery count is transferred backward. Corporate filings are not automatically public domain."],"data_kind":"research"},{"id":"gitlab_2011_10_08","company":"GitLab (initial project)","snapshot_date":"2011-10-08","sectors":["developer tools","software"],"sector_basis":"Editorial tags for the initial software project; not evidence of a paid SaaS model at this date.","stage":null,"fields":{"product":{"value":"A locally usable development tool was started to address the creators' own need; the first commit dates to October 8, 2011.","source_id":"primary"},"customers":{"value":null,"source_id":null},"team":{"value":null,"source_id":null},"funding":{"value":null,"source_id":null}},"metrics":[],"sources":[{"id":"primary","title":"Letter from shareholders (October 8, 2014 retrospective)","url":"https://about.gitlab.com/blog/letter-from-shareholders/","published_date":"2014-10-08","retrieved_date":"2026-10-26","evidence_type":"retrospective_account"}],"limitations":["Retrospective company account, not independently verified contemporary evidence. Later adoption, revenue, funding and outcomes are excluded from this snapshot.","Only independently written limited facts and original annotations are included; no article text, filing table, image, logo or code is reproduced.","Sector tags and learning prompts are editorial. Company stage, funding amount and customer totals remain unknown. The activity does not establish what caused later survival.","The first-commit date is inferred from the dated October 8, 2014 statement that the first commit was three years earlier. A first commit is not proof of a complete product or external demand.","The retrospective identifies two original creators but does not establish a complete team roster on the snapshot date. No later community counts, paid edition or customer requests are assigned to this day.","No software licence is assumed to license the linked article. The record uses independently stated facts rather than adapting protected article expression."],"data_kind":"research"}]},"matching":{"investor_topics":[],"rules":[{"id":"rule_airbnb_2009_01_23_0","type":"context_topic_v1","snapshot_id":"airbnb_2009_01_23","suggestion_id":"direct-customer-learning","topic":"customer_learning","business_models":["marketplace","service"],"startup_stages":["pre-company","idea","pre-seed"],"validation_focus":["customer_problem"],"evidence_fields":["team"],"source_ids":["primary"]},{"id":"rule_doordash_2013_01_12_1","type":"context_topic_v1","snapshot_id":"doordash_2013_01_12","suggestion_id":"bounded-local-service","topic":"customer_learning","business_models":["marketplace","service"],"startup_stages":["pre-company","idea","pre-seed"],"validation_focus":["demand","operations"],"evidence_fields":["product"],"source_ids":["primary"]},{"id":"rule_gitlab_2011_10_08_2","type":"context_topic_v1","snapshot_id":"gitlab_2011_10_08","suggestion_id":"own-workflow-prototype","topic":"customer_learning","business_models":["saas","other"],"startup_stages":["pre-company","idea","pre-seed"],"validation_focus":["technical_feasibility"],"evidence_fields":["product"],"source_ids":["primary"]}],"evaluation_cases":[{"id":"no_investor_topic","name":"Demand case has no supported investor connection","startup":{"business_model":"marketplace","current_stage":"pre-seed","validation_focus":"demand","sectors":["marketplace"]},"investor_ids":["firstminute_vc_seed_001"],"expected_suggestion_ids":[],"rationale":"The library has a DoorDash action candidate but no supported investor-topic link."},{"id":"no_customer_topic","name":"Customer-learning case has no supported investor connection","startup":{"business_model":"marketplace","current_stage":"pre-seed","validation_focus":"customer_problem","sectors":["marketplace"]},"investor_ids":["firstminute_vc_seed_001"],"expected_suggestion_ids":[],"rationale":"The Airbnb lesson alone does not establish firstminute priorities."},{"id":"unknown_real_stage","name":"Unknown stage cannot create a connection","startup":{"business_model":"marketplace","current_stage":null,"validation_focus":"demand","sectors":["marketplace"]},"investor_ids":["firstminute_vc_seed_001"],"expected_suggestion_ids":[],"rationale":"Unknown context is not inferred as an eligible stage."},{"id":"no_nsf_topic","name":"Grant comparison does not create a topic","startup":{"business_model":"hardware","current_stage":"idea","validation_focus":"technical_feasibility","sectors":["marketplace"]},"investor_ids":["nsf_sbir_grant_001"],"expected_suggestion_ids":[],"rationale":"A comparable grant profile is not a sourced learning-topic connection."}]},"suggestions":[{"id":"direct-customer-learning","title":"Learn directly from a small customer group","target_task_id":"suggestion:customer-evidence","approach":"Plan a few direct customer conversations around your key uncertainty. Record what changed your understanding and what remains unknown.","interpretation":"Editorial interpretation of the dated facts, not advice published by the company or investor.","caution":"Selected success stories have survivorship bias. Adapt the method to your context; historical counts are not targets."},{"id":"bounded-local-service","title":"Try a bounded local service","target_task_id":"suggestion:next-milestone","approach":"Choose one small service area and a narrow offer you can safely deliver. Record requests, completed service and operational problems before expanding. Decide the scope and stop conditions yourself.","interpretation":"Original editorial learning prompt based on the limited dated facts, not company or investor advice.","caution":"A selected surviving company is not evidence of causation or a success guarantee. Define your own limits and stop conditions; historical activity is not a target."},{"id":"own-workflow-prototype","title":"Test one workflow you know","target_task_id":"suggestion:product-evidence","approach":"Identify one concrete problem in a workflow you experience directly. Build the smallest test of the difficult part, record what works and fails, and seek external user evidence separately before inferring demand.","interpretation":"Original editorial learning prompt based on the limited dated facts, not company or investor advice.","caution":"A selected surviving company is not evidence of causation or a success guarantee. Define your own limits and stop conditions; historical activity is not a target."}]}};
-const __PACKAGED_DATA__ = {"profiles":[{"data_kind":"fictional","distribution_basis":"original_demo","data_license":"MIT","retrieved_date":"2026-10-25","geography_focus":["Illustrative region only"],"check_size_range_usd":"Not specified in this fictional scenario","criteria_weights":{"team_credibility":0.2,"problem_clarity":0.2,"technical_feasibility":0.2,"market_urgency":0.2,"traction_evidence":0.2},"anti_criteria":[],"eligibility_requirements":[],"weights_basis":"editor_estimate","weight_notes":"Invented equal weights for demonstrating the interface; not used as eligibility thresholds.","profile_basis":"Original fictional demo scenario. No real investor or program is represented.","comparison_enabled":true,"notes":"All preferences, stages and rules are invented for software demonstration. No funding is offered.","id":"demo_discovery","name":"Fictional Discovery Fund","source_url":"./docs/examples.html#demo_discovery","stage_focus":["idea","pre-seed","seed"],"sector_focus":["generalist"],"organization_type":"vc","funding_type":"equity","explicit_criteria":["The fictional fund considers early teams exploring a customer problem.","An idea may be discussed without a product or prior revenue."],"preparation_topics":[{"topic":"customer_learning","statement":"In this fictional scenario, the fund is interested in how teams investigate customer needs. No particular experiment or metric is required.","source_url":"./docs/examples.html#demo_discovery","published_date":"2026-10-25","retrieved_date":"2026-10-25"}]},{"data_kind":"fictional","distribution_basis":"original_demo","data_license":"MIT","retrieved_date":"2026-10-25","geography_focus":["Illustrative region only"],"check_size_range_usd":"Not specified in this fictional scenario","criteria_weights":{"team_credibility":0.2,"problem_clarity":0.2,"technical_feasibility":0.2,"market_urgency":0.2,"traction_evidence":0.2},"anti_criteria":[],"eligibility_requirements":[],"weights_basis":"editor_estimate","weight_notes":"Invented equal weights for demonstrating the interface; not used as eligibility thresholds.","profile_basis":"Original fictional demo scenario. No real investor or program is represented.","comparison_enabled":true,"notes":"All preferences, stages and rules are invented for software demonstration. No funding is offered.","id":"demo_formation","name":"Fictional Formation Studio","source_url":"./docs/examples.html#demo_formation","stage_focus":["pre-company","idea","pre-seed"],"sector_focus":["generalist"],"organization_type":"talent_investor","funding_type":"equity","explicit_criteria":["This invented studio explores team formation and complementary skills."]},{"data_kind":"fictional","distribution_basis":"original_demo","data_license":"MIT","retrieved_date":"2026-10-25","geography_focus":["Illustrative region only"],"check_size_range_usd":"Not specified in this fictional scenario","criteria_weights":{"team_credibility":0.2,"problem_clarity":0.2,"technical_feasibility":0.2,"market_urgency":0.2,"traction_evidence":0.2},"anti_criteria":[],"eligibility_requirements":[],"weights_basis":"editor_estimate","weight_notes":"Invented equal weights for demonstrating the interface; not used as eligibility thresholds.","profile_basis":"Original fictional demo scenario. No real investor or program is represented.","comparison_enabled":true,"notes":"All preferences, stages and rules are invented for software demonstration. No funding is offered.","id":"demo_workshop","name":"Fictional Workshop Fund","source_url":"./docs/examples.html#demo_workshop","stage_focus":["pre-seed","seed"],"sector_focus":["hardware","deep tech"],"organization_type":"vc","funding_type":"equity","explicit_criteria":["This fictional specialist explores practical technical experiments."]},{"data_kind":"fictional","distribution_basis":"original_demo","data_license":"MIT","retrieved_date":"2026-10-25","geography_focus":["Illustrative region only"],"check_size_range_usd":"Not specified in this fictional scenario","criteria_weights":{"team_credibility":0.2,"problem_clarity":0.2,"technical_feasibility":0.2,"market_urgency":0.2,"traction_evidence":0.2},"anti_criteria":[],"eligibility_requirements":[],"weights_basis":"editor_estimate","weight_notes":"Invented equal weights for demonstrating the interface; not used as eligibility thresholds.","profile_basis":"Original fictional demo scenario. No real investor or program is represented.","comparison_enabled":true,"notes":"All preferences, stages and rules are invented for software demonstration. No funding is offered.","id":"demo_growth","name":"Fictional Growth Fund","source_url":"./docs/examples.html#demo_growth","stage_focus":["series-a","growth"],"sector_focus":["saas"],"organization_type":"vc","funding_type":"equity","explicit_criteria":["This invented later-stage fund considers repeatable software operations."]},{"data_kind":"fictional","distribution_basis":"original_demo","data_license":"MIT","retrieved_date":"2026-10-25","geography_focus":["Illustrative region only"],"check_size_range_usd":"Not specified in this fictional scenario","criteria_weights":{"team_credibility":0.2,"problem_clarity":0.2,"technical_feasibility":0.2,"market_urgency":0.2,"traction_evidence":0.2},"anti_criteria":[],"eligibility_requirements":["Illustrative rule: describe a technical question, bounded test and proposed learning record."],"weights_basis":"editor_estimate","weight_notes":"Invented equal weights for demonstrating the interface; not used as eligibility thresholds.","profile_basis":"Original fictional demo scenario. No real investor or program is represented.","comparison_enabled":true,"notes":"All preferences, stages and rules are invented for software demonstration. No funding is offered.","id":"demo_research_award","name":"Fictional Research Award","source_url":"./docs/examples.html#demo_research_award","stage_focus":["idea","pre-seed","seed"],"sector_focus":["generalist"],"organization_type":"grant_program","funding_type":"grant","explicit_criteria":["Illustrative preference for a clearly stated learning question."]},{"data_kind":"fictional","distribution_basis":"original_demo","data_license":"MIT","retrieved_date":"2026-10-25","geography_focus":["Illustrative region only"],"check_size_range_usd":"Not specified in this fictional scenario","criteria_weights":{"team_credibility":0.2,"problem_clarity":0.2,"technical_feasibility":0.2,"market_urgency":0.2,"traction_evidence":0.2},"anti_criteria":[],"eligibility_requirements":[],"weights_basis":"editor_estimate","weight_notes":"Invented equal weights for demonstrating the interface; not used as eligibility thresholds.","profile_basis":"Original fictional demo scenario. No real investor or program is represented.","comparison_enabled":false,"notes":"All preferences, stages and rules are invented for software demonstration. No funding is offered.","id":"demo_reference_award","name":"Fictional Reference Award","source_url":"./docs/examples.html#demo_reference_award","stage_focus":["idea","seed"],"sector_focus":["generalist"],"organization_type":"grant_program","funding_type":"grant","explicit_criteria":["Reference-only example used to demonstrate browsing without comparison."]}],"snapshots":[{"id":"demo_tools_reservations","company":"Example Tool Library (fictional)","data_kind":"fictional","distribution_basis":"original_demo","data_license":"MIT","snapshot_date":"2025-02-04","sectors":["marketplace","equipment sharing"],"sector_basis":"Invented scenario tags for testing filters.","stage":null,"fields":{"product":{"value":"A shared inventory sheet and reservation form for borrowing craft tools.","source_id":"scenario"},"customers":{"value":"Imagined neighborhood makers seeking occasional access to equipment.","source_id":"scenario"},"team":{"value":"An equipment librarian and a software generalist list assumptions and review requests together.","source_id":"scenario"},"funding":{"value":null,"source_id":null}},"metrics":[{"name":"Tool reservations","value":8,"unit":"reservations","period":"Invented count during this scenario exercise; not a target","as_of_date":"2025-02-04","source_id":"scenario"}],"sources":[{"id":"scenario","title":"Original fictional scenario specification","url":"./docs/examples.html#demo_tools_reservations","retrieved_date":"2026-10-25","published_date":"2026-10-25","evidence_type":"fictional_scenario"}],"limitations":["Entirely invented for demonstration; not an anonymized real company.","Dates and metrics are illustrative. No outcome, growth or survival is asserted.","Unspecified facts remain unknown."],"preparation_lessons":[{"id":"bounded-reservation-test","title":"Explore demand with a bounded reservation test","topic":"customer_learning","target_task_id":"suggestion:next-milestone","business_models":["marketplace","service"],"startup_stages":["pre-company","idea","pre-seed"],"validation_focus":["demand","operations"],"evidence_fields":["product"],"source_ids":["scenario"],"approach":"Offer a small, clearly scoped reservation experiment. Record requests, cancellations, constraints and a decision to continue, change or stop.","interpretation":"An original illustrative learning prompt, not a conclusion drawn from real startup history.","caution":"Fictional scenario: no observed outcome, survival evidence or predictive value. Choose your own scope and decision criteria."},{"id":"structured-needs-review","title":"Review customer needs through structured conversations","topic":"customer_learning","target_task_id":"suggestion:customer-evidence","business_models":["marketplace","service"],"startup_stages":["pre-company","idea","pre-seed"],"validation_focus":["customer_problem"],"evidence_fields":["team"],"source_ids":["scenario"],"approach":"Ask a small group about a recent task, document the obstacles they describe, and identify a question to test next.","interpretation":"An original illustrative learning prompt, not a conclusion drawn from real startup history.","caution":"Fictional scenario: no observed outcome, survival evidence or predictive value. Choose your own scope and decision criteria."}]},{"id":"demo_skills_schedule","company":"Example Skill Sessions (fictional)","data_kind":"fictional","distribution_basis":"original_demo","data_license":"MIT","snapshot_date":"2025-03-12","sectors":["marketplace","education"],"sector_basis":"Invented scenario tags for testing filters.","stage":null,"fields":{"product":{"value":"A sample timetable and tentative booking form for short bookbinding workshops.","source_id":"scenario"},"customers":{"value":"Imagined adult learners comparing workshop times and access needs.","source_id":"scenario"},"team":{"value":"A workshop facilitator prepares a small scheduling exercise.","source_id":"scenario"},"funding":{"value":null,"source_id":null}},"metrics":[{"name":"Workshop bookings","value":5,"unit":"bookings","period":"Invented count during this scenario exercise; not a target","as_of_date":"2025-03-12","source_id":"scenario"}],"sources":[{"id":"scenario","title":"Original fictional scenario specification","url":"./docs/examples.html#demo_skills_schedule","retrieved_date":"2026-10-25","published_date":"2026-10-25","evidence_type":"fictional_scenario"}],"limitations":["Entirely invented for demonstration; not an anonymized real company.","Dates and metrics are illustrative. No outcome, growth or survival is asserted.","Unspecified facts remain unknown."],"preparation_lessons":[{"id":"bounded-reservation-test","title":"Explore demand with a bounded reservation test","topic":"customer_learning","target_task_id":"suggestion:next-milestone","business_models":["marketplace","service"],"startup_stages":["pre-company","idea","pre-seed"],"validation_focus":["demand","operations"],"evidence_fields":["product"],"source_ids":["scenario"],"approach":"Offer a small, clearly scoped reservation experiment. Record requests, cancellations, constraints and a decision to continue, change or stop.","interpretation":"An original illustrative learning prompt, not a conclusion drawn from real startup history.","caution":"Fictional scenario: no observed outcome, survival evidence or predictive value. Choose your own scope and decision criteria."}]},{"id":"demo_tools_interviews","company":"Example Tool Library (fictional)","data_kind":"fictional","distribution_basis":"original_demo","data_license":"MIT","snapshot_date":"2025-04-09","sectors":["marketplace","equipment sharing"],"sector_basis":"Invented scenario tags for testing filters.","stage":null,"fields":{"product":{"value":"An annotated borrowing flow with reminders to inspect tools at return.","source_id":"scenario"},"customers":{"value":"Imagined members describing how they plan infrequent repair projects.","source_id":"scenario"},"team":{"value":"The scenario team reviews interview notes to distinguish tool access from instruction needs.","source_id":"scenario"},"funding":{"value":null,"source_id":null}},"metrics":[],"sources":[{"id":"scenario","title":"Original fictional scenario specification","url":"./docs/examples.html#demo_tools_interviews","retrieved_date":"2026-10-25","published_date":"2026-10-25","evidence_type":"fictional_scenario"}],"limitations":["Entirely invented for demonstration; not an anonymized real company.","Dates and metrics are illustrative. No outcome, growth or survival is asserted.","Unspecified facts remain unknown."],"preparation_lessons":[{"id":"structured-needs-review","title":"Review customer needs through structured conversations","topic":"customer_learning","target_task_id":"suggestion:customer-evidence","business_models":["marketplace","service"],"startup_stages":["pre-company","idea","pre-seed"],"validation_focus":["customer_problem"],"evidence_fields":["team"],"source_ids":["scenario"],"approach":"Ask a small group about a recent task, document the obstacles they describe, and identify a question to test next.","interpretation":"An original illustrative learning prompt, not a conclusion drawn from real startup history.","caution":"Fictional scenario: no observed outcome, survival evidence or predictive value. Choose your own scope and decision criteria."}]}]};
 // js/validator.js
 /**
  * Validate user supplied investor profiles before they are stored or analyzed.
@@ -848,756 +846,47 @@ function loadState() {
 }
 
 
-// js/ui.js
-/** Render profile data as text, including data imported from local files. */
-function element(tag, text, className) {
-    const node = document.createElement(tag);
-    if (text !== undefined) node.textContent = text;
-    if (className) node.className = className;
-    return node;
-}
+// js/lean.js
 
-function field(parent, label, value) {
-    const row = element('p');
-    row.append(element('strong', label + ': '), document.createTextNode(value || 'Not specified'));
-    parent.append(row);
-}
 
-function listSection(parent, title, values) {
-    if (!Array.isArray(values) || !values.length) return;
-    parent.append(element('h4', title));
-    const list = element('ul', undefined, 'criteria-list');
-    values.forEach(value => list.append(element('li', String(value))));
-    parent.append(list);
-}
 
-function renderLibrary(profiles, containerId) {
-    const container = document.getElementById(containerId);
-    container.replaceChildren();
-    if (!profiles.length) {
-        container.append(element('p', 'No profiles to show. Clear filters to see all available profiles.', 'text-muted'));
-        return;
+
+/** Replacing the configured pack never erases another pack's work. */
+function configuredWorkspace(saved, pack) {
+    const key=researchWorkspaceKey(pack);
+    const work=saved?.activeLibrary==='research'&&saved.researchLibrary&&researchWorkspaceKey(saved.researchLibrary)===key?saved:(saved?.libraryWorkspaces?.[key]||{});
+    return {startup:saved?.startup&&typeof saved.startup==='object'?saved.startup:{},
+        taskProgress:work.taskProgress&&typeof work.taskProgress==='object'?work.taskProgress:{},
+        suggestionChoices:work.suggestionChoices&&typeof work.suggestionChoices==='object'?work.suggestionChoices:{},
+        selectedInvestorIds:Array.isArray(work.selectedInvestorIds)?work.selectedInvestorIds.slice(0,1):[],
+        libraryWorkspaces:{...saved?.libraryWorkspaces},researchLibrary:pack,activeLibrary:'research',
+        configuredPackChanged:!!saved?.researchLibrary&&researchWorkspaceKey(saved.researchLibrary)===key&&researchContentKey(saved.researchLibrary)!==researchContentKey(pack)};
+}
+function workspaceForSave(state, previous) {
+    const workspaces={...state.libraryWorkspaces};
+    if(previous){
+        const oldKey=previous.activeLibrary==='research'?researchWorkspaceKey(previous.researchLibrary):'demo';
+        if(!workspaces[oldKey])workspaces[oldKey]={taskProgress:previous.taskProgress||{},suggestionChoices:previous.suggestionChoices||{},selectedInvestorIds:previous.selectedInvestorIds||[]};
     }
-    profiles.forEach(profile => {
-        const card = element('article', undefined, 'card profile-card');
-        card.append(element('h3', profile.name));
-        field(card, 'Comparison status', profile.data_kind==='fictional'?(profile.comparison_enabled===false?'Reference-only browsing example':'Included for demonstration; no real eligibility claim'):profile.comparison_enabled === false ? 'Reference only — availability unconfirmed' : 'Included; eligibility requires manual review');
-        if (profile.profile_basis) field(card, 'Profile basis', profile.profile_basis);
-        field(card, 'Funding', profile.funding_type || 'unknown');
-        field(card, 'Organization / program', (profile.organization_type || 'unknown').replaceAll('_', ' '));
-        field(card, 'Stages', profile.stage_focus.join(', '));
-        field(card, 'Sectors', Array.isArray(profile.sector_focus) ? (profile.sector_focus.join(', ') || 'Generalist / unrestricted') : 'Unknown');
-        const details = element('details');
-        details.append(element('summary', 'View full investor profile'));
-        field(details, 'Geography', Array.isArray(profile.geography_focus) ? profile.geography_focus.join(', ') : '');
-        details.append(element('p', 'Geography and evidence expectations below require manual review; profile inclusion does not confirm eligibility.', 'text-muted'));
-        field(details, 'Check size', profile.check_size_range_usd);
-        field(details, profile.data_kind==='fictional'?'Scenario authored':'Retrieved', profile.retrieved_date);
-        if (profile.reviewed_date) field(details, 'Reviewed', profile.reviewed_date);
-        const link = element('a', profile.data_kind==='fictional'?'View scenario specification':'View source');
-        link.href = profile.source_url;
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-        details.append(link);
-        details.append(element('h4', 'Criteria weights'));
-        details.append(element('p', profile.weight_notes || 'Weight provenance is unspecified. These values are not used as eligibility requirements.', 'text-muted'));
-        const weights = element('ul', undefined, 'criteria-list');
-        Object.entries(profile.criteria_weights).filter(([, value]) => typeof value === 'number').forEach(([key, value]) => {
-            weights.append(element('li', key.replaceAll('_', ' ') + ': ' + Math.round(value * 100) + '%'));
-        });
-        details.append(weights);
-        listSection(details, 'Evidence expectations and stated preferences', profile.explicit_criteria);
-        listSection(details, 'What they avoid', profile.anti_criteria);
-        listSection(details, 'Eligibility to verify', profile.eligibility_requirements);
-        if (profile.preparation_topics?.length) {
-            details.append(element('h4',profile.data_kind==='research'?'Published interests used for preparation ideas':'Illustrative interests used for preparation ideas'));
-            renderPreparationSources(profile.preparation_topics.map(topic=>({
-                kind:'investor',name:profile.name,url:topic.source_url,statement:topic.statement,data_kind:profile.data_kind,
-                published_date:topic.published_date,retrieved_date:topic.retrieved_date
-            })),details);
-        }
-        if (profile.notes) field(details, 'Notes', profile.notes);
-        card.append(details);
-        container.append(card);
-    });
+    workspaces[researchWorkspaceKey(state.researchLibrary)]={taskProgress:state.taskProgress,suggestionChoices:state.suggestionChoices,selectedInvestorIds:state.selectedInvestorIds};
+    return {...state,libraryWorkspaces:workspaces};
 }
-
-function renderReport(gaps, containerId) {
-    const container = typeof containerId === 'string' ? document.getElementById(containerId) : containerId;
-    if (!container) return;
-    container.replaceChildren();
-    if (!gaps.length) {
-        container.append(element('p', 'No gaps flagged by the available automated checks.', 'success-msg'));
-        return;
-    }
-    const list = element('ul', undefined, 'gap-list');
-    gaps.forEach(gap => {
-        const item = element('li', undefined, 'gap-item severity-' + gap.severity.toLowerCase());
-        item.append(element('strong', '[' + gap.severity + '] ' + gap.category),
-            element('p', gap.message), element('em', 'Next step: ' + gap.action));
-        list.append(item);
-    });
-    container.append(list);
+function leanModel(state,profiles,snapshots) {
+    const m=buildWorkspaceModel(state.startup,profiles,snapshots,state.taskProgress,state.suggestionChoices,state.selectedInvestorIds);
+    // The compact app has one current experiment: keep owned work reachable even
+    // when a changed situation creates a higher-priority mandate-check task.
+    const owned=m.tasks.find(task=>task.progress.experiment&&(task.progress.needsReview||task.progress.status!=='evidence_recorded'));
+    if(owned&&!m.nextAction.savedExperiment)m.nextAction=describeNextAction({started:m.started,next:owned,candidate:null,pending:false,lensCount:m.lensCount,libraryDiscovery:[],validationFocus:state.startup.validation_focus,support:m.support});
+    const pending=[...m.suggestions,...m.libraryPreview].find(item=>item.decision==='pending');
+    const task=m.tasks.find(task=>task.id===m.nextAction.taskId)||m.tasks.find(task=>task.id===pending?.targetTaskId);
+    const sourceList=m.nextAction.sources||pending?.sources||[];
+    const connectedSnapshots=snapshots.filter(snapshot=>sourceList.some(source=>source.kind==='snapshot'&&source.snapshot_date===snapshot.snapshot_date&&source.name===snapshot.company+' · '+snapshot.snapshot_date));
+    return {...m,task,pending,connectedSnapshots,sourceList};
 }
-
-function renderComparison(startup, results, container, groups = [{ key: '', results }], overviewContainer = container) {
-    container.replaceChildren();
-    const hasGap = (result, category) => result.gaps.some(gap => gap.category === category);
-    const metrics = [
-        ['Profiles shown', results.length, 'neutral'],
-        ['Stage differences', results.filter(result => hasGap(result, 'Stage Fit')).length, 'review'],
-        ['Sector differences', results.filter(result => hasGap(result, 'Sector Fit')).length, 'review'],
-        ['No flagged differences', results.filter(result => result.gaps.length === 0).length, 'aligned']
-    ];
-    const overview = element('div', undefined, 'report-overview');
-    metrics.forEach(([label, count, tone]) => {
-        const metric = element('div', undefined, 'report-metric metric-' + tone);
-        metric.append(element('strong', String(count), 'metric-value'), element('span', label, 'metric-label'));
-        overview.append(metric);
-    });
-    if (overviewContainer !== container) overviewContainer.replaceChildren();
-    overviewContainer.append(overview);
-
-    const evidence = element('div', undefined, 'startup-snapshot');
-    evidence.append(element('strong', 'Your saved startup'));
-    const chips = element('div', undefined, 'snapshot-chips');
-    [
-        'Stage: ' + String(startup.current_stage || 'unknown').replaceAll('-', ' '),
-        'Sectors: ' + ((startup.sectors || []).join(', ') || 'unknown'),
-        'Product: ' + String(startup.prototype_status || 'unknown').replaceAll('_', ' '),
-        'Domain experience: ' + (startup.founders_have_domain_expertise===true ? 'yes' : startup.founders_have_domain_expertise===false ? 'no / partial' : 'unknown'),
-        'Pilots / LOIs: ' + (startup.paid_pilots ?? 'unknown')
-    ].forEach(text => chips.append(element('span', text, 'snapshot-chip')));
-    evidence.append(chips);
-    const explanation = element('details', undefined, 'shared-review');
-    explanation.append(element('summary', 'How comparisons work'));
-    explanation.append(element('p', 'Only modeled stage and sector focus are checked. Eligibility and evidence require manual review, even with no automated gaps.', 'report-explanation'));
-    explanation.append(evidence);
-    explanation.append(element('p', 'Review team capabilities, technical feasibility, customer evidence, problem clarity, market urgency, geography, and funding terms. Estimated weights do not establish prototype, experience, or traction requirements. Reference-only profiles are excluded.'));
-    container.append(explanation);
-
-    if (!results.length) {
-        container.append(element('p', 'No profiles match these report filters. Clear filters to restore the full comparison.', 'empty-results'));
-    }
-    const fundingLabels = { equity: 'Equity investment', grant: 'Grant funding', unknown: 'Funding type unknown' };
-    const badge = (label, unknown, difference) => {
-        const tone = unknown ? 'unknown' : difference ? 'review' : 'aligned';
-        const symbol = unknown ? '?' : difference ? '!' : '✓';
-        const status = unknown ? 'Unknown' : difference ? 'Review difference' : 'Within modeled focus';
-        return element('span', symbol + ' ' + label + ' · ' + status, 'focus-badge badge-' + tone);
-    };
-    groups.forEach(group => {
-        const section = group.key ? element('section', undefined, 'report-group') : container;
-        if (group.key) {
-            section.append(element('h3', (fundingLabels[group.key] || group.key) + ' (' + group.results.length + ')'));
-            container.append(section);
-        }
-        group.results.forEach(({profile, gaps}) => {
-            const card = element('article', undefined, 'comparison-card');
-            const heading = element('div', undefined, 'comparison-heading');
-            heading.append(element(group.key ? 'h4' : 'h3', profile.name),
-                element('span', fundingLabels[profile.funding_type] || fundingLabels.unknown, 'funding-tag'));
-            card.append(heading);
-
-            const statuses = element('div', undefined, 'focus-statuses');
-            statuses.append(
-                badge('Stage', !startup.current_stage || startup.current_stage==='unknown' || !Array.isArray(profile.stage_focus) || !profile.stage_focus.length, gaps.some(gap => gap.category === 'Stage Fit')),
-                badge('Sector', !startup.sectors?.some(sector=>String(sector).trim()&&String(sector).trim().toLowerCase()!=='unknown') || !Array.isArray(profile.sector_focus), gaps.some(gap => gap.category === 'Sector Fit'))
-            );
-            card.append(statuses);
-
-            const details = element('details', undefined, 'comparison-details');
-            details.append(element('summary', 'Details & next steps'));
-            if (gaps.length) {
-                const output = element('div');
-                renderReport(gaps, output);
-                details.append(output);
-            }
-            field(details, 'Modeled stages', profile.stage_focus?.join(', '));
-            field(details, 'Modeled sectors', Array.isArray(profile.sector_focus) ? (profile.sector_focus.join(', ') || 'Generalist') : 'Unknown');
-            field(details, 'Geography', profile.geography_focus?.join(', '));
-            field(details, 'Funding amount / currency', profile.check_size_range_usd);
-            field(details, profile.data_kind==='fictional'?'Scenario authored':'Source retrieved', profile.retrieved_date);
-            if (profile.reviewed_date) field(details, 'Profile reviewed', profile.reviewed_date);
-            const link = element('a', 'View source');
-            link.href = profile.source_url;
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-            details.append(link);
-            listSection(details, 'Eligibility to verify', profile.eligibility_requirements);
-            listSection(details, 'Evidence expectations and preferences', profile.explicit_criteria);
-            listSection(details, 'Supported exclusions', profile.anti_criteria);
-            if (profile.profile_basis) field(details, 'Profile basis', profile.profile_basis);
-            if (profile.notes) field(details, 'Notes', profile.notes);
-            card.append(details);
-            section.append(card);
-        });
-    });
-}
-
-function renderFilterChips(filters, container, onRemove) {
-    container.replaceChildren();
-    filters.forEach(({ id, label }) => {
-        const button = element('button', label + ' ×', 'filter-chip');
-        button.type = 'button';
-        button.setAttribute('aria-label', 'Remove ' + label);
-        button.addEventListener('click', () => onRemove(id));
-        container.append(button);
-    });
-}
-
-function toggleView(viewName) {
-    const view = document.getElementById('view-' + viewName);
-    if (!view) return;
-    document.querySelectorAll('.view').forEach(el => el.classList.toggle('active', el === view));
-    document.querySelectorAll('nav button[data-view]').forEach(button => {
-        const selected = button.dataset.view === viewName;
-        button.classList.toggle('active', selected);
-        button.setAttribute('aria-pressed', String(selected));
-    });
-}
-
-function renderValidationErrors(errors, container) {
-  const list = document.createElement("ul");
-  list.className = "error-msg";
-  errors.forEach(message => {
-    const item = document.createElement("li");
-    item.textContent = message;
-    list.appendChild(item);
-  });
-  container.appendChild(list);
-}
-
-function snapshotFact(snapshot, key) {
-    return snapshot.fields[key]?.value ?? 'Unknown';
-}
-
-function metricText(snapshot) {
-    if (!snapshot.metrics.length) return 'Unknown — no metric established by these sources';
-    return snapshot.metrics.map(metric => metric.value + ' ' + metric.unit + ' · ' + metric.period + ' · as of ' + metric.as_of_date).join('; ');
-}
-
-function evidenceLabel(value) {
-    return {
-        retrospective_account: 'Later recollection',
-        contemporary_correspondence_published_later: 'Contemporary correspondence, published later',
-        contemporary_record: 'Contemporary record',
-        fictional_scenario: 'Fictional scenario · not historical evidence'
-    }[value] || 'Unknown evidence type';
-}
-
-function factSource(snapshot, sourceId) {
-    const source = snapshot.sources.find(source => source.id === sourceId);
-    const link = element('a', 'Source');
-    link.href = source.url;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    link.title = source.title;
-    return link;
-}
-
-function renderStartupSnapshots(snapshots, container) {
-    container.replaceChildren();
-    snapshots.forEach(snapshot => {
-        const card = element('article', undefined, 'card snapshot-card');
-        card.append(element('h3', snapshot.company), element('p', 'Snapshot: ' + snapshot.snapshot_date, 'comparison-summary'));
-        const badges = element('div', undefined, 'snapshot-chips');
-        badges.append(element('span', snapshot.data_kind==='fictional'?'Original fictional example':'Imported historical account', 'snapshot-chip'));
-        snapshot.sources.forEach(source => badges.append(element('span', evidenceLabel(source.evidence_type), 'snapshot-chip')));
-        card.append(badges);
-        const facts = element('details');
-        facts.append(element('summary', 'Evidence, metrics & sources'));
-        field(facts, 'Stage', snapshot.stage || 'Unknown — no stage classification inferred');
-        field(facts, 'Sector tags', snapshot.sectors.join(', '));
-        field(facts, 'Tag basis', snapshot.sector_basis);
-        for (const key of ['product','customers','team','funding']) {
-            const line = element('p');
-            line.append(element('strong', key[0].toUpperCase() + key.slice(1) + ': '), document.createTextNode(snapshotFact(snapshot,key) + ' '));
-            if (snapshot.fields[key].source_id) line.append(factSource(snapshot,snapshot.fields[key].source_id));
-            facts.append(line);
-        }
-        facts.append(element('h4', 'Recorded metrics'));
-        if (!snapshot.metrics.length) facts.append(element('p', 'Unknown — no numeric traction metric established by the selected sources.'));
-        snapshot.metrics.forEach(metric => {
-            const line = element('p', metric.name + ': ' + metric.value + ' ' + metric.unit + ' · ' + metric.period + ' · ' + metric.as_of_date + ' ');
-            line.append(factSource(snapshot,metric.source_id));
-            facts.append(line);
-        });
-        facts.append(element('h4', 'Source provenance'));
-        snapshot.sources.forEach(source => {
-            const line = element('p');
-            const link = factSource(snapshot,source.id);
-            link.textContent = source.title;
-            line.append(link, document.createTextNode(snapshot.data_kind==='fictional'?' · Authored '+source.published_date+' · '+evidenceLabel(source.evidence_type):' · Published ' + source.published_date + ' · Retrieved ' + source.retrieved_date + ' · ' + evidenceLabel(source.evidence_type)));
-            if (source.evidence_date) line.append(document.createTextNode(' · Evidence dated ' + source.evidence_date));
-            facts.append(line);
-        });
-        listSection(facts, 'Limits of this snapshot', snapshot.limitations);
-        if (snapshot.preparation_lessons?.length) {
-            listSection(facts,'Editorial preparation interpretations',snapshot.preparation_lessons.map(lesson=>lesson.title+' — '+lesson.approach));
-            facts.append(element('p',snapshot.data_kind==='fictional'?'These optional interpretations use invented scenario details. They provide no historical outcome evidence.':'These interpretations are supplied by the library publisher. Review the historical sources and limitations; an action does not establish what caused an outcome.','text-muted'));
-        }
-        card.append(facts);
-        container.append(card);
-    });
-}
-
-function renderSnapshotComparison(startup, snapshot, container, dirty = false) {
-    container.replaceChildren();
-    if (dirty) { container.textContent = 'Save your startup edits before comparing example scenarios.'; return; }
-    if (!startup.current_stage) { container.textContent = 'Complete Home setup to view a side-by-side contrast. You can browse the example scenarios below.'; return; }
-    if (!snapshot) { container.textContent = 'Choose a snapshot for a side-by-side contrast.'; return; }
-    container.append(element('p', (snapshot.data_kind==='fictional'?'This is a fictional comparison.':'Imported historical context differs from yours.')+' Metrics retain their original units; no score or success prediction is calculated.', 'report-explanation'));
-    const table = element('table', undefined, 'snapshot-table');
-    const caption = element('caption', 'Your saved startup vs. ' + snapshot.company + ' · ' + snapshot.snapshot_date);
-    table.append(caption);
-    const head = element('thead');
-    const headers = element('tr');
-    ['Dimension','Your saved startup',snapshot.data_kind==='fictional'?'Example scenario':'Historical snapshot'].forEach(label => {
-        const cell = element('th',label); cell.scope = 'col'; headers.append(cell);
-    });
-    head.append(headers); table.append(head);
-    const body = element('tbody');
-    const rows = [
-        ['Stage',startup.current_stage,snapshot.stage || 'Unknown'],
-        ['Sector tags',(startup.sectors || []).join(', ') || 'Unknown',snapshot.sectors.join(', ')],
-        ['Product evidence',String(startup.prototype_status || 'Unknown').replaceAll('_',' '),snapshotFact(snapshot,'product')],
-        ['Customer context','Unknown — not collected in the startup form',snapshotFact(snapshot,'customers')],
-        ['Team evidence','Domain experience (self-report): ' + (startup.founders_have_domain_expertise === true ? 'yes' : startup.founders_have_domain_expertise === false ? 'no / partial' : 'unknown') + '; other capabilities not assessed',snapshotFact(snapshot,'team')],
-        ['Funding','Unknown — not collected in the startup form',snapshotFact(snapshot,'funding')],
-        ['Traction',startup.paid_pilots == null ? 'Unknown — no pilot/LOI count recorded' : String(startup.paid_pilots) + ' pilots / LOIs recorded; deliveries, guests and revenue not collected',metricText(snapshot)]
-    ];
-    rows.forEach(([label,current,historical]) => {
-        const row = element('tr');
-        const title = element('th',label); title.scope = 'row';
-        row.append(title,element('td',current),element('td',historical));
-        body.append(row);
-    });
-    table.append(body);
-    const scroll = element('div',undefined,'table-scroll');
-    scroll.tabIndex = 0;
-    scroll.append(table); container.append(scroll);
-    const provenance = element('p', undefined, 'text-muted');
-    provenance.append(document.createTextNode('Sources: '));
-    snapshot.sources.forEach(source => {
-        const link = factSource(snapshot,source.id);
-        link.textContent = source.title + ' (' + evidenceLabel(source.evidence_type) + ')';
-        provenance.append(link,document.createTextNode(' '));
-    });
-    container.append(provenance);
-    listSection(container,'Interpretation limits',snapshot.limitations);
-}
-
-function renderMetricOverview(metrics, container) {
-    container.replaceChildren();
-    const overview = element('div',undefined,'report-overview');
-    metrics.forEach(([label,count,tone='neutral']) => {
-        const metric = element('div',undefined,'report-metric metric-' + tone);
-        metric.append(element('strong',String(count),'metric-value'),element('span',label,'metric-label'));
-        overview.append(metric);
-    });
-    container.append(overview);
-}
-
-function renderSnapshotOverview(snapshots, container) {
-    renderMetricOverview([
-        ['Example scenarios',snapshots.length],
-        ['Companies',new Set(snapshots.map(snapshot=>snapshot.company)).size],
-        ['Cases with a recorded metric',snapshots.filter(snapshot=>snapshot.metrics.length).length]
-    ],container);
-}
-
-function renderPreparationBoard(tasks, board, overview, onSave,{otherExercises=null}={}) {
-    board.replaceChildren();
-    const statuses = {todo:'To explore',in_progress:'Trying',evidence_recorded:'Learning recorded'};
-    const basisLabels = {
-        modeled_difference:'Modeled fit question',published_requirement:'Scenario rule to inspect',
-        optional_suggestion:'General exercise',combined_suggestion:'Startup example + investor interest'
-    };
-    const optional=task=>task.basis==='optional_suggestion'&&task.progress.status==='todo'
-        &&!task.progress.notes&&!task.progress.needsReview&&!task.progress.experiment;
-    const otherTasks=tasks.filter(optional),chosenTasks=tasks.filter(task=>!optional(task));
-    renderMetricOverview([
-        ['Your moves',chosenTasks.length],['Other exercises',otherTasks.length],
-        ['Trying',tasks.filter(task=>task.progress.status==='in_progress').length],
-        ['Learning recorded',tasks.filter(task=>task.progress.status==='evidence_recorded').length,'aligned']
-    ],overview);
-    board.className='preparation-board preparation-focused';
-    board.hidden=!chosenTasks.length&&!!otherExercises;
-    const renderCard=task=>{
-            const card = element('article',undefined,'preparation-task');
-            const key=encodeURIComponent(task.id);
-            card.setAttribute('id','task-card-'+key);
-            const researchTask=task.sources.some(source=>source.data_kind==='research');
-            const savedPlan=!!task.progress.experiment;
-            const editablePlan=!!task.experimentPlan||savedPlan||task.basis==='optional_suggestion';
-            const basisLabel=savedPlan&&!task.experimentPlan?'Your saved plan · no current library connection':task.supportKind==='snapshot_only'?'Startup example only':researchTask&&task.basis==='published_requirement'?'Source-linked eligibility check':researchTask&&task.basis==='combined_suggestion'?'Startup example + investor interest':basisLabels[task.basis];
-            card.append(element('span',basisLabel,'task-basis basis-' + task.basis),
-                element('h4',task.title));
-            if(task.progress.needsReview){
-                const reasons=task.progress.reviewReasons||[];
-                const notice=reasons.includes('startup_changed')?'Your situation changed — review your saved evidence. Your fields and notes are kept.':
-                    reasons.includes('investor_lens_changed')?'Investor lens changed — review this plan’s supporting connection. Your fields and notes are kept.':
-                    reasons.includes('connection_changed')?'Supporting connection changed — review this plan. Your fields and notes are kept.':
-                    reasons.includes('checkpoint_needed')?'Choose continue, change or stop before marking learning recorded.':'Review your saved work; its context may have changed.';
-                card.append(element('p',notice,'task-review-notice'));
-            }
-            const details = element('details');
-            details.setAttribute('id','task-details-'+encodeURIComponent(task.id));
-            details.append(element('summary',editablePlan?'Experiment plan & learning':'Details & learning'));
-            const rationale=element('details',undefined,'task-rationale');
-            rationale.append(element('summary',editablePlan?'Why this plan?':'Why this exercise?'));
-            field(rationale,'Why',task.reason);
-            field(rationale,'Evidence to record',task.evidence);
-            if (task.relevance) field(rationale,'Your situation',task.relevance);
-            if (task.caution) field(rationale,'Interpretation limits',task.caution);
-            if (task.interpretations) listSection(rationale,'Editorial interpretation',task.interpretations);
-            if (!task.sources.length) rationale.append(element('p','App suggestion; not an investor requirement.','text-muted'));
-            renderPreparationSources(task.sources,rationale);
-            const form = element('form');form.setAttribute('id','task-form-'+key);
-            const statusLabel = element('label','Move status');
-            const select = element('select');
-            statusLabel.append(select);
-            Object.entries(statuses).forEach(([key,label]) => {
-                const option = element('option',label);option.value=key;select.append(option);
-            });
-            select.value=task.progress.status;
-            const notesLabel = element('label','What you learned · notes or links');
-            const notes = element('textarea');
-            notes.rows=3;notes.value=task.progress.notes;notes.setAttribute('id','task-notes-'+key);
-            notes.placeholder='Record what you found, its date and a supporting link.';
-            notesLabel.append(notes);
-            const planFields={};
-            const plan=task.progress.experiment || task.experimentPlan;
-            if (editablePlan) {
-                const planBox=element('fieldset',undefined,'experiment-fields');
-                planBox.setAttribute('id','experiment-editor-'+key);
-                planBox.append(element('legend',savedPlan?'Your experiment plan':task.experimentPlan?'Adapt this experiment':'Plan your experiment','sr-only'));
-                const more=element('details',undefined,'plan-more');more.setAttribute('id','task-more-'+key);
-                more.append(element('summary','More plan details'));
-                more.append(element('p','Set a question, decision conditions or a review date when useful.','text-muted'));
-                const learning=element('details',undefined,'plan-learning');learning.setAttribute('id','task-learning-'+key);
-                learning.append(element('summary','Progress & notes'));
-                learning.open=!!task.progress.notes||task.progress.status!=='todo';
-                const inputs=[
-                    ['action','What will you try?','textarea'],
-                    ['evidenceNeeded','What will you look for?','textarea'],
-                    ['question','Learning question','textarea'],
-                    ['continueWhen','Continue if…','textarea'],
-                    ['changeWhen','Change the approach if…','textarea'],
-                    ['stopWhen','Stop if…','textarea'],
-                    ['reviewDate','Review date','input']
-                ];
-                inputs.forEach(([key,label,tag])=>{
-                    const wrapper=element('label',label);
-                    const input=element(tag);
-                    if (tag==='input') input.type='date';
-                    else input.rows=2;
-                    input.value=plan?.[key] || '';
-                    input.setAttribute('id','task-'+key+'-'+encodeURIComponent(task.id));
-                    if (tag==='textarea') input.placeholder='Make this specific to your situation.';
-                    planFields[key]=input;wrapper.append(input);
-                    if(key==='action'||key==='evidenceNeeded')planBox.append(wrapper);
-                    else more.append(wrapper);
-                });
-                const outcomeLabel=element('label','At the checkpoint, what next?');
-                const outcome=element('select');
-                [['unreviewed','Not reviewed yet'],['continue','Continue'],['change','Change the approach'],['stop','Stop this experiment']].forEach(([value,label])=>{
-                    const option=element('option',label);option.value=value;outcome.append(option);
-                });
-                outcome.value=['continue','change','stop'].includes(plan?.outcome)?plan.outcome:'unreviewed';
-                planFields.outcome=outcome;outcomeLabel.append(outcome);learning.append(statusLabel,notesLabel,outcomeLabel);
-                planBox.append(more,learning);form.append(planBox);
-            }
-            const save = element('button','Save progress','btn-primary');
-            save.type='submit';save.setAttribute('id','save-task-'+key);
-            const message = element('p',undefined,'task-message');
-            message.setAttribute('role','status');message.setAttribute('id','task-save-message-'+key);
-            const saveBar=element('div',undefined,'task-save-bar');saveBar.append(save,message);
-            if(!editablePlan)form.append(statusLabel,notesLabel);
-            form.append(saveBar);
-            const reveal=input=>{
-                let parent=input.parentElement;
-                while(parent&&parent!==form){if(parent.tagName==='DETAILS')parent.open=true;parent=parent.parentElement;}
-                input.focus();
-            };
-            form.addEventListener('submit',event => {
-                event.preventDefault();
-                if (select.value==='evidence_recorded'&&!notes.value.trim()) {
-                    message.textContent='Add an evidence note or link before marking evidence recorded.';
-                    reveal(notes);return;
-                }
-                const experiment=editablePlan?Object.fromEntries(Object.entries(planFields).map(([key,input])=>[key,input.value.trim()])):null;
-                const activePlan=!!task.experimentPlan||savedPlan||(experiment&&Object.entries(experiment).some(([key,value])=>key==='outcome'?value!=='unreviewed':value.length>0));
-                if (activePlan && select.value==='evidence_recorded' && planFields.outcome.value==='unreviewed') {
-                    message.textContent='Choose continue, change or stop to record your checkpoint decision.';
-                    reveal(planFields.outcome);return;
-                }
-                const progress={status:select.value,notes:notes.value.trim()};
-                if (activePlan) progress.experiment=experiment;
-                onSave(task.id,progress);
-            });
-            details.append(form,rationale);card.append(details);return card;
-    };
-    for(const status of ['in_progress','todo','evidence_recorded']){
-        const visible=chosenTasks.filter(task=>task.progress.status===status)
-            .sort((a,b)=>Number(b.basis==='combined_suggestion')-Number(a.basis==='combined_suggestion'));
-        if(!visible.length)continue;
-        const column=element('section',undefined,'preparation-column preparation-'+status);
-        column.append(element('h3',statuses[status]+' ('+visible.length+')'));
-        visible.forEach(task=>column.append(renderCard(task)));board.append(column);
-    }
-    const other=otherExercises||element('details',undefined,'section-details other-exercises');
-    other.setAttribute('id','other-exercises');other.replaceChildren();other.hidden=!otherTasks.length;
-    other.append(element('summary','Other exercises ('+otherTasks.length+')'),element('p','Optional. Open only what is useful to you.','text-muted'));
-    otherTasks.forEach(task=>other.append(renderCard(task)));
-    if(!otherExercises&&otherTasks.length)board.append(other);
-}
-
-
-function renderPreparationSources(sources,container) {
-    const limited=sources.filter(source=>Array.isArray(source.limitations)&&source.limitations.length);
-    const limitations=new Map();
-    sources.forEach(source=>{
-        const line=element('div',undefined,'preparation-source');
-        const label=source.data_kind==='fictional'?(source.kind==='investor'?'Fictional investor example':source.kind==='snapshot'?'Fictional startup example':'Fictional profile'):source.kind==='snapshot'?'Historical source':source.kind==='investor'?'Investor interest (not a requirement)':'Source';
-        const link=element('a',label+': '+source.name);
-        link.href=source.url;link.target='_blank';link.rel='noopener noreferrer';
-        line.append(link);
-        if (source.snapshot_date) line.append(element('span','Snapshot '+source.snapshot_date+' · '+evidenceLabel(source.evidence_type),'source-date'));
-        if (source.published_date) line.append(element('span',source.data_kind==='fictional'?'Scenario authored '+source.published_date:'Published '+source.published_date+' · Retrieved '+source.retrieved_date,'source-date'));
-        if (source.statement) line.append(element('span',source.statement,'source-statement'));
-        for(const text of Array.isArray(source.limitations)?source.limitations:[]){
-            const key=text.trim();
-            if(!key)continue;
-            if(!limitations.has(key))limitations.set(key,new Set());
-            limitations.get(key).add(source);
-        }
-        container.append(line);
-    });
-    if(limitations.size){
-        const notes=element('div',undefined,'source-limitations');
-        notes.append(element('h4','Source limitations'),element('p','Applies to: '+limited.map(source=>source.name).join('; '),'text-muted'));
-        const list=element('ul',undefined,'criteria-list');
-        limitations.forEach((applicable,text)=>{
-            const item=element('li',text);
-            if(applicable.size<limited.length)item.append(element('span','For: '+[...applicable].map(source=>source.name).join('; '),'source-date'));
-            list.append(item);
-        });
-        notes.append(list);container.append(notes);
-    }
-}
-
-function renderHistoricalSuggestions(suggestions,container,onDecision,loading=false,research=false,onUseLens=null,onEditPlan=null,support=null) {
-    container.replaceChildren();
-    const section=element('section',undefined,'card historical-suggestions');
-    section.append(element('h3','Suggested next moves'));
-    if (loading) {
-        section.append(element('p','Loading example scenarios…','text-muted'));
-        container.append(section);return;
-    }
-    if (!suggestions.length) {
-        if(support?.kind==='investor_only'){
-            section.append(element('p','Investor interest only. No matching startup example is encoded for your situation. General exercises are separate from this investor’s interests.'));
-            renderPreparationSources(support.interests,section);container.append(section);return;
-        }
-        const empty=element('details',undefined,'card suggestion-empty');
-        empty.append(element('summary','Explore illustrative preparation ideas'));
-        empty.append(element('p',research?'Choose an investor lens and a matching context in Home. Connected ideas require publisher-authored lessons and matching investor topics; no match is a library limitation.':'Choose a fictional investor lens and a context in Home to explore connected exercises. The examples cover early marketplace/service experiments; no match is a library limitation.','text-muted'));
-        container.append(empty);return;
-    }
-    const pending=suggestions.filter(suggestion=>suggestion.decision==='pending');
-    const reviewed=suggestions.filter(suggestion=>suggestion.decision!=='pending');
-    if(!pending.length){section.replaceChildren();section.className='reviewed-examples';}
-    else section.append(element('p',suggestions.every(item=>item.supportKind==='snapshot_only')?'Startup examples for your situation. No matching investor interest is documented.':onUseLens?'Library preview. No investor selected. Review the examples, then choose whether to use these profiles.':research?'Connected through your selected investor profiles. Historical cases may have survivorship bias; review the sources and limits.':'Connected through your selected investor. These examples are fictional; outcomes are not demonstrated.','text-muted'));
-    const reviewedList=element('details',undefined,'section-details');reviewedList.setAttribute('id','reviewed-suggestions');
-    reviewedList.append(element('summary','Reviewed examples ('+reviewed.length+')'));
-    [...pending,...reviewed].forEach(suggestion=>{
-        const parent=suggestion.decision==='pending'?section:reviewedList;
-        const card=element('article',undefined,'historical-idea');
-        card.append(element('span',suggestion.decision==='pending'?(suggestion.supportKind==='snapshot_only'?'Startup example only':'Suggested — your choice'):suggestion.decision==='accepted'?'Accepted · experiment plan created':'Dismissed for this context','task-basis'),
-            element('h4',suggestion.title));
-        const details=element('details');
-        details.append(element('summary',suggestion.supportKind==='snapshot_only'?'Startup evidence & limits':'Scenario, investor connection & limits'));
-        field(details,'Suggested adaptation',suggestion.reason);
-        field(details,'Your situation',suggestion.relevance);
-        field(details,'Caution',suggestion.caution);
-        listSection(details,'Editorial interpretation',suggestion.interpretations);
-        renderPreparationSources(suggestion.sources,details);
-        const actions=element('div',undefined,'suggestion-actions');
-        if(onUseLens){
-            const use=element('button',research?'Use these investor profiles':'Use these fictional investor examples','btn-secondary');use.type='button';
-            use.addEventListener('click',()=>onUseLens([...new Set(suggestion.sources.filter(source=>source.kind==='investor').map(source=>source.profile_id))]));
-            actions.append(use);card.append(actions,details);parent.append(card);return;
-        }
-        if(suggestion.decision==='accepted'&&onEditPlan){
-            const edit=element('button','Edit plan','btn-primary');edit.type='button';
-            edit.addEventListener('click',()=>onEditPlan(suggestion.targetTaskId));actions.append(edit);
-        }
-        const choices=suggestion.decision==='pending'
-            ? [['accepted','Make an experiment plan'],['dismissed','Dismiss']]
-            : [['pending','Review again']];
-        choices.forEach(([decision,label])=>{
-            const button=element('button',label,decision==='accepted'?'btn-primary':'btn-secondary');
-            button.type='button';button.addEventListener('click',()=>onDecision(suggestion.id,decision));
-            actions.append(button);
-        });
-        card.append(actions,details);parent.append(card);
-    });
-    if(reviewed.length)section.append(reviewedList);
-    container.append(section);
-}
-
-function renderWorkspaceOverview(model,container,onNavigate,{dirty=false,loading=false,situationContainer=null,editorOpen=false}={}) {
-    container.replaceChildren();
-    if (dirty) {
-        const notice=element('div',undefined,'draft-notice');
-        notice.append(element('span','You have unsaved edits. The map reflects your last saved facts.'));
-        const save=element('button','Review edits','text-button');save.type='button';
-        save.addEventListener('click',()=>onNavigate('setup'));notice.append(save);container.append(notice);
-    }
-    const hero=element('div',undefined,'overview-hero');
-    const situation=element('section',undefined,'situation-card');
-    situation.setAttribute('aria-label','Your current context');
-    situation.append(element('p',model.situationShort));
-    if(model.started){
-        const edit=element('button','Edit','text-button');edit.type='button';
-        edit.setAttribute('aria-label','Edit your current context');
-        edit.setAttribute('id','edit-situation');edit.setAttribute('aria-controls','startup-editor');
-        edit.setAttribute('aria-expanded',String(editorOpen));
-        edit.addEventListener('click',()=>onNavigate('setup'));situation.append(edit);
-    }
-    if(situationContainer)situationContainer.replaceChildren(situation);
-    else hero.append(situation);
-    const action=element('article',undefined,'next-action-card');
-    if(model.nextAction.connectionGap){
-        const gap=element('div',undefined,'connection-gap');
-        gap.append(element('h3',model.nextAction.connectionGap.title));
-        action.append(gap);
-    }
-    if(!model.nextAction.generalExercise||model.nextAction.savedExperiment)action.append(element('p',model.nextAction.heading||'Your next move','eyebrow'));
-    action.append(element('h2',model.nextAction.title));
-    if(model.nextAction.connectionNote)action.append(element('p',model.nextAction.connectionNote,'connection-note'));
-    if(model.nextAction.generalNote)action.append(element('p',model.nextAction.generalNote,'general-exercise-note'));
-    const go=element('button',model.nextAction.label+' ↗','btn-primary');
-    go.type='button';go.setAttribute('id','overview-next-action');
-    go.addEventListener('click',()=>onNavigate(dirty?'setup':model.nextAction.route,model.nextAction.taskId));
-    action.append(go);
-    action.append(element('h3',model.nextAction.reasonHeading||'Why it fits','why-heading'),element('p',(model.nextAction.connectionGap&&!model.nextAction.savedExperiment?model.nextAction.connectionGap.message+' ':'')+model.nextAction.reason,'next-action-reason'));
-    if(model.nextAction.partialSupport){
-        const partial=element('details',undefined,'move-basis');
-        partial.append(element('summary','Investor interest only · inspect sources'),element('p','The selected investor has a relevant interest, but no matching startup approach is encoded for your situation. The exercise above is general; it is not that investor’s recommendation.'));
-        renderPreparationSources(model.nextAction.partialSupport.interests,partial);action.append(partial);
-    }
-    if(model.nextAction.basis){
-        const basis=element('details',undefined,'move-basis');
-        basis.append(element('summary',model.nextAction.disclosureLabel||model.nextAction.basisLabel),element('p',model.nextAction.basis));
-        if(model.nextAction.sources?.length)renderPreparationSources(model.nextAction.sources,basis);
-        action.append(basis);
-    }
-    const progress=element('article',undefined,'progress-card');
-    progress.append(element('p','LEARNING IN MOTION','eyebrow'));
-    if (model.started) {
-        const count=element('p',undefined,'progress-count');
-        count.append(element('strong',String(model.counts.recorded)),element('span',' / '+model.counts.total+' moves'));
-        progress.append(count,element('p','with learning recorded','text-muted'));
-        const bar=element('progress');
-        bar.max=model.counts.total||1;bar.value=model.counts.recorded;
-        bar.setAttribute('aria-label','Moves with learning recorded');
-        bar.textContent=model.counts.recorded+' of '+model.counts.total+' tasks';
-        progress.append(bar);
-        const states=element('div',undefined,'progress-states');
-        states.append(element('span',(model.counts.total-model.counts.recorded-model.counts.inProgress)+' to explore'),
-            element('span',model.counts.inProgress+' being tried'));
-        progress.append(states);
-    } else {
-        progress.append(element('div','—','empty-progress'),
-            element('p','Your plan starts with your context.','progress-empty-title'),
-            element('p','Three choices. Details can wait.','text-muted'));
-    }
-    progress.append(element('p','A record of learning and decisions.','progress-footnote'));
-    hero.append(action);container.append(hero);
-    const extra=element('details',undefined,'section-details overview-extra');
-    extra.setAttribute('id','overview-details');
-    extra.append(element('summary','Explore the details'),progress);
-
-    const map=element('section',undefined,'evidence-map');
-    const heading=element('div',undefined,'section-heading');
-    heading.append(element('h2','Your learning map'),element('span',loading?'Updating libraries…':'Select an area to open its actions','text-muted'));
-    map.append(heading);
-    const tiles=element('div',undefined,'evidence-tiles');
-    const statuses={unknown:'Unexplored',review:'Explore next',recorded:'Learning recorded'};
-    const symbols={unknown:'?',review:'◔',recorded:'✓'};
-    model.domains.forEach(domain=>{
-        const tile=element('button',undefined,'evidence-tile evidence-'+domain.status);
-        tile.type='button';tile.setAttribute('id','domain-'+domain.id);
-        tile.setAttribute('aria-label',domain.label+': '+statuses[domain.status]+'. Open actions.');
-        tile.append(element('span',domain.number,'domain-number'),
-            element('span',symbols[domain.status],'domain-symbol'),
-            element('strong',domain.label),
-            element('span',statuses[domain.status],'domain-state'),
-            element('span',domain.status==='recorded'?domain.recorded+' task note(s) recorded':domain.description,'domain-description'));
-        tile.addEventListener('click',()=>onNavigate(!model.started?'setup':domain.id==='investor'&&!model.lensCount?'lens':'plan',domain.taskId));
-        tiles.append(tile);
-    });
-    map.append(tiles,element('p',model.research?'Learning is self-reported. Research records are publisher-supplied; source accounts and interpretations are not independently verified.':'Learning is self-reported. The bundled scenarios and investor interests are invented for practice.','map-note'));
-    extra.append(map);
-
-    const links=element('section',undefined,'research-links');
-    const research=[
-        [model.research?'IMPORTED RESEARCH':'ILLUSTRATIVE CONTEXT',model.snapshotCount+' snapshots · '+model.companies+' companies','Explore early approaches','Dated cases to consider in your own context.','snapshots']
-    ];
-    research.forEach(([eyebrow,count,title,description,route])=>{
-        const card=element('article',undefined,'research-card');
-        card.append(element('p',eyebrow,'eyebrow'),element('p',count,'research-count'),element('h3',title),element('p',description,'text-muted'));
-        const button=element('button','Open comparison ↗','text-button');
-        button.type='button';button.addEventListener('click',()=>onNavigate(route));
-        card.append(button);links.append(card);
-    });
-    extra.append(links);container.append(extra);
-}
-
-
-function renderInvestorLens(profiles,selectedIds,container,onSave,{open=false}={}) {
-    container.replaceChildren();
-    const available=profiles.filter(profile=>profile.comparison_enabled!==false);
-    const selected=new Set(selectedIds);
-    const details=element('details',undefined,'investor-lens');
-    details.open=open;
-    details.setAttribute('id','investor-lens-picker');
-    const chosen=available.filter(profile=>selected.has(profile.id));
-    const summary=element('summary');summary.setAttribute('id','investor-lens-summary');
-    const value=chosen.length===1?chosen[0].name:chosen.length?chosen.length+' selected':'None selected';
-    summary.append(element('span','Investor lens:','lens-caption'),element('span',value,'lens-value'));
-    const action=element('span',open?'Close':chosen.length?'Change':'Choose','lens-action');
-    summary.append(action);details.append(summary);
-    details.append(element('p','Optional. Choose investors whose interests you want to consider. You can explore examples without choosing.','lens-help'));
-    details.append(element('p',profiles.some(profile=>profile.data_kind==='research')?'Choose whose published interests to consider. Inclusion does not establish eligibility, endorsement or interest in your startup.':'Choose fictional investor perspectives to practice exploring next moves. These profiles represent no real investor or funding offer.','text-muted'));
-    const form=element('form');
-    const list=element('div',undefined,'lens-options');
-    const controls=available.map(profile=>{
-        const label=element('label',undefined,'lens-option');
-        const checkbox=element('input');
-        checkbox.type='checkbox';checkbox.value=profile.id;checkbox.checked=selected.has(profile.id);
-        checkbox.setAttribute('id','lens-'+encodeURIComponent(profile.id));
-        label.append(checkbox,element('span',profile.name));list.append(label);
-        return checkbox;
-    });
-    form.append(list);
-    const actions=element('div',undefined,'suggestion-actions');
-    const clear=element('button','Clear choices','btn-secondary');clear.type='button';
-    clear.addEventListener('click',()=>controls.forEach(control=>{control.checked=false;}));
-    actions.append(clear);
-    const apply=element('button','Use selected investors','btn-primary');
-    apply.type='submit';apply.setAttribute('id','apply-investor-lens');
-    actions.append(apply);form.append(actions);
-    form.addEventListener('submit',event=>{event.preventDefault();onSave(controls.filter(control=>control.checked).map(control=>control.value));});
-    details.addEventListener('toggle',()=>{
-        action.textContent=details.open?'Close':chosen.length?'Change':'Choose';
-        if(!details.open)controls.forEach(control=>{control.checked=selected.has(control.value);});
-    });
-    const status=element('p','','sr-only');status.setAttribute('id','investor-lens-status');status.setAttribute('role','status');
-    details.append(form);container.append(details,status);
+function saveLeanPlan(state, task, fields) {
+    const previous=state.taskProgress[task.id]||{};
+    return {...previous,...fields,startupKey:startupEvidenceKey(state.startup),taskKey:task.evidenceKey??null,
+        basisLensKey:investorLensKey(state.selectedInvestorIds),planTitle:previous.planTitle||task.title,updatedAt:new Date().toISOString()};
 }
 
 
@@ -1608,624 +897,135 @@ function renderInvestorLens(profiles,selectedIds,container,onSave,{open=false}={
 
 
 
-const saved = loadState();
-const bundledResearch=typeof __DEFAULT_RESEARCH__==='undefined'?null:__DEFAULT_RESEARCH__;
-const fresh=!saved||!Object.keys(saved).length;
-const restoredResearch=validateResearchPackage(saved?.researchLibrary).isValid?saved.researchLibrary:(fresh?bundledResearch:null);
-const initialResearch=!!restoredResearch&&(fresh||saved?.activeLibrary==='research');
-const initialWork=saved?.activeLibrary==='research'&&!initialResearch?saved?.libraryWorkspaces?.demo:saved;
-const state = {
-    startup: saved?.startup && typeof saved.startup === 'object' ? saved.startup : {},
-    profiles: Array.isArray(saved?.profiles) ? saved.profiles.filter(p => validateInvestorProfile(p).isValid).map(normalizeProfile) : [],
-    taskProgress: initialWork?.taskProgress && typeof initialWork.taskProgress === 'object' && !Array.isArray(initialWork.taskProgress) ? initialWork.taskProgress : {},
-    selectedInvestorIds: Array.isArray(initialWork?.selectedInvestorIds) ? [...new Set(initialWork.selectedInvestorIds.filter(id=>typeof id==='string'))] : [],
-    suggestionChoices: initialWork?.suggestionChoices && typeof initialWork.suggestionChoices === 'object' && !Array.isArray(initialWork.suggestionChoices) ? initialWork.suggestionChoices : {},
-    researchLibrary:restoredResearch,
-    activeLibrary:initialResearch?'research':'demo',
-    libraryWorkspaces:saved?.libraryWorkspaces&&typeof saved.libraryWorkspaces==='object'&&!Array.isArray(saved.libraryWorkspaces)?saved.libraryWorkspaces:{}
-};
-let bundledProfiles = [];
-let libraryLoading = true;
-let dirty = false;
-let choosingDemo = false;
-let startupSnapshots = [];
-let demoSnapshots=[];
-let pendingResearch=null;
-let importAttempt=0;
-let snapshotsLoading = true;
-let lastPersistFailed = false;
-
-function workspaceModel() {
-    return {...buildWorkspaceModel(state.startup,allProfiles(),startupSnapshots,state.taskProgress,state.suggestionChoices,state.selectedInvestorIds),research:usesResearchData()};
+const byId=id=>document.getElementById(id);
+const previous=loadState(),pack=globalThis.STARTUP_GUIDE_PACK;
+const validation=validateResearchPackage(pack);
+let state,profiles=[],snapshots=[],view='situation',step='move',investorIndex=0,snapshotIndex=0,activeTaskId=null,unsaved=false,planJustSaved=false;
+const short=(value,n=145)=>String(value||'').length>n?String(value).slice(0,n).replace(/\s+\S*$/,'')+'…':String(value||'');
+const model=()=>leanModel(state,profiles,snapshots);
+const node=(tag,text,attrs={})=>{const el=document.createElement(tag);el.textContent=text;for(const [key,value] of Object.entries(attrs))el.setAttribute(key,value);return el;};
+function status(text,error=false){byId('app-status').textContent=text;byId('app-status').classList.toggle('error',error);}
+function persist(message='Saved in this browser.'){
+    try{const saved=workspaceForSave(state,previous);saveState(saved);state.libraryWorkspaces=saved.libraryWorkspaces;unsaved=false;status(message);return true;}
+    catch{status('Could not save. Keep this tab open and try again.',true);return false;}
 }
-function selectInvestorLens(ids) {
-    // Stamp legacy records only when their saved context and basis still match.
-    // This records an observed lens transition without guessing old provenance.
-    const currentLens=investorLensKey(state.selectedInvestorIds);
-    for(const task of workspaceModel().tasks){
-        const record=state.taskProgress[task.id];
-        if(record&&typeof record==='object'&&!Array.isArray(record)
-            &&record.startupKey===startupEvidenceKey(state.startup)
-            &&(record.taskKey??null)===(task.evidenceKey??null)){
-            state.taskProgress[task.id]={...record,
-                basisLensKey:typeof record.basisLensKey==='string'?record.basisLensKey:currentLens,
-                ...(record.experiment&&!record.planTitle?{planTitle:task.title}:{})};
-        }
+function go(next){
+    if(unsaved&&!confirm('Leave without saving these edits?'))return;
+    unsaved=false;view=next;if(next==='move')step='move';
+    render();byId('screen-title').focus({preventScroll:true});window.scrollTo(0,0);
+}
+function title(text){byId('screen-title').textContent=text;}
+function button(id,handler){byId(id).addEventListener('click',handler);}
+function showDetails(heading,paragraphs,sources=[]){
+    const body=byId('detail-body');body.replaceChildren();byId('detail-title').textContent=heading;
+    for(const text of paragraphs.filter(Boolean))body.append(node('p',text));
+    for(const source of sources){
+        const entry=node('section','',{'class':'source-entry'});entry.append(node('h3',source.name||source.title||'Source'));
+        if(source.statement)entry.append(node('p',source.statement));
+        entry.append(node('p',[source.snapshot_date&&'Snapshot '+source.snapshot_date,source.published_date&&'Published '+source.published_date,source.retrieved_date&&'Retrieved '+source.retrieved_date].filter(Boolean).join(' · '),{'class':'muted'}));
+        const url=source.url||source.source_url;
+        if(url&&(/^(https?:\/\/|\.\/docs\/)/.test(url)))entry.append(node('a','Open source ↗',{href:url,target:'_blank',rel:'noopener noreferrer'}));
+        for(const limit of source.limitations||[])entry.append(node('p',limit));body.append(entry);
     }
-    state.selectedInvestorIds=ids;
+    byId('evidence-dialog').showModal();byId('close-details').focus();
 }
-
-function usesResearchData(){return state.activeLibrary==='research'&&state.researchLibrary?.dataset_kind!=='fictional';}
-
-function renderOverview() {
-    const model=workspaceModel();
-    document.getElementById('overview-dashboard').hidden=choosingDemo||!model.started;
-    document.getElementById('situation-summary').hidden=choosingDemo||!model.started;
-    renderWorkspaceOverview(model,document.getElementById('overview-dashboard'),navigate,{dirty,loading:libraryLoading||snapshotsLoading,situationContainer:document.getElementById('situation-summary'),editorOpen:!document.getElementById('startup-editor').hidden});
-    const lensContainer=document.getElementById('investor-lens');
-    const open=document.getElementById('investor-lens-picker')?.open||false;
-    lensContainer.hidden=choosingDemo||!model.started||libraryLoading;
-    renderInvestorLens(allProfiles(),state.selectedInvestorIds,lensContainer,ids=>{
-        if(dirty){navigate('setup');return;}
-        selectInvestorLens(ids);
-        const stored=persist();
-        renderPreparation();
-        document.getElementById('investor-lens-picker').open=false;
-        const status=document.getElementById('investor-lens-status');
-        status.textContent=stored?'Investor choice saved. Your next move is updated.':'Choice updated for this session; browser storage could not save it.';
-        if(!stored)status.className='lens-save-error';
-        document.getElementById('investor-lens-summary').focus();
-    },{open});
-    document.getElementById('workspace-state').textContent=choosingDemo?'Choose an example':dirty?'Unsaved edits':lastPersistFailed?'Session only · storage unavailable':state.startup.current_stage?'Saved in this browser':'Start with three choices';
+function render(){
+    for(const panel of document.querySelectorAll('[data-screen]'))panel.hidden=panel.dataset.screen!==view;
+    for(const tab of document.querySelectorAll('[data-view]'))tab.setAttribute('aria-pressed',String(tab.dataset.view===view));
+    byId('pack-label').textContent=pack.dataset_kind==='fictional'?'Fictional demo':'Research examples';
+    if(view==='situation')renderSituation();if(view==='move')renderMove();if(view==='investor')renderInvestor();if(view==='startup')renderSnapshot();
 }
-
-function setComparison(kind) {
-    const historical=kind==='snapshots';
-    document.getElementById('compare-investors-panel').hidden=historical;
-    document.getElementById('compare-snapshots-panel').hidden=!historical;
-    for (const [id,selected] of [['compare-investors',!historical],['compare-snapshots',historical]]) {
-        const button=document.getElementById(id);
-        button.classList.toggle('active',selected);
-        button.setAttribute('aria-pressed',String(selected));
-    }
+function renderSituation(){title('Your situation');for(const [id,key] of [['business-model','business_model'],['current-stage','current_stage'],['validation-focus','validation_focus']])byId(id).value=state.startup[key]||'';}
+function planTask(m){return m.tasks.find(task=>task.id===activeTaskId)||m.task;}
+function renderMove(){
+    title(step==='move'?'Your next move':step==='plan'?'Plan a small test':planJustSaved?'Plan saved':'Record your learning');
+    for(const part of document.querySelectorAll('[data-step]'))part.hidden=part.dataset.step!==step;
+    const m=model();
+    if(!m.started){byId('move-title').textContent='Start with your situation.';byId('move-support').textContent='Three choices help find a useful example.';byId('move-reason').textContent='';byId('move-action').textContent='Set my situation';byId('move-links').hidden=true;return;}
+    if(step!=='move'){renderPlan(m);return;}
+    const next=m.nextAction;
+    byId('move-title').textContent=next.savedExperiment?state.taskProgress[next.taskId]?.planTitle||next.title:next.title;
+    byId('move-kind').textContent=next.savedExperiment?'Your current experiment':next.generalExercise?'General exercise':next.heading||'An example to explore';
+    byId('move-support').textContent=next.generalExercise?(m.support.kind==='investor_only'?'Investor interest only; no startup example.':'No supporting library connection.'):m.lensCount?next.connectionNote||'Review the evidence before adapting.':next.sources?.some(s=>s.kind==='investor')?'Preview only. No investor selected.':next.connectionNote||'';
+    byId('move-reason').textContent=short(next.savedExperiment?next.reason:next.generalExercise?next.reason:next.sources?.some(s=>s.kind==='investor')?'The startup lesson and investor topic fit your situation.':'This startup lesson fits your model, stage and question.',100);
+    byId('move-action').textContent=next.savedExperiment?'Continue plan':!m.lensCount&&m.libraryPreview.length?'Choose an investor':'Make a plan';
+    byId('move-links').hidden=false;byId('move-evidence').textContent=next.sources?.length?'Why this fits & sources':'Why this suggestion';
+    byId('support-note').textContent=pack.dataset_kind==='fictional'?'Fictional example; no outcome evidence.':'Interpretation, not endorsement.';
 }
-
-function openTaskEditor(taskId,{saved=false}={}) {
-    const key=encodeURIComponent(taskId);
-    const details=document.getElementById('task-details-'+key);
-    if(!details)return;
-    const other=document.getElementById('other-exercises');
-    if(other&&!other.hidden&&other.contains(details))other.open=true;
-    details.open=true;
-    const target=document.getElementById(saved?'save-task-'+key:'task-action-'+key)||document.getElementById('task-notes-'+key);
-    const anchor=document.getElementById(saved?'save-task-'+key:'task-card-'+key);
-    anchor?.scrollIntoView?.({block:saved?'nearest':'start'});
-    target?.focus({preventScroll:true});
+function beginPlan(){
+    let m=model();if(!m.started){go('situation');return;}
+    if(!m.lensCount&&m.libraryPreview.length&&!m.nextAction.savedExperiment){go('investor');return;}
+    if(m.pending&&!m.nextAction.savedExperiment){state.suggestionChoices[m.pending.id]={decision:'accepted',startupKey:startupEvidenceKey(state.startup),evidenceKey:m.pending.evidenceKey};activeTaskId=m.pending.targetTaskId;m=model();}
+    else activeTaskId=m.nextAction.taskId||m.task?.id;
+    if(!activeTaskId){status('No plan available. Change your situation.',true);return;}
+    planJustSaved=false;step='plan';renderMove();byId('plan-action').focus();byId('plan-action').setSelectionRange(0,0);byId('plan-action').scrollTop=0;
 }
-
-function navigate(route,taskId) {
-    if (route==='setup') {
-        choosingDemo=false;
-        toggleView('overview');
-        document.getElementById('startup-editor').hidden=false;
-        document.getElementById('edit-situation')?.setAttribute('aria-expanded','true');
-        document.getElementById('business-model').focus();
-        document.getElementById('startup-editor').scrollIntoView?.({block:'nearest'});
-        return;
-    }
-    if (route==='lens') { route='overview';taskId='investor-lens'; }
-    if (route==='investors'||route==='snapshots') {
-        setComparison(route);
-        route='compare';
-    }
-    toggleView(route);
-    if (route==='overview') {
-        renderOverview();
-        if(taskId==='investor-lens'){
-            const picker=document.getElementById('investor-lens-picker');
-            picker.open=true;
-            document.getElementById('investor-lens-summary').focus();
-            picker.scrollIntoView?.({block:'nearest'});
-        }
-    }
-    if (route==='compare') { renderAnalysis();renderHistoricalContrast(); }
-    if (route==='plan') {
-        renderPreparation();
-        if (taskId) openTaskEditor(taskId);
-    }
+function renderPlan(m){
+    const task=planTask(m);if(!task){step='move';renderMove();return;}
+    const record=state.taskProgress[task.id]||{},plan=record.experiment||task.experimentPlan||{};
+    byId('plan-action').value=plan.action||'';byId('plan-evidence').value=plan.evidenceNeeded||'';
+    byId('plan-status').value=record.status||'todo';byId('plan-notes').value=record.notes||'';byId('plan-outcome').value=plan.outcome||'unreviewed';
+    byId('plan-review').textContent=task.progress.needsReview?'Situation or supporting connection changed. Your plan is kept; review it.':'';
 }
-
-function renderHistoricalContrast() {
-    const id = document.getElementById('snapshot-select').value;
-    renderSnapshotComparison(state.startup, startupSnapshots.find(snapshot => snapshot.id === id), document.getElementById('snapshot-comparison'), dirty);
+function savePlan(then){
+    const m=model(),task=planTask(m);if(!task){status('This plan is unavailable. Return to Next move and try again.',true);return;}
+    const old=state.taskProgress[task.id]||{},template=old.experiment||task.experimentPlan||{};
+    const experiment={...template,action:byId('plan-action').value.trim(),evidenceNeeded:byId('plan-evidence').value.trim(),outcome:byId('plan-outcome').value};
+    const notes=byId('plan-notes').value.trim(),progress=byId('plan-status').value;
+    if(progress==='evidence_recorded'&&(!notes||experiment.outcome==='unreviewed')){step='learn';for(const part of document.querySelectorAll('[data-step]'))part.hidden=part.dataset.step!==step;title('Record your learning');status('Record your learning and choose continue, change or stop.',true);return;}
+    state.taskProgress[task.id]=saveLeanPlan(state,task,{experiment,status:progress,notes});
+    if(persist(then==='learn'?'Plan saved in this browser.':'Progress saved.')){planJustSaved=then==='learn';if(then)step=then;renderMove();if(then==='learn')byId('screen-title').focus({preventScroll:true});}
 }
-
-// The generated classic entry supplies packaged data for direct file opening.
-const packagedData = typeof __PACKAGED_DATA__ === 'undefined' ? null : __PACKAGED_DATA__;
-
-async function readLibrary(indexPath, key, validate, localRecords) {
-    const checked = (record, label) => {
-        if (record?.data_kind!=='fictional' || record?.distribution_basis!=='original_demo' || record?.data_license!=='MIT') throw new Error(label+': this release accepts original fictional examples only.');
-        const validation = validate(record);
-        if (!validation.isValid) throw new Error(label + ': ' + validation.errors.join(' '));
-        return record;
-    };
-    if (location.protocol === 'file:') {
-        if (!Array.isArray(localRecords)) throw new Error('The local demo bundle needs rebuilding.');
-        return Promise.allSettled(localRecords.map(record => Promise.resolve().then(() => checked(record, record.id || 'Record'))));
-    }
-    const url = new URL(indexPath, APP_SCRIPT_URL);
-    const response = await fetch(url,{cache:'no-cache'});
-    if (!response.ok) throw new Error('Library index could not load: ' + response.status);
-    const manifest = await response.json();
-    if (!Array.isArray(manifest[key])) throw new Error('Library index must list ' + key + ' paths.');
-    return Promise.allSettled(manifest[key].map(async path => {
-        const response = await fetch(new URL(path, url),{cache:'no-cache'});
-        if (!response.ok) throw new Error(path + ': HTTP ' + response.status);
-        return checked(await response.json(), path);
-    }));
+function investorList(){const m=model(),ids=new Set(m.sourceList.filter(s=>s.kind==='investor').map(s=>s.profile_id));return [...profiles].sort((a,b)=>Number(ids.has(b.id))-Number(ids.has(a.id))||Number(b.id===state.selectedInvestorIds[0])-Number(a.id===state.selectedInvestorIds[0])||Number(a.comparison_enabled===false)-Number(b.comparison_enabled===false));}
+function renderInvestor(){
+    title('Investor perspective');const items=investorList();investorIndex=Math.min(investorIndex,Math.max(0,items.length-1));const profile=items[investorIndex];
+    byId('investor-count').parentElement.hidden=items.length<=1;byId('investor-count').textContent=items.length?(investorIndex+1)+' / '+items.length:'No profiles';byId('investor-name').textContent=profile?.name||'No investor profile available.';
+    const m=model(),connected=profile&&m.sourceList.some(s=>s.kind==='investor'&&s.profile_id===profile.id),selected=profile?.id===state.selectedInvestorIds[0];
+    byId('investor-kind').textContent=connected?(selected?'Connected through your choice':'Library preview · not selected'):profile?.comparison_enabled===false?'Reference only':'No connection documented';
+    byId('investor-focus').textContent=profile?'Entry stage: '+(profile.stage_focus||[]).join(' · '):'This pack has no investor records.';
+    byId('investor-reason').textContent=connected?'Its documented topic connects with the startup lesson.':m.support.interests.some(s=>s.profile_id===profile?.id)?'Relevant interest found; no connected startup lesson.':'No matching interest is encoded for this situation.';
+    byId('choose-investor').hidden=!profile||profile.comparison_enabled===false;byId('choose-investor').disabled=!profile||profile.comparison_enabled===false;byId('choose-investor').textContent=selected?'Clear my choice':'Use this perspective';
+    byId('investor-prev').disabled=investorIndex===0;byId('investor-next').disabled=investorIndex>=items.length-1;byId('investor-details').disabled=!profile;
 }
-
-async function loadStartupSnapshots() {
-    const errors = [];
-    try {
-        const loaded = await readLibrary('../data/startup-library.json', 'snapshots', validateStartupSnapshot, packagedData?.snapshots);
-        demoSnapshots = loaded.filter(result => result.status === 'fulfilled').map(result => result.value);
-        loaded.filter(result => result.status === 'rejected').forEach(result => errors.push(result.reason.message));
-    } catch (error) { errors.push(error.message); }
-    snapshotsLoading = false;
-    if (errors.length) renderValidationErrors(errors,document.getElementById('snapshot-errors'));
-    refreshSnapshotLibrary();
-    renderPreparation();
+function snapshotList(){
+    const related=new Set(model().connectedSnapshots.map(snapshot=>snapshot.id));
+    return [...snapshots.filter(snapshot=>related.has(snapshot.id)),...snapshots.filter(snapshot=>!related.has(snapshot.id))];
 }
-
-function refreshSnapshotLibrary() {
-    startupSnapshots=state.activeLibrary==='research'?researchRecords(state.researchLibrary).snapshots:demoSnapshots;
-    renderStartupSnapshots(startupSnapshots, document.getElementById('snapshot-list'));
-    renderSnapshotOverview(startupSnapshots,document.getElementById('snapshot-overview'));
-    const select = document.getElementById('snapshot-select');
-    const previous=select.value;
-    select.replaceChildren();
-    startupSnapshots.forEach(snapshot => select.add(new Option(snapshot.company + ' · ' + snapshot.snapshot_date,snapshot.id)));
-    if(startupSnapshots.some(snapshot=>snapshot.id===previous))select.value=previous;
-    if (startupSnapshots.length && !select.value) select.value=startupSnapshots[0].id;
-    document.getElementById('snapshot-status').textContent = startupSnapshots.length +(state.activeLibrary==='research'?(state.researchLibrary.dataset_kind==='fictional'?' imported fictional snapshots. Invented examples only.':' research snapshots. Review their dated sources and limitations.'):' fictional scenarios. Dates and quantities are invented; unknowns remain unknown.');
-    renderHistoricalContrast();
+function renderSnapshot(){
+    title('Startup example');const items=snapshotList();snapshotIndex=Math.min(snapshotIndex,Math.max(0,items.length-1));const s=items[snapshotIndex],relevant=model().connectedSnapshots.some(snap=>snap.id===s?.id);
+    byId('startup-count').parentElement.hidden=items.length<=1;byId('startup-count').textContent=items.length?(snapshotIndex+1)+' / '+items.length:'No snapshots';byId('startup-name').textContent=s?.company||'No startup example available.';
+    byId('startup-kind').textContent=relevant?'Related to this move':'Browsing only · no matching lesson';byId('startup-date').textContent=s?'Snapshot · '+s.snapshot_date:'';
+    byId('startup-action').textContent=short(s?.fields?.product?.value||'The pack does not document what it built.',160);
+    byId('startup-limit').textContent=pack.dataset_kind==='fictional'?'Invented scenario; no real outcome evidence.':'Dated evidence; later success does not prove this approach worked.';
+    byId('startup-details').disabled=!s;byId('startup-prev').disabled=snapshotIndex===0;byId('startup-next').disabled=snapshotIndex>=items.length-1;
 }
-
-function allProfiles() {
-    // Imports replace the active library; legacy saved profiles are never implicitly activated.
-    return state.activeLibrary==='research'?researchRecords(state.researchLibrary).profiles.map(normalizeProfile):bundledProfiles;
-}
-
-function persist() {
-    try {
-        saveState(state);
-        lastPersistFailed=false;
-        return true;
-    } catch {
-        lastPersistFailed=true;
-        document.getElementById('save-status').textContent = 'Changes are available for this session, but browser storage could not save them.';
-        return false;
-    }
-}
-
-function render() {
-    const profiles = allProfiles();
-    const comparable = profiles.filter(p => p.comparison_enabled !== false);
-    const filters = {
-        'filter-funding': profiles.map(p => p.funding_type),
-        'filter-stage': profiles.flatMap(p => p.stage_focus),
-        'filter-sector': profiles.flatMap(profileSectors),
-        'report-filter-funding': comparable.map(p => p.funding_type),
-        'report-filter-stage': comparable.flatMap(p => p.stage_focus),
-        'report-filter-sector': comparable.flatMap(profileSectors)
-    };
-    for (const [id, values] of Object.entries(filters)) {
-        const control = document.getElementById(id);
-        const selectedValue = control.value;
-        control.replaceChildren(new Option('All', ''));
-        [...new Set(values)].sort().forEach(value => control.add(new Option(value.replaceAll('-', ' ').replaceAll('_', ' '), value)));
-        if (values.includes(selectedValue)) control.value = selectedValue;
-    }
-    renderBrowser();
-    document.getElementById('library-status').textContent = libraryLoading
-        ? 'Loading the bundled library…'
-        : profiles.length + (state.activeLibrary==='research'?(usesResearchData()?' research profiles. Review sources and publisher license notices.':' imported fictional profiles. Invented preferences only.'):' profiles available. These are original fictional examples with invented weights.')+' Reference-only profiles are excluded from comparisons.';
-
-    const select = document.getElementById('analyze-target-select');
-    const selected = select.value;
-    select.replaceChildren(new Option('All comparable profiles (' + comparable.length + ')', ''));
-    comparable.forEach(p => select.add(new Option(p.name, p.id)));
-    if (comparable.some(p => p.id === selected)) select.value = selected;
-    renderAnalysis();
-    renderPreparation();
-    renderLibraryManager();
-}
-
-function previewField(parent,label,text,url) {
-    const line=document.createElement('p');
-    const strong=document.createElement('strong');strong.textContent=label+': ';line.append(strong);
-    const value=document.createElement(url?'a':'span');value.textContent=text;
-    if(url){value.href=url;value.target='_blank';value.rel='noopener noreferrer';}
-    line.append(value);parent.append(line);
-}
-
-function renderResearchPreview() {
-    const container=document.getElementById('research-preview');container.replaceChildren();
-    document.getElementById('activate-research').hidden=!pendingResearch;
-    document.getElementById('cancel-research').hidden=!pendingResearch;
-    if(!pendingResearch&&!state.researchLibrary)return;
-    const box=document.createElement('div');box.className='library-preview';
-    const p=pendingResearch||state.researchLibrary;
-    const records=researchRecords(p);
-    if(p.schema_version===2){
-        previewField(box,'Provider',p.provider.name+' · '+p.provider.id,p.provider.url||undefined);
-        previewField(box,'Dataset',p.dataset_kind==='fictional'?'Fictional Guide Pack · invented records':'Research records · inspect sources and limits');
-        previewField(box,'Components',p.components.matching.rules.length+' matching rules · '+p.components.suggestions.length+' suggestion texts');
-        previewField(box,'Investor topics',p.components.matching.investor_topics.length+' declared topic connections. Without a matching investor topic, a rule cannot yield an investor-linked move.');
-        for(const key of ['research','matching','suggestions'])previewField(box,'Provider-declared '+key+' quality',p.quality[key].status+' · '+(p.quality[key].reviewed_date||'No evaluation date')+' · '+p.quality[key].statement);
-        previewField(box,'Review limits','Provider identity and quality declarations are not independently verified. A valid package is compatible, not certified accurate or useful. Rules use app-owned operators; imported code is never run.');
-        const cases=p.components.matching.evaluation_cases||[];
-        if(cases.length){
-            const report=evaluateMatchingCases(cases,records.profiles,records.snapshots);
-            previewField(box,'Provider self-tests',report.passed+' of '+report.total+' expectations matched · '+report.failed+' differ. These are provider-authored tests, not independent accuracy ratings. They use supplied examples, not your saved startup.');
-            previewField(box,'Test coverage',report.positive+' expect suggestions · '+report.negative+' expect none.'+(!report.positive?' No positive-match cases are included.':''));
-            const checks=document.createElement('details');const heading=document.createElement('summary');heading.textContent='Inspect expected and actual results';checks.append(heading);
-            const titles=ids=>ids.length?ids.map(id=>p.components.suggestions.find(s=>s.id===id)?.title||id).join('; '):'No investor-linked suggestion';
-            for(const result of report.results){
-                previewField(checks,result.name,result.passed?'Matches expectation':'Differs from expectation');
-                const input=cases.find(item=>item.id===result.id);
-                previewField(checks,'Case situation',[input.startup.business_model,input.startup.current_stage,input.startup.validation_focus].map(value=>value||'Unknown').join(' · ')+' · sectors: '+(input.startup.sectors.join(', ')||'Unknown'));
-                previewField(checks,'Case investor lens',input.investor_ids.length?input.investor_ids.map(id=>records.profiles.find(profile=>profile.id===id).name).join('; '):'Unselected lens · active-library preview');
-                previewField(checks,'Expected',titles(result.expected));previewField(checks,'Actual',titles(result.actual));previewField(checks,'Provider rationale',result.rationale);
-            }
-            box.append(checks);
-            if(report.failed)previewField(box,'Check differences','This package is structurally compatible, but some provider expectations differ from the app. Review the cases before deciding whether to activate it.');
-        }else previewField(box,'Provider self-tests','Not supplied. Compatibility is not evidence of matching quality.');
-    }else previewField(box,'Provider','Legacy v1 package · provider and quality metadata not supplied');
-    previewField(box,pendingResearch?'Preview':p.schema_version===2?'Installed Guide Pack':'Installed legacy Guide Pack',p.name+' · '+p.version+' · updated '+p.updated_date);
-    previewField(box,'Contents',records.profiles.length+' investor profiles · '+records.snapshots.length+' startup snapshots');
-    previewField(box,'Repository',p.repository_url || 'Local package · no repository URL',p.repository_url || undefined);
-    previewField(box,'Declared license',p.license.id,p.license.url);
-    previewField(box,'License scope',p.license.scope);
-    previewField(box,'Publisher notice',p.license.notice);
-    previewField(box,'Publisher-declared rights review',p.rights_review.reviewed_date+' · '+p.rights_review.statement);
-    const sources=[...new Set([...records.profiles.flatMap(profile=>[profile.source_url,...(profile.preparation_topics||[]).map(topic=>topic.source_url)]),...records.snapshots.flatMap(snapshot=>snapshot.sources.map(source=>source.url))])];
-    const details=document.createElement('details');const summary=document.createElement('summary');summary.textContent='Review '+sources.length+' source link(s)';details.append(summary);
-    sources.forEach(url=>previewField(details,'Source',url,url));box.append(details);
-    previewField(box,'Use and limitations','Review the declared terms for your intended use. Validation checks structure, not accuracy or legal clearance. Each library version keeps separate notes and lens selections.');
-    container.append(box);
-}
-
-function renderLibraryManager() {
-    const research=state.activeLibrary==='research';const library=state.researchLibrary;const realResearch=usesResearchData();
-    const notice=document.getElementById('active-library-notice');notice.replaceChildren();
-    const title=document.createElement('summary');title.textContent=research?(library.schema_version===2?(library.dataset_kind==='fictional'?'Fictional Guide Pack':'Research Guide Pack'):'Imported research'):'Fictional examples';notice.append(title);
-    const text=document.createElement('p');text.textContent=research?(library.schema_version===2?library.provider.name+' · ':'')+library.name+' '+library.version+' · publisher-declared license: '+library.license.id+'. Review sources; no endorsement or verified outcome is implied.':'Fictional demo. All bundled investor profiles and startup scenarios are invented for practice. ';notice.append(text);
-    if(!research){const link=document.createElement('a');link.href='docs/examples.html';link.textContent='About the examples ↗';text.append(link);}
-    document.getElementById('active-library-name').textContent=research?library.name+' · '+library.version:'Fictional demo';
-    document.getElementById('use-demo-library').hidden=!research;
-    document.getElementById('use-research-library').hidden=!library||research;
-    document.getElementById('remove-research').hidden=!library||researchWorkspaceKey(library)===researchWorkspaceKey(bundledResearch);
-    document.getElementById('use-bundled-research').hidden=research&&researchWorkspaceKey(library)===researchWorkspaceKey(bundledResearch);
-    document.getElementById('demo-scenarios').hidden=research;
-    document.getElementById('imported-records-note').hidden=!library;
-    document.getElementById('compare-investors').textContent='Investors';
-    document.getElementById('compare-snapshots').textContent='Startups';
-    document.getElementById('compare-description').textContent=realResearch?'Research investor focus and dated startup accounts. Review the underlying sources.':'Illustrative investor focus. Example approaches. Sources when you need them.';
-    document.getElementById('investor-comparison-title').textContent=realResearch?'Investor focus, at a glance':'Illustrative investor focus';
-    document.getElementById('investor-library-title').textContent=realResearch?'Research Investor Library':'Fictional Investor Library';
-    document.getElementById('snapshot-comparison-title').textContent=realResearch?'A moment in another startup’s journey':'Explore an invented startup situation';
-    document.getElementById('snapshot-comparison-description').textContent=realResearch?'Dated sources for reflection; an action does not establish what caused an outcome.':'Fictional scenarios for practice. The next step is yours to choose.';
-}
-
-function changeLibrary(mode,library=state.researchLibrary,remove=false) {
-    const status=document.getElementById('research-library-status');
-    if(mode==='research'&&!library){status.textContent='Choose and preview a Guide Pack first.';return false;}
-    if(dirty){status.textContent='Save startup edits before changing libraries.';return false;}
-    const previous={...state};
-    const currentKey=researchWorkspaceKey(state.activeLibrary==='research'?state.researchLibrary:null);
-    const workspaces={...state.libraryWorkspaces,[currentKey]:{taskProgress:state.taskProgress,suggestionChoices:state.suggestionChoices,selectedInvestorIds:state.selectedInvestorIds}};
-    const nextKey=researchWorkspaceKey(mode==='research'?library:null);
-    const work=workspaces[nextKey]||{};
-    Object.assign(state,{activeLibrary:mode,researchLibrary:remove?null:library,libraryWorkspaces:workspaces,
-        taskProgress:work.taskProgress||{},suggestionChoices:work.suggestionChoices||{},selectedInvestorIds:work.selectedInvestorIds||[]});
-    try {saveState(state);} catch {
-        Object.assign(state,previous);status.textContent='Library change was not saved. Browser storage may be full or unavailable. Your active library and notes are unchanged.';return false;
-    }
-    choosingDemo=false;
-    lastPersistFailed=false;pendingResearch=null;importAttempt++;renderResearchPreview();
-    document.getElementById('research-file').value='';
-    refreshSnapshotLibrary();render();
-    status.textContent=remove?'Imported records removed. Saved notes and plans are retained in this browser.':mode==='research'?'Guide Pack activated and saved in this browser.':'Fictional demo restored. Research notes are retained separately.';
-    return true;
-}
-
-function initResearchImport() {
-    const input=document.getElementById('research-file');const status=document.getElementById('research-library-status');
-    input.addEventListener('change',async()=>{
-        const attempt=++importAttempt;pendingResearch=null;renderResearchPreview();
-        const file=input.files?.[0];if(!file)return;
-        status.textContent='Checking the Guide Pack…';
-        try {
-            if(file.size>MAX_RESEARCH_BYTES)throw new Error('Choose a JSON Guide Pack no larger than 5 MB.');
-            const candidate=parseResearchPackage(await file.text());
-            if(attempt!==importAttempt)return;
-            if(state.researchLibrary&&researchWorkspaceKey(candidate)===researchWorkspaceKey(state.researchLibrary)&&researchContentKey(candidate)!==researchContentKey(state.researchLibrary))throw new Error('This library version is already installed with different content. Ask the publisher for a new version.');
-            pendingResearch=candidate;renderResearchPreview();status.textContent='Package validated. Review the preview, then choose Use this Guide Pack. Nothing has been activated yet.';
-        } catch(error) {if(attempt===importAttempt){pendingResearch=null;renderResearchPreview();status.textContent='Import not accepted: '+error.message;}}
+function init(){
+    if(!validation.isValid){byId('fatal-error').hidden=false;byId('fatal-error').textContent='The configured Guide Pack could not load. Restore packs/active-pack.js; see GUIDE.md. '+validation.errors.join(' ');byId('screen-content').hidden=true;return;}
+    state=configuredWorkspace(previous,pack);const records=researchRecords(pack);profiles=records.profiles.map(normalizeProfile);snapshots=records.snapshots;view=state.startup.current_stage?'move':'situation';
+    for(const tab of document.querySelectorAll('[data-view]'))tab.addEventListener('click',()=>go(tab.dataset.view));
+    byId('situation-form').addEventListener('submit',event=>{event.preventDefault();state.startup={...state.startup,business_model:byId('business-model').value,current_stage:byId('current-stage').value,validation_focus:byId('validation-focus').value};if(persist()){snapshotIndex=0;activeTaskId=null;go('move');}});
+    for(const form of document.querySelectorAll('form'))form.addEventListener('input',()=>{unsaved=true;status('Unsaved edits');});
+    button('move-action',beginPlan);
+    button('move-evidence',()=>{const m=model();showDetails('Why this move?',[m.nextAction.reason,m.nextAction.basis,m.pending?.caution||m.task?.caution,...(m.pending?.interpretations||m.task?.interpretations||[]),pack.dataset_kind==='fictional'?'Entirely invented for demonstration.':'Sources support limited facts, not predicted outcomes.'],m.sourceList);});
+    button('investor-details',()=>{const p=investorList()[investorIndex];if(p)showDetails(p.name,[p.profile_basis,p.comparison_enabled===false?'Reference only; excluded from matching.':'Stage and sector focus do not establish eligibility.',...(p.explicit_criteria||[]),...(p.preparation_topics||[]).map(t=>t.statement),p.notes],[{name:p.name,url:p.source_url,retrieved_date:p.retrieved_date},...(p.preparation_topics||[]).map(t=>({...t,url:t.source_url,name:t.topic}))]);});
+    button('startup-details',()=>{const s=snapshotList()[snapshotIndex];if(s)showDetails(s.company,[...Object.entries(s.fields||{}).filter(([,f])=>f.value!=null).map(([key,f])=>key+': '+f.value),...(s.limitations||[])],s.sources);});
+    button('choose-investor',()=>{
+        const p=investorList()[investorIndex];if(!p||p.comparison_enabled===false)return;
+        const oldModel=model(),oldLens=investorLensKey(state.selectedInvestorIds);
+        for(const task of oldModel.tasks){const r=state.taskProgress[task.id];if(r&&r.startupKey===startupEvidenceKey(state.startup)&&(r.taskKey??null)===(task.evidenceKey??null)&&!r.basisLensKey)r.basisLensKey=oldLens;}
+        state.selectedInvestorIds=state.selectedInvestorIds[0]===p.id?[]:[p.id];activeTaskId=null;snapshotIndex=0;if(persist('Investor choice saved.'))go('move');
     });
-    document.getElementById('activate-research').addEventListener('click',()=>{if(pendingResearch)changeLibrary('research',pendingResearch);});
-    document.getElementById('cancel-research').addEventListener('click',()=>{importAttempt++;pendingResearch=null;input.value='';renderResearchPreview();status.textContent='Preview cancelled. Active library unchanged.';});
-    document.getElementById('use-demo-library').addEventListener('click',()=>{
-        if(!changeLibrary('demo'))return;
-        choosingDemo=true;
-        document.getElementById('startup-editor').hidden=true;
-        document.getElementById('workspace-settings').close();navigate('overview');
-        const chooser=document.getElementById('demo-scenarios');chooser.open=true;
-        chooser.scrollIntoView?.({block:'start'});
-        document.getElementById('demo-complete').focus({preventScroll:true});
-    });
-    document.getElementById('use-bundled-research').addEventListener('click',()=>changeLibrary('research',bundledResearch));
-    for(const [id,model,lens] of [['complete','marketplace','demo_discovery'],['investor','hardware','demo_discovery'],['snapshot','marketplace','demo_formation'],['neither','hardware','demo_formation']]){
-        document.getElementById('demo-'+id).addEventListener('click',()=>{
-            if(dirty){navigate('setup');return;}
-            choosingDemo=false;
-            selectInvestorLens([lens]);
-            state.startup={...state.startup,business_model:model,current_stage:'idea',validation_focus:'demand',sectors:[model]};
-            const form=document.getElementById('startup-form');
-            for(const [key,value] of Object.entries(state.startup)){
-                const control=form.elements.namedItem(key);
-                if(control)control.value=Array.isArray(value)?value.join(', '):value==null?'':String(value);
-            }
-            const stored=persist();
-            document.getElementById('startup-editor').hidden=true;
-            document.getElementById('startup-editor-title').textContent='Your situation';
-            document.getElementById('save-startup').textContent='Update workspace';
-            document.getElementById('save-status').textContent=stored?'Demo scenario saved.':'Scenario applies for this session; browser storage could not save it.';
-            document.getElementById('demo-scenarios').open=false;
-            render();navigate('overview');
-            const result=document.getElementById('overview-next-action');
-            result?.parentElement?.scrollIntoView?.({block:'start'});
-            result?.focus({preventScroll:true});
-        });
-    }
-    document.getElementById('use-research-library').addEventListener('click',()=>changeLibrary('research'));
-    document.getElementById('remove-research').addEventListener('click',()=>changeLibrary('demo',null,true));
-    renderResearchPreview();
+    for(const [id,change] of [['investor-prev',-1],['investor-next',1]])button(id,()=>{investorIndex+=change;renderInvestor();});
+    for(const [id,change] of [['startup-prev',-1],['startup-next',1]])button(id,()=>{snapshotIndex+=change;renderSnapshot();});
+    byId('plan-form').addEventListener('submit',event=>{event.preventDefault();savePlan('learn');});
+    button('plan-back',()=>{if(!unsaved||confirm('Leave without saving these edits?')){unsaved=false;step='move';renderMove();}});
+    button('learning-back',()=>{if(!unsaved||confirm('Leave without saving these edits?')){unsaved=false;step='plan';renderMove();}});button('save-learning',()=>savePlan());
+    button('close-details',()=>byId('evidence-dialog').close());
+    byId('evidence-dialog').addEventListener('click',event=>{if(event.target===byId('evidence-dialog')){const r=event.target.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)event.target.close();}});
+    window.addEventListener('beforeunload',event=>{if(unsaved){event.preventDefault();event.returnValue='';}});
+    render();status(state.configuredPackChanged?'Pack content changed. Review saved evidence.':'Saved in this browser.');
+    if('serviceWorker' in navigator&&location.protocol!=='file:')navigator.serviceWorker.register(new URL('../sw.js',APP_SCRIPT_URL),{updateViaCache:'none'}).catch(()=>status('Offline support unavailable.'));
 }
-
-function renderBrowser() {
-    const profiles = allProfiles();
-    const visible = filterProfiles(profiles, {
-        funding: document.getElementById('filter-funding').value,
-        stage: document.getElementById('filter-stage').value,
-        sector: document.getElementById('filter-sector').value
-    });
-    renderLibrary(visible, 'profile-list');
-    document.getElementById('filter-results').textContent = visible.length + ' of ' + profiles.length + ' profiles shown.';
-}
-
-function renderAnalysis() {
-    const container = document.getElementById('report-output');
-    const overview = document.getElementById('report-overview');
-    overview.replaceChildren();
-    renderReportFilterChips();
-    const count = document.getElementById('report-results');
-    count.textContent = '';
-    if (dirty) {
-        container.textContent = 'Your startup has unsaved changes. Update your workspace in Home to update the comparison.';
-        return;
-    }
-    if (!state.startup.current_stage) {
-        container.textContent = 'Complete the three choices in Home to compare them with the investor library.';
-        return;
-    }
-    const profiles = allProfiles().filter(p => p.comparison_enabled !== false);
-    if (!profiles.length) {
-        container.textContent = libraryLoading ? 'Loading investor profiles…' : 'No comparable investor profiles are available. Check the investor library for loading errors or reference-only entries.';
-        return;
-    }
-    const comparison = buildComparison(state.startup, profiles, {
-        profileId: document.getElementById('analyze-target-select').value,
-        funding: document.getElementById('report-filter-funding').value,
-        stage: document.getElementById('report-filter-stage').value,
-        sector: document.getElementById('report-filter-sector').value,
-        focus: document.getElementById('report-filter-focus').value
-    }, document.getElementById('report-group').value);
-    count.textContent = comparison.results.length + ' of ' + comparison.total + ' profiles';
-    renderComparison(state.startup, comparison.results, container, comparison.groups, overview);
-}
-
-function renderPreparation() {
-    const board=document.getElementById('preparation-board');
-    const overview=document.getElementById('preparation-overview');
-    const status=document.getElementById('preparation-status');
-    const suggestionContainer=document.getElementById('preparation-suggestions');
-    board.replaceChildren();overview.replaceChildren();suggestionContainer.replaceChildren();
-    const otherExercises=document.getElementById('other-exercises');otherExercises.replaceChildren();otherExercises.hidden=true;
-    renderOverview();
-    if (dirty) { status.textContent='Save startup edits to refresh preparation tasks.';return; }
-    if (!state.startup.current_stage) { status.textContent='Complete the three choices in Home to explore your next moves.';return; }
-    if (libraryLoading) { status.textContent='Loading source profiles for preparation checks…';return; }
-    const model=workspaceModel();
-    const suggestions=model.suggestions;
-    const preview=!model.lensCount&&model.libraryPreview.length>0;
-    suggestionContainer.hidden=!preview&&!suggestions.length&&!snapshotsLoading&&model.support.kind!=='investor_only';
-    renderHistoricalSuggestions(preview?model.libraryPreview:suggestions,suggestionContainer,(id,decision)=>{
-        const suggestion=suggestions.find(item=>item.id===id);
-        state.suggestionChoices[id]={decision,startupKey:startupEvidenceKey(state.startup),evidenceKey:suggestion.evidenceKey};
-        const stored=persist();
-        renderPreparation();
-        document.getElementById('preparation-status').textContent=stored?(decision==='accepted'?'Plan created. Adapt it below.':decision==='dismissed'?'Example dismissed for this situation.':'Example ready to review.'):'Choice applies for this session; browser storage could not save it.';
-        if(decision==='accepted'){
-            document.getElementById('other-exercises').open=false;
-            openTaskEditor(suggestion.targetTaskId);
-        }
-        else document.getElementById('preparation-status').focus();
-    },snapshotsLoading,usesResearchData(),preview?ids=>{
-        selectInvestorLens(ids);
-        const stored=persist();renderPreparation();
-        document.getElementById('preparation-status').textContent=stored?'Investor lens selected. Review the connected move before making an experiment plan.':'Lens selected for this session; browser storage could not save it.';
-    }:null,taskId=>navigate('plan',taskId),model.support);
-    const tasks=model.tasks;
-    status.textContent=model.lensCount
-        ? model.lensCount+' investor profile(s) selected.'
-        : preview?'Review a matching library example.':'Choose a move and record what you learn.';
-    renderPreparationBoard(tasks,board,overview,(id,progress)=>{
-        state.taskProgress[id]={...state.taskProgress[id],...progress,startupKey:startupEvidenceKey(state.startup),taskKey:tasks.find(task=>task.id===id).evidenceKey ?? null,basisLensKey:investorLensKey(state.selectedInvestorIds),...(progress.experiment?{planTitle:state.taskProgress[id]?.planTitle||tasks.find(task=>task.id===id).title}:{}),updatedAt:new Date().toISOString()};
-        const stored=persist();
-        renderPreparation();
-        document.getElementById('preparation-status').textContent=stored?'Task progress saved in this browser.':'Task progress is available for this session; browser storage could not save it.';
-        openTaskEditor(id,{saved:true});
-        document.getElementById('task-save-message-'+encodeURIComponent(id)).textContent=stored?'Progress saved.':'Changes are available for this session, but browser storage could not save them.';
-    },{otherExercises});
-}
-
-function renderReportFilterChips() {
-    const labels = {
-        'analyze-target-select': 'Investor', 'report-filter-funding': 'Funding',
-        'report-filter-stage': 'Stage', 'report-filter-sector': 'Sector',
-        'report-filter-focus': 'Focus', 'report-group': 'Group by'
-    };
-    const active = Object.entries(labels).flatMap(([id, label]) => {
-        const control = document.getElementById(id);
-        return control.value ? [{ id, label: label + ': ' + control.options[control.selectedIndex].textContent }] : [];
-    });
-    renderFilterChips(active, document.getElementById('active-report-filters'), id => {
-        document.getElementById(id).value = '';
-        renderAnalysis();
-        document.getElementById('toggle-report-filters').focus();
-    });
-    document.getElementById('reset-report-filters').hidden = active.length === 0;
-}
-
-async function loadLibrary() {
-    const errors = [];
-    try {
-        const loaded = await readLibrary('../data/library.json', 'profiles', validateInvestorProfile, packagedData?.profiles);
-        bundledProfiles = loaded.filter(result => result.status === 'fulfilled').map(result => normalizeProfile(result.value));
-        loaded.filter(result => result.status === 'rejected').forEach(result => errors.push(result.reason.message));
-    } catch (error) { errors.push(error.message); }
-    libraryLoading = false;
-    if (errors.length) renderValidationErrors(errors, document.getElementById('library-errors'));
-    render();
-}
-
-function init() {
-    initResearchImport();
-    const settings=document.getElementById('workspace-settings');
-    const settingsButton=document.getElementById('open-settings');
-    let returnPosition=null;
-    settingsButton.addEventListener('click',()=>{
-        if(settings.open)return;
-        returnPosition={x:window.scrollX||0,y:window.scrollY||0};
-        settings.showModal();
-        document.documentElement?.classList.add('settings-open');
-        settingsButton.setAttribute('aria-expanded','true');
-        document.getElementById('close-settings').focus();
-    });
-    document.getElementById('close-settings').addEventListener('click',()=>settings.close());
-    settings.addEventListener('close',()=>{
-        document.documentElement?.classList.remove('settings-open');
-        settingsButton.setAttribute('aria-expanded','false');
-        if(choosingDemo){
-            document.getElementById('demo-scenarios').scrollIntoView?.({block:'start'});
-            document.getElementById('demo-complete').focus({preventScroll:true});returnPosition=null;return;
-        }
-        settingsButton.focus({preventScroll:true});
-        if(returnPosition)window.scrollTo?.(returnPosition.x,returnPosition.y);
-    });
-    settings.addEventListener('keydown',event=>{
-        if(event.key!=='Tab')return;
-        const controls=[...settings.querySelectorAll('button, [href], input, select, textarea, summary, [tabindex]:not([tabindex="-1"])')]
-            .filter(control=>!control.disabled&&control.getClientRects().length);
-        const first=controls[0],last=controls.at(-1);
-        if(event.shiftKey&&document.activeElement===first){event.preventDefault();last?.focus();}
-        else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus();}
-    });
-    settings.addEventListener('click',event=>{
-        if(event.target!==settings)return;
-        const bounds=settings.getBoundingClientRect();
-        if(event.clientX<bounds.left||event.clientX>bounds.right||event.clientY<bounds.top||event.clientY>bounds.bottom)settings.close();
-    });
-    document.querySelectorAll('nav button').forEach(button=>{
-        button.addEventListener('click',()=>navigate(button.dataset.view));
-    });
-    document.getElementById('compare-investors').addEventListener('click',()=>setComparison('investors'));
-    document.getElementById('compare-snapshots').addEventListener('click',()=>setComparison('snapshots'));
-    document.querySelectorAll('.brand').forEach(link=>link.addEventListener('click',event=>{event.preventDefault();navigate('overview');}));
-    const form = document.getElementById('startup-form');
-    for (const [key, value] of Object.entries(state.startup)) {
-        if (form.elements.namedItem(key)) form.elements.namedItem(key).value = Array.isArray(value) ? value.join(', ') : value == null ? '' : String(value);
-    }
-    const started=!!state.startup.current_stage;
-    document.getElementById('startup-editor').hidden=started;
-    document.getElementById('startup-editor-title').textContent=started?'Your situation':'Your situation · three choices';
-    document.getElementById('save-startup').textContent=started?'Update workspace':'Show my options';
-    if (started) {
-        for (const key of ['business_model','validation_focus']) if (!state.startup[key]) form.elements.namedItem(key).value='unknown';
-    }
-    const markDirty=()=>{dirty=true;document.getElementById('workspace-state').textContent='Unsaved edits';};
-    form.addEventListener('input',markDirty);
-    form.addEventListener('change',markDirty);
-    form.addEventListener('submit', event => {
-        event.preventDefault();
-        const data = new FormData(form);
-        state.startup = {
-            current_stage: data.get('current_stage'),
-            sectors: String(data.get('sectors') || '').split(',').map(s => s.trim()).filter(Boolean),
-            founders_have_domain_expertise: data.get('founders_have_domain_expertise') === 'true' ? true : data.get('founders_have_domain_expertise') === 'false' ? false : null,
-            prototype_status: data.get('prototype_status') || null,
-            paid_pilots: String(data.get('paid_pilots') || '').trim() === '' ? null : Math.max(0, Number(data.get('paid_pilots')) || 0),
-            business_model: data.get('business_model') || '',
-            validation_focus: data.get('validation_focus') || ''
-        };
-        dirty = false;
-        if (persist()) document.getElementById('save-status').textContent = 'Startup saved. Your workspace is updated.';
-        document.getElementById('startup-editor').hidden=true;
-        document.getElementById('startup-editor-title').textContent='Your situation';
-        document.getElementById('save-startup').textContent='Update workspace';
-        renderAnalysis();
-        renderHistoricalContrast();
-        renderPreparation();
-    });
-    document.getElementById('snapshot-select').addEventListener('change', renderHistoricalContrast);
-    document.getElementById('analyze-target-select').addEventListener('change', renderAnalysis);
-    const reportControls = ['report-filter-funding', 'report-filter-stage', 'report-filter-sector', 'report-filter-focus', 'report-group'];
-    reportControls.forEach(id => document.getElementById(id).addEventListener('change', renderAnalysis));
-    document.getElementById('reset-report-filters').addEventListener('click', () => {
-        [...reportControls, 'analyze-target-select'].forEach(id => { document.getElementById(id).value = ''; });
-        renderAnalysis();
-        document.getElementById('toggle-report-filters').focus();
-    });
-    ['filter-funding', 'filter-stage', 'filter-sector'].forEach(id => {
-        document.getElementById(id).addEventListener('change', renderBrowser);
-    });
-    document.getElementById('reset-filters').addEventListener('click', () => {
-        ['filter-funding', 'filter-stage', 'filter-sector'].forEach(id => { document.getElementById(id).value = ''; });
-        renderBrowser();
-    });
-    document.getElementById('run-analysis-btn').addEventListener('click', renderAnalysis);
-    render();
-    loadLibrary();
-    loadStartupSnapshots();
-}
-
-if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-else init();
-
-if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-    let controlled = !!navigator.serviceWorker.controller;
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-        if (controlled && !dirty) location.reload();
-        controlled = true;
-    });
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register(new URL('../sw.js', APP_SCRIPT_URL), { updateViaCache: 'none' })
-            .catch(error => console.warn('Offline support unavailable:', error));
-    });
-}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 
 })();

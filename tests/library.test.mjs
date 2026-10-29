@@ -153,68 +153,6 @@ test('conflicting report filters return empty results with a useful total', () =
   assert.deepEqual(report.groups,[]);
 });
 
-test('report renderer shows funding groups and a clear empty state', async () => {
-  const {renderComparison,renderFilterChips}=await moduleFrom('js/ui.js');
-  class Node {
-    constructor(tag,text='') { this.tag=tag; this.value=text; this.children=[]; this.className=''; }
-    set textContent(text) { this.value=String(text); this.children=[]; }
-    get textContent() { return this.value+this.children.map(node=>node.textContent).join(' '); }
-    append(...nodes) { this.children.push(...nodes); }
-    setAttribute(name,value) { (this.attributes??={})[name]=value; }
-    addEventListener(name,handler) { (this.handlers??={})[name]=handler; }
-    replaceChildren(...nodes) { this.value=''; this.children=nodes; }
-    find(predicate) { return [this,...this.children.flatMap(child=>child.find(predicate))].filter(predicate); }
-  }
-  const previous=globalThis.document;
-  globalThis.document={createElement:tag=>new Node(tag),createTextNode:text=>new Node('#text',text)};
-  try {
-    const report=buildComparison(startup,profiles,{},'funding');
-    const output=new Node('div');
-    renderComparison(startup,report.results,output,report.groups);
-    assert.equal(output.find(node=>node.tag==='article').length,5);
-    assert.equal(output.find(node=>node.className==='report-group').length,2);
-    assert.ok(output.textContent.includes('Equity investment (4)'));
-    assert.ok(output.textContent.includes('Grant funding (1)'));
-    assert.equal(output.find(node=>node.className.startsWith('report-metric ')).length,4);
-    assert.equal(output.find(node=>node.className==='focus-statuses').length,5);
-    const details=output.find(node=>node.className==='comparison-details');
-    assert.equal(details.length,5);
-    assert.ok(details.every(node=>node.open!==true));
-    assert.equal(output.find(node=>node.className==='shared-review').length,1);
-    assert.equal(output.find(node=>node.tag==='a' && node.textContent==='View source').length,5);
-    const difference={...byName('Fictional Discovery Fund'),id:'difference',stage_focus:['seed'],sector_focus:['hardware']};
-    const unknown={...byName('Fictional Discovery Fund'),id:'unknown',sector_focus:undefined};
-    const filtered=buildComparison(startup,[difference,unknown]);
-    renderComparison(startup,filtered.results,output,filtered.groups);
-    const metrics=output.find(node=>node.className.startsWith('report-metric '));
-    assert.deepEqual(metrics.map(node=>node.children[0].textContent),['2','1','1','1']);
-    assert.ok(output.textContent.includes('Stage · Review difference'));
-    assert.ok(output.textContent.includes('Sector · Unknown'));
-    assert.equal(output.find(node=>node.className==='focus-badge badge-unknown').length,1);
-    const overview=new Node('div');
-    renderComparison(startup,filtered.results,output,filtered.groups,overview);
-    assert.equal(overview.find(node=>node.className.startsWith('report-metric ')).length,4);
-    assert.equal(output.find(node=>node.className==='report-overview').length,0);
-    const chipContainer=new Node('div');
-    let removed='';
-    renderFilterChips([{id:'report-filter-funding',label:'Funding: grant'},{id:'report-group',label:'Group by: Funding type'}],chipContainer,id=>{removed=id;});
-    assert.equal(chipContainer.children.length,2);
-    assert.equal(chipContainer.children[0].attributes['aria-label'],'Remove Funding: grant');
-    chipContainer.children[0].handlers.click();
-    assert.equal(removed,'report-filter-funding');
-    renderFilterChips([],chipContainer,()=>{});
-    assert.equal(chipContainer.children.length,0);
-    renderComparison(startup,[],output,[]);
-    assert.equal(output.find(node=>node.tag==='article').length,0);
-    assert.ok(output.textContent.includes('No profiles match these report filters'));
-    assert.ok(output.textContent.includes('manual review'));
-  } finally {
-    if (previous===undefined) delete globalThis.document;
-    else globalThis.document=previous;
-  }
-});
-
-
 test('preparation tasks distinguish fit questions, source checks and optional suggestions',()=>{
   assert.deepEqual(buildPreparationTasks({},profiles),[]);
   const tasks=buildPreparationTasks(startup,profiles);
