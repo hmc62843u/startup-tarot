@@ -1,5 +1,7 @@
 # User guide
 
+Founder navigation: Situation, Next move, Investor and Startup are the four footer tabs. Research opens from the header or a contextual investigation action on any journey tab. The same Research workspace retains saved research history and optional helper connections; moving its entry point does not delete existing work.
+
 Startup Tarot helps you choose a small experiment and research investors using visible evidence. Planning, investor comparison and shared research retain their own saved work and explicit links.
 
 The initial research screen now assembles evidence, validates structured outputs and saves feedback/revisions. An optional local helper implements ChatGPT OAuth and model requests; real-account sign-in and live reasoning acceptance remain pending. [Research setup](RESEARCH_SETUP.md) gives the exact steps and limitations.

@@ -9,7 +9,7 @@ button:disabled { opacity:.45; cursor:default; }
 button:focus-visible,a:focus-visible,select:focus-visible,textarea:focus-visible { outline:3px solid #8fa86f; outline-offset:3px; }
 a { color:var(--primary); }
 .guide-app { width:min(100%,560px); min-height:100svh; margin:auto; display:flex; flex-direction:column; padding:0 14px; }
-.app-header { min-height:44px; display:flex; align-items:center; gap:8px; font-size:.8rem; border-bottom:1px solid var(--line); }
+.app-header { min-height:44px; display:flex; flex-wrap:wrap; align-items:center; gap:8px; font-size:.8rem; border-bottom:1px solid var(--line); }
 .app-header a { text-decoration:none; background:var(--primary); color:white; font:bold 24px Georgia,serif; border-radius:13px 13px 13px 3px; width:29px; height:30px; text-align:center; }
 .app-header small { margin-left:auto; color:var(--muted); font-size:.65rem; }
 main { flex:1; padding:12px 0 8px; }
@@ -110,4 +110,8 @@ input:focus-visible { outline:3px solid #8fa86f; outline-offset:3px; }
 [data-screen="relationships"] td,[data-screen="relationships"] th { border:1px solid var(--line); padding:6px; text-align:left; }
 [data-screen="relationships"] details { overflow-wrap:anywhere; }
 
-#research-proposal-dialog{width:min(42rem,calc(100% - 2rem));max-height:88vh;overflow:auto;padding:1.25rem;border:1px solid var(--line,#bbb);border-radius:1rem}#research-source-context{max-height:18rem;overflow:auto}footer nav{grid-template-columns:repeat(5,minmax(0,1fr))}#research-mode{border-left:3px solid #6f806a;padding-left:.75rem}
+#research-proposal-dialog{width:min(42rem,calc(100% - 2rem));max-height:88vh;overflow:auto;padding:1.25rem;border:1px solid var(--line,#bbb);border-radius:1rem}#research-source-context{max-height:18rem;overflow:auto}footer nav{grid-template-columns:repeat(4,minmax(0,1fr))}#research-mode{border-left:3px solid #6f806a;padding-left:.75rem}
+
+.header-research { font-size:.75rem; padding:6px 10px; background:none; border-color:transparent; }
+.header-research[aria-pressed=true] { background:var(--teal-light); color:var(--primary); border-color:var(--line); }
+@media(max-width:380px) { .app-header small { order:3; flex-basis:100%; margin-left:0; padding-bottom:4px; } .header-research { margin-left:auto; } }

@@ -235,3 +235,15 @@ test('preview storage wording stays temporary on load and save while normal app 
  assert.ok(preview.html.includes('Save your profile for this temporary preview session only.'));
  assert.equal(startBrowserModel().ids['app-status'].textContent,'Saved in this browser.');
 });
+
+
+test('four footer tabs and header Research share the existing workspace without model calls',()=>{
+ const footer=html.match(/<footer>[\s\S]*?<\/footer>/)[0],header=html.match(/<header class="app-header">[\s\S]*?<\/header>/)[0];
+ assert.deepEqual([...footer.matchAll(/data-view="([^"]+)"/g)].map(m=>m[1]),['situation','move','investor','startup']);
+ assert.ok(header.includes('data-view="research"'));
+ const ui=startBrowserModel();let calls=0;ui.context.fetch=()=>{calls++;throw Error('No automatic model calls');};
+ const research=ui.document.querySelectorAll('[data-view]').find(t=>t.dataset.view==='research');research.click();
+ assert.equal(ui.ids['screen-title'].textContent,'Research a question');assert.equal(research['aria-pressed'],'true');
+ ui.document.querySelectorAll('[data-view]').find(t=>t.dataset.view==='situation').click();assert.equal(research['aria-pressed'],'false');
+ ui.ids['research-situation'].click();assert.equal(ui.ids['screen-title'].textContent,'Research a question');assert.equal(calls,0);
+});

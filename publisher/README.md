@@ -28,7 +28,7 @@ Status: remaining human tests deferred at the operator’s request (2026-10-31),
 
 - With Node, Neo4j and helper stopped, open Publisher locally and load a demo or exported source file.
 - Check counts, source links, unknown warnings and the distinction between real context and hypothetical inputs.
-- Launch preview, visit all five tabs, edit/save a plan and close/reopen it. Check that preview work disappears and source data is unchanged.
+- Launch preview, visit the four footer tabs and header Research workspace, edit/save a plan and close/reopen it. Check that preview work disappears and source data is unchanged.
 - Change source/scenario and confirm the previous preview/review is invalidated. Attempt an unreviewed release and confirm it is rejected.
 - Complete a genuine release review, download the ZIP and extract it. Open browser-package/index.html and test matching and graph queries without any backend. Review notices and source/release identity.
 - In Investor, open Explore investor fit, enter fictional criteria and submit Compare investor criteria. Inspect result explanations and unknowns. Open Profile & sources for the displayed evidence. Relationships & introduction paths opens Relationship research (there is no separate Graph tab): submit Find evidence paths and Analyze included network and inspect results or explained empty states. Leave private contacts empty unless testing them deliberately with invented data.
