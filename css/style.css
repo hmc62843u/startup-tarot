@@ -115,3 +115,7 @@ input:focus-visible { outline:3px solid #8fa86f; outline-offset:3px; }
 .header-research { font-size:.75rem; padding:6px 10px; background:none; border-color:transparent; }
 .header-research[aria-pressed=true] { background:var(--teal-light); color:var(--primary); border-color:var(--line); }
 @media(max-width:380px) { .app-header small { order:3; flex-basis:100%; margin-left:0; padding-bottom:4px; } .header-research { margin-left:auto; } }
+
+.secondary-actions { display:flex; flex-wrap:wrap; align-items:center; gap:4px 16px; margin-top:8px; }
+.secondary-actions .text-button { text-align:left; }
+.investor-perspective { margin-top:16px; }

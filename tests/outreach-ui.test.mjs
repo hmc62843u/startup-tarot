@@ -247,3 +247,14 @@ test('four footer tabs and header Research share the existing workspace without 
  ui.document.querySelectorAll('[data-view]').find(t=>t.dataset.view==='situation').click();assert.equal(research['aria-pressed'],'false');
  ui.ids['research-situation'].click();assert.equal(ui.ids['screen-title'].textContent,'Research a question');assert.equal(calls,0);
 });
+
+
+test('primary investor action compares fit while perspective and evidence stay available',()=>{
+ const ui=startBrowserModel();ui.ids['explore-fit'].click();assert.equal(ui.ids['screen-title'].textContent,'Explore investor fit');
+ compare(ui);const card=ui.ids['fit-results'].children.find(e=>walk(e).some(c=>c.textContent==='Save to shortlist'));
+ const action=walk(card).find(e=>e.textContent==='Save to shortlist'),sources=walk(card).find(e=>e.textContent==='Evidence & dates');
+ assert.equal(action.class,'primary');assert.ok(card.children.indexOf(action)<card.children.findIndex(e=>walk(e).includes(sources)));
+ action.click();assert.equal(action.textContent,'Saved to shortlist');sources.click();assert.equal(ui.ids['evidence-dialog'].open,true);
+ ui.ids['close-details'].click();ui.document.querySelectorAll('[data-view]').find(t=>t.dataset.view==='investor').click();
+ assert.equal(ui.ids['choose-investor'].class,'text-button');assert.ok(ui.ids['investor-details']);assert.ok(ui.ids['research-investor']);assert.ok(ui.ids['open-relationships']);
+});

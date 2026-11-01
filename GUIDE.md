@@ -137,3 +137,5 @@ The implementation uses structured model output followed by deterministic valida
 ## Carry research back into a plan
 
 See [Research across tabs](CONTEXTUAL_RESEARCH.md) for the complete journey. Saved contextual investigations offer Review as experiment. Inspect the cited sources or general-method label, edit the action and expected evidence, then explicitly accept or keep the existing plan. Previous actions and learning remain in acceptance history. Source context and plan applicability are checked again at acceptance; no canonical investor/startup data is edited.
+
+Action hierarchy: Situation leads to Show my next move; Next move leads to the current plan step; Investor leads to Explore investor fit; Startup leads to Compare this example with my situation. Supporting evidence/source and contextual research actions remain visible in labelled groups. Investor perspective selection is separate from fundraising fit. Each fit result places its shortlist action before the supporting evidence link.

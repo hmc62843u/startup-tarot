@@ -43,3 +43,5 @@ Follow [the browser checklist](publisher/README.md#second-lab-browser-pass) and 
 After UI/preview updates, rebuild both demo and Publisher assets and run a fresh rehearsal. Existing preview files do not update automatically; changed preview-engine receipts require fresh review. The latest polish labels temporary preview storage explicitly and presents network summaries as readable text while retaining structured JSON exports.
 
 Navigation polish: the Founder Workspace now has four footer tabs (Situation, Next move, Investor, Startup). Open Research from the header or contextual investigation links. When checking the updated preview, verify both the header action and saved research history; earlier five-footer-tab lab screenshots describe the prior layout.
+
+The current main screens emphasize one next action; evidence/source and contextual research controls remain visible in secondary groups. Investor prioritizes Explore investor fit; choosing a perspective remains a separate secondary action. Refresh the presentation preview after rebuilding to see this hierarchy.

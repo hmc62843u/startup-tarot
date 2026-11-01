@@ -144,9 +144,9 @@ function renderInvestorFit(){
         card.append(node('p','Confirm current availability, full eligibility and portfolio conflicts before outreach.'));
         const sources=node('button','Evidence & dates',{type:'button',class:'text-button'});
         sources.addEventListener('click',()=>showDetails(r.name+' — mandate evidence',['Assessed '+today+'. Claims older than 180 days need review; this is a product policy, not an investor rule.'],r.evidence.map(c=>({name:c.field+' · '+c.basis,statement:c.statement,url:c.source_url,retrieved_date:c.checked_date}))));
-        const save=node('button',outreach.entries.find(e=>e.id===r.id)?.archived?'Restore to shortlist':outreach.entries.some(e=>e.id===r.id)?'Update saved assessment':'Save to shortlist',{type:'button'});
+        const save=node('button',outreach.entries.find(e=>e.id===r.id)?.archived?'Restore to shortlist':outreach.entries.some(e=>e.id===r.id)?'Update saved assessment':'Save to shortlist',{type:'button',class:'primary'});
         save.addEventListener('click',()=>{const next=saveInvestorEntry({...outreach,query:input},input,r,pack.version,new Date().toISOString().slice(0,10));next.entries.find(e=>e.id===r.id).archived=false;if(commitOutreach(next))save.textContent='Saved to shortlist';});
-        card.append(sources,save);container.append(card);
+        const supporting=node('div','',{class:'secondary-actions',role:'group','aria-label':'Investor evidence'});supporting.append(sources);card.append(save,supporting);container.append(card);
     }
 }
 

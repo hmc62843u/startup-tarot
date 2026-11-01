@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f5f2e8">
-<title>Startup Guide</title><link rel="stylesheet" href="css/style.css?v=6a51ab60e063"><link rel="manifest" href="manifest.json"><link rel="icon" href="icons/icon-192.png">
+<title>Startup Guide</title><link rel="stylesheet" href="css/style.css?v=b226f02ad903"><link rel="manifest" href="manifest.json"><link rel="icon" href="icons/icon-192.png">
 </head>
 <body>
 <div class="guide-app">
@@ -20,17 +20,17 @@
         <select id="validation-focus" required><option value="">Choose your next question</option><option value="customer_problem">Understand customer problems</option><option value="demand">Test demand</option><option value="operations">Test service operations</option><option value="technical_feasibility">Test technical feasibility</option><option value="investor_outreach">Explore investor conversations</option><option value="unknown">Not sure yet</option></select>
         <button class="primary" id="save-situation">Show my next move →</button>
       </form>
-      <button id="research-situation" class="text-button" type="button">Investigate my assumptions</button>
+      <div class="secondary-actions" role="group" aria-label="Situation research"><button id="research-situation" class="text-button" type="button">Investigate my assumptions</button></div>
       <p class="muted">Optional research uses your current inputs. Nothing is sent or saved to your plan automatically.</p>
     </section>
     <section data-screen="move" hidden aria-labelledby="screen-title">
-      <button id="research-move" class="text-button" type="button">Research this experiment</button>
       <div data-step="move" class="card move-card">
         <p id="move-kind" class="eyebrow"></p><h2 id="move-title"></h2><p id="move-support" class="support"></p><p id="move-reason"></p>
         <button id="move-action" class="primary">Make a plan</button>
-        <div id="move-links"><button id="move-evidence" class="text-button">Why this fits &amp; sources</button></div>
+
         <small id="support-note" class="muted"></small>
       </div>
+<div id="move-links" class="secondary-actions" role="group" aria-label="Experiment evidence and research"><button id="move-evidence" class="text-button">Why this fits &amp; sources</button><button id="research-move" class="text-button" type="button">Research this experiment</button></div>
       <form id="plan-form">
         <div data-step="plan" hidden class="stack">
           <p id="plan-review" class="review" role="status"></p>
@@ -49,14 +49,13 @@
       <details><summary>Research accepted into this plan</summary><div id="plan-research-history"></div></details>
     </section>
     <section data-screen="investor" hidden aria-labelledby="screen-title">
-      <button id="open-relationships" class="text-button">Relationships &amp; introduction paths</button>
-      <button id="open-research" class="text-button">Research a question</button>
-      <button id="explore-fit" class="text-button">Explore investor fit →</button>
-      <div class="card"><p id="investor-kind" class="eyebrow"></p><h2 id="investor-name"></h2><p id="investor-focus"></p><p id="investor-reason" class="support"></p><button id="choose-investor" class="primary">Use this perspective</button><button id="investor-details" class="text-button">Profile &amp; sources</button><button id="research-investor" class="text-button" type="button">Research this investor</button></div>
+      <button id="explore-fit" class="primary">Explore investor fit →</button>
+      <div class="card investor-perspective"><p id="investor-kind" class="eyebrow"></p><h2 id="investor-name"></h2><p id="investor-focus"></p><p id="investor-reason" class="support"></p><div class="secondary-actions" role="group" aria-label="Investor perspective and evidence"><button id="choose-investor" class="text-button">Use this perspective</button><button id="investor-details" class="text-button">Profile &amp; sources</button><button id="research-investor" class="text-button" type="button">Research this investor</button></div></div>
       <div class="pager"><button id="investor-prev" aria-label="Previous investor">←</button><span id="investor-count"></span><button id="investor-next" aria-label="Next investor">→</button></div>
+      <div class="secondary-actions" role="group" aria-label="Relationship and general research"><button id="open-relationships" class="text-button">Relationships &amp; introduction paths</button><button id="open-research" class="text-button">Research a question</button></div>
     </section>
     <section data-screen="startup" hidden aria-labelledby="screen-title">
-      <div class="card"><p id="startup-kind" class="eyebrow"></p><h2 id="startup-name"></h2><p id="startup-date" class="muted"></p><p id="startup-action"></p><p id="startup-limit" class="support"></p><button id="startup-details" class="text-button">Full snapshot &amp; sources</button><button id="research-startup" class="text-button" type="button">Compare this example with my situation</button></div>
+      <div class="card"><p id="startup-kind" class="eyebrow"></p><h2 id="startup-name"></h2><p id="startup-date" class="muted"></p><p id="startup-action"></p><p id="startup-limit" class="support"></p><button id="research-startup" class="primary" type="button">Compare this example with my situation</button><div class="secondary-actions" role="group" aria-label="Startup evidence"><button id="startup-details" class="text-button">Full snapshot &amp; sources</button></div></div>
       <div class="pager"><button id="startup-prev" aria-label="Previous startup">←</button><span id="startup-count"></span><button id="startup-next" aria-label="Next startup">→</button></div>
     </section>
     <section data-screen="fit" hidden aria-labelledby="screen-title">
@@ -204,5 +203,5 @@
     <div class="row"><button type="submit" class="primary">Accept and save experiment</button><button id="research-proposal-cancel" type="button">Keep existing plan</button></div>
   </form>
 </dialog>
-<script src="packs/active-pack.js"></script><script src="packs/relationships.js"></script><script defer src="js/app.bundle.js?v=6a51ab60e063"></script>
+<script src="packs/active-pack.js"></script><script src="packs/relationships.js"></script><script defer src="js/app.bundle.js?v=b226f02ad903"></script>
 </body></html>
