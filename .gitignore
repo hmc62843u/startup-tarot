@@ -27,3 +27,6 @@ node_modules/
 
 # Bulk source collections stay local; only reviewed fixtures are distributed.
 /dataset/
+
+# Copied lab evidence remains local; publish only curated/redacted documentation.
+/founder-browser-*/

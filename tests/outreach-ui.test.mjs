@@ -210,3 +210,28 @@ test('a failed plan save retains both the old plan and the editable proposal',()
  const setItem=ui.context.localStorage.setItem;ui.context.localStorage.setItem=(key,value)=>{if(key==='founder_gap_data')throw new Error('quota');setItem(key,value);};ui.ids['research-proposal-form'].emit('submit');
  assert.equal(ui.data.get('founder_gap_data'),before);assert.equal(ui.ids['research-proposal-action'].value,'My unsaved proposal');assert.equal(ui.ids['research-proposal-dialog'].open,true);assert.ok(ui.ids['research-proposal-status'].textContent.includes('Could not save'));
 });
+
+
+test('network summary explains included evidence and retains machine-readable export',async()=>{
+ const ui=startBrowserModel();ui.ids['open-relationships'].click();ui.ids['network-analyze'].click();
+ const text=walk(ui.ids['network-results']).map(e=>e.textContent).join('\n');
+ assert.ok(text.includes('Documented same-round co-investment: 1 investor connection'));
+ assert.ok(text.includes('Coverage is incomplete.'));assert.ok(!text.includes('Coverage: {'));assert.ok(!text.includes('same_round |'));
+ const exportButton=walk(ui.ids['network-results']).find(e=>e.textContent==='Export this public/demonstration analysis');exportButton.click();
+ const result=JSON.parse(await ui.downloads.at(-1).text());assert.equal(result.projection,'same_round');assert.equal(result.links.length,1);assert.equal(result.coverage.complete,false);
+ const sample=JSON.parse(await readFile(new URL('enterprise/fixtures/openfor-research.json',root),'utf8'));
+ const empty=startBrowserModel(new Map(),false,{pack:sample.pack,relationships:{research:sample.relationships,fictional:null}});empty.ids['open-relationships'].click();empty.ids['network-analyze'].click();
+ assert.ok(walk(empty.ids['network-results']).some(e=>e.textContent.startsWith('No investor pairs share a documented round')));
+});
+
+test('preview storage wording stays temporary on load and save while normal app stays persistent',async()=>{
+ const {buildPublisher}=await import('../tools/build-publisher.mjs'),{publisherInput,publisherPreview}=await import('../publisher/core.js');
+ const built=await buildPublisher({local:false}),context={};vm.runInNewContext(await readFile((await import('node:path')).resolve(built.output,'template.js'),'utf8'),context);
+ const template=context.STARTUP_PUBLISHER_TEMPLATE,preview=await publisherPreview(template,publisherInput(template.samples.fictional));
+ const scripts=[...preview.html.matchAll(/<script>([\s\S]*?)<\/script>/g)];
+ const ui=startBrowserModel(new Map(),false,{html:preview.html,bundle:scripts.at(-1)[1],pack:template.samples.fictional.pack});
+ assert.ok(ui.ids['app-status'].textContent.includes('Temporary preview'));
+ ui.ids['save-fit-profile'].click();assert.ok(ui.ids['app-status'].textContent.includes('Temporary preview'));
+ assert.ok(preview.html.includes('Save your profile for this temporary preview session only.'));
+ assert.equal(startBrowserModel().ids['app-status'].textContent,'Saved in this browser.');
+});

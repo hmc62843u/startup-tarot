@@ -18,7 +18,7 @@ let state,profiles=[],snapshots=[],view='situation',step='move',investorIndex=0,
 const short=(value,n=145)=>String(value||'').length>n?String(value).slice(0,n).replace(/\s+\S*$/,'')+'…':String(value||'');
 const model=()=>leanModel(state,profiles,snapshots);
 const node=(tag,text,attrs={})=>{const el=document.createElement(tag);el.textContent=text;for(const [key,value] of Object.entries(attrs))el.setAttribute(key,value);return el;};
-function status(text,error=false){byId('app-status').textContent=text;byId('app-status').classList.toggle('error',error);}
+function status(text,error=false){const preview=typeof PREVIEW_SESSION!=='undefined'&&PREVIEW_SESSION;byId('app-status').textContent=preview&&!error?(text==='Saved in this browser.'?'Temporary preview — changes are not saved between sessions.':text+' · Temporary preview only.'):text;byId('app-status').classList.toggle('error',error);}
 function persist(message='Saved in this browser.'){
     try{const saved=workspaceForSave(state,previous);saveState(saved);state.libraryWorkspaces=saved.libraryWorkspaces;unsaved=false;status(message);return true;}
     catch{status('Could not save. Keep this tab open and try again.',true);return false;}

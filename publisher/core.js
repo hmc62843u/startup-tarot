@@ -45,7 +45,7 @@ function scenarioSeed(envelope,scenario){
 }
 export async function publisherPreview(template,envelope,scenario=null){
  validatePublishingEnvelope(envelope);const files=configuredFiles(template,envelope),seed=scenarioSeed(envelope,scenario);
- const shim='const previewMemory=new Map('+JSON.stringify(seed)+');const localStorage={getItem:k=>previewMemory.get(k)??null,setItem:(k,v)=>previewMemory.set(k,String(v)),removeItem:k=>previewMemory.delete(k)};const location={protocol:"file:",hostname:""};const confirm=()=>true;\n';
+ const shim='const PREVIEW_SESSION=true;const previewMemory=new Map('+JSON.stringify(seed)+');const localStorage={getItem:k=>previewMemory.get(k)??null,setItem:(k,v)=>previewMemory.set(k,String(v)),removeItem:k=>previewMemory.delete(k)};const location={protocol:"file:",hostname:""};const confirm=()=>true;\n';
  let code=decoder.decode(files.get('js/app.bundle.js')).replace('"use strict";','"use strict";\n'+shim);
  const notice='FOUNDER PREVIEW - not approved for distribution. Temporary in-memory work; navigation may discard unsaved edits. Live helper and backend connections disabled.';
  const banner='<aside role="note" style="font-size:.8rem;padding:6px 0;border-bottom:1px solid #ddd"><details><summary>FOUNDER PREVIEW · Unapproved · '+(scenario?'Fictional scenario · ':'')+'Details</summary><p>'+notice+'</p><p>'+htmlEscape(envelope.organization+' / '+envelope.revision)+'</p>'+(scenario?'<p>ILLUSTRATIVE: '+htmlEscape(scenario.title)+'</p><pre style="white-space:pre-wrap">'+htmlEscape(asJSON(scenario.assumptions))+'</pre>':'')+'</details></aside>';
@@ -53,6 +53,7 @@ export async function publisherPreview(template,envelope,scenario=null){
  const scriptSafe=s=>s.replace(/<\/script/gi,'<\\/script');
  html=html.replace(/<link[^>]+href="css\/style\.css[^>]*>/,'<style>'+decoder.decode(files.get('css/style.css')).replace(/<\/style/gi,'<\\/style')+'</style>');
  for(const path of ['packs/active-pack.js','packs/relationships.js','js/app.bundle.js']){const escaped=path.replaceAll('.','\\.').replaceAll('/','\\/');html=html.replace(new RegExp('<script[^>]+src="'+escaped+'[^\"]*"[^>]*><\\/script>'),()=>'<script>'+scriptSafe(path==='js/app.bundle.js'?code:decoder.decode(files.get(path)))+'</script>');}
+ html=html.replace('Save your profile to keep it in this browser.','Save your profile for this temporary preview session only.');
  html=html.replace('<main id="screen-content">',banner+'<main id="screen-content">');
  html=html.replace('<head>','<head><meta http-equiv="Content-Security-Policy" content="default-src \'none\'; script-src \'unsafe-inline\'; style-src \'unsafe-inline\'; img-src data:; connect-src \'none\'; frame-src \'none\'; base-uri \'none\'; form-action \'none\'">');
  return {html,source_hash:await publisherHash(asJSON(envelope)),scenario_id:scenario?.id||null};

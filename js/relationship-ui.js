@@ -71,7 +71,12 @@ export function initRelationshipUi({byId,node,status,go,pack,profiles,fitInput,m
   byId('network-analyze').addEventListener('click',()=>{
     const area=byId('network-results');area.replaceChildren();
     try{const data=current();if(!data)throw new Error('No selected relationship dataset.');const result=analyzeInvestorNetwork(data,{...options(),projection:byId('network-projection').value});
-      area.append(node('p',(data.dataset_kind==='fictional'?'FICTIONAL topology. ':'')+result.projection+' | '+result.links.length+' projected links | '+result.components.length+' components'),node('p','Coverage: '+JSON.stringify(result.coverage)),node('p','Omitted edges: '+JSON.stringify(result.omitted)));
+      const label=result.projection==='same_round'?'Documented same-round co-investment':'Shared-company overlap across rounds';
+      const coverage=result.coverage,omitted=Object.entries(result.omitted);
+      area.append(node('p',(data.dataset_kind==='fictional'?'Fictional network demonstration. ':'')+label+': '+result.links.length+' investor '+(result.links.length===1?'connection':'connections')+' across '+result.components.length+' network '+(result.components.length===1?'group.':'groups.')),
+        node('p','Included evidence: '+coverage.investors+' investors, '+coverage.known_rounds+' known rounds and '+coverage.known_companies+' known companies. Coverage is incomplete.'),node('p',coverage.scope),
+        node('p',omitted.length?'Relationships omitted by the selected filters: '+omitted.map(([reason,count])=>count+' ('+reason.replaceAll('_',' ')+')').join('; ')+'.':'No relationships were omitted by the selected filters.'));
+      if(!result.links.length)area.append(node('p',result.projection==='same_round'?'No investor pairs share a documented round in the included evidence. This does not mean they have never invested together.':'No investor pairs share a documented company in the included evidence. Missing records may hide connections.'));
       for(const warning of result.warnings)area.append(node('p',warning));
       const table=node('table',''),head=node('tr','');for(const title of ['Investor','Degree','Normalized betweenness'])head.append(node('th',title));table.append(head);
       for(const metric of result.metrics){const row=node('tr','');for(const value of [metric.name,String(metric.degree),metric.betweenness.toFixed(3)])row.append(node('td',value));table.append(row);}area.append(table);
