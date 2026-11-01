@@ -1,0 +1,83 @@
+{
+  "label": "OpenFor demonstration \u2014 synthetic data, not verified OpenFor records",
+  "purpose": "Incubator operator maintenance rehearsal; all organizations, metrics, notes and links below are invented.",
+  "investors": [
+    {
+      "row": "I1",
+      "id": "demo_discovery",
+      "name": "Harbor Hardware Fund (fictional)",
+      "notes": "Explores early industrial and building-automation teams; confirm mandate before use.",
+      "source_date": "2026-10-20"
+    },
+    {
+      "row": "I2",
+      "id": "demo_formation",
+      "name": "Maple AI Seed (fictional)",
+      "notes": "Interested in AI tooling; stage notes conflict and need operator confirmation.",
+      "source_date": null
+    },
+    {
+      "row": "I3",
+      "id": "demo_reference_2",
+      "name": "Sakura Industrial Ventures (fictional)",
+      "notes": "Illustrative industrial investor record.",
+      "source_date": "2026-10-21"
+    },
+    {
+      "row": "I4",
+      "id": "demo_reference_3",
+      "name": "Bridge Research Capital (fictional)",
+      "notes": "Illustrative cross-border investor record.",
+      "source_date": "2026-10-21"
+    },
+    {
+      "row": "I5",
+      "id": "demo_discovery",
+      "name": "Harbor Hardware Fund (fictional)",
+      "notes": "Explores early industrial and building-automation teams; confirm mandate before use.",
+      "source_date": "2026-10-20"
+    }
+  ],
+  "startup_observations": [
+    {
+      "row": "S1",
+      "id": "demo_tools_reservations",
+      "company": "Harbor Equipment Library (fictional)",
+      "monthly_revenue_usd": 12000,
+      "pilot_customers": 3,
+      "source_date": null,
+      "status": "illustrative_unverified"
+    }
+  ],
+  "relationship_observations": [
+    {
+      "row": "R1",
+      "edge_id": "new_unconfirmed_intro",
+      "from": "demo:a",
+      "to": "demo:startup0",
+      "statement": "Operator wonders whether an introduction might exist.",
+      "confirmed": false
+    }
+  ],
+  "conflicts": [
+    {
+      "record_id": "demo_formation",
+      "field": "stage",
+      "values": [
+        "seed",
+        "growth"
+      ],
+      "resolution": "Unresolved; omit these raw stage assertions from canonical claims. Retain only the fixture's separately labelled fictional teaching criteria."
+    }
+  ],
+  "operator_private_notes": [
+    {
+      "record_id": "demo_discovery",
+      "note": "SYNTHETIC_PRIVATE_NOTE_DO_NOT_DISTRIBUTE: fictional internal contact preference."
+    }
+  ],
+  "correction": {
+    "record_id": "demo_discovery",
+    "append_note": "Synthetic correction: current availability must be confirmed before outreach."
+  }
+}

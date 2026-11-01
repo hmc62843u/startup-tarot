@@ -1,11 +1,35 @@
-const CACHE_NAME = 'founder-gap-90d69fbb988f';
+const CACHE_NAME = 'founder-gap-c788a86e478f';
 const APP_FILES = [
   './',
   './index.html',
+  './assets/operator/workspace.jpg',
+  './assets/operator/founder-preview.jpg',
+  './assets/operator/release-files.jpg',
+  './docs/operator-workflow.html',
+  './docs/local-services-launcher.html',
+  './docs/research-publisher.html',
+  './docs/openfor-publisher.html',
   './manifest.json',
   './packs/active-pack.js',
+  './packs/relationships.js',
   './docs/examples.html',
   './docs/guide.html',
+  './docs/methodology.html',
+  './docs/research-plan.html',
+  './docs/research-setup.html',
+  './docs/contextual-research.html',
+  './CONTEXTUAL_RESEARCH.md',
+  './docs/architecture.html',
+  './docs/relationships.html',
+  './docs/distribution-guide.html',
+  './DISTRIBUTION_GUIDE.md',
+  './docs/enterprise-reference.html',
+  './docs/enterprise-acceptance.html',
+  './ENTERPRISE_REFERENCE.md',
+  './enterprise/ACCEPTANCE.md',
+  './RELATIONSHIPS.md',
+  './docs/development.html',
+  './docs/release.html',
   './docs/data-license.html',
   './docs/license.html',
   './LICENSE',
@@ -13,14 +37,21 @@ const APP_FILES = [
   './README.md',
   './EXAMPLES.md',
   './GUIDE.md',
+  './METHODOLOGY.md',
+  './RESEARCH_PLAN.md',
+  './RESEARCH_SETUP.md',
+  './ARCHITECTURE.md',
+  './js/sectors.js',
+  './data/fit-benchmark.json',
   './DEVELOPMENT.md',
+  './LOCAL_RELEASE.md',
   './assets/how-it-works.svg',
   './data/schema.json',
   './data/guide-pack.schema.json',
   './data/guide-pack-v1.schema.json',
   './data/guide-pack-v2.schema.json',
-  './css/style.css?v=90d69fbb988f',
-  './js/app.bundle.js?v=90d69fbb988f',
+  './css/style.css?v=c788a86e478f',
+  './js/app.bundle.js?v=c788a86e478f',
   './data/library.json',
   './data/startup-library.json',
   './icons/icon-192.png',
@@ -46,6 +77,8 @@ self.addEventListener('install', event => {
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
   if (!event.request.url.startsWith(self.registration.scope)) return;
+  const path=new URL(event.request.url).pathname.slice(new URL(self.registration.scope).pathname.length);
+  if(path.startsWith('api/')||path.startsWith('auth/'))return;
 
   event.respondWith((async () => {
     const cache = await caches.open(CACHE_NAME);

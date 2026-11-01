@@ -84,3 +84,30 @@ dialog header h2 { margin:0; font-size:20px; }
 .related-links {display:none;}
 
 .row .primary {width:auto;flex:1;}
+
+#fit-form input { width:100%; min-height:44px; padding:8px; border:1px solid var(--line); border-radius:10px; background:var(--paper); }
+#fit-results .card { margin-top:12px; }
+#fit-results h3 { font-size:.85rem; margin-bottom:4px; }
+#fit-results ul { font-size:.8rem; padding-left:20px; }
+input:focus-visible { outline:3px solid #8fa86f; outline-offset:3px; }
+
+#founder-form input { width:100%; min-height:44px; border:1px solid var(--line); border-radius:10px; padding:8px; background:var(--paper); }
+#shortlist-results .card { margin-top:16px; }
+#shortlist-results textarea { display:block; margin:6px 0 12px; }
+#shortlist-results button { margin:5px 5px 5px 0; }
+#shortlist-results ul { font-size:.8rem; padding-left:20px; }
+
+[data-screen="research"] pre { white-space:pre-wrap; overflow-wrap:anywhere; font-size:.75rem; max-height:32rem; overflow:auto; padding:10px; border:1px solid var(--line); }
+[data-screen="research"] input:not([type="checkbox"]) { width:100%; padding:8px; min-height:44px; border:1px solid var(--line); border-radius:10px; }
+[data-screen="research"] fieldset { border:1px solid var(--line); padding:12px; min-width:0; }
+[data-screen="research"] .row { flex-wrap:wrap; margin:10px 0; }
+#research-history .card { margin:12px 0; }
+
+[data-screen="relationships"] input:not([type="checkbox"]) { width:100%; padding:8px; min-height:44px; border:1px solid var(--line); border-radius:10px; }
+[data-screen="relationships"] .card { margin:12px 0; }
+[data-screen="relationships"] label { display:block; margin:9px 0 5px; }
+[data-screen="relationships"] table { width:100%; border-collapse:collapse; font-size:.75rem; overflow-wrap:anywhere; }
+[data-screen="relationships"] td,[data-screen="relationships"] th { border:1px solid var(--line); padding:6px; text-align:left; }
+[data-screen="relationships"] details { overflow-wrap:anywhere; }
+
+#research-proposal-dialog{width:min(42rem,calc(100% - 2rem));max-height:88vh;overflow:auto;padding:1.25rem;border:1px solid var(--line,#bbb);border-radius:1rem}#research-source-context{max-height:18rem;overflow:auto}footer nav{grid-template-columns:repeat(5,minmax(0,1fr))}#research-mode{border-left:3px solid #6f806a;padding-left:.75rem}

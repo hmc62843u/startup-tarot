@@ -24,7 +24,11 @@ test('every library file is registered, explicitly fictional and linked to a loc
 });
 
 test('styled documentation stays synchronized with source files and supports direct-file navigation',async()=>{
+    const worker=await readFile(new URL('../sw.js',import.meta.url),'utf8');
+    const exporter=await readFile(new URL('../tools/export-release.mjs',import.meta.url),'utf8');
     for(const page of await documentPages()){
+        assert.ok(worker.includes("'./"+page.path+"'"),'Offline help: '+page.path);
+        assert.ok(exporter.includes("'"+page.path+"'"),'Exported help: '+page.path);
         const saved=await readFile(new URL('../'+page.path,import.meta.url),'utf8');
         assert.equal(saved.replace(/css\/style\.css\?v=[a-f0-9]+/g,'css/style.css'),page.html);
         assert.ok(saved.includes('href="../index.html"'));
@@ -83,4 +87,11 @@ test('four-screen documentation and local pack are shipped without obsolete inte
     assert.ok(!exporter.includes('templates/example_fictional.json'));
     const template=JSON.parse(await readFile(new URL('templates/blank_investor.json',root),'utf8'));
     assert.ok(template.source_url.startsWith('./docs/examples.html#'));
+});
+
+
+test('operator walkthrough renders three local screenshots with explicit fictional provenance',async()=>{
+ const page=await readFile(new URL('../docs/operator-workflow.html',import.meta.url),'utf8');
+ for(const name of ['workspace','founder-preview','release-files']){assert.ok(page.includes('src="../assets/operator/'+name+'.jpg"'));const bytes=await readFile(new URL('../assets/operator/'+name+'.jpg',import.meta.url));assert.equal(bytes[0],255);assert.equal(bytes[1],216);}
+ assert.ok(!page.includes('![Research Workspace'));assert.ok(page.includes('documentation viewer'));assert.ok(page.includes('temporary in-memory data service'));
 });

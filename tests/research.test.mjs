@@ -23,7 +23,7 @@ test('included optional research download validates independently of the fiction
     const text=readFileSync(new URL('../packs/guide-pack.json',import.meta.url),'utf8');
     const library=parseResearchPackage(text);
     const records=researchRecords(library);
-    assert.equal(records.profiles.length,9);
+    assert.equal(records.profiles.length,14);
     assert.equal(records.snapshots.length,3);
     assert.equal(records.profiles.filter(p=>p.comparison_enabled===false).length,7);
     assert.equal(library.license.id,'CC-BY-4.0');

@@ -2,9 +2,9 @@
   "schema_version": 2,
   "id": "startup_field_guide_community_facts",
   "name": "Research Guide Pack",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "repository_url": null,
-  "updated_date": "2026-10-26",
+  "updated_date": "2026-10-30",
   "license": {
     "id": "CC-BY-4.0",
     "url": "https://creativecommons.org/licenses/by/4.0/",
@@ -175,7 +175,7 @@
             "UK",
             "selective global"
           ],
-          "check_size_range_usd": "£1M - £3M",
+          "check_size_range_usd": "GBP 1M - GBP 3M (not USD)",
           "criteria_weights": {
             "team_credibility": 0.35,
             "problem_clarity": 0.2,
@@ -198,6 +198,56 @@
           "weight_notes": "Estimated relative emphasis for discussion; not published investor scoring weights and not application requirements.",
           "funding_type": "equity",
           "organization_type": "vc",
+          "fit_claims": [
+            {
+              "field": "stage",
+              "values": [
+                "pre-seed",
+                "seed"
+              ],
+              "strict": true,
+              "statement": "The stated mandate covers pre-seed and seed.",
+              "basis": "declared",
+              "source_url": "https://www.firstminute.capital/about",
+              "checked_date": "2026-10-30"
+            },
+            {
+              "field": "sector",
+              "values": [
+                "technology",
+                "vertical AI applications",
+                "deep tech"
+              ],
+              "strict": false,
+              "statement": "The firm describes a sector-agnostic technology focus, with expertise in vertical AI applications and deep tech. These matching labels are a conservative editorial mapping.",
+              "basis": "declared",
+              "source_url": "https://www.firstminute.capital/about",
+              "checked_date": "2026-10-30"
+            },
+            {
+              "field": "geography",
+              "values": [
+                "Europe",
+                "UK"
+              ],
+              "strict": false,
+              "statement": "Europe and UK are the primary focus, with occasional investments elsewhere.",
+              "basis": "declared",
+              "source_url": "https://www.firstminute.capital/about",
+              "checked_date": "2026-10-30"
+            },
+            {
+              "field": "check",
+              "min": 1000000,
+              "max": 3000000,
+              "currency": "GBP",
+              "strict": false,
+              "statement": "The stated typical investment is GBP 1 million to 3 million.",
+              "basis": "declared",
+              "source_url": "https://www.firstminute.capital/about",
+              "checked_date": "2026-10-30"
+            }
+          ],
           "data_kind": "research"
         },
         {
@@ -400,7 +450,7 @@
             "problem_clarity": 0.3,
             "technical_feasibility": 0.35,
             "market_urgency": 0.1,
-            "traction_evidence": 0
+            "traction_evidence": 0.0
           },
           "explicit_criteria": [
             "Supports high-risk technology R&D with commercial impact.",
@@ -531,6 +581,412 @@
           "source_locator": "Printed page 13 / PDF page 13, Accelerators",
           "review_status": "historical_reference_not_current_mandate",
           "data_kind": "research"
+        },
+        {
+          "id": "hustle_fund_current_001",
+          "name": "Hustle Fund",
+          "data_kind": "research",
+          "source_url": "https://www.hustlefund.vc/faq",
+          "retrieved_date": "2026-10-30",
+          "reviewed_date": "2026-10-30",
+          "stage_focus": [
+            "pre-seed"
+          ],
+          "sector_focus": [
+            "software",
+            "SaaS"
+          ],
+          "geography_focus": [
+            "US",
+            "Canada",
+            "Southeast Asia"
+          ],
+          "check_size_range_usd": "USD 150,000 first check",
+          "criteria_weights": {
+            "team_credibility": 0.2,
+            "problem_clarity": 0.2,
+            "technical_feasibility": 0.2,
+            "market_urgency": 0.2,
+            "traction_evidence": 0.2
+          },
+          "weights_basis": "editor_estimate",
+          "weight_notes": "Equal compatibility placeholders required by the legacy profile format; not investor weights and not used for fundraising fit.",
+          "profile_basis": "Independent limited factual paraphrase of official pages checked 2026-10-30. Category labels are editorial mappings, not full eligibility rules.",
+          "comparison_enabled": true,
+          "funding_type": "equity",
+          "organization_type": "vc",
+          "explicit_criteria": [
+            "Initial investments are pre-seed; later rounds are for existing portfolio companies.",
+            "Software across verticals; capital-intensive businesses are less favored.",
+            "Primary regions are the US, Canada and Southeast Asia.",
+            "The stated initial check is USD 150,000."
+          ],
+          "eligibility_requirements": [
+            "Full-time commitment is required; this comparison does not assess it."
+          ],
+          "anti_criteria": [
+            "Excludes pharmaceuticals, medical devices, art/film projects, land, restaurants, physical retail and traditional brick-and-mortar businesses. These exclusions are not automatically evaluated."
+          ],
+          "notes": "No experiment-topic connection or funding outcome is established. Missing criteria remain unknown. See source links and additional conditions before outreach.",
+          "fit_claims": [
+            {
+              "field": "stage",
+              "values": [
+                "pre-seed"
+              ],
+              "statement": "Initial investments are pre-seed; later rounds are for existing portfolio companies.",
+              "source_url": "https://www.hustlefund.vc/faq",
+              "checked_date": "2026-10-30",
+              "basis": "declared",
+              "strict": true
+            },
+            {
+              "field": "sector",
+              "values": [
+                "software",
+                "SaaS"
+              ],
+              "statement": "Software across verticals; capital-intensive businesses are less favored.",
+              "source_url": "https://www.hustlefund.vc/faq",
+              "checked_date": "2026-10-30",
+              "basis": "declared",
+              "strict": false
+            },
+            {
+              "field": "geography",
+              "values": [
+                "US",
+                "Canada",
+                "Southeast Asia"
+              ],
+              "statement": "Primary regions are the US, Canada and Southeast Asia.",
+              "source_url": "https://www.hustlefund.vc/faq",
+              "checked_date": "2026-10-30",
+              "basis": "declared",
+              "strict": false
+            },
+            {
+              "field": "check",
+              "min": 150000,
+              "max": 150000,
+              "currency": "USD",
+              "statement": "The stated initial check is USD 150,000.",
+              "source_url": "https://www.hustlefund.vc/faq",
+              "checked_date": "2026-10-30",
+              "basis": "declared",
+              "strict": false
+            }
+          ]
+        },
+        {
+          "id": "ada_ventures_current_001",
+          "name": "Ada Ventures",
+          "data_kind": "research",
+          "source_url": "https://www.adaventures.com/partner-with-ada",
+          "retrieved_date": "2026-10-30",
+          "reviewed_date": "2026-10-30",
+          "stage_focus": [
+            "pre-seed"
+          ],
+          "sector_focus": [
+            "climate",
+            "economic empowerment",
+            "healthy ageing"
+          ],
+          "geography_focus": [
+            "UK"
+          ],
+          "check_size_range_usd": "GBP 250,000 to 1,000,000",
+          "criteria_weights": {
+            "team_credibility": 0.2,
+            "problem_clarity": 0.2,
+            "technical_feasibility": 0.2,
+            "market_urgency": 0.2,
+            "traction_evidence": 0.2
+          },
+          "weights_basis": "editor_estimate",
+          "weight_notes": "Equal compatibility placeholders required by the legacy profile format; not investor weights and not used for fundraising fit.",
+          "profile_basis": "Independent limited factual paraphrase of official pages checked 2026-10-30. Category labels are editorial mappings, not full eligibility rules.",
+          "comparison_enabled": true,
+          "funding_type": "equity",
+          "organization_type": "vc",
+          "explicit_criteria": [
+            "Primarily pre-seed, before clear product-market fit.",
+            "UK focus; Ireland and Nordic companies require a UK link. Other locations need confirmation.",
+            "The published first-round check range is GBP 250,000 to 1,000,000.",
+            "Published themes are climate equity, economic empowerment and healthy ageing; labels are editorial mappings."
+          ],
+          "eligibility_requirements": [
+            "Impact and technology defensibility require separate review."
+          ],
+          "anti_criteria": [],
+          "notes": "No experiment-topic connection or funding outcome is established. Missing criteria remain unknown. See source links and additional conditions before outreach.",
+          "fit_claims": [
+            {
+              "field": "stage",
+              "values": [
+                "pre-seed"
+              ],
+              "statement": "Primarily pre-seed, before clear product-market fit.",
+              "source_url": "https://www.adaventures.com/partner-with-ada",
+              "checked_date": "2026-10-30",
+              "basis": "declared",
+              "strict": false
+            },
+            {
+              "field": "geography",
+              "values": [
+                "UK"
+              ],
+              "statement": "UK focus; Ireland and Nordic companies require a UK link. Other locations need confirmation.",
+              "source_url": "https://www.adaventures.com/partner-with-ada",
+              "checked_date": "2026-10-30",
+              "basis": "declared",
+              "strict": false
+            },
+            {
+              "field": "check",
+              "min": 250000,
+              "max": 1000000,
+              "currency": "GBP",
+              "statement": "The published first-round check range is GBP 250,000 to 1,000,000.",
+              "source_url": "https://www.adaventures.com/partner-with-ada",
+              "checked_date": "2026-10-30",
+              "basis": "declared",
+              "strict": false
+            },
+            {
+              "field": "sector",
+              "values": [
+                "climate",
+                "economic empowerment",
+                "healthy ageing"
+              ],
+              "statement": "Published themes are climate equity, economic empowerment and healthy ageing; labels are editorial mappings.",
+              "source_url": "https://www.adaventures.com/",
+              "checked_date": "2026-10-30",
+              "basis": "declared",
+              "strict": false
+            }
+          ]
+        },
+        {
+          "id": "concept_ventures_current_001",
+          "name": "Concept Ventures",
+          "data_kind": "research",
+          "source_url": "https://concept.vc/",
+          "retrieved_date": "2026-10-30",
+          "reviewed_date": "2026-10-30",
+          "stage_focus": [
+            "pre-seed"
+          ],
+          "sector_focus": [],
+          "geography_focus": [],
+          "check_size_range_usd": "Up to USD 1,500,000; lower bound not established",
+          "criteria_weights": {
+            "team_credibility": 0.2,
+            "problem_clarity": 0.2,
+            "technical_feasibility": 0.2,
+            "market_urgency": 0.2,
+            "traction_evidence": 0.2
+          },
+          "weights_basis": "editor_estimate",
+          "weight_notes": "Equal compatibility placeholders required by the legacy profile format; not investor weights and not used for fundraising fit.",
+          "profile_basis": "Independent limited factual paraphrase of official pages checked 2026-10-30. Category labels are editorial mappings, not full eligibility rules.",
+          "comparison_enabled": true,
+          "funding_type": "equity",
+          "organization_type": "vc",
+          "explicit_criteria": [
+            "The firm identifies pre-seed as its initial focus."
+          ],
+          "eligibility_requirements": [
+            "Publishes a maximum first-round check of USD 1,500,000; no lower bound was verified, so automatic check comparison remains unknown.",
+            "Geographic eligibility and sector mandate were not verified from this page."
+          ],
+          "anti_criteria": [],
+          "notes": "No experiment-topic connection or funding outcome is established. Missing criteria remain unknown. See source links and additional conditions before outreach.",
+          "fit_claims": [
+            {
+              "field": "stage",
+              "values": [
+                "pre-seed"
+              ],
+              "statement": "The firm identifies pre-seed as its initial focus.",
+              "source_url": "https://concept.vc/",
+              "checked_date": "2026-10-30",
+              "basis": "declared",
+              "strict": false
+            }
+          ]
+        },
+        {
+          "id": "connect_ventures_current_001",
+          "name": "Connect Ventures",
+          "data_kind": "research",
+          "source_url": "https://www.connectventures.co/",
+          "retrieved_date": "2026-10-30",
+          "reviewed_date": "2026-10-30",
+          "stage_focus": [
+            "pre-seed",
+            "seed"
+          ],
+          "sector_focus": [
+            "AI",
+            "hardware",
+            "automation"
+          ],
+          "geography_focus": [
+            "Europe",
+            "UK"
+          ],
+          "check_size_range_usd": "Unknown individual check; published USD 500,000 to 5,000,000 is a round range",
+          "criteria_weights": {
+            "team_credibility": 0.2,
+            "problem_clarity": 0.2,
+            "technical_feasibility": 0.2,
+            "market_urgency": 0.2,
+            "traction_evidence": 0.2
+          },
+          "weights_basis": "editor_estimate",
+          "weight_notes": "Equal compatibility placeholders required by the legacy profile format; not investor weights and not used for fundraising fit.",
+          "profile_basis": "Independent limited factual paraphrase of official pages checked 2026-10-30. Category labels are editorial mappings, not full eligibility rules.",
+          "comparison_enabled": true,
+          "funding_type": "equity",
+          "organization_type": "vc",
+          "explicit_criteria": [
+            "Describes pre-seed specialization and pre-seed/seed investing; the broad seed label needs confirmation for a new investment.",
+            "Focus combines AI, hardware and automation; a single matching label does not establish thesis fit.",
+            "Invests across Europe from London; UK is an editorial regional mapping."
+          ],
+          "eligibility_requirements": [
+            "Technical founder and product depth need separate review.",
+            "The USD 500,000 to 5,000,000 figure describes rounds led or co-led, not the individual investor check."
+          ],
+          "anti_criteria": [],
+          "notes": "No experiment-topic connection or funding outcome is established. Missing criteria remain unknown. See source links and additional conditions before outreach.",
+          "fit_claims": [
+            {
+              "field": "stage",
+              "values": [
+                "pre-seed",
+                "seed"
+              ],
+              "statement": "Describes pre-seed specialization and pre-seed/seed investing; the broad seed label needs confirmation for a new investment.",
+              "source_url": "https://www.connectventures.co/",
+              "checked_date": "2026-10-30",
+              "basis": "declared",
+              "strict": false
+            },
+            {
+              "field": "sector",
+              "values": [
+                "AI",
+                "hardware",
+                "automation"
+              ],
+              "statement": "Focus combines AI, hardware and automation; a single matching label does not establish thesis fit.",
+              "source_url": "https://www.connectventures.co/",
+              "checked_date": "2026-10-30",
+              "basis": "declared",
+              "strict": false
+            },
+            {
+              "field": "geography",
+              "values": [
+                "Europe",
+                "UK"
+              ],
+              "statement": "Invests across Europe from London; UK is an editorial regional mapping.",
+              "source_url": "https://www.connectventures.co/",
+              "checked_date": "2026-10-30",
+              "basis": "declared",
+              "strict": false
+            }
+          ]
+        },
+        {
+          "id": "boldstart_ventures_current_001",
+          "name": "boldstart ventures",
+          "data_kind": "research",
+          "source_url": "https://boldstart.vc/",
+          "retrieved_date": "2026-10-30",
+          "reviewed_date": "2026-10-30",
+          "stage_focus": [
+            "pre-company",
+            "idea",
+            "pre-seed"
+          ],
+          "sector_focus": [
+            "cybersecurity",
+            "AI infrastructure",
+            "physical AI",
+            "agents"
+          ],
+          "geography_focus": [],
+          "check_size_range_usd": "USD 500,000 to 15,000,000 first check",
+          "criteria_weights": {
+            "team_credibility": 0.2,
+            "problem_clarity": 0.2,
+            "technical_feasibility": 0.2,
+            "market_urgency": 0.2,
+            "traction_evidence": 0.2
+          },
+          "weights_basis": "editor_estimate",
+          "weight_notes": "Equal compatibility placeholders required by the legacy profile format; not investor weights and not used for fundraising fit.",
+          "profile_basis": "Independent limited factual paraphrase of official pages checked 2026-10-30. Category labels are editorial mappings, not full eligibility rules.",
+          "comparison_enabled": true,
+          "funding_type": "equity",
+          "organization_type": "vc",
+          "explicit_criteria": [
+            "Can invest before company formation; inception is editorially mapped to pre-company, idea and pre-seed.",
+            "Published themes include cybersecurity, AI infrastructure, physical AI and agents.",
+            "The published first-check range is USD 500,000 to 15,000,000."
+          ],
+          "eligibility_requirements": [
+            "Technical-founder fit and geographic eligibility require confirmation."
+          ],
+          "anti_criteria": [],
+          "notes": "No experiment-topic connection or funding outcome is established. Missing criteria remain unknown. See source links and additional conditions before outreach.",
+          "fit_claims": [
+            {
+              "field": "stage",
+              "values": [
+                "pre-company",
+                "idea",
+                "pre-seed"
+              ],
+              "statement": "Can invest before company formation; inception is editorially mapped to pre-company, idea and pre-seed.",
+              "source_url": "https://boldstart.vc/",
+              "checked_date": "2026-10-30",
+              "basis": "declared",
+              "strict": false
+            },
+            {
+              "field": "sector",
+              "values": [
+                "cybersecurity",
+                "AI infrastructure",
+                "physical AI",
+                "agents"
+              ],
+              "statement": "Published themes include cybersecurity, AI infrastructure, physical AI and agents.",
+              "source_url": "https://boldstart.vc/",
+              "checked_date": "2026-10-30",
+              "basis": "declared",
+              "strict": false
+            },
+            {
+              "field": "check",
+              "min": 500000,
+              "max": 15000000,
+              "currency": "USD",
+              "statement": "The published first-check range is USD 500,000 to 15,000,000.",
+              "source_url": "https://boldstart.vc/",
+              "checked_date": "2026-10-30",
+              "basis": "declared",
+              "strict": false
+            }
+          ]
         }
       ],
       "snapshots": [

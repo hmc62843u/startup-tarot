@@ -1,0 +1,382 @@
+{
+  "schema_version": 1,
+  "id": "startup_library_relationships",
+  "version": "0.1.0",
+  "dataset_kind": "research",
+  "provider_id": "startup_library",
+  "pack_id": "startup_field_guide_community_facts",
+  "updated_date": "2026-10-30",
+  "coverage": {
+    "complete": false,
+    "scope": "Small curated primary-source examples; not a complete investment network."
+  },
+  "license": {
+    "id": "CC-BY-4.0",
+    "scope": "Original independent factual paraphrases and editorial mappings only; source publications retain their own rights."
+  },
+  "sources": [
+    {
+      "id": "firstminute_about",
+      "url": "https://www.firstminute.capital/about",
+      "title": "firstminute official About page",
+      "published_date": null,
+      "checked_date": "2026-10-30"
+    },
+    {
+      "id": "boldstart_tessl",
+      "url": "https://boldstart.vc/companies/tessl/",
+      "title": "boldstart official Tessl company milestones",
+      "published_date": null,
+      "checked_date": "2026-10-30"
+    },
+    {
+      "id": "yc_airbnbs",
+      "url": "https://www.ycombinator.com/blog/the-airbnbs/",
+      "title": "YC retrospective account: The Airbnbs",
+      "published_date": "2020-12-10",
+      "checked_date": "2026-10-30"
+    },
+    {
+      "id": "airbnb_snapshot_source",
+      "url": "https://paulgraham.com/airbnb.html",
+      "title": "Source retained by the canonical January 2009 Airbnb snapshot",
+      "published_date": "2011-03",
+      "checked_date": "2026-10-30"
+    },
+    {
+      "id": "connect_home",
+      "url": "https://www.connectventures.co/",
+      "title": "Connect official portfolio/home page",
+      "published_date": null,
+      "checked_date": "2026-10-30"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "investor:firstminute_vc_seed_001",
+      "type": "investor",
+      "name": "firstminute capital",
+      "profile_id": "firstminute_vc_seed_001"
+    },
+    {
+      "id": "investor:yc_accelerator_001",
+      "type": "investor",
+      "name": "Y Combinator (2017 government reference)",
+      "profile_id": "yc_accelerator_001"
+    },
+    {
+      "id": "investor:hustle_fund_current_001",
+      "type": "investor",
+      "name": "Hustle Fund",
+      "profile_id": "hustle_fund_current_001"
+    },
+    {
+      "id": "investor:ada_ventures_current_001",
+      "type": "investor",
+      "name": "Ada Ventures",
+      "profile_id": "ada_ventures_current_001"
+    },
+    {
+      "id": "investor:concept_ventures_current_001",
+      "type": "investor",
+      "name": "Concept Ventures",
+      "profile_id": "concept_ventures_current_001"
+    },
+    {
+      "id": "investor:connect_ventures_current_001",
+      "type": "investor",
+      "name": "Connect Ventures",
+      "profile_id": "connect_ventures_current_001"
+    },
+    {
+      "id": "investor:boldstart_ventures_current_001",
+      "type": "investor",
+      "name": "boldstart ventures",
+      "profile_id": "boldstart_ventures_current_001"
+    },
+    {
+      "id": "investor:gv",
+      "type": "investor",
+      "name": "GV (relationship evidence only)",
+      "profile_id": null
+    },
+    {
+      "id": "startup:tessl",
+      "type": "startup",
+      "name": "Tessl"
+    },
+    {
+      "id": "startup:wayve",
+      "type": "startup",
+      "name": "Wayve"
+    },
+    {
+      "id": "startup:mistral",
+      "type": "startup",
+      "name": "Mistral"
+    },
+    {
+      "id": "startup:storyblok",
+      "type": "startup",
+      "name": "Storyblok"
+    },
+    {
+      "id": "startup:n8n",
+      "type": "startup",
+      "name": "n8n"
+    },
+    {
+      "id": "startup:airbnb",
+      "type": "startup",
+      "name": "Airbnb"
+    },
+    {
+      "id": "startup:dust",
+      "type": "startup",
+      "name": "Dust"
+    },
+    {
+      "id": "startup:aikido",
+      "type": "startup",
+      "name": "Aikido"
+    },
+    {
+      "id": "round:tessl_inception_2024",
+      "type": "round",
+      "name": "Tessl inception round (March 2024)",
+      "event_date": "2024-03-08"
+    },
+    {
+      "id": "snapshot:airbnb_2009_01_23",
+      "type": "snapshot",
+      "name": "Airbnb snapshot: 2009-01-23",
+      "snapshot_id": "airbnb_2009_01_23"
+    },
+    {
+      "id": "activity:airbnb_user_visits",
+      "type": "experiment",
+      "name": "Airbnb user visits (documented historical activity)"
+    }
+  ],
+  "edges": [
+    {
+      "id": "firstminute_tessl",
+      "to": "startup:tessl",
+      "type": "invested_in",
+      "basis": "documented",
+      "statement": "firstminute names Tessl among its seed-stage investments.",
+      "source_ids": [
+        "firstminute_about"
+      ],
+      "event_date": null,
+      "valid_from": null,
+      "valid_to": null,
+      "limitations": [
+        "Exact round identity and investment date are not established by this page. Shared company does not establish same-round co-investment."
+      ],
+      "from": "investor:firstminute_vc_seed_001"
+    },
+    {
+      "id": "firstminute_wayve",
+      "to": "startup:wayve",
+      "type": "invested_in",
+      "basis": "documented",
+      "statement": "firstminute names Wayve among its seed-stage investments.",
+      "source_ids": [
+        "firstminute_about"
+      ],
+      "event_date": null,
+      "valid_from": null,
+      "valid_to": null,
+      "limitations": [
+        "Exact round identity and investment date are not established by this page. Shared company does not establish same-round co-investment."
+      ],
+      "from": "investor:firstminute_vc_seed_001"
+    },
+    {
+      "id": "firstminute_mistral",
+      "to": "startup:mistral",
+      "type": "invested_in",
+      "basis": "documented",
+      "statement": "firstminute names Mistral among its seed-stage investments.",
+      "source_ids": [
+        "firstminute_about"
+      ],
+      "event_date": null,
+      "valid_from": null,
+      "valid_to": null,
+      "limitations": [
+        "Exact round identity and investment date are not established by this page. Shared company does not establish same-round co-investment."
+      ],
+      "from": "investor:firstminute_vc_seed_001"
+    },
+    {
+      "id": "firstminute_storyblok",
+      "to": "startup:storyblok",
+      "type": "invested_in",
+      "basis": "documented",
+      "statement": "firstminute names Storyblok among its seed-stage investments.",
+      "source_ids": [
+        "firstminute_about"
+      ],
+      "event_date": null,
+      "valid_from": null,
+      "valid_to": null,
+      "limitations": [
+        "Exact round identity and investment date are not established by this page. Shared company does not establish same-round co-investment."
+      ],
+      "from": "investor:firstminute_vc_seed_001"
+    },
+    {
+      "id": "firstminute_n8n",
+      "to": "startup:n8n",
+      "type": "invested_in",
+      "basis": "documented",
+      "statement": "firstminute names n8n among its seed-stage investments.",
+      "source_ids": [
+        "firstminute_about"
+      ],
+      "event_date": null,
+      "valid_from": null,
+      "valid_to": null,
+      "limitations": [
+        "Exact round identity and investment date are not established by this page. Shared company does not establish same-round co-investment."
+      ],
+      "from": "investor:firstminute_vc_seed_001"
+    },
+    {
+      "id": "boldstart_tessl_inception",
+      "to": "round:tessl_inception_2024",
+      "type": "participated_in",
+      "basis": "documented",
+      "statement": "boldstart co-led the inception round recorded in the official Tessl milestones.",
+      "source_ids": [
+        "boldstart_tessl"
+      ],
+      "event_date": "2024-03-08",
+      "valid_from": null,
+      "valid_to": null,
+      "limitations": [
+        "Milestone date is reported by the investor; the webpage publication date is unknown. No individual check amount is established."
+      ],
+      "from": "investor:boldstart_ventures_current_001"
+    },
+    {
+      "id": "gv_tessl_inception",
+      "to": "round:tessl_inception_2024",
+      "type": "participated_in",
+      "basis": "documented",
+      "statement": "GV co-led the inception round recorded in the official Tessl milestones.",
+      "source_ids": [
+        "boldstart_tessl"
+      ],
+      "event_date": "2024-03-08",
+      "valid_from": null,
+      "valid_to": null,
+      "limitations": [
+        "Milestone date is reported by the investor; the webpage publication date is unknown. No individual check amount is established."
+      ],
+      "from": "investor:gv"
+    },
+    {
+      "id": "tessl_round_company",
+      "to": "startup:tessl",
+      "type": "round_for",
+      "basis": "documented",
+      "statement": "The documented inception round concerns Tessl.",
+      "source_ids": [
+        "boldstart_tessl"
+      ],
+      "event_date": "2024-03-08",
+      "valid_from": null,
+      "valid_to": null,
+      "limitations": [],
+      "from": "round:tessl_inception_2024"
+    },
+    {
+      "id": "yc_airbnb",
+      "to": "startup:airbnb",
+      "type": "invested_in",
+      "basis": "documented",
+      "statement": "YC retrospectively describes Airbnb as a funded participant during its 2009 batch.",
+      "source_ids": [
+        "yc_airbnbs"
+      ],
+      "event_date": null,
+      "valid_from": null,
+      "valid_to": null,
+      "limitations": [
+        "Retrospective publication in 2020. Exact investment day is not established here. This does not establish a current YC mandate."
+      ],
+      "from": "investor:yc_accelerator_001"
+    },
+    {
+      "id": "airbnb_snapshot_identity",
+      "to": "startup:airbnb",
+      "type": "snapshot_of",
+      "basis": "documented",
+      "statement": "The canonical January 23, 2009 snapshot describes Airbnb.",
+      "source_ids": [
+        "airbnb_snapshot_source"
+      ],
+      "event_date": "2009-01-23",
+      "valid_from": null,
+      "valid_to": null,
+      "limitations": [
+        "Snapshot/entity identity mapping from the existing canonical record. Source correspondence was published later."
+      ],
+      "from": "snapshot:airbnb_2009_01_23"
+    },
+    {
+      "id": "airbnb_visits",
+      "to": "activity:airbnb_user_visits",
+      "type": "documents_action",
+      "basis": "documented",
+      "statement": "The snapshot records founders visiting users in New York City.",
+      "source_ids": [
+        "airbnb_snapshot_source"
+      ],
+      "event_date": "2009-01-23",
+      "valid_from": null,
+      "valid_to": null,
+      "limitations": [
+        "A recorded activity, not proof of a successful experiment, causation or transferability."
+      ],
+      "from": "snapshot:airbnb_2009_01_23"
+    },
+    {
+      "id": "connect_dust",
+      "to": "startup:dust",
+      "type": "invested_in",
+      "basis": "documented",
+      "statement": "Connect lists a co-led 2023 seed investment in Dust.",
+      "source_ids": [
+        "connect_home"
+      ],
+      "event_date": null,
+      "valid_from": null,
+      "valid_to": null,
+      "limitations": [
+        "The page gives a year, not an exact event day or complete round participants. It does not support automatic same-round pairing."
+      ],
+      "from": "investor:connect_ventures_current_001"
+    },
+    {
+      "id": "connect_aikido",
+      "to": "startup:aikido",
+      "type": "invested_in",
+      "basis": "documented",
+      "statement": "Connect lists a co-led 2023 seed investment in Aikido.",
+      "source_ids": [
+        "connect_home"
+      ],
+      "event_date": null,
+      "valid_from": null,
+      "valid_to": null,
+      "limitations": [
+        "The page gives a year, not an exact event day or complete round participants. It does not support automatic same-round pairing."
+      ],
+      "from": "investor:connect_ventures_current_001"
+    }
+  ]
+}

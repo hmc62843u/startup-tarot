@@ -20,3 +20,10 @@ node_modules/
 /private/
 /imports/
 /.local/
+
+# Generated standalone Publisher; rebuild from source.
+/publisher/template.js
+/publisher/app.bundle.js
+
+# Bulk source collections stay local; only reviewed fixtures are distributed.
+/dataset/
