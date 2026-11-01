@@ -86,3 +86,10 @@ node tools/rehearse-openfor.mjs --database-config .local/enterprise/neo4j-test.j
 ```
 
 The command leaves live revisions in the dedicated demo organization and closes its own temporary API. Existing access files are not rewritten. See ACCEPTANCE.md for the two successful live runs and restart durability evidence.
+
+
+### Second-machine setup lessons
+
+Assisted fresh-checkout setup passed in the macOS lab with portable Neo4j/JDK, ten live demo checks and service-restart data preservation. See OPENFOR_DEMO.md for the environment and limits. Docker was not used. An unsupported fleet setting required a local configuration correction; its exact key was not supplied, so do not guess a replacement or disable configuration validation. Validate against the installed distribution and record the actual diagnostic/changed key.
+
+During new-demo credential initialization, capture sensitive subprocess output privately and return redacted outcomes. Do not echo generated passwords or raw initialization commands/errors into chat. The lab replaced a generated password exposed by an initialization failure before successful initialization; this is a lesson to prevent recurrence, not a verified code fix to an installer (no installer is provided). Preserve existing initialized credentials. Elevated permission to bind loopback services may be required by the host sandbox; use only the necessary permission and never expose listeners publicly.

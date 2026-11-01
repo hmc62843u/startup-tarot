@@ -54,6 +54,23 @@ Open the extracted browser-package/index.html. Keep the LLM helper stopped and u
 
 An empty result is not automatically a failure: inspect its explanation and whether it agrees with the included data. A successful form render alone does not establish query correctness. For each step, record Pass/Fail/Pending, observed behavior and any screenshot or reproduction steps. Record tester, date/timezone, OS, browser/version and release identity once for the run. Current observations are recorded in enterprise/ACCEPTANCE.md; the rows above remain a reusable test template.
 
+### Second-lab browser pass
+
+Resume actual browser testing on the existing lab setup; do not repeat installation. Update safely to codex/openfor-demo and record the new commit. Build demo and Publisher assets, then run the live synthetic rehearsal using the lab's existing ignored database configuration and dedicated demo organization.
+
+| Check | Exact action / expected observation |
+| --- | --- |
+| Sourced preview navigation | Open founderProposal.preview from the new results.json (not the alpha-only maintenance preview). Visit Situation, Next move, Investor, Startup and Research; confirm compact preview and fictional-scenario labels and no helper connection. |
+| Investor comparison | Investor → Explore investor fit: hardware, pre-seed, Japan, 150000, USD; submit. Expect Monozukuri four-field alignment and Geek insufficient evidence while included dated claims are current under the review policy. If date policy changes that outcome, explain it rather than modifying source dates. Inspect Evidence & dates and Profile & sources. |
+| Historical path | Relationships & introduction paths → Public documented examples; today, no historical cutoff; Y Combinator (2017 government reference) → Airbnb user visits (documented historical activity), max 4, both checkboxes unchecked. Submit Find evidence paths; inspect actual paths and cited evidence below the form. |
+| Network | Submit Analyze included network. Inspect an analysis or explained empty state that agrees with the included data. Missing co-investment edges may correctly produce no network. |
+| Normal app persistence | Separately open the checkout's normal index.html, not preview.html. Use invented founder inputs and Save startup profile/plan; refresh and confirm saved values. Identify that app's pack explicitly: it is the normal research pack, not the separate two-investor preview. |
+| No-backend/offline | Keep helper off. Verify the normal app's local queries without backend dependence. If per-tab offline emulation is available, enable it after loading, refresh and repeat matching/graph queries; restore online afterward. Otherwise record offline Pending, not Pass. Do not interrupt the host's network or unrelated services to fake an offline test. |
+| Usability | Use Tab/Shift+Tab/Enter and a narrow window; check reachability/readability. Record actual viewport/browser and problems. |
+| Presentation | Open all six links in the new presentation.md and rehearse the sequence. Distinguish synthetic maintenance records, sourced founder illustration, live infrastructure, unapproved Publisher handoff and a clean future pilot organization. |
+
+Record each check Pass/Fail/Pending/Blocked with observations, screenshots and reproduction steps. API tests, expected-results files and form render alone are not evidence of a successful browser query. A preview refresh intentionally loses memory. An extracted recipient ZIP test remains a separate pending check if genuine approval is not available; never fill review declarations merely to finish testing. Save later evidence separately from the original maintenance report. No publishing/sending, LLM sign-in or real private-data input is included.
+
 ## Developer build
 
 In the source checkout, run node tools/build-demo.mjs and then node tools/build-publisher.mjs. This rebuilds the local Publisher and creates a ready-to-open release/research-publisher-* folder. Node is a developer build dependency, not a Publisher runtime dependency. This is a static browser tool, not an installable PWA yet.
