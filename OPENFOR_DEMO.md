@@ -1,11 +1,32 @@
 # OpenFor demo: start here
 
-This branch is a reviewable demonstration, not a production release. It contains application source, operator guidance, public-source research examples and clearly labelled synthetic fixtures. It contains no OpenFor private records, local credentials or database installation. The published main baseline is separate.
+This guide on main is the starting point for the OpenFor demonstration; it does not claim production readiness. It contains application source, operator guidance, public-source research examples and clearly labelled synthetic fixtures. It contains no OpenFor private records, local credentials or database installation. The demo workflow is merged into main; the earlier codex/openfor-demo branch is retained for history.
+
+## Copy this into Codex
+
+```text
+Help me set up and run the OpenFor demonstration from:
+https://github.com/hmc62843u/startup-tarot/blob/main/OPENFOR_DEMO.md
+
+Use the main branch rather than the older demo branch. If the repository is not present, help me choose a local folder and clone it. Preserve any existing checkout and local changes. Then use the repository's Research Operator skill and setup guide.
+
+Check prerequisites and explain any necessary installation or permission requests. Preserve existing files, credentials and databases. Keep secrets in ignored local configuration, never in chat or Git.
+
+Build the required assets, open the setup panel inside Codex if supported, and verify Neo4j and Research Workspace readiness. Use CLI guidance if this host has no built-in browser panel.
+
+Run the labelled synthetic demonstration in a dedicated openfor_demo_* organization. Show me the generated five-minute presentation, mapping decisions, checkpoint results and founder preview. Clearly distinguish synthetic data from sourced public context.
+
+Do not import real OpenFor private data, sign into an LLM, approve proposals or distribute anything.
+
+Report what passed, what remains pending and the next useful action. If blocked, explain the specific issue without claiming success. Do not substitute simulated storage for the live demonstration.
+```
+
+The detailed setup below is for Codex and operators who want to inspect the steps. The [operator guide](enterprise/OPERATOR.md) remains the maintained workflow reference.
 
 ## Guided start
 
-1. Clone the codex/openfor-demo branch and open the startup-tarot folder in Codex.
-2. Ask: `$research-operator — follow OPENFOR_DEMO.md. Check this machine, guide local setup, open the setup panel inside Codex and run the synthetic live-storage demo in a dedicated demo organization. Keep credentials local. Do not seed a pilot organization or distribute anything.`
+1. Clone main from https://github.com/hmc62843u/startup-tarot and open the startup-tarot folder in Codex. For an existing checkout, preserve local changes and update main safely; do not reset or overwrite it.
+2. Use the copyable prompt above. Once the project is open, the repository-scoped $research-operator skill guides the remaining steps.
 3. Node 24+ is required. Prepare the ignored Publisher assets once: `node tools/build-demo.mjs`, then `node tools/build-publisher.mjs`. These commands do not install dependencies or start a database.
 4. Follow [launcher setup](enterprise/LAUNCHER.md) for Neo4j (Docker Compose or an existing installation), local password/access configuration and service ownership. Existing credentials/data must be preserved. Paths under .local/enterprise-runtime describe the development machine only; those binaries and secrets are not shipped. The synthetic demo needs a live database; no simulated fallback is used.
 5. Codex runs `node enterprise/operator.mjs setup` and opens its printed URL in this chat's built-in browser panel. Check readiness and use Start services as needed. This native offline setup page is not an OpenUI/MCP app. On hosts without a browser panel, use the CLI. Missing Node must be resolved before the panel can run.

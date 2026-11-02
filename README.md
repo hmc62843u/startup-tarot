@@ -1,6 +1,6 @@
 # Startup Tarot
 
-OpenFor demo branch: start with [guided setup and demonstration](OPENFOR_DEMO.md). This is a local demo, not a production deployment; assisted fresh-checkout setup passed on a second lab machine; unattended installation remains unverified.
+OpenFor demonstration: start with [guided setup and demonstration](OPENFOR_DEMO.md). This is a local demo, not a production deployment; assisted fresh-checkout setup passed on a second lab machine; unattended installation remains unverified.
 
 **Build evidence-backed research for founders using investor criteria and dated startup examples.**
 
