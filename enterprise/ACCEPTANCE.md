@@ -263,3 +263,13 @@ Situation and plan-step primary actions are retained; Investor now emphasizes Ex
 Automated UI checks cover the primary fit action, save/evidence behavior and retained perspective/research controls alongside existing contextual and plan-history checks. Browser layout verification and final test results are recorded separately; this change does not grant distribution approval or complete offline/ZIP acceptance.
 
 Action-hierarchy browser follow-up: at 390px, Investor shows one prominent Explore investor fit action and wrapped secondary groups. Clicking it opens the prefilled fit form. Startup comparison opens Research with its snapshot context and comparison question retained. Screenshots are .local/operator-rehearsal/primary-investor.png and primary-startup.png. Temporary browser viewport was reset; no model request or data approval occurred.
+
+
+## Three-tab navigation and saved-feedback visibility (2026-11-01 client checkpoint)
+
+Situation is now the first-use/editor flow rather than a footer destination. Next move shows a compact summary and Edit situation, with a Back action for established situations. Returning without changing a situation restores the previous plan step; saving changes retains existing plan/history storage and uses the existing context review behavior. Footer is Next move, Investor, Startup; header Research and contextual investigation actions remain.
+
+Inspecting research now renders saved feedback text and recorded dates with the count. Appending feedback refreshes the inspected output immediately; stored history/export contracts remain unchanged and text is rendered as text, not HTML. Focused twenty-test UI suite passed, including first-use/edit/reload, saved-plan return and feedback inspection after refresh with literal markup-like text. No data migration or approval occurred. Full checks and narrow-browser observations follow separately; offline and recipient-ZIP acceptance remain pending.
+
+
+Three-tab browser follow-up: fresh normal-app origin showed Situation on first use; saving hardware/pre-seed/customer problems opened Next move with the summary and Edit situation. The editor retained values and its Back action returned to Next move. Captured .local/operator-rehearsal/three-tab-situation-summary.png at 390px. A manual research packet was built in the UI, but browser connectivity became unavailable after a user interruption before feedback/save/reload could be observed. The new feedback-display persistence is verified by automated UI regression only in this run; a fresh actual-browser feedback check remains pending. Earlier labtest4 proves storage persistence on the previous commit, not the new display behavior.

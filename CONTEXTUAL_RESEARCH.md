@@ -1,6 +1,6 @@
 # Contextual research across the founder journey
 
-Research is a header action and a contextual workspace, not a fifth footer tab. Situation, Next move, Investor and Startup remain in the footer; existing saved research and contextual entry points use the same workspace.
+Research is a header action and a contextual workspace, not a fifth footer tab. Next move, Investor and Startup remain in the footer; Situation is the first-use/editor flow; existing saved research and contextual entry points use the same workspace.
 
 ## Current milestone
 

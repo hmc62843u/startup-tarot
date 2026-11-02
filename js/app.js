@@ -14,7 +14,7 @@ const previous=loadState(),pack=globalThis.STARTUP_GUIDE_PACK;
 const validation=validateResearchPackage(pack);
 let outreach=emptyOutreachWorkspace(),outreachBlocked=false,outreachRaw=null,showArchivedOutreach=false;
 let renderResearch=()=>{},renderRelationships=()=>{},relationshipSelection=null,pendingResearchProposal=null,proposalDirty=false;
-let state,profiles=[],snapshots=[],view='situation',step='move',investorIndex=0,snapshotIndex=0,activeTaskId=null,unsaved=false,planJustSaved=false;
+let state,profiles=[],snapshots=[],view='situation',step='move',situationReturnStep='move',investorIndex=0,snapshotIndex=0,activeTaskId=null,unsaved=false,planJustSaved=false;
 const short=(value,n=145)=>String(value||'').length>n?String(value).slice(0,n).replace(/\s+\S*$/,'')+'…':String(value||'');
 const model=()=>leanModel(state,profiles,snapshots);
 const node=(tag,text,attrs={})=>{const el=document.createElement(tag);el.textContent=text;for(const [key,value] of Object.entries(attrs))el.setAttribute(key,value);return el;};
@@ -46,7 +46,7 @@ function showDetails(heading,paragraphs,sources=[]){
 }
 function render(){
     for(const panel of document.querySelectorAll('[data-screen]'))panel.hidden=panel.dataset.screen!==view;
-    for(const tab of document.querySelectorAll('[data-view]'))tab.setAttribute('aria-pressed',String(tab.dataset.view===view));
+    for(const tab of document.querySelectorAll('[data-view]'))tab.setAttribute('aria-pressed',String(tab.dataset.view===view||(view==='situation'&&tab.dataset.view==='move')));
     byId('pack-label').textContent=pack.dataset_kind==='fictional'?'Fictional demo':'Research examples';
     if(view==='fit')title('Explore investor fit');
     if(view==='research'){title('Research a question');renderResearch();}
@@ -54,12 +54,14 @@ function render(){
     if(view==='shortlist'){title('Saved investor shortlist');renderShortlist();}
     if(view==='situation')renderSituation();if(view==='move')renderMove();if(view==='investor')renderInvestor();if(view==='startup')renderSnapshot();
 }
-function renderSituation(){title('Your situation');for(const [id,key] of [['business-model','business_model'],['current-stage','current_stage'],['validation-focus','validation_focus']])byId(id).value=state.startup[key]||'';}
+function renderSituation(){title('Your situation');byId('situation-back').hidden=!state.startup.current_stage;for(const [id,key] of [['business-model','business_model'],['current-stage','current_stage'],['validation-focus','validation_focus']])byId(id).value=state.startup[key]||'';}
 function planTask(m){return m.tasks.find(task=>task.id===activeTaskId)||m.task;}
 function renderMove(){
     title(step==='move'?'Your next move':step==='plan'?'Plan a small test':planJustSaved?'Plan saved':'Record your learning');
     for(const part of document.querySelectorAll('[data-step]'))part.hidden=part.dataset.step!==step;
     const m=model();
+    const situationLabels={saas:'Software / SaaS',hardware:'Hardware',marketplace:'Marketplace',service:'Service business',consumer_product:'Consumer product',customer_problem:'Customer problems',technical_feasibility:'Technical feasibility',investor_outreach:'Investor conversations',unknown:'Not sure yet'};
+    byId('situation-summary').textContent=[state.startup.business_model,state.startup.current_stage,state.startup.validation_focus].filter(Boolean).map(value=>situationLabels[value]||value.replaceAll('_',' ')).join(' · ')||'Set your situation to find a next move.';
     if(!m.started){byId('move-title').textContent='Start with your situation.';byId('move-support').textContent='Three choices help find a useful example.';byId('move-reason').textContent='';byId('move-action').textContent='Set my situation';byId('move-links').hidden=true;return;}
     if(step!=='move'){renderPlan(m);return;}
     const next=m.nextAction;
@@ -289,6 +291,8 @@ function init(){
     button('explore-fit',()=>go('fit'));
     byId('fit-form').addEventListener('submit',event=>{event.preventDefault();renderInvestorFit();});
     byId('fit-form').addEventListener('input',()=>{byId('fit-results').replaceChildren();byId('fit-summary').textContent='Inputs changed. Compare again to update results.';});
+    button('edit-situation',()=>{situationReturnStep=step;go('situation');});
+    button('situation-back',()=>{if(go('move')){step=situationReturnStep;render();}});
     button('move-action',beginPlan);
     button('move-evidence',()=>{const m=model(),linked=state.taskProgress[m.nextAction.taskId]?.researchApplications?.at(-1);if(m.nextAction.savedExperiment&&linked){if(go('research'))renderResearch.openRun(linked.run_id);return;}showDetails('Why this move?',[m.nextAction.reason,m.nextAction.basis,m.pending?.caution||m.task?.caution,...(m.pending?.interpretations||m.task?.interpretations||[]),pack.dataset_kind==='fictional'?'Entirely invented for demonstration.':'Sources support limited facts, not predicted outcomes.'],m.sourceList);});
     button('investor-details',()=>{const p=investorList()[investorIndex];if(p)showDetails(p.name,[p.profile_basis,p.comparison_enabled===false?'Reference only; excluded from matching.':'Stage and sector focus do not establish eligibility.',...(p.explicit_criteria||[]),...(p.preparation_topics||[]).map(t=>t.statement),p.notes],[{name:p.name,url:p.source_url,retrieved_date:p.retrieved_date},...(p.preparation_topics||[]).map(t=>({...t,url:t.source_url,name:t.topic}))]);});

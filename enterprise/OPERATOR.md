@@ -64,7 +64,7 @@ Codex can assist throughout. Human judgments and approval stay with the operator
 
 1. **Inspect:** ask Codex to inspect the selected research, summarize gaps and check the input file. For a no-backend rehearsal, use enterprise/fixtures/alpha.json.
 2. **Prepare:** run prepare with that file. Codex returns summary.md, preview.html and review.json paths. Review declarations begin false.
-3. **Review:** inspect the four footer tabs and header Research workspace and the proposed audience/terms. Confirm the exact source fingerprint and record the genuinely authorized review declarations.
+3. **Review:** inspect the three footer tabs, situation editor and header Research workspace and the proposed audience/terms. Confirm the exact source fingerprint and record the genuinely authorized review declarations.
 4. **Package:** ask Codex to package that reviewed proposal. It returns a local ZIP, manifest and hashes. Sending/publishing needs a separate artifact-and-destination instruction.
 
 The screenshots below illustrate a fictional rehearsal. They are documentation examples, not real-data approval, production evidence or a completed human acceptance checklist.
@@ -79,7 +79,7 @@ Historical compatibility screenshot: the retired browser Workspace UI checked th
 
 ![Operator-generated Founder Workspace preview showing a fictional next move](../assets/operator/founder-preview.jpg)
 
-The actual generated preview saved a fictional marketplace/idea/demand situation and opened Next move. The preview notice and fictional-data label remain visible. This preview-only candidate is not a confirmed investor match. Inspect the four footer tabs and header Research workspace during release review; this screenshot alone is not a completed acceptance test.
+The actual generated preview saved a fictional marketplace/idea/demand situation and opened Next move. The preview notice and fictional-data label remain visible. This preview-only candidate is not a confirmed investor match. Inspect the three footer tabs, situation editor and header Research workspace during release review; this screenshot alone is not a completed acceptance test.
 
 ### Generated files: inspect the local proposal and package
 
@@ -167,7 +167,7 @@ For a compatible OpenFor sample, optionally add --scenario building_ai, ai_gover
 
 Give the operator the concrete summary and preview paths, selected organization/revision, source SHA-256, intended audience and proposed release terms. Acknowledge which checks remain unknown. Request approval only after these artifacts exist and are reviewable.
 
-The operator should inspect the four footer tabs and header Research workspace and approve the exact source and release terms. After explicit approval, complete review.json: preserve source_sha256, set preview_reviewed to true, fill the twelve release_review fields, and set its privacy/rights/approved declarations to true only as actually authorized. The command does not auto-approve or verify source truth. Local declarations are not signatures, independent certification, a second-user approval system or enterprise audit history.
+The operator should inspect the three footer tabs, situation editor and header Research workspace and approve the exact source and release terms. After explicit approval, complete review.json: preserve source_sha256, set preview_reviewed to true, fill the twelve release_review fields, and set its privacy/rights/approved declarations to true only as actually authorized. The command does not auto-approve or verify source truth. Local declarations are not signatures, independent certification, a second-user approval system or enterprise audit history.
 
 ## 3. Package, then distribute only when instructed
 

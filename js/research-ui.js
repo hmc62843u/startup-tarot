@@ -40,6 +40,9 @@ export function initResearchUi({byId,node,status,go,pack,fitInput,getFounder,get
   }
   function showOutput(run){
     const container=byId('research-output');container.replaceChildren(node('h3','Research output'),node('p','Model: '+run.model+' | Packet: '+run.packet.packet_id),node('p','References validated; factual support and usefulness still require review.'));
+    container.append(node('h4','Saved feedback ('+run.feedback.length+')'));
+    if(!run.feedback.length)container.append(node('p','No feedback recorded for this run.'));
+    for(const note of run.feedback){const entry=node('article','',{class:'saved-feedback'});entry.append(node('p',note.text,{class:'feedback-note'}),node('p','Recorded '+note.date,{class:'muted'}));container.append(entry);}
     const linked=run.source_context||run.packet.source_context;container.append(node('p','Source: '+(linked?.origin?.label||'General research')));
     if(linked){const back=node('button','Return to this run’s source',{type:'button'});back.addEventListener('click',()=>onReturnOrigin?.(linked.origin));container.append(back);const captured=node('details','');captured.append(node('summary','Captured context for this run'),node('pre',JSON.stringify(linked,null,2)));container.append(captured);}
     for(const key of ['summary','findings','interpretations','hypotheses','unknowns','contradictions','proposed_investigations','historical_comparisons','caveats','change_summary']){
@@ -93,7 +96,7 @@ export function initResearchUi({byId,node,status,go,pack,fitInput,getFounder,get
   byId('research-review-manual').addEventListener('click',()=>{try{acceptOutput(JSON.parse(byId('research-manual-response').value),{model:byId('research-manual-model').value.trim()||'manual model response (unverified metadata)'});}catch(error){message('Response was not saved: '+error.message,true);}});
   byId('research-save-feedback').addEventListener('click',()=>{
     try{if(!lastRun||!history.runs.some(r=>r.id===lastRun.id))throw new Error('Inspect a saved run before recording feedback.');
-      const next=addResearchFeedback(history,lastRun.id,byId('research-feedback').value,new Date().toISOString());if(commit(next)){populateHistory();byId('research-feedback').value='';if(packet)markSaved();else markDirty();message('Feedback appended. Earlier research is unchanged.');}}
+      const next=addResearchFeedback(history,lastRun.id,byId('research-feedback').value,new Date().toISOString());if(commit(next)){lastRun=history.runs.find(run=>run.id===lastRun.id);populateHistory();showOutput(lastRun);byId('research-feedback').value='';if(packet)markSaved();else markDirty();message('Feedback appended. Earlier research is unchanged.');}}
     catch(error){message(error.message,true);}
   });
   byId('research-export-history').addEventListener('click',()=>{

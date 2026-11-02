@@ -7,7 +7,7 @@ Open index.html in a modern browser. Keep this folder's five files together. No 
 ## Three steps
 
 1. **Choose data.** Open a Research Workspace export, a complete bundle, or separate Guide Pack and relationship files. The two demo buttons provide a sourced OpenFor sample and a clearly fictional template. Inspect Sources and checks.
-2. **Preview.** Choose an empty founder situation or a labelled illustrative journey, then open the Founder Workspace preview. Test Situation, Next move, Investor, Startup and Research. Work stays in temporary memory; helper/model/backend access is disabled. Mark this exact preview reviewed.
+2. **Preview.** Choose an empty founder situation or a labelled illustrative journey, then open the Founder Workspace preview. Test first-use Situation, Next move → Edit situation, Investor, Startup and header Research. Work stays in temporary memory; helper/model/backend access is disabled. Mark this exact preview reviewed.
 3. **Download.** Supply release identity, audience, reviewer, scope, updates and attribution. Review privacy, rights and approval declarations. Build and download ZIP. Extract the whole ZIP and open browser-package/index.html. Nothing is uploaded or published.
 
 The public OpenFor context does not make the fictional scenario numbers true. Scenarios are a separate labelled download, excluded from the research release. Unknown canonical fields remain unknown. Use scenarios only with compatible OpenFor research data.
@@ -28,7 +28,7 @@ Status: remaining human tests deferred at the operator’s request (2026-10-31),
 
 - With Node, Neo4j and helper stopped, open Publisher locally and load a demo or exported source file.
 - Check counts, source links, unknown warnings and the distinction between real context and hypothetical inputs.
-- Launch preview, visit the four footer tabs and header Research workspace, edit/save a plan and close/reopen it. Check that preview work disappears and source data is unchanged.
+- Launch preview, visit the three footer tabs, situation editor and header Research workspace, edit/save a plan and close/reopen it. Check that preview work disappears and source data is unchanged.
 - Change source/scenario and confirm the previous preview/review is invalidated. Attempt an unreviewed release and confirm it is rejected.
 - Complete a genuine release review, download the ZIP and extract it. Open browser-package/index.html and test matching and graph queries without any backend. Review notices and source/release identity.
 - In Investor, open Explore investor fit, enter fictional criteria and submit Compare investor criteria. Inspect result explanations and unknowns. Open Profile & sources for the displayed evidence. Relationships & introduction paths opens Relationship research (there is no separate Graph tab): submit Find evidence paths and Analyze included network and inspect results or explained empty states. Leave private contacts empty unless testing them deliberately with invented data.
@@ -60,7 +60,7 @@ Resume actual browser testing on the existing lab setup; do not repeat installat
 
 | Check | Exact action / expected observation |
 | --- | --- |
-| Sourced preview navigation | Open founderProposal.preview from the new results.json (not the alpha-only maintenance preview). Visit Situation, Next move, Investor, Startup and Research; confirm compact preview and fictional-scenario labels and no helper connection. |
+| Sourced preview navigation | Open founderProposal.preview from the new results.json (not the alpha-only maintenance preview). Visit first-use Situation, Next move → Edit situation, Investor, Startup and header Research; confirm compact preview and fictional-scenario labels and no helper connection. |
 | Investor comparison | Investor → Explore investor fit: hardware, pre-seed, Japan, 150000, USD; submit. Expect Monozukuri four-field alignment and Geek insufficient evidence while included dated claims are current under the review policy. If date policy changes that outcome, explain it rather than modifying source dates. Inspect Evidence & dates and Profile & sources. |
 | Historical path | Relationships & introduction paths → Public documented examples; today, no historical cutoff; Y Combinator (2017 government reference) → Airbnb user visits (documented historical activity), max 4, both checkboxes unchecked. Submit Find evidence paths; inspect actual paths and cited evidence below the form. |
 | Network | Submit Analyze included network. Inspect an analysis or explained empty state that agrees with the included data. Missing co-investment edges may correctly produce no network. |

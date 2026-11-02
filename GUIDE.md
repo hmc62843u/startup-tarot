@@ -1,6 +1,6 @@
 # User guide
 
-Founder navigation: Situation, Next move, Investor and Startup are the four footer tabs. Research opens from the header or a contextual investigation action on any journey tab. The same Research workspace retains saved research history and optional helper connections; moving its entry point does not delete existing work.
+Founder navigation: Next move, Investor and Startup are the three footer tabs. Situation opens on first use; afterward, use the summary and Edit situation action on Next move. Research opens from the header or a contextual investigation action on any journey tab. The same Research workspace retains saved research history and optional helper connections; moving its entry point does not delete existing work.
 
 Startup Tarot helps you choose a small experiment and research investors using visible evidence. Planning, investor comparison and shared research retain their own saved work and explicit links.
 
@@ -139,3 +139,5 @@ The implementation uses structured model output followed by deterministic valida
 See [Research across tabs](CONTEXTUAL_RESEARCH.md) for the complete journey. Saved contextual investigations offer Review as experiment. Inspect the cited sources or general-method label, edit the action and expected evidence, then explicitly accept or keep the existing plan. Previous actions and learning remain in acceptance history. Source context and plan applicability are checked again at acceptance; no canonical investor/startup data is edited.
 
 Action hierarchy: Situation leads to Show my next move; Next move leads to the current plan step; Investor leads to Explore investor fit; Startup leads to Compare this example with my situation. Supporting evidence/source and contextual research actions remain visible in labelled groups. Investor perspective selection is separate from fundraising fit. Each fit result places its shortlist action before the supporting evidence link.
+
+Inspect this run in Research now shows saved feedback text and its recorded timestamp alongside the count. Feedback remains attached to that run; appending it does not rewrite the earlier findings.

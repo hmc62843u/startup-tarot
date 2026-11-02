@@ -179,11 +179,11 @@ function savedExperimentUi(){
  const data=new Map([['founder_gap_data',JSON.stringify({startup,activeLibrary:'research',researchLibrary:pack,selectedInvestorIds:[],suggestionChoices:{},taskProgress:{'suggestion:next-milestone':original}})]]);
  const ui=startBrowserModel(data);ui.ids['research-move'].click();ui.ids['research-form'].emit('submit');const packet=JSON.parse(ui.ids['research-packet'].textContent);ui.ids['research-manual-response'].value=JSON.stringify(responseFor(packet));ui.ids['research-review-manual'].click();return ui;
 }
-test('contextual research is available from all four tabs with no automatic model calls',()=>{
+test('contextual research is available from all four journey views with no automatic model calls',()=>{
  const ui=startBrowserModel();let calls=0;ui.context.fetch=()=>{calls++;throw new Error('No helper.');};
  ui.ids['business-model'].value='saas';ui.ids['current-stage'].value='pre-seed';ui.ids['validation-focus'].value='demand';ui.ids['situation-form'].emit('submit');
  for(const [view,id] of [['situation','research-situation'],['move','research-move'],['startup','research-startup'],['investor','research-investor']]){
-  ui.document.querySelectorAll('[data-view]').find(tab=>tab.dataset.view===view).click();ui.ids[id].click();
+  if(view==='situation'){ui.document.querySelectorAll('[data-view]').find(tab=>tab.dataset.view==='move').click();ui.ids['edit-situation'].click();}else ui.document.querySelectorAll('[data-view]').find(tab=>tab.dataset.view===view).click();ui.ids[id].click();
   assert.ok(ui.ids['research-question'].value);const captured=JSON.parse(ui.ids['research-source-context'].textContent);assert.equal(captured.origin.view,view);assert.ok(ui.ids['research-mode'].textContent.includes('Browser-only'));
   ui.ids['research-form'].emit('submit');const packet=JSON.parse(ui.ids['research-packet'].textContent);assert.equal(packet.source_context.origin.view,view);assert.equal(packet.startup_context.stage,'pre-seed');assert.equal(ui.ids['research-consent'].checked,false);
   if(view==='startup')assert.equal(packet.selection_manifest.selected_snapshot_ids.length,1);if(view==='investor')assert.equal(packet.selection_manifest.selected_investor_ids.length,1);
@@ -237,14 +237,14 @@ test('preview storage wording stays temporary on load and save while normal app 
 });
 
 
-test('four footer tabs and header Research share the existing workspace without model calls',()=>{
+test('three footer tabs and header Research share the existing workspace without model calls',()=>{
  const footer=html.match(/<footer>[\s\S]*?<\/footer>/)[0],header=html.match(/<header class="app-header">[\s\S]*?<\/header>/)[0];
- assert.deepEqual([...footer.matchAll(/data-view="([^"]+)"/g)].map(m=>m[1]),['situation','move','investor','startup']);
+ assert.deepEqual([...footer.matchAll(/data-view="([^"]+)"/g)].map(m=>m[1]),['move','investor','startup']);
  assert.ok(header.includes('data-view="research"'));
  const ui=startBrowserModel();let calls=0;ui.context.fetch=()=>{calls++;throw Error('No automatic model calls');};
  const research=ui.document.querySelectorAll('[data-view]').find(t=>t.dataset.view==='research');research.click();
  assert.equal(ui.ids['screen-title'].textContent,'Research a question');assert.equal(research['aria-pressed'],'true');
- ui.document.querySelectorAll('[data-view]').find(t=>t.dataset.view==='situation').click();assert.equal(research['aria-pressed'],'false');
+ ui.document.querySelectorAll('[data-view]').find(t=>t.dataset.view==='move').click();assert.equal(research['aria-pressed'],'false');
  ui.ids['research-situation'].click();assert.equal(ui.ids['screen-title'].textContent,'Research a question');assert.equal(calls,0);
 });
 
@@ -257,4 +257,22 @@ test('primary investor action compares fit while perspective and evidence stay a
  action.click();assert.equal(action.textContent,'Saved to shortlist');sources.click();assert.equal(ui.ids['evidence-dialog'].open,true);
  ui.ids['close-details'].click();ui.document.querySelectorAll('[data-view]').find(t=>t.dataset.view==='investor').click();
  assert.equal(ui.ids['choose-investor'].class,'text-button');assert.ok(ui.ids['investor-details']);assert.ok(ui.ids['research-investor']);assert.ok(ui.ids['open-relationships']);
+});
+
+
+test('situation is first-use input and can be edited from Next move without losing plan work',()=>{
+ const ui=startBrowserModel();assert.equal(ui.ids['screen-title'].textContent,'Your situation');assert.equal(ui.ids['situation-back'].hidden,true);
+ ui.ids['business-model'].value='hardware';ui.ids['current-stage'].value='pre-seed';ui.ids['validation-focus'].value='customer_problem';ui.ids['situation-form'].emit('submit');
+ assert.ok(ui.ids['situation-summary'].textContent.includes('Hardware'));ui.ids['edit-situation'].click();assert.equal(ui.ids['business-model'].value,'hardware');assert.equal(ui.ids['situation-back'].hidden,false);
+ ui.ids['business-model'].value='saas';ui.ids['situation-form'].emit('submit');assert.ok(ui.ids['situation-summary'].textContent.includes('Software / SaaS'));
+ const reload=startBrowserModel(ui.data);assert.equal(reload.ids['screen-title'].textContent,'Your next move');reload.ids['edit-situation'].click();assert.equal(reload.ids['business-model'].value,'saas');
+ const owned=savedExperimentUi();owned.ids['research-back'].click();owned.document.querySelectorAll('[data-view]').find(t=>t.dataset.view==='move').click();owned.ids['move-action'].click();
+ const before=owned.ids['screen-title'].textContent,plan=owned.ids['plan-action'].value;owned.ids['edit-situation'].click();owned.ids['situation-back'].click();assert.equal(owned.ids['screen-title'].textContent,before);assert.equal(owned.ids['plan-action'].value,plan);
+});
+
+test('saved research feedback text and date render immediately and after refresh without HTML interpretation',()=>{
+ const ui=savedExperimentUi();const note='TEST ONLY <img src=x onerror=alert(1)> feedback';ui.ids['research-feedback'].value=note;ui.ids['research-save-feedback'].click();
+ let text=walk(ui.ids['research-output']).map(e=>e.textContent).join('\n');assert.ok(text.includes(note));assert.ok(text.includes('Recorded 2026-10-30'));
+ const reload=startBrowserModel(ui.data);reload.ids['open-research'].click();walk(reload.ids['research-history']).find(e=>e.textContent==='Inspect this run').click();
+ text=walk(reload.ids['research-output']).map(e=>e.textContent).join('\n');assert.ok(text.includes(note));assert.ok(text.includes('Saved feedback (1)'));assert.ok(text.includes('Recorded 2026-10-30'));
 });
