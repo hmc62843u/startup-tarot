@@ -20,14 +20,50 @@ jobs:
         with:
           node-version: '24'
           package-manager-cache: false
+      - name: Prepare ignored Publisher assets for operator checks
+        run: node tools/build-publisher.mjs
       - name: Test the committed app and data
-        run: node --test tests/*.test.mjs
+        run: node --test tests/*.test.mjs enterprise/tests/publisher.test.mjs enterprise/tests/publisher-build.test.mjs
       - name: Check JavaScript syntax
         run: |
           node --check js/app.bundle.js
           node --check sw.js
           node --check packs/active-pack.js
+          node --check packs/relationships.js
       - name: Verify generated files are reproducible
         run: |
           node tools/build-demo.mjs
-          git diff --exit-code -- index.html docs/examples.html docs/guide.html docs/data-license.html docs/license.html js/app.bundle.js packs/active-pack.js sw.js icons/
+          git diff --exit-code -- index.html docs/ js/app.bundle.js packs/active-pack.js packs/relationships.js sw.js icons/
+
+  graph-reference:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    services:
+      neo4j:
+        image: neo4j:2026.10.1-community
+        env:
+          NEO4J_AUTH: neo4j/fictional-ci-only-password
+          NEO4J_dbms_usage__report_enabled: "false"
+          NEO4J_dbms_fleet__manager_enabled: "false"
+          NEO4J_server_fleet__discovery_enabled: "false"
+          NEO4J_server_memory_heap_initial__size: 256m
+          NEO4J_server_memory_heap_max__size: 512m
+          NEO4J_server_memory_pagecache_size: 128m
+        ports:
+          - 7474:7474
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Wait for disposable Neo4j
+        run: |
+          node --input-type=module -e 'for(let i=0;i<60;i++){try{if((await fetch("http://127.0.0.1:7474")).ok)process.exit(0);}catch{}await new Promise(r=>setTimeout(r,1000));}process.exit(1);'
+      - name: Test graph reference against real database
+        env:
+          NEO4J_URL: http://127.0.0.1:7474
+          NEO4J_PASSWORD: fictional-ci-only-password
+        run: node --test enterprise/tests/contracts.test.mjs enterprise/tests/neo4j.integration.mjs

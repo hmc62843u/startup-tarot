@@ -1,3 +1,19 @@
+/** Explicit mandate claims only; legacy tags and editorial weights are not eligibility. */
+export function validFitClaim(c) {
+  const date=c?.checked_date;
+  return !!c && ['stage','sector','geography','check'].includes(c.field)
+    && ['declared','observed','inferred'].includes(c.basis) && typeof c.strict==='boolean'
+    && typeof c.statement==='string' && !!c.statement.trim()
+    && typeof c.source_url==='string' && validSource(c.source_url)
+    && /^\d{4}-\d{2}-\d{2}$/.test(date) && Number.isFinite(Date.parse(date))
+    && new Date(date).toISOString().slice(0,10)===date
+    && (c.field==='check' ? /^[A-Z]{3}$/.test(c.currency) && Number.isFinite(c.min) && c.min>=0 && Number.isFinite(c.max) && c.max>=c.min
+      : Array.isArray(c.values) && c.values.length>0 && c.values.every(v=>typeof v==='string'&&!!v.trim()));
+}
+
+
+
+
 /**
  * Validate user supplied investor profiles before they are stored or analyzed.
  */
@@ -9,7 +25,7 @@ const ORGANIZATION_TYPES = ['vc', 'corporate_vc', 'angel', 'accelerator', 'talen
 
 function validSource(value,fictional=false) {
   if (fictional) return typeof value==='string' && /^\.\/docs\/examples\.html#[a-z0-9_-]+$/.test(value);
-  try { return ['http:','https:'].includes(new URL(value).protocol); } catch { return false; }
+  try { const url=new URL(value);return ['http:','https:'].includes(url.protocol)&&!url.username&&!url.password; } catch { return false; }
 }
 
 export function normalizeProfile(profile) {
@@ -35,6 +51,7 @@ export function validateInvestorProfile(json) {
     return { isValid: false, errors: ["File must contain a valid JSON object."] };
   }
 
+  if(json.fit_claims!==undefined && (!Array.isArray(json.fit_claims)||json.fit_claims.length>40||!json.fit_claims.every(validFitClaim))) errors.push('Invalid fit_claims: use dated, sourced, typed mandate claims.');
   const requiredFields = ["id", "name", "source_url", "retrieved_date", "stage_focus", "criteria_weights"];
   for (const field of requiredFields) {
     if (!(field in json)) errors.push(`Missing required field: "${field}"`);
@@ -123,6 +140,8 @@ export function validateInvestorProfile(json) {
   return { isValid: errors.length === 0, errors };
 }
 
+
+
 /** Historical facts require per-claim sources and retain unknown values as null. */
 export function validateStartupSnapshot(snapshot) {
   const errors = [];
@@ -149,7 +168,7 @@ export function validateStartupSnapshot(snapshot) {
     if (typeof source.title !== 'string' || !source.title.trim()) errors.push('Source title is required.');
     if (!date(source.retrieved_date)) errors.push('Invalid retrieval date.');
     const publication = source.published_date;
-    if (!date(publication) && !(typeof publication === 'string' && /^\d{4}-\d{2}$/.test(publication) && date(publication + '-01'))) errors.push('Invalid publication date.');
+    if (!(snapshot.data_kind==='research' && publication===null) && !date(publication) && !(typeof publication === 'string' && /^\d{4}-\d{2}$/.test(publication) && date(publication + '-01'))) errors.push('Invalid publication date.');
     const allowedEvidence=snapshot.data_kind==='fictional'?['fictional_scenario']:['retrospective_account','contemporary_correspondence_published_later','contemporary_record'];
     if (!allowedEvidence.includes(source.evidence_type)) errors.push('Invalid evidence type.');
     if (source.evidence_date && (!date(source.evidence_date) || source.evidence_date > snapshot.snapshot_date)) errors.push('Evidence date falls outside the snapshot.');

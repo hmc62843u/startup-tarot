@@ -28,7 +28,7 @@ File: profiles/firstminute_capital.json
 
 Source: [primary evidence](https://www.firstminute.capital/about)
 
-SHA-256: 5bc00e8d739872f2ba4ffe420adbd988a1245f3116bb9ef11302abca67de1a06
+SHA-256: 65f219974681156dee1678e19f2ad2ed36964821e4441586720af1f74c118054
 
 Independent statement of limited public facts, with original editorial mappings/interpretation. US Copyright Office distinguishes facts from protected expression: https://www.copyright.gov/help/faq/faq-general.html . Only stage, broad geography, sector themes and currency-labelled amount remain, stated independently. No copied promotional narrative, testimonials, images or branding. About-page footer and linked privacy policy were checked; no affirmative open-content grant is claimed. Direct policy retrieval returned 403 on this pass; the earlier indexed policy concerned personal-data processing. This is an editorial assessment, not a source-issued license, worldwide legal assurance or an endorsement. Original editorial contributions may be licensed separately; underlying source works remain excluded.
 
@@ -135,3 +135,69 @@ SHA-256: a9d4ec23b0255057d192fefe18be4c32fb1d0d4f51666b79d8fa2d43b3067086
 Original editorial annotations extracted from the dated Airbnb, DoorDash and GitLab records. Investor topics remain empty. Facts and source rights are unchanged. No new source permission is claimed.
 
 Provider self-test cases added in 0.6.0 express expected matching behavior only; they do not establish source truth, usefulness or independent accuracy. No positive-match cases exist in the real library.
+
+Investor-fit update (2026-10-30): firstminute About page rechecked. Added typed stage, technology-sector, geography and GBP check claims; see INVESTOR_FIT.md. Other records were not re-reviewed.
+
+## Hustle Fund — investor-fit addition, 2026-10-30
+
+File: profiles/hustle_fund.json
+
+Sources: https://www.hustlefund.vc/faq
+
+SHA-256: da73acacf283bb8a88e4b48fc7395ed84f512eb85272331fb669e585fc22c338
+
+Independent factual paraphrases and editorial matching labels only. Missing fields and additional conditions are retained in the record. No new investor-topic or portfolio connection is asserted.
+
+## Ada Ventures — investor-fit addition, 2026-10-30
+
+File: profiles/ada_ventures.json
+
+Sources: https://www.adaventures.com/, https://www.adaventures.com/partner-with-ada
+
+SHA-256: 54d06b9d73189f2b994108998f86d789f3d0dfc85587cdd6093b89858a33f60b
+
+Independent factual paraphrases and editorial matching labels only. Missing fields and additional conditions are retained in the record. No new investor-topic or portfolio connection is asserted.
+
+## Concept Ventures — investor-fit addition, 2026-10-30
+
+File: profiles/concept_ventures.json
+
+Sources: https://concept.vc/
+
+SHA-256: b779da16102d875d135f10489e7230289b95250c8606df651ebae739c83bb200
+
+Independent factual paraphrases and editorial matching labels only. Missing fields and additional conditions are retained in the record. No new investor-topic or portfolio connection is asserted.
+
+## Connect Ventures — investor-fit addition, 2026-10-30
+
+File: profiles/connect_ventures.json
+
+Sources: https://www.connectventures.co/
+
+SHA-256: 02a3128f444fa46c722e8029985d0ef4961b7a66e0519c46a5a41e5c262a12a4
+
+Independent factual paraphrases and editorial matching labels only. Missing fields and additional conditions are retained in the record. No new investor-topic or portfolio connection is asserted.
+
+## boldstart ventures — investor-fit addition, 2026-10-30
+
+File: profiles/boldstart_ventures.json
+
+Sources: https://boldstart.vc/
+
+SHA-256: c412d5381df265072379a014433142354e57f3cc99100f4f53e4c0d5ddeba773
+
+Independent factual paraphrases and editorial matching labels only. Missing fields and additional conditions are retained in the record. No new investor-topic or portfolio connection is asserted.
+
+## Public relationship examples — 2026-10-30
+
+File: components/relationships.json
+
+SHA-256: 511d139240ef952668f3a880a936d73bcadaea3086fa333821a626345b9c586e
+
+- firstminute official About page: https://www.firstminute.capital/about
+- boldstart official Tessl company milestones: https://boldstart.vc/companies/tessl/
+- YC retrospective account: The Airbnbs: https://www.ycombinator.com/blog/the-airbnbs/
+- Source retained by the canonical January 2009 Airbnb snapshot: https://paulgraham.com/airbnb.html
+- Connect official portfolio/home page: https://www.connectventures.co/
+
+Independent factual paraphrases only. Exact unknown investment dates/round identities remain unknown. Public backing does not establish personal acquaintance, introduction willingness, current mandate or causation. This is an optional separate relationship artifact, not an extension embedded in Guide Pack v2.

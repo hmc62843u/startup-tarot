@@ -1,3 +1,4 @@
+import {validateRelationshipDataset} from '../js/relationships.js';
 /**
  * Build the no-dependency classic entry so file:// demos need no module loader.
  * Source modules remain the editable implementation; bundled data is generated.
@@ -12,14 +13,19 @@ import {documentPages} from './build-docs.mjs';
 import {buildIcons} from './build-icons.mjs';
 
 const root = new URL('../',import.meta.url);
-const read = path => readFile(new URL(path,root),'utf8').then(value=>value.replace(/^\uFEFF/,'').replace(/\r\n/g,'\n'));
-const json = async path => JSON.parse(await read(path));
-export async function buildEntry() {
+export async function buildEntry(buildRoot=root) {
+    const root=buildRoot;
+    const read=path=>readFile(new URL(path,root),'utf8').then(value=>value.replace(/^\uFEFF/,'').replace(/\r\n/g,'\n'));
+    const json=async path=>JSON.parse(await read(path));
     await checkReleaseLibraries(root);
     const defaultResearch=await json('packs/guide-pack.json');
     const validation=validateResearchPackage(defaultResearch);
     if(!validation.isValid)throw new Error(validation.errors.join(' '));
-    const modules=['js/validator.js','js/research-library.js','js/context.js','js/tasks.js','js/matching.js','js/evaluation.js','js/recommendation.js','js/explanations.js','js/analyzer.js','js/storage.js','js/lean.js','js/app.js'];
+    const relationshipData=await json('data/relationships.json'),relationshipDemo=await json('data/relationships-demo.json');
+    for(const data of [relationshipData,relationshipDemo]){const check=validateRelationshipDataset(data);if(!check.isValid)throw new Error(check.errors.join(' '));}
+    if(!['research','fictional'].includes(relationshipData.dataset_kind)||relationshipDemo.dataset_kind!=='fictional')throw new Error('Keep research and fictional relationship artifacts explicit.');
+    if(relationshipData.pack_id!==defaultResearch.id||relationshipData.provider_id!==(defaultResearch.provider?.id||'legacy')||relationshipData.dataset_kind!==(defaultResearch.schema_version===2?defaultResearch.dataset_kind:'research'))throw new Error('Configured graph and Guide Pack identities/kinds do not match.');
+    const modules=['js/relationships.js','js/graph-research.js','js/private-relationships.js','js/relationship-ui.js','js/validator.js','js/sectors.js','js/investor-fit.js','js/outreach.js','js/research-library.js','js/research.js','js/research-context.js','js/research-ui.js','js/context.js','js/tasks.js','js/matching.js','js/evaluation.js','js/recommendation.js','js/explanations.js','js/analyzer.js','js/storage.js','js/lean.js','js/app.js'];
     const bodies=await Promise.all(modules.map(async path=>{
         const source=(await read(path))
             .replace(/^import \{[^\n]+\} from '[^']+';\r?$/gm,'')
@@ -37,19 +43,23 @@ export async function buildEntry() {
         .replace(/href="css\/style\.css(?:\?v=[^"]+)?"/,'href="css/style.css"');
     const documents=await documentPages(root);
     const hash=createHash('sha256')
-        .update(JSON.stringify(defaultResearch)).update(bundle).update(shell).update(await read('css/style.css')).update(await read('manifest.json'))
+        .update(JSON.stringify(defaultResearch)).update(JSON.stringify(relationshipData)).update(JSON.stringify(relationshipDemo)).update(bundle).update(shell).update(await read('css/style.css')).update(await read('manifest.json'))
         .update(await read('LICENSE')).update(await read('DATA_LICENSE.md'))
-        .update(await read('README.md')).update(await read('DEVELOPMENT.md')).update(await read('assets/how-it-works.svg'))
+        .update(await readFile(new URL('assets/operator/workspace.jpg',root))).update(await readFile(new URL('assets/operator/founder-preview.jpg',root))).update(await readFile(new URL('assets/operator/release-files.jpg',root)))
+        .update(await read('README.md')).update(await read('DEVELOPMENT.md')).update(await read('LOCAL_RELEASE.md')).update(await read('assets/how-it-works.svg'))
         .update(documents.map(document=>document.html).join('\n'))
         .update(await readFile(new URL('icons/icon-192.png',root))).update(await readFile(new URL('icons/icon-512.png',root)))
         .digest('hex').slice(0,12);
     return {bundle,hash};
 }
-export async function buildFiles() {
+export async function buildFiles(buildRoot=root) {
+    const root=buildRoot,read=path=>readFile(new URL(path,root),'utf8');
+    const json=async path=>JSON.parse(await read(path));
     await buildIcons(root);
-    const {bundle,hash}=await buildEntry();
+    const {bundle,hash}=await buildEntry(root);
     await writeFile(new URL('js/app.bundle.js',root),bundle);
     await writeFile(new URL('packs/active-pack.js',root),'// Configured local Guide Pack. Replace only with a trusted pack.\nglobalThis.STARTUP_GUIDE_PACK = '+JSON.stringify(await json('packs/guide-pack.json'))+';\n');
+    await writeFile(new URL('packs/relationships.js',root),'// Generated public and explicitly fictional relationship artifacts. Private contacts never belong here.\nglobalThis.STARTUP_GUIDE_RELATIONSHIPS = '+JSON.stringify((await json('data/relationships.json')).dataset_kind==='fictional'?{research:null,fictional:await json('data/relationships.json')}:{research:await json('data/relationships.json'),fictional:await json('data/relationships-demo.json')})+';\n');
     const html=(await read('index.html'))
         .replace(/src="js\/app\.bundle\.js(?:\?v=[^"]+)?"/,'src="js/app.bundle.js?v='+hash+'"')
         .replace(/href="css\/style\.css(?:\?v=[^"]+)?"/,'href="css/style.css?v='+hash+'"');

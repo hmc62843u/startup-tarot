@@ -1,0 +1,702 @@
+{
+  "schema_version": 1,
+  "pack": {
+    "schema_version": 2,
+    "id": "openfor_research_preview",
+    "name": "OpenFor private presentation research sample",
+    "version": "0.2.0",
+    "repository_url": null,
+    "updated_date": "2026-10-31",
+    "license": {
+      "id": "CC-BY-4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/",
+      "scope": "Original editorial paraphrases and mappings only, to the extent held by the contributors. Linked publications, logos, trademarks and underlying materials retain their own rights.",
+      "notice": "Andrew Leung and contributors (2026). Retain attribution and source links. Prepared for a private OpenFor presentation; inclusion does not imply OpenFor endorsement or approval for wider distribution."
+    },
+    "rights_review": {
+      "status": "reviewed_for_distribution",
+      "reviewed_date": "2026-10-31",
+      "statement": "Independent factual paraphrases and existing attributed historical snapshots. Operator distribution review is still required. No OpenFor endorsement, company partnership or portfolio membership is established."
+    },
+    "provider": {
+      "id": "openfor_partner_demo",
+      "name": "OpenFor partner demonstration",
+      "url": "https://www.openfor.co/"
+    },
+    "dataset_kind": "research",
+    "quality": {
+      "research": {
+        "status": "self_reviewed",
+        "reviewed_date": "2026-10-31",
+        "statement": "Small public-source sample checked for a private OpenFor presentation. Self-reviewed, not independently verified. Unknown publication dates and company metrics remain unknown."
+      },
+      "matching": {
+        "status": "not_evaluated",
+        "statement": "Curated illustration only; no independently evaluated matching accuracy."
+      },
+      "suggestions": {
+        "status": "not_evaluated",
+        "statement": "Original editorial prompts; founder usefulness and outcomes have not been evaluated."
+      }
+    },
+    "components": {
+      "research": {
+        "profiles": [
+          {
+            "id": "geek_ventures_001",
+            "name": "Geek Ventures",
+            "data_kind": "research",
+            "source_url": "https://geek.vc/",
+            "retrieved_date": "2026-10-31",
+            "reviewed_date": "2026-10-31",
+            "stage_focus": [
+              "pre-seed",
+              "seed"
+            ],
+            "sector_focus": [],
+            "geography_focus": [
+              "US"
+            ],
+            "check_size_range_usd": "Currency not verified; no typed check claim",
+            "criteria_weights": {
+              "team_credibility": 0.2,
+              "problem_clarity": 0.2,
+              "technical_feasibility": 0.2,
+              "market_urgency": 0.2,
+              "traction_evidence": 0.2
+            },
+            "weights_basis": "editor_estimate",
+            "weight_notes": "Equal compatibility placeholders required by the legacy profile format; not investor weights and not used for fundraising fit.",
+            "profile_basis": "Independent limited factual paraphrase of official pages checked 2026-10-30. Category labels are editorial mappings, not full eligibility rules.",
+            "comparison_enabled": true,
+            "funding_type": "equity",
+            "organization_type": "vc",
+            "explicit_criteria": [
+              "Focuses on immigrant founders building US-focused businesses.",
+              "The website describes pre-seed and seed investing.",
+              "The displayed initial check range is $200,000–800,000; this record leaves the currency unverified."
+            ],
+            "eligibility_requirements": [],
+            "anti_criteria": [],
+            "notes": "Small public-source preview, not a complete mandate or funding recommendation. OpenFor directory appearance does not establish partnership, portfolio membership or an introduction path.",
+            "fit_claims": [
+              {
+                "field": "stage",
+                "values": [
+                  "pre-seed",
+                  "seed"
+                ],
+                "statement": "The website describes pre-seed and seed investing.",
+                "source_url": "https://geek.vc/",
+                "checked_date": "2026-10-31",
+                "basis": "declared",
+                "strict": false
+              },
+              {
+                "field": "geography",
+                "values": [
+                  "US"
+                ],
+                "statement": "Focuses on immigrant founders building US-focused businesses.",
+                "source_url": "https://geek.vc/",
+                "checked_date": "2026-10-31",
+                "basis": "declared",
+                "strict": false
+              }
+            ]
+          },
+          {
+            "id": "monozukuri_ventures_001",
+            "name": "Monozukuri Ventures",
+            "data_kind": "research",
+            "source_url": "https://monozukuri.vc/services/",
+            "retrieved_date": "2026-10-31",
+            "reviewed_date": "2026-10-31",
+            "stage_focus": [
+              "pre-seed",
+              "seed"
+            ],
+            "sector_focus": [
+              "hardware"
+            ],
+            "geography_focus": [
+              "US",
+              "Canada",
+              "Japan"
+            ],
+            "check_size_range_usd": "USD 100,000–300,000 typical investment",
+            "criteria_weights": {
+              "team_credibility": 0.2,
+              "problem_clarity": 0.2,
+              "technical_feasibility": 0.2,
+              "market_urgency": 0.2,
+              "traction_evidence": 0.2
+            },
+            "weights_basis": "editor_estimate",
+            "weight_notes": "Equal compatibility placeholders required by the legacy profile format; not investor weights and not used for fundraising fit.",
+            "profile_basis": "Independent limited factual paraphrase of official pages checked 2026-10-30. Category labels are editorial mappings, not full eligibility rules.",
+            "comparison_enabled": true,
+            "funding_type": "equity",
+            "organization_type": "vc",
+            "explicit_criteria": [
+              "Investment targets include early hardtech businesses in the US, Canada and Japan.",
+              "The stated typical investment is USD 100,000–300,000; follow-on capacity is a separate figure.",
+              "The thesis includes devices, materials, components and manufacturing software; the hardware label is a limited editorial mapping."
+            ],
+            "eligibility_requirements": [],
+            "anti_criteria": [],
+            "notes": "Small public-source preview, not a complete mandate or funding recommendation. OpenFor directory appearance does not establish partnership, portfolio membership or an introduction path.",
+            "fit_claims": [
+              {
+                "field": "stage",
+                "values": [
+                  "pre-seed",
+                  "seed"
+                ],
+                "statement": "Pre-seed and seed are included among the stated early investment stages.",
+                "source_url": "https://monozukuri.vc/services/",
+                "checked_date": "2026-10-31",
+                "basis": "declared",
+                "strict": false
+              },
+              {
+                "field": "geography",
+                "values": [
+                  "US",
+                  "Canada",
+                  "Japan"
+                ],
+                "statement": "Investment targets include early hardtech businesses in the US, Canada and Japan.",
+                "source_url": "https://monozukuri.vc/services/",
+                "checked_date": "2026-10-31",
+                "basis": "declared",
+                "strict": false
+              },
+              {
+                "field": "sector",
+                "values": [
+                  "hardware"
+                ],
+                "statement": "The thesis includes devices, materials, components and manufacturing software; the hardware label is a limited editorial mapping.",
+                "source_url": "https://monozukuri.vc/services/",
+                "checked_date": "2026-10-31",
+                "basis": "declared",
+                "strict": false
+              },
+              {
+                "field": "check",
+                "min": 100000,
+                "max": 300000,
+                "currency": "USD",
+                "statement": "The stated typical investment is USD 100,000–300,000; follow-on capacity is a separate figure.",
+                "source_url": "https://monozukuri.vc/services/",
+                "checked_date": "2026-10-31",
+                "basis": "declared",
+                "strict": false
+              }
+            ]
+          }
+        ],
+        "snapshots": [
+          {
+            "id": "airbnb_2009_01_23",
+            "company": "Airbnb (then AirbedAndBreakfast)",
+            "snapshot_date": "2009-01-23",
+            "sectors": [
+              "marketplace",
+              "accommodation"
+            ],
+            "sector_basis": "Editorial tags for browsing, not original company terminology.",
+            "stage": null,
+            "fields": {
+              "product": {
+                "value": null,
+                "source_id": null
+              },
+              "customers": {
+                "value": "The January 23 correspondence identifies New York City as the largest market at that time; it supplies no customer total.",
+                "source_id": "primary"
+              },
+              "team": {
+                "value": "The founders were in New York City to meet users.",
+                "source_id": "primary"
+              },
+              "funding": {
+                "value": "The company was in a YC batch; cereal sales are mentioned as earlier financing, without an amount.",
+                "source_id": "primary"
+              }
+            },
+            "metrics": [],
+            "sources": [
+              {
+                "id": "primary",
+                "retrieved_date": "2026-10-26",
+                "title": "Subject: Airbnb (January 2009 correspondence, published March 2011)",
+                "url": "https://paulgraham.com/airbnb.html",
+                "published_date": "2011-03",
+                "evidence_type": "contemporary_correspondence_published_later",
+                "evidence_date": "2009-01-23"
+              }
+            ],
+            "limitations": [
+              "Facts are limited to the January 23, 2009 messages made public in March 2011. Permission to publish those messages was given to their publisher; it is not a downstream open license.",
+              "This record contains independent factual statements and an original editorial learning prompt, not copied messages, a transcript, an essay mirror or a translation.",
+              "Product implementation, revenue, customer totals and pilot/LOI count remain unknown. User visits do not establish that this activity caused later survival or success."
+            ],
+            "data_kind": "research"
+          },
+          {
+            "id": "doordash_2013_01_12",
+            "company": "DoorDash (launch service in Palo Alto)",
+            "snapshot_date": "2013-01-12",
+            "sectors": [
+              "marketplace",
+              "local delivery"
+            ],
+            "sector_basis": "Editorial browsing tags, not a historical investor classification.",
+            "stage": null,
+            "fields": {
+              "product": {
+                "value": "A website listed restaurant menus for a local delivery service in Palo Alto.",
+                "source_id": "primary"
+              },
+              "customers": {
+                "value": "The founders report receiving the first order within hours of launching and delivering it. No customer total is supplied for this snapshot.",
+                "source_id": "primary"
+              },
+              "team": {
+                "value": null,
+                "source_id": null
+              },
+              "funding": {
+                "value": null,
+                "source_id": null
+              }
+            },
+            "metrics": [],
+            "sources": [
+              {
+                "id": "primary",
+                "title": "DoorDash S-1/A, Our Mission (filed November 30, 2020)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1792789/000119312520304953/d752207ds1a.htm",
+                "published_date": "2020-11-30",
+                "retrieved_date": "2026-10-26",
+                "evidence_type": "retrospective_account"
+              }
+            ],
+            "limitations": [
+              "Retrospective company account, not independently verified contemporary evidence. Later adoption, revenue, funding and outcomes are excluded from this snapshot.",
+              "Only independently written limited facts and original annotations are included; no article text, filing table, image, logo or code is reproduced.",
+              "Sector tags and learning prompts are editorial. Company stage, funding amount and customer totals remain unknown. The activity does not establish what caused later survival.",
+              "This is the January 12 launch, not the unresolved April 26, 2013 interview snapshot. No later delivery count is transferred backward. Corporate filings are not automatically public domain."
+            ],
+            "data_kind": "research"
+          },
+          {
+            "id": "ad_dice_2026_10_31",
+            "company": "ad-dice",
+            "snapshot_date": "2026-10-31",
+            "sectors": [
+              "AI",
+              "building technology"
+            ],
+            "sector_basis": "Editorial browsing tags based on the company product description; not investor eligibility or an OpenFor category.",
+            "stage": null,
+            "fields": {
+              "product": {
+                "value": "The company markets SEE GAUGE, an AI air-conditioning control product for hotels and office buildings.",
+                "source_id": "primary"
+              },
+              "customers": {
+                "value": null,
+                "source_id": null
+              },
+              "team": {
+                "value": null,
+                "source_id": null
+              },
+              "funding": {
+                "value": null,
+                "source_id": null
+              }
+            },
+            "metrics": [],
+            "sources": [
+              {
+                "id": "primary",
+                "retrieved_date": "2026-10-31",
+                "title": "ad-dice official website",
+                "url": "https://ad-dice.com/",
+                "published_date": null,
+                "evidence_type": "contemporary_record",
+                "evidence_date": "2026-10-31"
+              },
+              {
+                "id": "openfor_directory",
+                "retrieved_date": "2026-10-31",
+                "title": "OpenFor Companies directory: ad-dice listing",
+                "url": "https://www.openfor.co/companies",
+                "published_date": null,
+                "evidence_type": "contemporary_record",
+                "evidence_date": "2026-10-31"
+              }
+            ],
+            "limitations": [
+              "Prepared for private presentation to OpenFor using public-source factual paraphrases. Wider distribution needs separate operator review.",
+              "OpenFor directory presence was observed on 2026-10-31. This does not establish partner status, incubator participation, portfolio membership or introduction availability.",
+              "Publication dates are unknown. Snapshot date means observation date, not founding date, product launch or a verified historical milestone.",
+              "Revenue, customers, team, funding, current fundraising needs and investment suitability are not established by this selected evidence. No hypothetical founder scenario describes this company."
+            ],
+            "data_kind": "research"
+          },
+          {
+            "id": "citadel_ai_2026_10_31",
+            "company": "Citadel AI",
+            "snapshot_date": "2026-10-31",
+            "sectors": [
+              "AI",
+              "AI governance"
+            ],
+            "sector_basis": "Editorial browsing tags based on the company product description; not investor eligibility or an OpenFor category.",
+            "stage": null,
+            "fields": {
+              "product": {
+                "value": "The company offers AI evaluation, governance and runtime monitoring products, including Citadel Lens and Citadel Radar.",
+                "source_id": "primary"
+              },
+              "customers": {
+                "value": null,
+                "source_id": null
+              },
+              "team": {
+                "value": null,
+                "source_id": null
+              },
+              "funding": {
+                "value": null,
+                "source_id": null
+              }
+            },
+            "metrics": [],
+            "sources": [
+              {
+                "id": "primary",
+                "retrieved_date": "2026-10-31",
+                "title": "Citadel AI official website",
+                "url": "https://citadel-ai.com/",
+                "published_date": null,
+                "evidence_type": "contemporary_record",
+                "evidence_date": "2026-10-31"
+              },
+              {
+                "id": "openfor_directory",
+                "retrieved_date": "2026-10-31",
+                "title": "OpenFor Companies directory: Citadel AI listing",
+                "url": "https://www.openfor.co/companies",
+                "published_date": null,
+                "evidence_type": "contemporary_record",
+                "evidence_date": "2026-10-31"
+              }
+            ],
+            "limitations": [
+              "Prepared for private presentation to OpenFor using public-source factual paraphrases. Wider distribution needs separate operator review.",
+              "OpenFor directory presence was observed on 2026-10-31. This does not establish partner status, incubator participation, portfolio membership or introduction availability.",
+              "Publication dates are unknown. Snapshot date means observation date, not founding date, product launch or a verified historical milestone.",
+              "Revenue, customers, team, funding, current fundraising needs and investment suitability are not established by this selected evidence. No hypothetical founder scenario describes this company."
+            ],
+            "data_kind": "research"
+          },
+          {
+            "id": "asenion_2026_10_31",
+            "company": "Asenion",
+            "snapshot_date": "2026-10-31",
+            "sectors": [
+              "AI",
+              "AI governance"
+            ],
+            "sector_basis": "Editorial browsing tags based on the company product description; not investor eligibility or an OpenFor category.",
+            "stage": null,
+            "fields": {
+              "product": {
+                "value": "The company describes software that turns compliance requirements into AI controls, verification and evidence.",
+                "source_id": "primary"
+              },
+              "customers": {
+                "value": null,
+                "source_id": null
+              },
+              "team": {
+                "value": null,
+                "source_id": null
+              },
+              "funding": {
+                "value": null,
+                "source_id": null
+              }
+            },
+            "metrics": [],
+            "sources": [
+              {
+                "id": "primary",
+                "retrieved_date": "2026-10-31",
+                "title": "Asenion official About page",
+                "url": "https://asenion.ai/about-us",
+                "published_date": null,
+                "evidence_type": "contemporary_record",
+                "evidence_date": "2026-10-31"
+              },
+              {
+                "id": "openfor_directory",
+                "retrieved_date": "2026-10-31",
+                "title": "OpenFor Companies directory: Asenion listing",
+                "url": "https://www.openfor.co/companies",
+                "published_date": null,
+                "evidence_type": "contemporary_record",
+                "evidence_date": "2026-10-31"
+              }
+            ],
+            "limitations": [
+              "Prepared for private presentation to OpenFor using public-source factual paraphrases. Wider distribution needs separate operator review.",
+              "OpenFor directory presence was observed on 2026-10-31. This does not establish partner status, incubator participation, portfolio membership or introduction availability.",
+              "Publication dates are unknown. Snapshot date means observation date, not founding date, product launch or a verified historical milestone.",
+              "Revenue, customers, team, funding, current fundraising needs and investment suitability are not established by this selected evidence. No hypothetical founder scenario describes this company."
+            ],
+            "data_kind": "research"
+          }
+        ]
+      },
+      "matching": {
+        "investor_topics": [],
+        "rules": [],
+        "evaluation_cases": []
+      },
+      "suggestions": []
+    }
+  },
+  "relationships": {
+    "schema_version": 1,
+    "id": "openfor_preview_relationships",
+    "version": "0.2.0",
+    "dataset_kind": "research",
+    "provider_id": "openfor_partner_demo",
+    "pack_id": "openfor_research_preview",
+    "updated_date": "2026-10-31",
+    "coverage": {
+      "complete": false,
+      "scope": "Private presentation sample: two current investor profiles, three OpenFor-listed startup observations and two separate historical teaching snapshots. Historical Airbnb activity trail and startup identity mappings only; no OpenFor affiliations, investor/startup funding links or introduction paths."
+    },
+    "license": {
+      "id": "CC-BY-4.0",
+      "scope": "Original independent factual paraphrases and editorial mappings only; source publications retain their own rights."
+    },
+    "sources": [
+      {
+        "id": "yc_airbnbs",
+        "url": "https://www.ycombinator.com/blog/the-airbnbs/",
+        "title": "YC retrospective account: The Airbnbs",
+        "published_date": "2020-12-10",
+        "checked_date": "2026-10-30"
+      },
+      {
+        "id": "airbnb_snapshot_source",
+        "url": "https://paulgraham.com/airbnb.html",
+        "title": "Source retained by the canonical January 2009 Airbnb snapshot",
+        "published_date": "2011-03",
+        "checked_date": "2026-10-30"
+      },
+      {
+        "id": "ad_dice_official",
+        "url": "https://ad-dice.com/",
+        "title": "ad-dice official website",
+        "published_date": null,
+        "checked_date": "2026-10-31"
+      },
+      {
+        "id": "citadel_ai_official",
+        "url": "https://citadel-ai.com/",
+        "title": "Citadel AI official website",
+        "published_date": null,
+        "checked_date": "2026-10-31"
+      },
+      {
+        "id": "asenion_official",
+        "url": "https://asenion.ai/about-us",
+        "title": "Asenion official About page",
+        "published_date": null,
+        "checked_date": "2026-10-31"
+      }
+    ],
+    "nodes": [
+      {
+        "id": "investor:yc_accelerator_001",
+        "type": "investor",
+        "name": "Y Combinator (2017 government reference)"
+      },
+      {
+        "id": "startup:airbnb",
+        "type": "startup",
+        "name": "Airbnb"
+      },
+      {
+        "id": "snapshot:airbnb_2009_01_23",
+        "type": "snapshot",
+        "name": "Airbnb snapshot: 2009-01-23",
+        "snapshot_id": "airbnb_2009_01_23"
+      },
+      {
+        "id": "activity:airbnb_user_visits",
+        "type": "experiment",
+        "name": "Airbnb user visits (documented historical activity)"
+      },
+      {
+        "id": "investor:geek_ventures_001",
+        "type": "investor",
+        "name": "Geek Ventures",
+        "profile_id": "geek_ventures_001"
+      },
+      {
+        "id": "investor:monozukuri_ventures_001",
+        "type": "investor",
+        "name": "Monozukuri Ventures",
+        "profile_id": "monozukuri_ventures_001"
+      },
+      {
+        "id": "startup:ad_dice",
+        "type": "startup",
+        "name": "ad-dice"
+      },
+      {
+        "id": "snapshot:ad_dice_2026_10_31",
+        "type": "snapshot",
+        "name": "ad-dice public-source observation: 2026-10-31",
+        "snapshot_id": "ad_dice_2026_10_31"
+      },
+      {
+        "id": "startup:citadel_ai",
+        "type": "startup",
+        "name": "Citadel AI"
+      },
+      {
+        "id": "snapshot:citadel_ai_2026_10_31",
+        "type": "snapshot",
+        "name": "Citadel AI public-source observation: 2026-10-31",
+        "snapshot_id": "citadel_ai_2026_10_31"
+      },
+      {
+        "id": "startup:asenion",
+        "type": "startup",
+        "name": "Asenion"
+      },
+      {
+        "id": "snapshot:asenion_2026_10_31",
+        "type": "snapshot",
+        "name": "Asenion public-source observation: 2026-10-31",
+        "snapshot_id": "asenion_2026_10_31"
+      }
+    ],
+    "edges": [
+      {
+        "id": "yc_airbnb",
+        "to": "startup:airbnb",
+        "type": "invested_in",
+        "basis": "documented",
+        "statement": "YC retrospectively describes Airbnb as a funded participant during its 2009 batch.",
+        "source_ids": [
+          "yc_airbnbs"
+        ],
+        "event_date": null,
+        "valid_from": null,
+        "valid_to": null,
+        "limitations": [
+          "Retrospective publication in 2020. Exact investment day is not established here. This does not establish a current YC mandate."
+        ],
+        "from": "investor:yc_accelerator_001"
+      },
+      {
+        "id": "airbnb_snapshot_identity",
+        "to": "startup:airbnb",
+        "type": "snapshot_of",
+        "basis": "documented",
+        "statement": "The canonical January 23, 2009 snapshot describes Airbnb.",
+        "source_ids": [
+          "airbnb_snapshot_source"
+        ],
+        "event_date": "2009-01-23",
+        "valid_from": null,
+        "valid_to": null,
+        "limitations": [
+          "Snapshot/entity identity mapping from the existing canonical record. Source correspondence was published later."
+        ],
+        "from": "snapshot:airbnb_2009_01_23"
+      },
+      {
+        "id": "airbnb_visits",
+        "to": "activity:airbnb_user_visits",
+        "type": "documents_action",
+        "basis": "documented",
+        "statement": "The snapshot records founders visiting users in New York City.",
+        "source_ids": [
+          "airbnb_snapshot_source"
+        ],
+        "event_date": "2009-01-23",
+        "valid_from": null,
+        "valid_to": null,
+        "limitations": [
+          "A recorded activity, not proof of a successful experiment, causation or transferability."
+        ],
+        "from": "snapshot:airbnb_2009_01_23"
+      },
+      {
+        "id": "ad_dice_snapshot_identity",
+        "type": "snapshot_of",
+        "basis": "documented",
+        "statement": "This source observation describes ad-dice.",
+        "source_ids": [
+          "ad_dice_official"
+        ],
+        "event_date": "2026-10-31",
+        "valid_from": null,
+        "valid_to": null,
+        "limitations": [
+          "Editorial identity mapping only; no investment, affiliation, product outcome or introduction relationship is asserted."
+        ],
+        "from": "snapshot:ad_dice_2026_10_31",
+        "to": "startup:ad_dice"
+      },
+      {
+        "id": "citadel_ai_snapshot_identity",
+        "type": "snapshot_of",
+        "basis": "documented",
+        "statement": "This source observation describes Citadel AI.",
+        "source_ids": [
+          "citadel_ai_official"
+        ],
+        "event_date": "2026-10-31",
+        "valid_from": null,
+        "valid_to": null,
+        "limitations": [
+          "Editorial identity mapping only; no investment, affiliation, product outcome or introduction relationship is asserted."
+        ],
+        "from": "snapshot:citadel_ai_2026_10_31",
+        "to": "startup:citadel_ai"
+      },
+      {
+        "id": "asenion_snapshot_identity",
+        "type": "snapshot_of",
+        "basis": "documented",
+        "statement": "This source observation describes Asenion.",
+        "source_ids": [
+          "asenion_official"
+        ],
+        "event_date": "2026-10-31",
+        "valid_from": null,
+        "valid_to": null,
+        "limitations": [
+          "Editorial identity mapping only; no investment, affiliation, product outcome or introduction relationship is asserted."
+        ],
+        "from": "snapshot:asenion_2026_10_31",
+        "to": "startup:asenion"
+      }
+    ]
+  }
+}

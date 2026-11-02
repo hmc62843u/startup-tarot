@@ -1,0 +1,48 @@
+const element=id=>document.getElementById(id);
+let credential='',revision=null,base=null,expanded=null;
+const input=()=>({revision,question:element('question').value,assessment_date:element('date').value,historical_cutoff:element('cutoff').value||null,investor_ids:[...element('investors').selectedOptions].map(o=>o.value),snapshot_ids:[...element('snapshots').selectedOptions].map(o=>o.value),startup_context:JSON.parse(element('context').value||'{}')});
+const show=(id,value)=>{element(id).textContent=JSON.stringify(value,null,2);};
+async function call(action,body={}){
+  if(!credential)throw new Error('Load a workspace credential first.');
+  const response=await fetch('/v1/'+action,{method:'POST',headers:{Authorization:'Bearer '+credential,'Content-Type':'application/json'},body:JSON.stringify(body),cache:'no-store'}),result=await response.json();
+  if(!response.ok)throw Object.assign(new Error(result.error),{status:response.status});return result;
+}
+const clearWorkspace=()=>{scenarioSet=null;element('scenario-case').replaceChildren();element('scenario-details').textContent='No illustrative scenario loaded.';candidate=null;candidateChecked=false;element('publisher-file').value='';element('data-check').textContent='No staged data.';revision=null;element('dataset').textContent='';element('investors').replaceChildren();element('snapshots').replaceChildren();element('plan').value='';element('output').value='';element('question').value='What can we learn from the fictional snapshot/activity path and shared investment rounds?';element('context').value='{}';clearPrepared();};
+const clearPrepared=()=>{base=null;expanded=null;element('prepared').textContent='';element('expanded').textContent='';element('reviewed').textContent='';};
+async function load(){const data=await call('dataset');revision=data.revision;show('dataset',data);const records=data.bundle.pack.schema_version===2?data.bundle.pack.components.research:data.bundle.pack;for(const [id,items] of [['investors',records.profiles],['snapshots',records.snapshots]]){element(id).replaceChildren();items.forEach((item,index)=>{const option=document.createElement('option');option.value=item.id;option.textContent=item.name||item.company;option.selected=index===0;element(id).append(option);});}clearPrepared();element('status').textContent='Workspace loaded. '+(data.bundle.pack.dataset_kind==='fictional'?'FICTIONAL demo data.':'Organization research data.');}
+for(const id of ['question','date','cutoff','plan','investors','snapshots','context'])element(id).addEventListener('input',clearPrepared);
+function action(id,fn){element(id).addEventListener('click',async()=>{const buttons=[...document.querySelectorAll('button,input,textarea,select')];buttons.forEach(b=>b.disabled=true);try{await fn();}catch(error){element('status').textContent=error.message;}finally{buttons.forEach(b=>b.disabled=false);}});}
+action('connect',async()=>{if(credential){try{await call('publisher/clear');}catch{}}credential=element('token').value.trim();element('token').value='';clearWorkspace();try{await load();}catch(error){if(error.status!==404)throw error;element('status').textContent='No imported dataset yet. Stage, check and import a bundle to initialize this workspace.';}});
+action('disconnect',async()=>{if(credential){try{await call('publisher/clear');}catch{}}credential='';element('token').value='';clearWorkspace();element('status').textContent='Credential and displayed workspace cleared.';});
+action('prepare',async()=>{base=await call('research/prepare',input());expanded=null;show('prepared',base);element('status').textContent='Inspect the packet and catalog.';});
+action('demo',async()=>{const result=await call('demo/plan',input());clearPrepared();element('plan').value=JSON.stringify(result.plan,null,2);element('status').textContent='Scripted fictional plan loaded. No LLM call occurred.';});
+action('execute',async()=>{expanded=null;const result=await call('research/execute',{...input(),plan:JSON.parse(element('plan').value)});expanded=result;show('expanded',result.packet);element('status').textContent='Neo4j queries executed and checked against shared browser semantics. Inspect the expanded packet.';});
+action('export',async()=>{if(!expanded)throw new Error('Execute and inspect a plan first.');const url=URL.createObjectURL(new Blob([expanded.prompt],{type:'text/plain'})),link=document.createElement('a');link.href=url;link.download='incubator-research-prompt.txt';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);element('status').textContent='Prompt exported locally. Inspect before sending to any model.';});
+action('review',async()=>{if(!expanded)throw new Error('Prepare the expanded packet first.');const result=await call('research/review',{...input(),plan:JSON.parse(element('plan').value),packet_id:expanded.packet.packet_id,output:JSON.parse(element('output').value)});show('reviewed',result);element('status').textContent='References validated. Factual support and usefulness still require review.';});
+
+action('export-workspace',async()=>{if(!revision)throw new Error('Load an organization revision first.');const exported=await call('distribution/export',{revision});const url=URL.createObjectURL(new Blob([JSON.stringify(exported,null,2)],{type:'application/json'})),link=document.createElement('a');link.href=url;link.download=exported.organization+'-'+exported.revision+'-distribution-source.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);element('status').textContent='Selected organization revision exported. Review privacy and distribution rights before packaging.';});
+
+// Staged publisher data stays in memory and never enters an import implicitly.
+let candidate=null,candidateChecked=false,scenarioSet=null;
+function downloadJSON(value,name){const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'})),link=document.createElement('a');link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+function stageCandidate(bundle){candidate=bundle;candidateChecked=false;element('data-check').textContent='Staged data requires checks before import.';element('status').textContent='Data staged in memory. The workspace is unchanged.';}
+for(const [id,sample] of [['sample-openfor','openfor'],['sample-template','template']])action(id,async()=>stageCandidate((await call('publisher/sample',{sample})).bundle));
+action('stage-file',async()=>{const file=element('publisher-file').files[0];if(!file||file.size>5*1024*1024)throw new Error('Choose a JSON bundle no larger than 5 MiB.');stageCandidate(JSON.parse(await file.text()));});
+action('download-candidate',async()=>{if(!candidate)throw new Error('Stage a sample or uploaded bundle first.');downloadJSON(candidate,'operator-editable-bundle.json');});
+action('check-candidate',async()=>{if(!candidate)throw new Error('Stage data first.');candidateChecked=false;const report=await call('publisher/check',{bundle:candidate});candidateChecked=report.ready_for_import;show('data-check',report);});
+action('import-candidate',async()=>{if(!candidate||!candidateChecked)throw new Error('Check the staged bundle first.');await call('import',{expected_revision:revision,bundle:candidate});candidate=null;candidateChecked=false;await load();element('status').textContent='Checked bundle imported. Inspect this revision before export.';});
+
+action('load-scenarios',async()=>{scenarioSet=await call('publisher/scenario');element('scenario-case').replaceChildren();scenarioSet.cases.forEach((item,index)=>{const option=document.createElement('option');option.value=item.id;option.textContent=item.title;option.selected=index===0;element('scenario-case').append(option);});show('scenario-details',scenarioSet);element('status').textContent='Illustrative scenarios loaded separately. No facts or workspace data were changed.';});
+action('download-scenarios',async()=>{if(!scenarioSet)throw new Error('Load illustrative scenarios first.');downloadJSON(scenarioSet,'openfor-illustrative-scenarios.json');});
+action('apply-scenario',async()=>{
+ if(!scenarioSet||!revision)throw new Error('Load scenarios and an OpenFor research workspace first.');
+ const choice=element('scenario-case').value||element('scenario-case').selectedOptions[0]?.value,item=scenarioSet.cases.find(c=>c.id===choice);
+ if(!item)throw new Error('Select an illustrative scenario.');
+ const snapshots=[...element('snapshots').children],investors=[...element('investors').children];
+ if(!snapshots.some(o=>o.value===item.context_snapshot_id)||!investors.some(o=>o.value===item.investor_profile_id))throw new Error('This workspace lacks the required sourced context. Import the OpenFor research sample first.');
+ clearPrepared();snapshots.forEach(o=>o.selected=o.value===item.context_snapshot_id);investors.forEach(o=>o.selected=o.value===item.investor_profile_id);
+ const a=item.assumptions;
+ element('context').value=JSON.stringify({company:item.title,data_kind:'illustrative_scenario',notice:scenarioSet.notice,stage:a.stage.value,sector:a.sector.value,geography:a.geography.value,amount:a.fundraising_target.value,currency:a.fundraising_target.unit,illustrative_assumptions:a,context_relationship:item.context_relationship},null,2);
+ element('question').value='ILLUSTRATIVE SCENARIO: '+item.title+'. Using sourced company context only as an analogy, which assumptions need verification and what bounded investigation could test them? Do not attribute fictional numbers or plans to the real source company.';
+ show('scenario-details',item);element('status').textContent='Illustrative inputs applied to the research form only. Inspect before preparing or exporting a prompt; no canonical facts changed.';
+});

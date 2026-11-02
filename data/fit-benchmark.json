@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "review_status": "author_reviewed_pending_founder_pilot",
+  "as_of": "2026-10-30",
+  "limitations": "Authored regression expectations, not independent accuracy evaluation or funding predictions.",
+  "cases": [
+    {
+      "id": "us-saas",
+      "name": "US SaaS pre-seed first check",
+      "input": {
+        "sector": "SaaS",
+        "stage": "pre-seed",
+        "geography": "US",
+        "check": {
+          "amount": 150000,
+          "currency": "USD"
+        }
+      },
+      "expected": {
+        "hustle_fund_current_001": "strong",
+        "firstminute_vc_seed_001": "investigate",
+        "ada_ventures_current_001": "insufficient"
+      },
+      "rationale": "Hustle aligns on four fields. A broad technology mandate supports a narrower software sector, but firstminute geography and currency need confirmation."
+    },
+    {
+      "id": "uk-climate",
+      "name": "UK climate technology pre-seed",
+      "input": {
+        "sector": "climate tech",
+        "stage": "pre-seed",
+        "geography": "UK",
+        "check": {
+          "amount": 500000,
+          "currency": "GBP"
+        }
+      },
+      "expected": {
+        "ada_ventures_current_001": "strong",
+        "firstminute_vc_seed_001": "investigate"
+      },
+      "rationale": "Climate technology fits the broader climate theme; firstminute typical check is outside this amount."
+    },
+    {
+      "id": "uk-seed",
+      "name": "UK technology seed",
+      "input": {
+        "sector": "technology",
+        "stage": "seed",
+        "geography": "UK",
+        "check": {
+          "amount": 2000000,
+          "currency": "GBP"
+        }
+      },
+      "expected": {
+        "firstminute_vc_seed_001": "strong",
+        "hustle_fund_current_001": "mismatch"
+      },
+      "rationale": "Firstminute aligns on all four fields. Hustle initial stage explicitly excludes seed."
+    },
+    {
+      "id": "eu-automation",
+      "name": "European automation pre-seed",
+      "input": {
+        "sector": "automation",
+        "stage": "pre-seed",
+        "geography": "Europe",
+        "check": {
+          "amount": 1000000,
+          "currency": "USD"
+        }
+      },
+      "expected": {
+        "connect_ventures_current_001": "investigate"
+      },
+      "rationale": "Stage, sector and region align, but the published round size is not an individual check."
+    },
+    {
+      "id": "inception-security",
+      "name": "Cybersecurity before formation",
+      "input": {
+        "sector": "cyber security",
+        "stage": "pre-company",
+        "geography": "US",
+        "check": {
+          "amount": 1000000,
+          "currency": "USD"
+        }
+      },
+      "expected": {
+        "boldstart_ventures_current_001": "investigate",
+        "firstminute_vc_seed_001": "mismatch"
+      },
+      "rationale": "Cybersecurity alias and inception mapping align with boldstart; geography remains unknown."
+    },
+    {
+      "id": "broad-ai",
+      "name": "Broad AI does not imply infrastructure",
+      "input": {
+        "sector": "AI",
+        "stage": "pre-seed",
+        "geography": "US",
+        "check": {
+          "amount": 1000000,
+          "currency": "USD"
+        }
+      },
+      "expected": {
+        "boldstart_ventures_current_001": "insufficient"
+      },
+      "rationale": "A broad AI label cannot establish an AI infrastructure or agents thesis."
+    },
+    {
+      "id": "missing",
+      "name": "Missing startup context",
+      "input": {},
+      "expected": {
+        "hustle_fund_current_001": "insufficient",
+        "firstminute_vc_seed_001": "insufficient"
+      },
+      "rationale": "Missing context is never a match or an explicit mismatch."
+    },
+    {
+      "id": "currency",
+      "name": "Currency difference remains unknown",
+      "input": {
+        "sector": "software-as-a-service",
+        "stage": "pre-seed",
+        "geography": "US",
+        "check": {
+          "amount": 150000,
+          "currency": "EUR"
+        }
+      },
+      "expected": {
+        "hustle_fund_current_001": "investigate"
+      },
+      "rationale": "Stage and software align; no currency conversion is performed."
+    },
+    {
+      "id": "stale",
+      "name": "Review window elapsed",
+      "as_of": "2027-10-30",
+      "input": {
+        "sector": "SaaS",
+        "stage": "pre-seed",
+        "geography": "US",
+        "check": {
+          "amount": 150000,
+          "currency": "USD"
+        }
+      },
+      "expected": {
+        "hustle_fund_current_001": "insufficient"
+      },
+      "rationale": "Old mandates cannot establish current fit without review."
+    }
+  ]
+}

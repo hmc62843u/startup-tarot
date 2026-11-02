@@ -1,15 +1,30 @@
 import {readFile} from 'node:fs/promises';
 
 export const DOCUMENTS=[
+    {source:'enterprise/OPERATOR.md',path:'docs/operator-workflow.html',title:'Operator workflow'},
+    {source:'enterprise/LAUNCHER.md',path:'docs/local-services-launcher.html',title:'Local Services Launcher'},
+    {source:'publisher/README.md',path:'docs/research-publisher.html',title:'Browser-only Research Publisher'},
+    {source:'enterprise/PUBLISHER.md',path:'docs/openfor-publisher.html',title:'OpenFor data and scenarios'},
+    {source:'GUIDE.md',path:'docs/guide.html',title:'User guide'},
+    {source:'METHODOLOGY.md',path:'docs/methodology.html',title:'Matching and research'},
+    {source:'CONTEXTUAL_RESEARCH.md',path:'docs/contextual-research.html',title:'Research across tabs'},
+    {source:'RESEARCH_SETUP.md',path:'docs/research-setup.html',title:'Research setup'},
+    {source:'RESEARCH_PLAN.md',path:'docs/research-plan.html',title:'Research plan and gates'},
+    {source:'RELATIONSHIPS.md',path:'docs/relationships.html',title:'Relationships and introduction paths'},
+    {source:'DISTRIBUTION_GUIDE.md',path:'docs/distribution-guide.html',title:'Operator distributions'},
+    {source:'ENTERPRISE_REFERENCE.md',path:'docs/enterprise-reference.html',title:'Incubator reference'},
+    {source:'enterprise/ACCEPTANCE.md',path:'docs/enterprise-acceptance.html',title:'Reference acceptance'},
+    {source:'ARCHITECTURE.md',path:'docs/architecture.html',title:'Architecture'},
+    {source:'DEVELOPMENT.md',path:'docs/development.html',title:'Developer guide'},
+    {source:'LOCAL_RELEASE.md',path:'docs/release.html',title:'Release and pilot'},
     {source:'EXAMPLES.md',path:'docs/examples.html',title:'Fictional examples'},
-    {source:'GUIDE.md',path:'docs/guide.html',title:'Guide and methodology'},
-    {source:'DATA_LICENSE.md',path:'docs/data-license.html',title:'Data license and scope'},
+    {source:'DATA_LICENSE.md',path:'docs/data-license.html',title:'Data scope'},
     {source:'LICENSE',path:'docs/license.html',title:'MIT license'}
 ];
 const escape=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 function documentLink(value) {
     const [path,anchor]=value.split('#');
-    return (DOCUMENTS.find(document=>document.source===path)?.path||path)+(anchor?'#'+anchor:'');
+    return (DOCUMENTS.find(document=>document.source===path.replace(/^(?:\.\/|\.\.\/)+/,''))?.path||path)+(anchor?'#'+anchor:'');
 }
 function inline(value) {
     let result='',offset=0;
@@ -40,7 +55,8 @@ export function renderMarkdown(source) {
         if(anchor){html+='<a id="'+anchor[1]+'"></a>\n';i++;continue;}
         const illustration=/^!\[([^\]]*)\]\(([^\s)]+)\)$/.exec(line);
         if(illustration){
-            const [,alt,path]=illustration;
+            const [,alt,sourcePath]=illustration;
+            const path=sourcePath.startsWith('../assets/')?sourcePath.slice(3):sourcePath;
             const local=/^[a-zA-Z0-9][a-zA-Z0-9_./-]*\.(svg|png|jpe?g|webp)$/.test(path)&&!path.split('/').includes('..');
             html+=local?'<figure class="document-illustration"><img src="'+escape(path)+'" alt="'+escape(alt)+'"></figure>\n':'<p>'+escape(line)+'</p>\n';
             i++;continue;
@@ -87,7 +103,9 @@ export async function documentPages(root=new URL('../',import.meta.url)) {
     return Promise.all(DOCUMENTS.map(async document=>{
         const source=(await readFile(new URL(document.source,root),'utf8')).replace(/^\uFEFF/,'').replace(/\r\n/g,'\n');
         const content=document.source==='LICENSE'?'<h1>MIT license</h1><pre class="license-text">'+escape(source)+'</pre>':renderMarkdown(source);
-        const nav=DOCUMENTS.map(item=>'<a href="'+item.path+'"'+(item.path===document.path?' aria-current="page"':'')+'>'+item.title+'</a>').join('');
+        const operatorPages=['enterprise/OPERATOR.md','enterprise/PUBLISHER.md','publisher/README.md','enterprise/LAUNCHER.md','ENTERPRISE_REFERENCE.md'];
+        const navigation=operatorPages.includes(document.source)?DOCUMENTS.filter(item=>operatorPages.includes(item.source)):DOCUMENTS;
+        const nav=navigation.map(item=>'<a href="'+item.path+'"'+(item.path===document.path?' aria-current="page"':'')+'>'+item.title+'</a>').join('');
         const pageClass=document.source==='GUIDE.md'?'document-page visual-guide':'document-page';
         const html='<!DOCTYPE html>\n<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>'+document.title+' · Startup Guide</title><link rel="stylesheet" href="css/style.css"></head><body><main class="'+pageClass+'"><a class="document-back" href="index.html">← Back to the app</a><nav class="document-nav" aria-label="Documentation">'+nav+'</nav><article>'+content+'</article><footer><a href="'+document.source+'">View original source file</a></footer></main></body></html>\n';
         const nestedHtml=html.replace(/\b(href|src)="([^"]*)"/g,(match,attribute,url)=>{

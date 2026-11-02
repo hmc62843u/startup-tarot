@@ -63,7 +63,7 @@ test('v2 real package retains limited comparisons and cannot invent investor-con
  const pkg=parseResearchPackage(read('packs/guide-pack.json'));
  assert.equal(pkg.dataset_kind,'research');assert.equal(pkg.components.matching.investor_topics.length,0);
  const {profiles,snapshots}=researchRecords(pkg);
- assert.equal(profiles.length,9);assert.equal(snapshots.length,3);
+ assert.equal(profiles.length,14);assert.equal(snapshots.length,3);
  assert.equal(buildHistoricalSuggestions(startup,profiles,snapshots).length,0);
 });
 

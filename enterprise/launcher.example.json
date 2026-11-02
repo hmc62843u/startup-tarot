@@ -1,0 +1,8 @@
+{
+  "database_mode": "docker",
+  "neo4j_url": "http://127.0.0.1:7474",
+  "password_file": ".local/enterprise/neo4j-password.json",
+  "access_file": ".local/enterprise/access.json",
+  "port": 8790,
+  "startup_timeout_seconds": 90
+}

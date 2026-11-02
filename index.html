@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f5f2e8">
-<title>Startup Guide</title><link rel="stylesheet" href="css/style.css?v=90d69fbb988f"><link rel="manifest" href="manifest.json"><link rel="icon" href="icons/icon-192.png">
+<title>Startup Guide</title><link rel="stylesheet" href="css/style.css?v=bd339dc0cb2e"><link rel="manifest" href="manifest.json"><link rel="icon" href="icons/icon-192.png">
 </head>
 <body>
 <div class="guide-app">
-  <header class="app-header"><a href="docs/guide.html" aria-label="Startup Guide help">s.</a><span>Startup Guide</span><small id="pack-label">Local guide</small></header>
+  <header class="app-header"><a href="docs/guide.html" aria-label="Startup Guide help">s.</a><span>Founder Workspace</span><small id="pack-label">Local guide</small><button class="header-research" data-view="research" aria-pressed="false" type="button">Research</button></header>
   <main id="screen-content">
     <h1 id="screen-title" tabindex="-1">Your situation</h1>
     <section data-screen="situation" aria-labelledby="screen-title">
       <p class="intro">Start with what you know.</p>
+      <button id="situation-back" type="button" class="text-button" hidden>← Back to my next move</button>
       <form id="situation-form" class="stack">
         <label for="business-model">What are you building?</label>
         <select id="business-model" required><option value="">Choose a business model</option><option value="marketplace">A marketplace</option><option value="service">A service business</option><option value="saas">Software / SaaS</option><option value="hardware">Hardware</option><option value="consumer_product">A consumer product</option><option value="other">Something else</option><option value="unknown">Not sure yet</option></select>
@@ -20,14 +21,18 @@
         <select id="validation-focus" required><option value="">Choose your next question</option><option value="customer_problem">Understand customer problems</option><option value="demand">Test demand</option><option value="operations">Test service operations</option><option value="technical_feasibility">Test technical feasibility</option><option value="investor_outreach">Explore investor conversations</option><option value="unknown">Not sure yet</option></select>
         <button class="primary" id="save-situation">Show my next move →</button>
       </form>
+      <div class="secondary-actions" role="group" aria-label="Situation research"><button id="research-situation" class="text-button" type="button">Investigate my assumptions</button></div>
+      <p class="muted">Optional research uses your current inputs. Nothing is sent or saved to your plan automatically.</p>
     </section>
     <section data-screen="move" hidden aria-labelledby="screen-title">
+      <div class="situation-summary"><p id="situation-summary" class="muted"></p><button id="edit-situation" type="button" class="text-button">Edit situation</button></div>
       <div data-step="move" class="card move-card">
         <p id="move-kind" class="eyebrow"></p><h2 id="move-title"></h2><p id="move-support" class="support"></p><p id="move-reason"></p>
         <button id="move-action" class="primary">Make a plan</button>
-        <div id="move-links"><button id="move-evidence" class="text-button">Why this fits &amp; sources</button></div>
+
         <small id="support-note" class="muted"></small>
       </div>
+<div id="move-links" class="secondary-actions" role="group" aria-label="Experiment evidence and research"><button id="move-evidence" class="text-button">Why this fits &amp; sources</button><button id="research-move" class="text-button" type="button">Research this experiment</button></div>
       <form id="plan-form">
         <div data-step="plan" hidden class="stack">
           <p id="plan-review" class="review" role="status"></p>
@@ -43,19 +48,162 @@
           <div class="row"><button id="learning-back" type="button" class="text-button">← Edit plan</button><button id="save-learning" type="button" class="primary">Save progress</button></div>
         </div>
       </form>
+      <details><summary>Research accepted into this plan</summary><div id="plan-research-history"></div></details>
     </section>
     <section data-screen="investor" hidden aria-labelledby="screen-title">
-      <div class="card"><p id="investor-kind" class="eyebrow"></p><h2 id="investor-name"></h2><p id="investor-focus"></p><p id="investor-reason" class="support"></p><button id="choose-investor" class="primary">Use this perspective</button><button id="investor-details" class="text-button">Profile &amp; sources</button></div>
+      <button id="explore-fit" class="primary">Explore investor fit →</button>
+      <div class="card investor-perspective"><p id="investor-kind" class="eyebrow"></p><h2 id="investor-name"></h2><p id="investor-focus"></p><p id="investor-reason" class="support"></p><div class="secondary-actions" role="group" aria-label="Investor perspective and evidence"><button id="choose-investor" class="text-button">Use this perspective</button><button id="investor-details" class="text-button">Profile &amp; sources</button><button id="research-investor" class="text-button" type="button">Research this investor</button></div></div>
       <div class="pager"><button id="investor-prev" aria-label="Previous investor">←</button><span id="investor-count"></span><button id="investor-next" aria-label="Next investor">→</button></div>
+      <div class="secondary-actions" role="group" aria-label="Relationship and general research"><button id="open-relationships" class="text-button">Relationships &amp; introduction paths</button><button id="open-research" class="text-button">Research a question</button></div>
     </section>
     <section data-screen="startup" hidden aria-labelledby="screen-title">
-      <div class="card"><p id="startup-kind" class="eyebrow"></p><h2 id="startup-name"></h2><p id="startup-date" class="muted"></p><p id="startup-action"></p><p id="startup-limit" class="support"></p><button id="startup-details" class="text-button">Full snapshot &amp; sources</button></div>
+      <div class="card"><p id="startup-kind" class="eyebrow"></p><h2 id="startup-name"></h2><p id="startup-date" class="muted"></p><p id="startup-action"></p><p id="startup-limit" class="support"></p><button id="research-startup" class="primary" type="button">Compare this example with my situation</button><div class="secondary-actions" role="group" aria-label="Startup evidence"><button id="startup-details" class="text-button">Full snapshot &amp; sources</button></div></div>
       <div class="pager"><button id="startup-prev" aria-label="Previous startup">←</button><span id="startup-count"></span><button id="startup-next" aria-label="Next startup">→</button></div>
+    </section>
+    <section data-screen="fit" hidden aria-labelledby="screen-title">
+      <p>Compare fundraising criteria, separately from choosing an experiment perspective.</p>
+      <form id="fit-form" class="stack">
+        <label for="fit-sector">Sector</label><input id="fit-sector" list="fit-sectors" maxlength="80" placeholder="e.g. climate technology">
+        <datalist id="fit-sectors"></datalist>
+        <label for="fit-stage">Funding stage</label><select id="fit-stage"><option value="unknown">Not sure yet</option><option>pre-company</option><option>idea</option><option>pre-seed</option><option>seed</option><option>series-a</option><option>growth</option></select>
+        <label for="fit-geography">Company location / region</label><select id="fit-geography"><option value="unknown">Not specified</option><option>UK</option><option>Europe</option><option>US</option><option>Canada</option><option>Japan</option><option>Southeast Asia</option><option>Other</option></select>
+        <label for="fit-amount">Desired check from one investor (not total round)</label><input id="fit-amount" type="number" min="1" step="any" placeholder="Leave blank if unknown">
+        <label for="fit-currency">Currency</label><select id="fit-currency"><option>GBP</option><option>USD</option><option>EUR</option></select>
+        <button class="primary">Compare investor criteria</button>
+      </form>
+      <p>Save your profile to keep it in this browser. No currency conversion or introduction access is implied.</p>
+      <button id="save-fit-profile" type="button">Save startup profile</button>
+      <button id="open-shortlist" type="button">Saved shortlist</button>
+      <p id="fit-summary" role="status"></p><div id="fit-results"></div>
+    </section>
+    <section data-screen="shortlist" hidden aria-labelledby="screen-title">
+      <p>Review saved investors, record questions and prepare an editable draft.</p>
+      <p id="outreach-status" role="status"></p>
+      <form id="founder-form" class="stack">
+        <label for="founder-name">Your name</label><input id="founder-name" maxlength="200" autocomplete="name">
+        <label for="founder-company">Company</label><input id="founder-company" maxlength="200">
+        <label for="founder-summary">What you build and who it serves</label><textarea id="founder-summary" maxlength="2000" rows="2"></textarea>
+        <label for="founder-progress">A specific progress point you can substantiate</label><textarea id="founder-progress" maxlength="2000" rows="2"></textarea>
+        <button class="primary">Save founder details</button>
+      </form>
+      <div class="row"><button id="shortlist-back" type="button">Compare investors</button><button id="export-shortlist" type="button">Export shortlist (.md)</button></div>
+      <p>Saved in this browser profile only. Export a backup. Drafts require your review; the app does not send messages.</p>
+      <button id="toggle-archived" type="button">Show archived investors</button>
+      <button id="recovery-backup" type="button" hidden>Download saved data for recovery (.json)</button>
+      <div id="shortlist-results"></div>
+    </section>
+    <section data-screen="research" hidden aria-labelledby="screen-title">
+      <p>One workspace to investigate your situation, next experiment, startup examples and investor evidence.</p>
+      <div class="card"><p id="research-origin-label">General research</p><button id="research-general" type="button" class="text-button">Start a general question</button><details><summary>Inspect captured context</summary><pre id="research-source-context">No contextual entry selected.</pre></details></div>
+      <p id="research-mode" class="muted"></p>
+      <p id="research-status" role="status"></p>
+      <form id="research-form" class="stack"><fieldset id="research-inputs" class="stack">
+        <legend>Question and evidence</legend>
+        <label for="research-parent">Previous research revision</label><select id="research-parent"><option value="">New research</option></select>
+        <label for="research-question">What do you need to learn?</label><textarea id="research-question" rows="3" maxlength="2000" required placeholder="What customer-demand evidence should we gather before approaching investors?"></textarea>
+        <p>Uses the captured situation/experiment when opened from a tab, plus your saved company description/progress. Record selections stay editable. Inspect the complete packet before sending.</p>
+        <label for="research-investors">Investor records (select with Ctrl/Cmd; five total records maximum)</label><select id="research-investors" multiple size="5"></select>
+        <label for="research-snapshots">Startup snapshots</label><select id="research-snapshots" multiple size="3"></select>
+        <label for="research-assessment-date">Assessment date</label><input id="research-assessment-date" type="date" required>
+        <label for="research-cutoff">Historical decision cutoff (optional)</label><input id="research-cutoff" type="date">
+        <label for="research-new-finding">New finding to consider (optional; remains unverified working research)</label><textarea id="research-new-finding" rows="2" maxlength="4000"></textarea>
+        <label for="research-finding-url">Finding source URL</label><input id="research-finding-url" type="url" placeholder="https://">
+        <label for="research-finding-published">Finding source publication date, if known</label><input id="research-finding-published" type="date">
+        <button class="primary">Build evidence packet</button>
+      </fieldset></form>
+      <p id="research-linked-selection">No public relationship edges selected.</p><button id="research-clear-relationships" type="button">Clear selected relationship evidence</button>
+      <details><summary>Inspect prepared evidence packet</summary><pre id="research-packet">No packet prepared.</pre></details>
+      <h2>ChatGPT connection</h2><p id="research-connection"></p>
+      <label for="research-account">Saved connection</label><select id="research-account"><option value="">Add a ChatGPT account</option></select>
+      <div class="row"><button id="research-signin" type="button">Connect ChatGPT</button><button id="research-refresh-account" type="button">Refresh connection</button><button id="research-disconnect" type="button">Disconnect</button></div>
+      <a id="research-authorize" href="#" target="_blank" rel="noopener noreferrer" hidden>Continue with ChatGPT</a>
+      <p>Sign-in and model access depend on your account and workspace. Tokens stay in the local helper's memory. <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">Review app access and usage in ChatGPT settings</a>.</p>
+      <label for="research-model">Model available to this account</label><select id="research-model"></select>
+      <details><summary>LLM graph exploration (optional)</summary>
+        <p>Send the prepared packet and the public graph catalog for one planning pass. JavaScript runs up to three validated public queries locally. Inspect the expanded evidence before running final research. Private contacts and fictional graphs are excluded.</p>
+        <details><summary>Inspect public graph catalog sent with the packet</summary><pre id="research-graph-catalog">Build a packet first.</pre></details>
+        <button id="research-explore" type="button" disabled>Plan and explore public graph</button>
+        <pre id="research-graph-audit">No exploration run.</pre>
+      </details>
+      <label><input id="research-consent" type="checkbox"> I inspected the packet (and displayed public catalog when planning graph queries) and want to send it to OpenAI using my ChatGPT plan.</label>
+      <div class="row"><button id="research-run" type="button" disabled>Run research</button><button id="research-cancel" type="button" disabled>Cancel request</button></div>
+      <details><summary>Use another model manually</summary>
+        <button id="research-export-packet" type="button" disabled>Export prompt and evidence (.txt)</button>
+        <label for="research-manual-model">Model or method used</label><input id="research-manual-model" maxlength="200">
+        <label for="research-manual-response">Paste the structured JSON response</label><textarea id="research-manual-response" rows="6" maxlength="60000"></textarea>
+        <button id="research-review-manual" type="button" disabled>Validate and save response</button>
+      </details>
+      <div id="research-output"></div>
+      <label for="research-feedback">Feedback or challenge for the inspected run</label><textarea id="research-feedback" rows="2" maxlength="4000"></textarea>
+      <button id="research-save-feedback" type="button">Append feedback</button>
+      <h2>Saved research history</h2><div id="research-history"></div>
+      <div class="row"><button id="research-export-history" type="button">Export research history</button><button id="research-back" type="button">Back to source</button></div>
+      <p>History is stored in this browser. New findings and model outputs do not update the canonical research pack. Structural checks do not verify factual accuracy.</p>
+    </section>
+    <section data-screen="relationships" hidden aria-labelledby="screen-title">
+      <p>Trace sourced connections, inspect the included investor network, or research private introduction paths. These are separate from investor eligibility.</p>
+      <p id="relationship-status" role="status"></p>
+      <h2>Public paths and network</h2>
+      <label for="relationship-dataset">Evidence collection</label><select id="relationship-dataset"><option value="research">Public documented examples</option><option value="fictional">Fictional demonstration (not real relationships)</option></select>
+      <p id="relationship-kind"></p>
+      <label for="relationship-asof">Assessment date (also used for private review)</label><input id="relationship-asof" type="date">
+      <label for="relationship-cutoff">Historical source-availability cutoff (optional)</label><input id="relationship-cutoff" type="date">
+      <label for="relationship-from">Start entity</label><select id="relationship-from"></select>
+      <label for="relationship-to">Target entity</label><select id="relationship-to"></select>
+      <label for="relationship-hops">Maximum links to follow (1-6)</label><input id="relationship-hops" type="number" min="1" max="6" value="4">
+      <label><input id="relationship-directed" type="checkbox"> Follow recorded edge direction only</label>
+      <label><input id="relationship-editorial" type="checkbox"> Include explicitly labelled editorial links</label>
+      <button id="relationship-query" type="button">Find evidence paths</button>
+      <div id="relationship-results"></div>
+      <h3>Investor network within this collection</h3>
+      <label for="network-projection">Connection definition</label><select id="network-projection"><option value="same_round">Documented same-round co-investment</option><option value="shared_company">Shared company (may be different rounds)</option></select>
+      <label for="network-from-date">Event date from for paths/network (optional; undated events omitted)</label><input id="network-from-date" type="date">
+      <label for="network-to-date">Event date through for paths/network (optional)</label><input id="network-to-date" type="date">
+      <button id="network-analyze" type="button">Analyze included network</button><div id="network-results"></div>
+      <h2>Private introduction-path research</h2>
+      <p>Names and confirmation notes stay in this browser. No private paths enter model packets. Reported connections and willingness are not independently verified or a promise of introduction.</p>
+      <p id="private-summary"></p>
+      <label><input id="private-storage-permission" type="checkbox"> I have permission to store and use these contacts and relationship notes privately.</label>
+      <form id="private-contact-form" class="stack">
+        <label for="private-contact-name">Add a contact name or private alias</label><input id="private-contact-name" maxlength="160" required>
+        <button type="submit">Save private contact</button>
+      </form>
+      <form id="private-connection-form" class="stack">
+        <label for="private-from">From person (direction matters)</label><select id="private-from"></select>
+        <label for="private-to">To person or investor</label><select id="private-to"></select>
+        <label for="private-note">How was this connection confirmed? Record the source and any limits.</label><textarea id="private-note" minlength="10" maxlength="2000" rows="3" required></textarea>
+        <label for="private-checked">Date relationship and willingness were reviewed</label><input id="private-checked" type="date" required>
+        <label><input id="private-confirmed" type="checkbox"> I have confirmed this relationship with the relevant person.</label>
+        <label><input id="private-edge-permission" type="checkbox"> Permission to use this directional connection is currently granted.</label>
+        <label for="private-willingness">Is the From person willing to use this connection for an introduction request?</label><select id="private-willingness"><option value="unknown">Not confirmed</option><option value="yes">Yes, confirmed by me</option><option value="no">No / declined</option></select>
+        <button type="submit">Save confirmation revision</button>
+      </form>
+      <div id="private-edge-list"></div>
+      <label for="intro-target">Target investor</label><select id="intro-target"></select>
+      <label><input id="intro-possible" type="checkbox"> Also show possible paths needing confirmation or willingness</label>
+      <button id="intro-query" type="button">Find private introduction paths</button>
+      <p>Only directional, permitted connections reviewed within 90 days are considered. Declined or revoked links are excluded. The review window is a product policy.</p>
+      <div id="intro-results"></div>
+      <button id="private-export" type="button">Export private contacts and confirmation history (.json)</button>
+      <p>This backup contains private names and notes. Review it before sharing; it is never included in a public release.</p>
+      <button id="relationship-back" type="button">Back to investors</button>
     </section>
   </main>
   <p id="fatal-error" role="alert" hidden></p>
-  <footer><p id="app-status" role="status"></p><nav aria-label="Main navigation"><button data-view="situation" aria-pressed="true">Situation</button><button data-view="move" aria-pressed="false">Next move</button><button data-view="investor" aria-pressed="false">Investor</button><button data-view="startup" aria-pressed="false">Startup</button></nav></footer>
+  <footer><p id="app-status" role="status"></p><nav aria-label="Main navigation"><button data-view="move" aria-pressed="false">Next move</button><button data-view="investor" aria-pressed="false">Investor</button><button data-view="startup" aria-pressed="false">Startup</button></nav></footer>
 </div>
 <dialog id="evidence-dialog" aria-labelledby="detail-title"><header><h2 id="detail-title">Sources</h2><button id="close-details">Close</button></header><div id="detail-body"></div></dialog>
-<script src="packs/active-pack.js"></script><script defer src="js/app.bundle.js?v=90d69fbb988f"></script>
+<dialog id="research-proposal-dialog" aria-labelledby="research-proposal-title">
+  <h2 id="research-proposal-title">Review an experiment proposal</h2>
+  <p id="research-proposal-origin"></p><p id="research-proposal-reason"></p><div id="research-proposal-sources"></div>
+  <details><summary>Current plan and retained learning</summary><pre id="research-proposal-before"></pre></details>
+  <form id="research-proposal-form" class="stack">
+    <label for="research-proposal-action">Action to accept (edit before saving)</label><textarea id="research-proposal-action" maxlength="12000" rows="3" required></textarea>
+    <label for="research-proposal-evidence">Expected evidence and review / stop condition</label><textarea id="research-proposal-evidence" maxlength="12000" rows="4" required></textarea>
+    <p>The previous plan and learning will be kept in acceptance history. This saves a user-owned experiment; it does not change source facts or investor eligibility.</p>
+    <p id="research-proposal-status" role="status"></p>
+    <div class="row"><button type="submit" class="primary">Accept and save experiment</button><button id="research-proposal-cancel" type="button">Keep existing plan</button></div>
+  </form>
+</dialog>
+<script src="packs/active-pack.js"></script><script src="packs/relationships.js"></script><script defer src="js/app.bundle.js?v=bd339dc0cb2e"></script>
 </body></html>

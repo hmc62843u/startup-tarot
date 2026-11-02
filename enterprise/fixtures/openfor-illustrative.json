@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "kind": "openfor_illustrative_scenario",
+  "id": "openfor_illustrative_scenarios",
+  "version": "0.1.0",
+  "title": "OpenFor illustrative scenario — sourced context with fictional founder inputs",
+  "audience": "Private presentation to OpenFor; not approved for wider distribution.",
+  "notice": "All founder names, financial figures, dates, stages and proposed investigations in these scenarios are illustrative. Company context comes from the separate sourced research bundle; no real company fundraising or performance claim is made.",
+  "source_bundle": {
+    "sample": "openfor",
+    "pack_id": "openfor_research_preview",
+    "version": "0.2.0"
+  },
+  "operator_guidance": [
+    "Confirm, replace or remove each illustrative value with the relevant founder. Preserve unknowns when evidence is unavailable.",
+    "Record an authorized source and review date when moving a confirmed fact into a research record. Confirmation here does not automatically update the research bundle.",
+    "Do not infer an investment, personal connection or introduction from an investor comparison. Use the separate fictional template to demonstrate invented graph relationships."
+  ],
+  "cases": [
+    {
+      "id": "building_ai",
+      "title": "Harbor Building AI (fictional) — illustrative scenario",
+      "entity_kind": "fictional",
+      "context_snapshot_id": "ad_dice_2026_10_31",
+      "investor_profile_id": "monozukuri_ventures_001",
+      "context_relationship": "Public product context only; the fictional startup is not this real company, its subsidiary, partner or portfolio company.",
+      "assumptions": {
+        "stage": {
+          "value": "pre-seed",
+          "unit": "stage label",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "sector": {
+          "value": "hardware",
+          "unit": "editorial category",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "geography": {
+          "value": "Japan",
+          "unit": "country",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "fundraising_target": {
+          "value": 150000,
+          "unit": "USD",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "monthly_revenue": {
+          "value": 12000,
+          "unit": "USD per month",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "paying_customers": {
+          "value": 4,
+          "unit": "customers",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "target_close_date": {
+          "value": "2027-03-31",
+          "unit": "date",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "pilot_review_date": {
+          "value": "2026-12-15",
+          "unit": "date",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        }
+      },
+      "investigation": "Illustrative method: interview five prospective buyers and record one concrete adoption barrier per interview; review before deciding on a pilot. No interviews or outcomes are asserted."
+    },
+    {
+      "id": "ai_governance",
+      "title": "Maple AI Controls (fictional) — illustrative scenario",
+      "entity_kind": "fictional",
+      "context_snapshot_id": "asenion_2026_10_31",
+      "investor_profile_id": "geek_ventures_001",
+      "context_relationship": "Public product context only; the fictional startup is not this real company, its subsidiary, partner or portfolio company.",
+      "assumptions": {
+        "stage": {
+          "value": "pre-seed",
+          "unit": "stage label",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "sector": {
+          "value": "software",
+          "unit": "editorial category",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "geography": {
+          "value": "US",
+          "unit": "country",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "fundraising_target": {
+          "value": 500000,
+          "unit": "USD",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "monthly_revenue": {
+          "value": 8000,
+          "unit": "USD per month",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "paying_customers": {
+          "value": 3,
+          "unit": "customers",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "target_close_date": {
+          "value": "2027-03-31",
+          "unit": "date",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "pilot_review_date": {
+          "value": "2026-12-15",
+          "unit": "date",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        }
+      },
+      "investigation": "Illustrative method: interview five prospective buyers and record one concrete adoption barrier per interview; review before deciding on a pilot. No interviews or outcomes are asserted."
+    },
+    {
+      "id": "ai_evaluation",
+      "title": "Sakura Model Testing (fictional) — illustrative scenario",
+      "entity_kind": "fictional",
+      "context_snapshot_id": "citadel_ai_2026_10_31",
+      "investor_profile_id": "geek_ventures_001",
+      "context_relationship": "Public product context only; the fictional startup is not this real company, its subsidiary, partner or portfolio company.",
+      "assumptions": {
+        "stage": {
+          "value": "pre-seed",
+          "unit": "stage label",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "sector": {
+          "value": "software",
+          "unit": "editorial category",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "geography": {
+          "value": "Japan",
+          "unit": "country",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "fundraising_target": {
+          "value": 250000,
+          "unit": "USD",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "monthly_revenue": {
+          "value": 0,
+          "unit": "USD per month",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "paying_customers": {
+          "value": 0,
+          "unit": "customers",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "target_close_date": {
+          "value": "2027-03-31",
+          "unit": "date",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        },
+        "pilot_review_date": {
+          "value": "2026-12-15",
+          "unit": "date",
+          "status": "illustrative_unverified",
+          "guidance": "Invented for demonstration. Confirm, replace or remove; never treat as a fact about the source company."
+        }
+      },
+      "investigation": "Illustrative method: interview five prospective buyers and record one concrete adoption barrier per interview; review before deciding on a pilot. No interviews or outcomes are asserted."
+    }
+  ]
+}

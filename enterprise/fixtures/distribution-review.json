@@ -1,0 +1,14 @@
+{
+  "id": "example_alpha_browser",
+  "version": "1.0.0",
+  "brand": "Example Alpha Incubator",
+  "audience": "Fictional demonstration recipients only",
+  "reviewed_by": "Fictional operator fixture",
+  "reviewed_date": "2026-10-31",
+  "distribution_statement": "Original fictional demonstration content only. This fixture is not approval to distribute real incubator or customer data.",
+  "update_instructions": "For this fictional demo, obtain a new version from the operator and export browser notes before replacing the old folder. Copies are not synchronized or remotely revoked.",
+  "attribution_notice": "Original fictional examples and application code: MIT, Startup Field Guide contributors. No actual investor, founder or incubator data is included.",
+  "approved": true,
+  "private_data_reviewed": true,
+  "rights_reviewed": true
+}

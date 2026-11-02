@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Research Workspace</title><link rel="stylesheet" href="/style.css"></head>
+<body><main><h1>Research Workspace</h1><p>Maintain shared investor and startup data, inspect evidence and export a selected revision. This local reference is not a production deployment.</p>
+<p>Primary operator workflow: ask Codex to follow enterprise/OPERATOR.md. Use the commands to inspect, update and export shared data, then prepare a release proposal for your approval.</p><p><a href="/publisher/">Optional: open browser-only Research Publisher</a></p>
+<label>Workspace credential <input id="token" type="password" autocomplete="off"></label><button id="connect">Load authorized workspace</button><button id="disconnect">Forget credential and displayed data</button>
+<p id="status" role="status">Open your local demo-credentials.json to select an administrator or researcher credential.</p>
+<p>Credentials stay in this page's memory; data is loaded only for the authorized organization. No browser storage is used.</p>
+<section class="publisher"><h2>Maintain shared data</h2>
+<p>Load a small public research sample or an editable fictional template. These buttons stage data for review; they do not replace your workspace.</p>
+<button id="sample-openfor">Stage private OpenFor presentation sample</button><button id="sample-template">Stage fictional template</button><button id="download-candidate">Download staged JSON to edit</button>
+<label>Your complete bundle JSON <input id="publisher-file" type="file" accept=".json,application/json"></label><button id="stage-file">Stage uploaded bundle</button>
+<p>The sample has two investor profiles, three OpenFor-listed startup observations (ad-dice, Citadel AI and Asenion), and two separate historical teaching cases. Intended for private presentation to OpenFor; directory presence does not establish partner status. Current startup funding and customer metrics remain unknown.</p>
+<h2>Check and import</h2><button id="check-candidate">Check staged data</button><pre id="data-check">No staged data.</pre><button id="import-candidate">Import checked data into this workspace</button>
+<p>Import replaces the active revision and retains history. Inspect the selected workspace credential before importing.</p>
+<button id="export-workspace">Export selected revision</button><p class="subtle">No private owner graph or credential is selected. Review text and rights before distribution.</p>
+</section>
+<details><summary>Advanced research workbench</summary>
+<h3>Illustrative founder journeys</h3><button id="load-scenarios">Load OpenFor illustrative scenarios</button><button id="download-scenarios">Download labelled scenarios and guidance</button>
+<p>Real product context is separate from fictional founder names, financial figures and planning dates. These are not claims about ad-dice, Citadel AI or Asenion. Source-bundle exports exclude these scenarios; download them separately.</p>
+<label>Hypothetical founder <select id="scenario-case"></select></label><button id="apply-scenario">Use selected illustrative inputs in research</button><pre id="scenario-details">No illustrative scenario loaded.</pre>
+
+<details><summary>Inspect investor/startup import and graph</summary><pre id="dataset"></pre></details>
+<label>Research question <textarea id="question">What can we learn from the fictional snapshot/activity path and shared investment rounds?</textarea></label>
+<label>Investor profiles (up to five records total) <select id="investors" multiple size="4"></select></label>
+<label>Startup snapshots <select id="snapshots" multiple size="3"></select></label>
+<label>Startup context JSON <textarea id="context">{"stage":"pre-seed","sector":"SaaS","geography":"US","amount":150000,"currency":"USD"}</textarea></label>
+<label>Assessment date <input id="date" type="date" value="2026-10-31"></label><label>Historical cutoff (optional) <input id="cutoff" type="date"></label>
+<button id="prepare">Prepare packet and catalog</button><button id="demo">Use scripted fictional plan (no LLM call)</button>
+<details><summary>Inspect catalog and base packet</summary><pre id="prepared"></pre></details>
+<label>Bounded graph plan JSON <textarea id="plan" rows="12"></textarea></label><button id="execute">Execute in Neo4j and prepare final prompt</button>
+<details open><summary>Inspect query results and evidence</summary><pre id="expanded"></pre></details>
+<button id="export">Export inspected prompt for a separately chosen model</button>
+<p>Exporting creates a local file. Sending it to a model is a separate decision. Private connection data is never included. The reference server has no shared ChatGPT login.</p>
+<label>Model output JSON (optional manual review) <textarea id="output" rows="8"></textarea></label><button id="review">Validate response references</button><pre id="reviewed"></pre>
+
+</details><p><a href="https://github.com/hmc62843u/startup-tarot">Startup Tarot repository</a>. Deployment, import, privacy and acceptance instructions are in ENTERPRISE_REFERENCE.md in the local checkout.</p>
+</main><script src="/app.js"></script></body></html>
