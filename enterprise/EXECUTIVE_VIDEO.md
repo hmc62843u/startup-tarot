@@ -1,6 +1,6 @@
 # OpenFor executive video: script and storyboard
 
-A short stickman explainer for OpenFor leadership deciding whether to try the pilot. It answers why, what the safeguards are and what we need. The operator walkthrough ([PILOT_VIDEO.md](PILOT_VIDEO.md)) shows how it works on real screens.
+A short stickman explainer for OpenFor leadership deciding whether to try the pilot. It answers why, what the safeguards are and what we need. The operator walkthrough ([PILOT_VIDEO.md](PILOT_VIDEO.md)) shows how it works on real screens, and the capability companion ([CAPABILITY_VIDEO.md](CAPABILITY_VIDEO.md)) shows what it answers today, what it can't yet and what the pilot adds.
 
 - **Audience:** OpenFor executives and organizers.
 - **Length:** about 50 seconds; 16:9 for email and meetings.
