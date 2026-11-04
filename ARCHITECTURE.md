@@ -45,14 +45,14 @@ There is no automatic synchronization service between repositories. Research upd
 
 ## Actors and module map
 
-Each actor has its own entry points. Shared core modules in js/ are pure data and decision logic with no DOM access, so every actor reuses them rather than copying them. Folders stay organized by component; this map is the actor view.
+There are two roles: founders use the browser app, and operators maintain research and publish releases through Codex. Publishing is an operator activity with two paths, Codex or the optional browser Research Publisher, so it has its own row below. Each row has its own entry points. Shared core modules in js/ are pure data and decision logic with no DOM access, so every actor reuses them rather than copying them. Folders stay organized by component; this map is the actor view.
 
 | Actor | Entry points | Interface modules | Shared core modules used |
 | --- | --- | --- | --- |
 | Founder | index.html; optional tools/research-server.mjs helper | js/app.js, js/research-ui.js, js/relationship-ui.js, js/outreach.js, js/storage.js | analyzer, investor-fit, lean, research-context, research-library, validator, graph-research, research, relationships, private-relationships |
 | Operator | enterprise/operator.mjs via the research-operator skill; enterprise/launch.mjs and setup/ panel | enterprise/operator-service.mjs, service.mjs, server.mjs, domain.mjs, neo4j.mjs | graph-research, publishing, relationships, research, research-library |
-| Publisher | publisher/index.html; tools/build-publisher.mjs, export-release.mjs, distribute-incubator.mjs | publisher/app.js, publisher/core.js, enterprise/publisher-build.mjs, tools/incubator-distribution.mjs | publishing, lean |
-| Recipient | A distributed index.html | Same as Founder | Same as Founder |
+| Operator (publishing) | enterprise/operator.mjs prepare/package via Codex; optional publisher/index.html; tools/build-publisher.mjs, export-release.mjs, distribute-incubator.mjs | publisher/app.js, publisher/core.js, enterprise/publisher-build.mjs, tools/incubator-distribution.mjs | publishing, lean |
+| Founder (recipient of a published copy) | A distributed index.html | Same as Founder | Same as Founder |
 
 The enterprise/ backend imports these core modules directly: domain.mjs (graph-research, publishing, relationships, research-library, research), service.mjs (graph-research, relationships, research), operator-service.mjs (publishing) and publisher-build.mjs (lean). Changing a core module's contract therefore needs the browser, enterprise and publisher tests. Keep new DOM or Node-specific code in an actor's interface modules so the core stays shareable.
 

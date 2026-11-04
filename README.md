@@ -34,11 +34,11 @@ Situation, Next move, Startup and Investor now open [one contextual research wor
 
 ## Choose a workflow
 
-Startup Tarot serves three roles. Most people are founders; operators and publishers run the optional incubator workflow. [Architecture](ARCHITECTURE.md#actors-and-module-map) maps each role to its code.
+Startup Tarot serves two roles. Founders use the browser app; operators run the optional incubator workflow, including publishing releases for founders. [Architecture](ARCHITECTURE.md#actors-and-module-map) maps each role to its code.
 
 ### Founder
 
-Use the browser app (**index.html**). A recipient of an incubator edition is a founder using a prepared copy.
+Use the browser app (**index.html**). Research can optionally connect your ChatGPT account through the local helper ([Run research with ChatGPT](#run-research-with-chatgpt)); no coding agent is involved. A recipient of an incubator edition is a founder using a prepared copy.
 
 | Goal | Where to go | What you get |
 | --- | --- | --- |
@@ -52,7 +52,7 @@ The research pack contains fourteen investor/program records and three startup s
 
 ### Operator
 
-Maintain an organization's research and prepare releases through Codex with the `$research-operator` skill and `node enterprise/operator.mjs`.
+Maintain an organization's research and publish releases through Codex with the `$research-operator` skill and `node enterprise/operator.mjs`. The browser-based Research Publisher is an optional visual alternative for publishing.
 
 | Goal | Where to go | What you get |
 | --- | --- | --- |
@@ -60,18 +60,12 @@ Maintain an organization's research and prepare releases through Codex with the 
 | Maintain research and request approval | [Operator workflow](enterprise/OPERATOR.md) | Selected-research updates, preview/review proposals and packaging |
 | Run local services | [Launcher setup](enterprise/LAUNCHER.md) | Neo4j, the Research Workspace and the setup panel |
 | Understand the backend | [Incubator reference](ENTERPRISE_REFERENCE.md) | Own-data imports, isolation and deployment boundaries |
-
-### Publisher
-
-Turn an approved revision into a browser edition that recipients open without a backend.
-
-| Goal | Where to go | What you get |
-| --- | --- | --- |
-| Check, preview and download in the browser | [Research Publisher](publisher/README.md) | A browser-only release built by the same engine |
+| Publish with Codex | [Publisher handoff walkthrough](enterprise/OPERATOR.md#publisher-handoff-walkthrough) | Inspect, prepare, review and package a release ZIP |
+| Publish in the browser instead | [Research Publisher](publisher/README.md) | Check, preview and download a release with the same engine |
 | Export and distribute a revision | [Distribution guide](DISTRIBUTION_GUIDE.md) | A modular data bundle, manifest and configured browser package |
 | Review OpenFor sample data | [OpenFor data and scenarios](enterprise/PUBLISHER.md) | Sourced and illustrative records, and what OpenFor can correct |
 
-Distributed copies do not synchronize or revoke automatically.
+Published copies open without a backend and do not synchronize or revoke automatically.
 
 ## Documentation
 
