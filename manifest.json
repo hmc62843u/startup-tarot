@@ -1,6 +1,6 @@
 {
-  "name": "Startup Guide",
-  "short_name": "Field Guide",
+  "name": "Startup Tarot",
+  "short_name": "Startup Tarot",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

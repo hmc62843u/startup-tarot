@@ -51,6 +51,6 @@ test('offline install, documentation and navigation work under a repository subp
     assert.equal(await offline('api/account'),undefined,'Account responses bypass the service-worker cache');
     assert.equal(await offline('auth/callback?code=secret'),undefined,'OAuth callbacks bypass the service-worker cache');
     const fallback=await offline('missing-page','navigate');
-    assert.ok((await fallback.text()).includes('Startup Guide'));
+    assert.ok((await fallback.text()).includes('Startup Tarot'));
     assert.equal((await offline('private-research-package.json')).status,503);
 });

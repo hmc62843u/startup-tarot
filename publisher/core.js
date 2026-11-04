@@ -63,7 +63,7 @@ export async function publisherRelease(template,envelope,review,preview){
  validatePublishingEnvelope(envelope);validatePublishingReview(review);
  publishingRequire(preview?.reviewed===true&&preview.source_hash===await publisherHash(asJSON(envelope)),'Preview and review this exact data before building a release.');
  const files=configuredFiles(template,envelope),notes=distributionNotes(envelope,review),banner='<aside class="card" role="note"><strong>'+htmlEscape(review.brand+' '+review.version)+'</strong><p>'+htmlEscape(review.audience)+'</p><a href="DISTRIBUTION.md">Release, attribution and update instructions</a></aside>';
- let html=decoder.decode(files.get('index.html')).replace('<title>Startup Guide</title>','<title>'+htmlEscape(review.brand)+' - Founder Workspace</title>').replace('<main id="screen-content">',banner+'<main id="screen-content">');
+ let html=decoder.decode(files.get('index.html')).replace('<title>Startup Tarot</title>','<title>'+htmlEscape(review.brand)+' - Founder Workspace</title>').replace('<main id="screen-content">',banner+'<main id="screen-content">');
  files.set('index.html',bytes(html));files.set('DISTRIBUTION.md',bytes(notes));files.set('README.md',bytes(notes));files.set('DATA_LICENSE.md',bytes(notes));
  for(const file of ['README.md','LICENSE.md','SOURCES.md','THIRD_PARTY_NOTICES.md','DATA_NOTICE.md'])files.set('packs/'+file,bytes(notes));
  const components=[];for(const [path,data] of [['guide-pack.json',asJSON(envelope.bundle.pack)],['relationships.json',asJSON(envelope.bundle.relationships)],['DISTRIBUTION.md',notes]])components.push({path,bytes:bytes(data).length,sha256:await publisherHash(data)});
