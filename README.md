@@ -34,6 +34,12 @@ Situation, Next move, Startup and Investor now open [one contextual research wor
 
 ## Choose a workflow
 
+Startup Tarot serves three roles. Most people are founders; operators and publishers run the optional incubator workflow. [Architecture](ARCHITECTURE.md#actors-and-module-map) maps each role to its code.
+
+### Founder
+
+Use the browser app (**index.html**). A recipient of an incubator edition is a founder using a prepared copy.
+
 | Goal | Where to go | What you get |
 | --- | --- | --- |
 | Learn what to try next | Situation > Next move | A small experiment, supporting sources and saved learning |
@@ -43,6 +49,29 @@ Situation, Next move, Startup and Investor now open [one contextual research wor
 | Prepare outreach | Explore investor fit > Saved shortlist | Verification notes, editable drafts and a Markdown export |
 
 The research pack contains fourteen investor/program records and three startup snapshots. Six equity profiles support fundraising comparisons; seven historical references and one grant are excluded. The included experiment examples are startup-only: no investor-topic connections are encoded. Relevance does not establish funding, endorsement or an introduction.
+
+### Operator
+
+Maintain an organization's research and prepare releases through Codex with the `$research-operator` skill and `node enterprise/operator.mjs`.
+
+| Goal | Where to go | What you get |
+| --- | --- | --- |
+| Start the OpenFor pilot | [OpenFor demo](OPENFOR_DEMO.md) | A copyable Codex setup prompt and guided start |
+| Maintain research and request approval | [Operator workflow](enterprise/OPERATOR.md) | Selected-research updates, preview/review proposals and packaging |
+| Run local services | [Launcher setup](enterprise/LAUNCHER.md) | Neo4j, the Research Workspace and the setup panel |
+| Understand the backend | [Incubator reference](ENTERPRISE_REFERENCE.md) | Own-data imports, isolation and deployment boundaries |
+
+### Publisher
+
+Turn an approved revision into a browser edition that recipients open without a backend.
+
+| Goal | Where to go | What you get |
+| --- | --- | --- |
+| Check, preview and download in the browser | [Research Publisher](publisher/README.md) | A browser-only release built by the same engine |
+| Export and distribute a revision | [Distribution guide](DISTRIBUTION_GUIDE.md) | A modular data bundle, manifest and configured browser package |
+| Review OpenFor sample data | [OpenFor data and scenarios](enterprise/PUBLISHER.md) | Sourced and illustrative records, and what OpenFor can correct |
+
+Distributed copies do not synchronize or revoke automatically.
 
 ## Documentation
 

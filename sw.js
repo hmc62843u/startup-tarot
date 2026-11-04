@@ -1,4 +1,4 @@
-const CACHE_NAME = 'founder-gap-6ce9cff2bbe2';
+const CACHE_NAME = 'founder-gap-49bedac0c580';
 const APP_FILES = [
   './',
   './index.html',
@@ -50,8 +50,8 @@ const APP_FILES = [
   './data/guide-pack.schema.json',
   './data/guide-pack-v1.schema.json',
   './data/guide-pack-v2.schema.json',
-  './css/style.css?v=6ce9cff2bbe2',
-  './js/app.bundle.js?v=6ce9cff2bbe2',
+  './css/style.css?v=49bedac0c580',
+  './js/app.bundle.js?v=49bedac0c580',
   './data/library.json',
   './data/startup-library.json',
   './icons/icon-192.png',
