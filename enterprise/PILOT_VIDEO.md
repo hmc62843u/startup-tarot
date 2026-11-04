@@ -18,6 +18,30 @@ A short walkthrough of the operator workflow for OpenFor and other organizations
 4. Before recording, hide credentials, connection files, tokens and any session-specific setup-panel URL. Record at 1920×1080 with a readable editor font.
 5. No live backend available? Record the no-backend path instead: `check` and `prepare` with enterprise/fixtures/alpha.json. Then drop scene 3 and say so in the status card.
 
+## Codex prompt for the lab machine
+
+Paste this into Codex on the lab machine that already ran the OpenFor demonstration. Codex prepares the run and the shot list; a person records the screen.
+
+```text
+Help me record the OpenFor pilot walkthrough video described in
+enterprise/PILOT_VIDEO.md of the startup-tarot repository, on this lab machine.
+
+1. Update the existing startup-tarot checkout to the latest main safely. Preserve local changes, ignored .local files, credentials and the existing Neo4j data. Do not reinstall, reset or reconfigure a working environment.
+2. Rebuild the generated assets: node tools/build-demo.mjs, then node tools/build-publisher.mjs.
+3. Use $research-operator to open the setup panel (node enterprise/operator.mjs setup). Confirm Node 24, local configuration, authenticated Neo4j and Workspace are ready. If anything is not ready, stop and tell me exactly what is missing; do not substitute simulated storage.
+4. Run a fresh live rehearsal in the dedicated demo organization, using this machine's existing ignored database configuration:
+   node tools/rehearse-openfor.mjs --database-config <existing local config> --organization openfor_demo_private
+   Never print passwords, tokens, connection files or the session-specific setup URL.
+5. Open the generated presentation.md and results.md. Confirm all ten checkpoints pass and that the synthetic-data label is present.
+6. Write a recording runbook to .local/openfor-video/runbook.md. For each of the seven storyboard scenes, give the exact files, commands and screens from this run, the window to show and what must be hidden. Check the narration in PILOT_VIDEO.md against the actual results and flag anything that does not match.
+7. Prepare the screens for recording: close or hide windows with credentials, use a readable editor font and set the display to 1920x1080 if possible. Then tell me you are ready and wait while I record.
+8. Scene 5 needs operator approval of the synthetic handoff proposal only. Show me its summary, preview and review.json, and let me decide each declaration myself. Do not approve anything on my behalf. Never approve the sourced OpenFor-context proposal.
+9. Only after I confirm the review, package that synthetic proposal locally (node enterprise/operator.mjs package --proposal <path>) and show the ZIP, manifest and published:false. Then extract it to .local/openfor-video/founder-copy and open browser-package/index.html for scene 6.
+10. Do not import real or private OpenFor data, sign into an LLM, upload, email, publish or commit anything.
+
+Finally, report the tested commit, OS and browser versions, the run's report paths, which scenes are ready, and anything that differed from the storyboard.
+```
+
 ## Storyboard
 
 | # | Time | On screen (capture) | Narration | On-screen label |
