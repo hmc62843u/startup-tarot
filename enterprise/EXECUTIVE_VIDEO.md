@@ -6,7 +6,7 @@ A short stickman explainer for OpenFor leadership deciding whether to try the pi
 - **Length:** about 50 seconds; 16:9 for email and meetings.
 - **Style:** stickman-video-director B1 Minimal Hand-Drawn, plain tone. No hooks, jokes or social-media framing.
 - **Narration:** English, Gemini Bodi at native speed, with burned-in captions and a .vtt file.
-- **Status:** produced 2026-11-03 as a 44.7-second video (42.7 s narration plus a 2 s end card): [openfor-executive-pilot.mp4](https://github.com/hmc62843u/startup-tarot-chat/blob/main/social/2026-11-03-openfor-executive/openfor-executive-pilot.mp4), with project files in the same startup-tarot-chat folder. No contact line yet.
+- **Status:** produced 2026-11-03 as a 44.7-second video (42.7 s narration plus a 2 s end card): [openfor-executive-pilot.mp4](https://github.com/hmc62843u/hmc62843u.github.io/blob/master/media/startup-tarot/2026-11-03-openfor-executive/exports/openfor-executive-pilot.mp4), with project files in that hmc62843u.github.io folder. No contact line yet.
 - **Not for the public funnel page** until the pilot is accepted.
 
 ## Script (about 110 words)
@@ -54,4 +54,4 @@ Avoid:
 - Reuse the stickman pitch project: draw art locally with draw-art.mjs and the Autopilot B1 renderer, 1920×1080.
 - Narration: gemini-3.8-flash-tts with voice Bodi worked on the free tier; image generation did not.
 - Follow the tool's sample-then-approve step: render about 20 seconds for review before the full film.
-- Keep the project in its own folder, for example startup-tarot-chat/social/2026-11-xx-openfor-executive/.
+- Keep the project in its own folder, in hmc62843u.github.io under media/startup-tarot/.
