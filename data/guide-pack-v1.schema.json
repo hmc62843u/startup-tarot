@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Startup Guide research Guide Pack v1",
+  "title": "Startup Tarot research Guide Pack v1",
   "type": "object",
   "required": [
     "schema_version",
