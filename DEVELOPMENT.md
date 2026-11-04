@@ -39,7 +39,7 @@ The exporter creates an allowlisted local release directory. It excludes Git met
 | js/storage.js | Existing experiment storage adapter |
 | js/app.js | DOM rendering, navigation, explicit saves, dialogs and downloads |
 
-Matching and assessment functions operate on supplied data and dates. DOM access belongs in app.js. Storage access is confined to adapters and UI coordination. The four main tabs remain Situation, Next move, Investor and Startup; investor fit and shortlist are additional scrollable screens.
+Matching and assessment functions operate on supplied data and dates. DOM access belongs in app.js. Storage access is confined to adapters and UI coordination. The three footer tabs are Next move, Investor and Startup. Situation opens on first use and afterward from Edit situation on Next move; investor fit and shortlist are additional scrollable screens.
 
 ## Data contracts
 

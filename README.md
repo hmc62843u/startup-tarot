@@ -38,7 +38,7 @@ Situation, Next move, Startup and Investor now open [one contextual research wor
 | --- | --- | --- |
 | Learn what to try next | Situation > Next move | A small experiment, supporting sources and saved learning |
 | Research investors | Investor > Explore investor fit | Matches, mismatches, unknowns and dated evidence |
-| Develop a research agenda | Header Research action, or contextual actions in all four journey tabs | Inspect packets, optionally explore the public graph with LLM-planned queries, review responses and create revisions |
+| Develop a research agenda | Header Research action, or contextual actions in Situation and the three journey tabs | Inspect packets, optionally explore the public graph with LLM-planned queries, review responses and create revisions |
 | Explore relationships | Investor > Relationships and introduction paths | Sourced paths, network analysis and private founder-reported introduction paths |
 | Prepare outreach | Explore investor fit > Saved shortlist | Verification notes, editable drafts and a Markdown export |
 
