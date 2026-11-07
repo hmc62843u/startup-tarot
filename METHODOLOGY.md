@@ -71,7 +71,7 @@ A profile may carry `timing_claims`: dated reports of when the investor's curren
 | Over 5 years before | May now focus on follow-on investments; confirm whether it makes new ones |
 | 3 to 5 years, or no dated announcement | Timing unclear or unknown; check recent investments |
 
-Only `declared` and `observed` claims are used, and only those checked and announced on or before the assessment date. A partial date (year, or year and month) counts from its earliest day. Claims checked more than 180 days earlier are shown with a review note. The 3- and 5-year thresholds are an editorial rule of thumb, not a fact about any fund. A first close is reported as a first close in the claim's statement. Investment pace (deals per year) is not used: funds rarely declare it, and third-party counts disagree.
+Only `declared` and `observed` claims are used, and only those checked and announced on or before the assessment date. A partial date (year, or year and month) counts from its earliest day. Claims checked more than 180 days earlier are shown with a review note. The 3-year threshold follows a practitioner rule of thumb: about three years after a fund is raised, its capital for new investments is usually committed and the rest is reserved for existing portfolio companies (Lauren Nham, Tokyo AI, in a public interview, October 2025: https://www.youtube.com/watch?v=NxcKVOImCiM). The 5-year threshold is editorial. Neither is a fact about any particular fund, and some funds invest outside their main fund through separate vehicles. A first close is reported as a first close in the claim's statement. Investment pace (deals per year) is not used: funds rarely declare it, and third-party counts disagree.
 
 ## Amounts and source boundaries
 
