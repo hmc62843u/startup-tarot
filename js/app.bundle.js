@@ -350,6 +350,25 @@ function validFitClaim(c) {
       : Array.isArray(c.values) && c.values.length>0 && c.values.every(v=>typeof v==='string'&&!!v.trim()));
 }
 
+/** Dated fund announcements; informational only, never part of the fit comparison. */
+function validTimingClaim(c) {
+  const date=c?.checked_date,announced=c?.announced_date;
+  return !!c && c.kind==='current_fund'
+    && ['declared','observed','inferred'].includes(c.basis)
+    && typeof c.statement==='string' && !!c.statement.trim()
+    && typeof c.fund_name==='string' && !!c.fund_name.trim()
+    && typeof c.source_url==='string' && validSource(c.source_url)
+    && /^\d{4}-\d{2}-\d{2}$/.test(date) && Number.isFinite(Date.parse(date)) && new Date(date).toISOString().slice(0,10)===date
+    && typeof announced==='string' && /^\d{4}(-\d{2}(-\d{2})?)?$/.test(announced) && Number.isFinite(Date.parse(announcedStart(announced)))
+    && new Date(announcedStart(announced)).toISOString().slice(0,announced.length)===announced
+    && (c.size===undefined || (Number.isFinite(c.size) && c.size>=0 && /^[A-Z]{3}$/.test(c.currency)));
+}
+
+/** Earliest calendar date covered by a YYYY, YYYY-MM or YYYY-MM-DD announcement date. */
+function announcedStart(value) {
+  return value.length===4?value+'-01-01':value.length===7?value+'-01':value;
+}
+
 
 
 
@@ -391,6 +410,7 @@ function validateInvestorProfile(json) {
   }
 
   if(json.fit_claims!==undefined && (!Array.isArray(json.fit_claims)||json.fit_claims.length>40||!json.fit_claims.every(validFitClaim))) errors.push('Invalid fit_claims: use dated, sourced, typed mandate claims.');
+  if(json.timing_claims!==undefined && (!Array.isArray(json.timing_claims)||json.timing_claims.length>10||!json.timing_claims.every(validTimingClaim))) errors.push('Invalid timing_claims: use dated, sourced current_fund announcements.');
   const requiredFields = ["id", "name", "source_url", "retrieved_date", "stage_focus", "criteria_weights"];
   for (const field of requiredFields) {
     if (!(field in json)) errors.push(`Missing required field: "${field}"`);
@@ -580,6 +600,23 @@ function sectorFitsMandate(sector,mandate){
 
 
 
+const YEAR=365.25*86400000;
+/** Informational "for now or for later" hint from the latest dated fund announcement. Never changes fit or ranking. */
+function assessTiming(profile, asOf) {
+  const day=Date.parse(asOf);
+  const claims=(profile.timing_claims||[]).filter(c=>validTimingClaim(c)&&['declared','observed'].includes(c.basis)
+    &&Number.isFinite(day)&&Date.parse(c.checked_date)<=day&&Date.parse(announcedStart(c.announced_date))<=day);
+  if(!claims.length) return {status:'unknown',text:'Timing unknown: no dated fund announcement in this collection. Check recent investments and ask whether the fund is making new investments.',evidence:[]};
+  const c=claims.reduce((a,b)=>announcedStart(b.announced_date)>announcedStart(a.announced_date)?b:a);
+  const age=(day-Date.parse(announcedStart(c.announced_date)))/YEAR;
+  const stale=day-Date.parse(c.checked_date)>180*86400000?' Fund information checked '+c.checked_date+'; it needs review.':'';
+  const fund=c.fund_name+', announced '+c.announced_date;
+  const [status,text]=age<3?['now',fund+'. Likely still making new investments; confirm with the investor.']
+    :age>5?['later','Latest fund found: '+fund+'. It may now focus on follow-on investments; confirm whether it is making new ones.']
+    :['unknown','Latest fund found: '+fund+'. Timing is unclear; check recent investments and confirm with the investor.'];
+  return {status,text:text+stale,evidence:[c]};
+}
+
 function assessInvestorFit(startup, profile, asOf) {
   const result={id:profile.id,name:profile.name,fit:'insufficient',evidenceCoverage:'none',matchedFields:[],reasons:[],conflicts:[],unknowns:[],evidence:[],cautions:[...(profile.eligibility_requirements||[]),...(profile.anti_criteria||[])]};
   if(profile.comparison_enabled===false || profile.funding_type!=='equity' || profile.data_kind==='fictional') {
@@ -612,6 +649,7 @@ function assessInvestorFit(startup, profile, asOf) {
   result.fit=result.conflicts.length?'mismatch':result.matchedFields.length===4?'strong':
     result.matchedFields.includes('stage')&&result.matchedFields.includes('sector')?'investigate':'insufficient';
   result.evidenceCoverage=!result.unknowns.length?'complete':result.reasons.length||result.conflicts.length?'partial':'none';
+  result.timing=assessTiming(profile,asOf);
   return result;
 }
 
@@ -691,6 +729,7 @@ function exportOutreachMarkdown(workspace,profiles,date,pack){
     lines.push('## '+e.result.name,'','Saved: '+e.savedAt+' | Pack '+e.packVersion+' | '+(e.archived?'Archived':'Active'),
       'Saved alignment: '+e.result.fit+' | Evidence coverage: '+e.result.evidenceCoverage,
       'Review: '+(review.changed?'Required - startup profile or evidence changed':'Assessment unchanged'),
+      'Timing (as of '+date+'): '+((review.current||e.result).timing?.text||'Not assessed'),
       'Saved startup profile: '+JSON.stringify(e.input),'','### Verification questions','',
       ...verificationQuestions(review.current||e.result).map(q=>'- '+q),'','### Notes','',e.notes||'None','',
       '### Saved evidence','',...e.result.evidence.map(c=>'- '+c.statement+' | '+c.source_url+' | Checked '+c.checked_date),'',
@@ -1881,9 +1920,10 @@ function renderInvestorFit(){
         for(const [label,items] of [['Matches',r.reasons],['Mismatches',r.conflicts],['Unknowns',r.unknowns],['Additional conditions to check',r.cautions]]){
             if(items.length){card.append(node('h3',label));const list=node('ul','');for(const text of items)list.append(node('li',text));card.append(list);}
         }
+        if(r.timing)card.append(node('h3','Timing (for now or for later)'),node('p',r.timing.text));
         card.append(node('p','Confirm current availability, full eligibility and portfolio conflicts before outreach.'));
         const sources=node('button','Evidence & dates',{type:'button',class:'text-button'});
-        sources.addEventListener('click',()=>showDetails(r.name+' — mandate evidence',['Assessed '+today+'. Claims older than 180 days need review; this is a product policy, not an investor rule.'],r.evidence.map(c=>({name:c.field+' · '+c.basis,statement:c.statement,url:c.source_url,retrieved_date:c.checked_date}))));
+        sources.addEventListener('click',()=>showDetails(r.name+' — mandate evidence',['Assessed '+today+'. Claims older than 180 days need review; this is a product policy, not an investor rule.','Timing is a hint from the latest dated fund announcement. It does not change the alignment label or ranking.'],[...r.evidence.map(c=>({name:c.field+' · '+c.basis,statement:c.statement,url:c.source_url,retrieved_date:c.checked_date})),...(r.timing?.evidence||[]).map(c=>({name:'timing · '+c.basis,statement:c.statement,url:c.source_url,retrieved_date:c.checked_date}))]));
         const save=node('button',outreach.entries.find(e=>e.id===r.id)?.archived?'Restore to shortlist':outreach.entries.some(e=>e.id===r.id)?'Update saved assessment':'Save to shortlist',{type:'button',class:'primary'});
         save.addEventListener('click',()=>{const next=saveInvestorEntry({...outreach,query:input},input,r,pack.version,new Date().toISOString().slice(0,10));next.entries.find(e=>e.id===r.id).archived=false;if(commitOutreach(next))save.textContent='Saved to shortlist';});
         const supporting=node('div','',{class:'secondary-actions',role:'group','aria-label':'Investor evidence'});supporting.append(sources);card.append(save,supporting);container.append(card);

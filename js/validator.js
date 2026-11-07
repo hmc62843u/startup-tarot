@@ -11,6 +11,25 @@ export function validFitClaim(c) {
       : Array.isArray(c.values) && c.values.length>0 && c.values.every(v=>typeof v==='string'&&!!v.trim()));
 }
 
+/** Dated fund announcements; informational only, never part of the fit comparison. */
+export function validTimingClaim(c) {
+  const date=c?.checked_date,announced=c?.announced_date;
+  return !!c && c.kind==='current_fund'
+    && ['declared','observed','inferred'].includes(c.basis)
+    && typeof c.statement==='string' && !!c.statement.trim()
+    && typeof c.fund_name==='string' && !!c.fund_name.trim()
+    && typeof c.source_url==='string' && validSource(c.source_url)
+    && /^\d{4}-\d{2}-\d{2}$/.test(date) && Number.isFinite(Date.parse(date)) && new Date(date).toISOString().slice(0,10)===date
+    && typeof announced==='string' && /^\d{4}(-\d{2}(-\d{2})?)?$/.test(announced) && Number.isFinite(Date.parse(announcedStart(announced)))
+    && new Date(announcedStart(announced)).toISOString().slice(0,announced.length)===announced
+    && (c.size===undefined || (Number.isFinite(c.size) && c.size>=0 && /^[A-Z]{3}$/.test(c.currency)));
+}
+
+/** Earliest calendar date covered by a YYYY, YYYY-MM or YYYY-MM-DD announcement date. */
+export function announcedStart(value) {
+  return value.length===4?value+'-01-01':value.length===7?value+'-01':value;
+}
+
 
 
 
@@ -52,6 +71,7 @@ export function validateInvestorProfile(json) {
   }
 
   if(json.fit_claims!==undefined && (!Array.isArray(json.fit_claims)||json.fit_claims.length>40||!json.fit_claims.every(validFitClaim))) errors.push('Invalid fit_claims: use dated, sourced, typed mandate claims.');
+  if(json.timing_claims!==undefined && (!Array.isArray(json.timing_claims)||json.timing_claims.length>10||!json.timing_claims.every(validTimingClaim))) errors.push('Invalid timing_claims: use dated, sourced current_fund announcements.');
   const requiredFields = ["id", "name", "source_url", "retrieved_date", "stage_focus", "criteria_weights"];
   for (const field of requiredFields) {
     if (!(field in json)) errors.push(`Missing required field: "${field}"`);

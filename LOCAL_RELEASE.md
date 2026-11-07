@@ -8,7 +8,7 @@ This is a local release candidate for the deterministic foundation. The intended
 | --- | --- | --- |
 | Matching foundation | Four-field assessment, evidence dates, alignment groups, exclusions, controlled sector mappings | Automated regression checks pass; independent accuracy review pending |
 | Actionable results | Saved profiles, investor notes, verification questions, archive/restore and exports | Simulated workflow checks pass; latest real-browser acceptance pending |
-| Research coverage | Pack 0.8.0: fourteen records, six equity comparisons and three startup snapshots | Sources and limitations recorded; broader coverage and ongoing refresh remain manual work |
+| Research coverage | Pack 0.9.0: fourteen records, six equity comparisons (five with current-fund timing claims) and three startup snapshots | Sources and limitations recorded; broader coverage and ongoing refresh remain manual work |
 | Outreach preparation | Editable local templates, source attribution, placeholders and review warnings | Automated provenance and persistence checks pass; founder usefulness pending |
 | Founder pilot | Protocol below and nine authored benchmark scenarios | Not yet completed |
 | Release preparation | Reproducible offline assets, linked help and allowlisted export | Local packaging checks pass; acceptance and publication pending |

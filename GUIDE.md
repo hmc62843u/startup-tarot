@@ -35,6 +35,8 @@ The help pages work locally. The included library has six equity investors avail
 | Insufficient evidence | Supply missing information or research stage/sector fit |
 | Documented mismatch | Inspect the conflicting explicit requirement before outreach |
 
+Each result also shows a **Timing** hint: when the investor's latest fund was announced, and whether that suggests it is likely making new investments now or may be focused on follow-ons. It is a hint from a dated announcement, not an investor statement, and it never changes the result label. Confirm current investing with the investor.
+
 Evidence coverage describes how many of the four comparisons are supported. Complete coverage is not a funding prediction and can include a mismatch. The app does not convert currencies. Additional conditions, such as full-time commitment or sector exclusions, are not automatically resolved.
 
 ## Try a comparison

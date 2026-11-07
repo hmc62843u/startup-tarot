@@ -67,6 +67,7 @@ export function exportOutreachMarkdown(workspace,profiles,date,pack){
     lines.push('## '+e.result.name,'','Saved: '+e.savedAt+' | Pack '+e.packVersion+' | '+(e.archived?'Archived':'Active'),
       'Saved alignment: '+e.result.fit+' | Evidence coverage: '+e.result.evidenceCoverage,
       'Review: '+(review.changed?'Required - startup profile or evidence changed':'Assessment unchanged'),
+      'Timing (as of '+date+'): '+((review.current||e.result).timing?.text||'Not assessed'),
       'Saved startup profile: '+JSON.stringify(e.input),'','### Verification questions','',
       ...verificationQuestions(review.current||e.result).map(q=>'- '+q),'','### Notes','',e.notes||'None','',
       '### Saved evidence','',...e.result.evidence.map(c=>'- '+c.statement+' | '+c.source_url+' | Checked '+c.checked_date),'',

@@ -61,6 +61,18 @@ Unknown wording is not assigned a sector by an LLM. Sector suggestions show labe
 
 No currency conversion is performed. Regions match explicit labels and authored mappings, not an automatic geographic hierarchy. The current Ada record only establishes an automatic UK match; its other locations require a UK-link check.
 
+## Timing hint (for now or for later)
+
+A profile may carry `timing_claims`: dated reports of when the investor's current fund was announced (pack 0.9.0 has them for five of the six equity profiles). The app shows a timing hint under each fit result. **It never changes the alignment label, evidence coverage or ranking,** and saved assessments are not flagged for review when only timing changes.
+
+| Latest fund announcement | Hint |
+| --- | --- |
+| Under 3 years before the assessment date | Likely still making new investments; confirm |
+| Over 5 years before | May now focus on follow-on investments; confirm whether it makes new ones |
+| 3 to 5 years, or no dated announcement | Timing unclear or unknown; check recent investments |
+
+Only `declared` and `observed` claims are used, and only those checked and announced on or before the assessment date. A partial date (year, or year and month) counts from its earliest day. Claims checked more than 180 days earlier are shown with a review note. The 3- and 5-year thresholds are an editorial rule of thumb, not a fact about any fund. A first close is reported as a first close in the claim's statement. Investment pace (deals per year) is not used: funds rarely declare it, and third-party counts disagree.
+
 ## Amounts and source boundaries
 
 The matcher uses typed amounts with explicit currencies. It does not parse the legacy display field named `check_size_range_usd`, which may contain a non-USD description.

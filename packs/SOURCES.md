@@ -28,7 +28,7 @@ File: profiles/firstminute_capital.json
 
 Source: [primary evidence](https://www.firstminute.capital/about)
 
-SHA-256: 65f219974681156dee1678e19f2ad2ed36964821e4441586720af1f74c118054
+SHA-256: f79f9854b2b7e8935f38b24b54aeaa6a42fde78fa7e77f41c7bddcb3462ab099
 
 Independent statement of limited public facts, with original editorial mappings/interpretation. US Copyright Office distinguishes facts from protected expression: https://www.copyright.gov/help/faq/faq-general.html . Only stage, broad geography, sector themes and currency-labelled amount remain, stated independently. No copied promotional narrative, testimonials, images or branding. About-page footer and linked privacy policy were checked; no affirmative open-content grant is claimed. Direct policy retrieval returned 403 on this pass; the earlier indexed policy concerned personal-data processing. This is an editorial assessment, not a source-issued license, worldwide legal assurance or an endorsement. Original editorial contributions may be licensed separately; underlying source works remain excluded.
 
@@ -144,7 +144,7 @@ File: profiles/hustle_fund.json
 
 Sources: https://www.hustlefund.vc/faq
 
-SHA-256: da73acacf283bb8a88e4b48fc7395ed84f512eb85272331fb669e585fc22c338
+SHA-256: 58d3f6ce5aece8344b3f9e6a86021a3e18f4c5fdb2f35e9ff1c5cb62d5b522e9
 
 Independent factual paraphrases and editorial matching labels only. Missing fields and additional conditions are retained in the record. No new investor-topic or portfolio connection is asserted.
 
@@ -164,7 +164,7 @@ File: profiles/concept_ventures.json
 
 Sources: https://concept.vc/
 
-SHA-256: b779da16102d875d135f10489e7230289b95250c8606df651ebae739c83bb200
+SHA-256: 2c5ec4a485a84e0341523be0c32125e82b29b6e6d4f341ea43cbd020cdc31333
 
 Independent factual paraphrases and editorial matching labels only. Missing fields and additional conditions are retained in the record. No new investor-topic or portfolio connection is asserted.
 
@@ -174,7 +174,7 @@ File: profiles/connect_ventures.json
 
 Sources: https://www.connectventures.co/
 
-SHA-256: 02a3128f444fa46c722e8029985d0ef4961b7a66e0519c46a5a41e5c262a12a4
+SHA-256: 8de99a83fe1bb2a1b721f42d46f8c7b40ce8c8ad23266fe48e9086ae98f64400
 
 Independent factual paraphrases and editorial matching labels only. Missing fields and additional conditions are retained in the record. No new investor-topic or portfolio connection is asserted.
 
@@ -184,9 +184,23 @@ File: profiles/boldstart_ventures.json
 
 Sources: https://boldstart.vc/
 
-SHA-256: c412d5381df265072379a014433142354e57f3cc99100f4f53e4c0d5ddeba773
+SHA-256: 3d7b25550d32b3ea91902857b78860f8be27865e468cad8379cc855947146045
 
 Independent factual paraphrases and editorial matching labels only. Missing fields and additional conditions are retained in the record. No new investor-topic or portfolio connection is asserted.
+
+## Timing claims — 2026-11-06 (pack 0.9.0)
+
+Files: profiles/boldstart_ventures.json, profiles/concept_ventures.json, profiles/firstminute_capital.json, profiles/hustle_fund.json, profiles/connect_ventures.json (hashes updated in the sections above and in review-register.json)
+
+Each record gained one `current_fund` timing claim, an independent factual paraphrase of a named report of the firm's fund announcement. Basis is `observed` (reporting), not the firm's own page. No aggregator counts were used. Ada Ventures has no timing claim: no announcement was found.
+
+- boldstart Fund VII, 8 July 2025 (counsel's client news): https://www.gunder.com/en/news-insights/client-news/boldstart-ventures-announces-dollar250m-fund-vii
+- Concept Ventures Fund II, 30 September 2025 (Tech.eu): https://tech.eu/2025/09/30/concept-ventures-closes-88m-fund-ii-cementing-position-as-europes-largest-pre-seed-fund/
+- firstminute Fund III initial close, 12 June 2023 (TechCrunch): https://techcrunch.com/2023/06/12/slacks-cal-henderson-and-sir-richard-branson-back-firstminute-capitals-third-fund
+- Hustle Fund third fund close, 29 September 2022 (TechCrunch): https://techcrunch.com/2022/09/29/hustle-funds-side-hustle-just-helped-it-close-a-third-fund/
+- Connect Ventures Fund V first close, 23 September 2026 (Tech.eu): https://tech.eu/2026/09/23/connect-ventures-announces-first-close-of-80m-fund-v-to-back-europes-technical-founders/
+
+Other fields in these records were not re-reviewed. No new source permission is claimed.
 
 ## Public relationship examples — 2026-10-30
 

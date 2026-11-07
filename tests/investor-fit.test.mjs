@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {assessInvestorFit, shortlistInvestors} from '../js/investor-fit.js';
-import {validateInvestorProfile, validFitClaim} from '../js/validator.js';
+import {assessInvestorFit, shortlistInvestors, assessTiming} from '../js/investor-fit.js';
+import {validateInvestorProfile, validFitClaim, validTimingClaim} from '../js/validator.js';
 const pack=JSON.parse(await readFile(new URL('../packs/guide-pack.json',import.meta.url)));
 const profiles=pack.components.research.profiles;
 const profile=profiles.find(p=>p.id==='firstminute_vc_seed_001');
@@ -88,4 +88,36 @@ test('US SaaS scenario separates strong alignment from partial overlap',()=>{
  assert.equal(results[0].evidenceCoverage,'complete');
  assert.equal(results.find(r=>r.id==='firstminute_vc_seed_001').fit,'investigate');
  assert.ok(results.filter(r=>r.fit!=='excluded'&&!['hustle_fund_current_001','firstminute_vc_seed_001'].includes(r.id)).every(r=>r.fit==='insufficient'));
+});
+const fund=(over={})=>({kind:'current_fund',basis:'observed',fund_name:'Fund II',announced_date:'2025-09-30',statement:'Announced a fund.',source_url:'https://example.com/fund',checked_date:'2026-11-06',...over});
+test('timing hint follows the latest dated fund announcement',()=>{
+ const t=d=>assessTiming({timing_claims:[fund({announced_date:d})]},'2026-11-06').status;
+ assert.equal(t('2025-09-30'),'now');assert.equal(t('2022-09-29'),'unknown');assert.equal(t('2020-06'),'later');
+ assert.equal(assessTiming({timing_claims:[fund({announced_date:'2020'}),fund({fund_name:'Fund III',announced_date:'2025-01'})]},'2026-11-06').evidence[0].fund_name,'Fund III');
+ assert.equal(assessTiming({},'2026-11-06').status,'unknown');assert.equal(assessTiming({},'2026-11-06').evidence.length,0);
+});
+test('timing ignores inferred, future and not-yet-checked claims and flags stale ones',()=>{
+ assert.equal(assessTiming({timing_claims:[fund({basis:'inferred'})]},'2026-11-06').status,'unknown');
+ assert.equal(assessTiming({timing_claims:[fund({announced_date:'2027-01-01'})]},'2026-11-06').status,'unknown');
+ assert.equal(assessTiming({timing_claims:[fund({checked_date:'2026-12-01'})]},'2026-11-06').status,'unknown');
+ assert.match(assessTiming({timing_claims:[fund()]},'2027-07-01').text,/needs review/);
+});
+test('timing never changes the fit label, coverage or saved-assessment key fields',()=>{
+ const base={...profile,timing_claims:undefined};
+ const a=assess(startup,base),b=assess(startup,{...profile,timing_claims:[fund({announced_date:'2010',checked_date:'2026-10-30'})]});
+ assert.equal(a.fit,b.fit);assert.equal(a.evidenceCoverage,b.evidenceCoverage);assert.deepEqual(a.reasons,b.reasons);assert.deepEqual(a.evidence,b.evidence);
+ assert.equal(b.timing.status,'later');
+});
+test('timing claims are validated',()=>{
+ assert.equal(validTimingClaim(fund()),true);assert.equal(validTimingClaim(fund({announced_date:'2025'})),true);
+ for(const bad of [{kind:'pace'},{announced_date:'2025-13'},{announced_date:'2025-02-30'},{source_url:'javascript:alert(1)'},{size:5}])assert.equal(validTimingClaim(fund(bad)),false);
+ assert.equal(validTimingClaim(fund({size:5,currency:'USD'})),true);
+ assert.equal(validateInvestorProfile({...profile,timing_claims:[{}]}).isValid,false);
+});
+test('included pack timing claims are valid and give the expected hints',()=>{
+ const want={boldstart_ventures_current_001:'now',concept_ventures_current_001:'now',connect_ventures_current_001:'now',firstminute_vc_seed_001:'unknown',hustle_fund_current_001:'unknown',ada_ventures_current_001:'unknown'};
+ for(const [id,status] of Object.entries(want)){
+  const p=profiles.find(x=>x.id===id);assert.ok((p.timing_claims||[]).every(validTimingClaim),id);
+  assert.equal(assessTiming(p,'2026-11-06').status,status,id);
+ }
 });

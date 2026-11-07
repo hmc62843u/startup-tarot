@@ -143,9 +143,10 @@ function renderInvestorFit(){
         for(const [label,items] of [['Matches',r.reasons],['Mismatches',r.conflicts],['Unknowns',r.unknowns],['Additional conditions to check',r.cautions]]){
             if(items.length){card.append(node('h3',label));const list=node('ul','');for(const text of items)list.append(node('li',text));card.append(list);}
         }
+        if(r.timing)card.append(node('h3','Timing (for now or for later)'),node('p',r.timing.text));
         card.append(node('p','Confirm current availability, full eligibility and portfolio conflicts before outreach.'));
         const sources=node('button','Evidence & dates',{type:'button',class:'text-button'});
-        sources.addEventListener('click',()=>showDetails(r.name+' — mandate evidence',['Assessed '+today+'. Claims older than 180 days need review; this is a product policy, not an investor rule.'],r.evidence.map(c=>({name:c.field+' · '+c.basis,statement:c.statement,url:c.source_url,retrieved_date:c.checked_date}))));
+        sources.addEventListener('click',()=>showDetails(r.name+' — mandate evidence',['Assessed '+today+'. Claims older than 180 days need review; this is a product policy, not an investor rule.','Timing is a hint from the latest dated fund announcement. It does not change the alignment label or ranking.'],[...r.evidence.map(c=>({name:c.field+' · '+c.basis,statement:c.statement,url:c.source_url,retrieved_date:c.checked_date})),...(r.timing?.evidence||[]).map(c=>({name:'timing · '+c.basis,statement:c.statement,url:c.source_url,retrieved_date:c.checked_date}))]));
         const save=node('button',outreach.entries.find(e=>e.id===r.id)?.archived?'Restore to shortlist':outreach.entries.some(e=>e.id===r.id)?'Update saved assessment':'Save to shortlist',{type:'button',class:'primary'});
         save.addEventListener('click',()=>{const next=saveInvestorEntry({...outreach,query:input},input,r,pack.version,new Date().toISOString().slice(0,10));next.entries.find(e=>e.id===r.id).archived=false;if(commitOutreach(next))save.textContent='Saved to shortlist';});
         const supporting=node('div','',{class:'secondary-actions',role:'group','aria-label':'Investor evidence'});supporting.append(sources);card.append(save,supporting);container.append(card);

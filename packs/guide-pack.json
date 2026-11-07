@@ -2,9 +2,9 @@
   "schema_version": 2,
   "id": "startup_field_guide_community_facts",
   "name": "Research Guide Pack",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "repository_url": null,
-  "updated_date": "2026-10-30",
+  "updated_date": "2026-11-06",
   "license": {
     "id": "CC-BY-4.0",
     "url": "https://creativecommons.org/licenses/by/4.0/",
@@ -246,6 +246,17 @@
               "basis": "declared",
               "source_url": "https://www.firstminute.capital/about",
               "checked_date": "2026-10-30"
+            }
+          ],
+          "timing_claims": [
+            {
+              "kind": "current_fund",
+              "basis": "observed",
+              "fund_name": "Fund III",
+              "announced_date": "2023-06-12",
+              "source_url": "https://techcrunch.com/2023/06/12/slacks-cal-henderson-and-sir-richard-branson-back-firstminute-capitals-third-fund",
+              "checked_date": "2026-11-06",
+              "statement": "firstminute announced its third fund on 12 June 2023 with $100 million raised at an initial close and a final close expected later that year; the final size was not checked."
             }
           ],
           "data_kind": "research"
@@ -676,6 +687,19 @@
               "basis": "declared",
               "strict": false
             }
+          ],
+          "timing_claims": [
+            {
+              "kind": "current_fund",
+              "basis": "observed",
+              "fund_name": "Fund III",
+              "announced_date": "2022-09-29",
+              "size": 46100000,
+              "currency": "USD",
+              "source_url": "https://techcrunch.com/2022/09/29/hustle-funds-side-hustle-just-helped-it-close-a-third-fund/",
+              "checked_date": "2026-11-06",
+              "statement": "Hustle Fund announced the close of its third fund with $46.1 million in commitments on 29 September 2022 (TechCrunch). Later reporting on a fourth fund was not checked."
+            }
           ]
         },
         {
@@ -817,6 +841,19 @@
               "basis": "declared",
               "strict": false
             }
+          ],
+          "timing_claims": [
+            {
+              "kind": "current_fund",
+              "basis": "observed",
+              "fund_name": "Fund II",
+              "announced_date": "2025-09-30",
+              "size": 88000000,
+              "currency": "USD",
+              "source_url": "https://tech.eu/2025/09/30/concept-ventures-closes-88m-fund-ii-cementing-position-as-europes-largest-pre-seed-fund/",
+              "checked_date": "2026-11-06",
+              "statement": "Concept Ventures announced the close of an $88 million Fund II on 30 September 2025, for pre-seed investments in the UK and Europe (Tech.eu report quoting the firm)."
+            }
           ]
         },
         {
@@ -902,6 +939,19 @@
               "basis": "declared",
               "strict": false
             }
+          ],
+          "timing_claims": [
+            {
+              "kind": "current_fund",
+              "basis": "observed",
+              "fund_name": "Fund V",
+              "announced_date": "2026-09-23",
+              "size": 55000000,
+              "currency": "USD",
+              "source_url": "https://tech.eu/2026/09/23/connect-ventures-announces-first-close-of-80m-fund-v-to-back-europes-technical-founders/",
+              "checked_date": "2026-11-06",
+              "statement": "Connect Ventures announced a $55 million first close of Fund V, toward an $80 million target, on 23 September 2026, for pre-seed technical founders in Europe (Tech.eu report quoting the firm). The size is the first close, not a final close."
+            }
           ]
         },
         {
@@ -985,6 +1035,19 @@
               "checked_date": "2026-10-30",
               "basis": "declared",
               "strict": false
+            }
+          ],
+          "timing_claims": [
+            {
+              "kind": "current_fund",
+              "basis": "observed",
+              "fund_name": "Fund VII",
+              "announced_date": "2025-07-08",
+              "size": 250000000,
+              "currency": "USD",
+              "source_url": "https://www.gunder.com/en/news-insights/client-news/boldstart-ventures-announces-dollar250m-fund-vii",
+              "checked_date": "2026-11-06",
+              "statement": "Boldstart announced a $250 million Fund VII on 8 July 2025 for inception-stage investments, reported by its counsel Gunderson Dettmer; the page does not state a final close."
             }
           ]
         }
