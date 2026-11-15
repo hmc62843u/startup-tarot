@@ -25,7 +25,8 @@ node_modules/
 /publisher/template.js
 /publisher/app.bundle.js
 
-# Bulk source collections stay local; only reviewed fixtures are distributed.
+# Bulk source collections are kept in the private research workspace, not here;
+# only reviewed fixtures are distributed. The rule stays so a stray copy is never committed.
 /dataset/
 
 # Copied lab evidence remains local; publish only curated/redacted documentation.

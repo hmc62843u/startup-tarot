@@ -318,6 +318,69 @@
           }
         ]
       }
+    },
+    "timing_claims": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "basis",
+          "statement",
+          "source_url",
+          "checked_date",
+          "fund_name",
+          "announced_date"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "current_fund"
+            ]
+          },
+          "basis": {
+            "enum": [
+              "declared",
+              "observed",
+              "inferred"
+            ]
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_url": {
+            "type": "string",
+            "pattern": "^https?://"
+          },
+          "checked_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "fund_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "announced_date": {
+            "type": "string",
+            "pattern": "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$"
+          },
+          "size": {
+            "type": "number",
+            "minimum": 0
+          },
+          "currency": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$"
+          }
+        },
+        "dependentRequired": {
+          "size": [
+            "currency"
+          ]
+        }
+      }
     }
   },
   "anyOf": [
