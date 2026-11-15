@@ -1,6 +1,6 @@
 ---
 name: research-operator
-description: Operate Startup Tarot research data and prepare reviewed founder distributions, including the OpenFor pilot. Use for Workspace lifecycle, authorized investor/startup updates, source checks, or release proposals. Exclude general investment advice and application development.
+description: Operate Startup Tarot research data and prepare reviewed founder distributions, including the OpenFor pilot. Use for Workspace lifecycle, authorized investor/startup updates, source checks, or release proposals. For private next-moves pool research and organization-specific suggestions, start in the private founder-research workspace with next-moves-maintenance. Exclude general investment advice and application development.
 ---
 
 # Research Operator
