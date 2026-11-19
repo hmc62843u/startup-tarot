@@ -1,6 +1,6 @@
 # OpenFor demo: start here
 
-This guide on main is the starting point for the OpenFor demonstration; it does not claim production readiness. It contains application source, operator guidance, public-source research examples and clearly labelled synthetic fixtures. It contains no OpenFor private records, local credentials or database installation. The demo workflow is merged into main; the earlier codex/openfor-demo branch is retained for history.
+This guide on main is the starting point for the OpenFor demonstration; it does not claim production readiness. It contains application source, operator guidance, public-source research examples and clearly labelled synthetic fixtures. It contains no OpenFor private records, local credentials or database installation. The demo workflow is merged into main at commit e6d732e; use main for setup. The earlier codex/openfor-demo branch references were removed after merge verification; its commits remain in main's history.
 
 ## Copy this into Codex
 
