@@ -12,7 +12,8 @@ import {packageOperatorProposal} from '../enterprise/operator-service.mjs';
 // Real authenticated HTTP/service/CLI flow; storage is deliberately simulated.
 export async function rehearseOpenFor({liveStore=null,organization='synthetic_openfor_pilot'}={}){
  if(liveStore&&!/^openfor_demo_[a-z0-9_]{3,35}$/.test(organization))throw new Error('Live rehearsal requires a dedicated openfor_demo_* organization; pilot organizations are never seeded.');
- const parent=resolve('.local/operator-rehearsal');await mkdir(parent,{recursive:true});const output=await mkdtemp(resolve(parent,'run-'));
+ // Always write under this checkout's .local, whatever the caller's working directory.
+ const parent=fileURLToPath(new URL('../.local/operator-rehearsal/',import.meta.url));await mkdir(parent,{recursive:true});const output=await mkdtemp(resolve(parent,'run-'));
  const results=[];const pass=(step,detail)=>results.push({step,status:'PASS',detail});
  const rows=new Map();let sequence=0;
  const fail=(message,status)=>{throw Object.assign(new Error(message),{status});};
@@ -32,8 +33,8 @@ export async function rehearseOpenFor({liveStore=null,organization='synthetic_op
  const invoke=(args)=>operatorCommand(args,{print:()=>{}});
  try{
   assert.equal((await fetch(origin+'/app.js')).status,404);assert.equal((await fetch(origin+'/style.css')).status,404);assert.ok((await (await fetch(origin+'/')).text()).includes('through Codex'));
-  const bundle=JSON.parse(await readFile('enterprise/fixtures/alpha.json','utf8'));
-  const raw=JSON.parse(await readFile('enterprise/fixtures/openfor-demo-raw.json','utf8'));
+  const bundle=JSON.parse(await readFile(new URL('../enterprise/fixtures/alpha.json',import.meta.url),'utf8'));
+  const raw=JSON.parse(await readFile(new URL('../enterprise/fixtures/openfor-demo-raw.json',import.meta.url),'utf8'));
   bundle.pack.name=raw.label;
   const mapping={label:raw.label,decisions:[],omitted_private_notes:raw.operator_private_notes.length};
   const seen=new Map();
@@ -80,7 +81,7 @@ export async function rehearseOpenFor({liveStore=null,organization='synthetic_op
   pass('8. Recover a prior revision safely',{restored_as_new:restored.revision,corrected_revision_preserved:true,current:current.revision});
   const proposal=await invoke(['prepare','--input',exported.source]);const review=JSON.parse(await readFile(proposal.review,'utf8'));assert.equal(review.preview_reviewed,false);assert.equal(review.release_review.approved,false);
   await assert.rejects(()=>packageOperatorProposal(proposal.proposal),/Human preview review/);pass('9. Prepare and enforce approval gate',{proposal:proposal.proposal,source_sha256:proposal.source_sha256,package:'blocked pending genuine review/approval'});
-  const researchInput=resolve('enterprise/fixtures/openfor-research.json');
+  const researchInput=fileURLToPath(new URL('../enterprise/fixtures/openfor-research.json',import.meta.url));
   const research=JSON.parse(await readFile(researchInput,'utf8'));
   const fitInputs={sector:'hardware',stage:'pre-seed',geography:'Japan',check:{amount:150000,currency:'USD'}};
   const fit=shortlistInvestors(fitInputs,research.pack.components.research.profiles,'2026-10-31');
