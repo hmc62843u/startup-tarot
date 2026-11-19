@@ -54,4 +54,4 @@ Avoid:
 - Reuse the stickman pitch project: draw art locally with draw-art.mjs and the Autopilot B1 renderer, 1920×1080.
 - Narration: gemini-3.8-flash-tts with voice Bodi worked on the free tier; image generation did not.
 - Follow the tool's sample-then-approve step: render about 20 seconds for review before the full film.
-- Keep the project in its own folder, in hmc62843u.github.io under media/startup-tarot/.
+- Keep the project in its own folder. Publish only the finished files, in hmc62843u.github.io under media/startup-tarot/<project>/exports/. The working files (art, audio, project.json) are kept privately.
