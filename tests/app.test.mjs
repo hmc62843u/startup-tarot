@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import vm from 'node:vm';
+import {createHash} from 'node:crypto';
 import {buildEntry} from '../tools/build-demo.mjs';
 import {configuredWorkspace, workspaceForSave, leanModel, saveLeanPlan} from '../js/lean.js';
 import {researchRecords, researchWorkspaceKey} from '../js/research-library.js';
@@ -9,6 +10,10 @@ const root=new URL('../',import.meta.url);
 const real=JSON.parse(await readFile(new URL('packs/guide-pack.json',root)));
 const demo=JSON.parse(await readFile(new URL('packs/demo-guide-pack.json',root)));
 const context={business_model:'marketplace',current_stage:'idea',validation_focus:'demand',sectors:['marketplace']};
+test('packs/README.md records the current research pack SHA-256',async()=>{
+ const json=(await readFile(new URL('packs/guide-pack.json',root),'utf8')).replace(/\r\n/g,'\n'),hash=createHash('sha256').update(json).digest('hex');
+ assert.ok((await readFile(new URL('packs/README.md',root),'utf8')).includes('Research JSON SHA-256: '+hash+'.'),'Update the SHA-256 in packs/README.md to '+hash);
+});
 test('browser entry and configured pack are reproducible, separate local scripts',async()=>{
  const {bundle,hash}=await buildEntry();assert.equal(bundle,await readFile(new URL('js/app.bundle.js',root),'utf8'));
  const sandbox={};vm.runInNewContext(await readFile(new URL('packs/active-pack.js',root),'utf8'),sandbox);
