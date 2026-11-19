@@ -3,7 +3,7 @@ import {resolve,basename} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {fetchOrganizationExport,referenceRequest} from '../tools/distribute-incubator.mjs';
 import {publisherInput,publisherCheck,publisherHash,publisherPreview,publisherRelease,publisherZip} from '../publisher/core.js';
-import {rejectPublishingSecrets} from '../js/publishing.js';
+import {rejectPublishingSecrets,rejectListedPeople} from '../js/publishing.js';
 
 export const operatorRoot=fileURLToPath(new URL('../',import.meta.url));
 const json=value=>JSON.stringify(value,null,2)+'\n';
@@ -28,16 +28,18 @@ export async function prepareOperatorProposal(input,{root=operatorRoot,scenarioI
  for(const [name,data] of [['source.json',json(envelope)],['summary.md',summary],['preview.html',html],['review.json',json(review)],['receipt.json',json(receipt)]])await writeFile(resolve(directory,name),data,{flag:'wx',mode:0o600});
  return {proposal:directory,summary:resolve(directory,'summary.md'),preview:resolve(directory,'preview.html'),review:resolve(directory,'review.json'),source_sha256:preview.source_hash,approval_required:true};
 }
-export async function packageOperatorProposal(directory,{root=operatorRoot}={}){
+export async function packageOperatorProposal(directory,{root=operatorRoot,people=null}={}){
  directory=resolve(directory);const envelope=publisherInput(await readOperatorJSON(resolve(directory,'source.json'))),review=await readOperatorJSON(resolve(directory,'review.json'),64000),receipt=await readOperatorJSON(resolve(directory,'receipt.json'),64000),loaded=await operatorTemplate(root);
  if(receipt.schema_version!==1||review.schema_version!==1||Object.keys(review).some(k=>!['schema_version','source_sha256','preview_reviewed','release_review'].includes(k)))throw new Error('Invalid proposal/review envelope. Prepare a fresh proposal.');
  const hash=await publisherHash(json(envelope));
  if(hash!==receipt.source_sha256||hash!==review.source_sha256||loaded.hash!==receipt.template_sha256||loaded.engine_hash!==receipt.engine_sha256||await publisherHash(await operatorRead(resolve(directory,'preview.html'),8*1024*1024))!==receipt.preview_sha256||await publisherHash(await operatorRead(resolve(directory,'summary.md'),64000))!==receipt.summary_sha256)throw new Error('Proposal source, preview, summary, template or packaging code changed. Prepare a fresh proposal and obtain review again.');
  if(review.preview_reviewed!==true)throw new Error('Human preview review is required. Complete the proposal review after explicit operator approval.');
+ // Optional private people list: block names of people held in the operator graph. The list never enters the release.
+ const peopleChecked=people?rejectListedPeople(envelope.bundle,await readOperatorJSON(resolve(people),256000)):null;
  const release=await publisherRelease(loaded.template,envelope,review.release_review,{source_hash:hash,reviewed:true}),zip=publisherZip(release.files);
  const parent=resolve(directory,'releases');await mkdir(parent,{recursive:true});const output=await mkdtemp(resolve(parent,'release-'));
  await writeFile(resolve(output,release.filename),zip,{flag:'wx',mode:0o600});await writeFile(resolve(output,'release-manifest.json'),json(release.manifest),{flag:'wx',mode:0o600});
- return {archive:resolve(output,release.filename),manifest:resolve(output,'release-manifest.json'),source_sha256:hash,zip_sha256:await publisherHash(zip),published:false};
+ return {archive:resolve(output,release.filename),manifest:resolve(output,'release-manifest.json'),source_sha256:hash,zip_sha256:await publisherHash(zip),people_check:peopleChecked===null?'not run':'passed ('+peopleChecked+' people)',published:false};
 }
 
 // Typed operations shared by the CLI and any future adapter. No argument parsing or output.

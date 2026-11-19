@@ -112,7 +112,7 @@ node enterprise/operator.mjs help
 | Import a reviewed update with an explicit expectation | node enterprise/operator.mjs import --connection .local/connection.json --input path/to/bundle.json --expected REV |
 | Export a selected shared revision | node enterprise/operator.mjs export --connection .local/connection.json --revision REV |
 | Prepare an unapproved preview and review draft | node enterprise/operator.mjs prepare --input path/to/source.json |
-| Package the reviewed proposal locally | node enterprise/operator.mjs package --proposal path/to/proposal-folder |
+| Package the reviewed proposal locally | node enterprise/operator.mjs package --proposal path/to/proposal-folder [--people .local/enterprise/people.json] (the private people list blocks listed names; see DISTRIBUTION_GUIDE.md) |
 | Open the optional browser Publisher | node enterprise/operator.mjs publisher |
 
 Use --expected new only for an organization's first import. Inspect the current revision before updating; a stale expected revision is rejected by the server. Private owner data keeps its separate owner API and is not merged into these imports or releases.

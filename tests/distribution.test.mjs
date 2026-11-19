@@ -7,6 +7,7 @@ import {createHash} from 'node:crypto';
 import vm from 'node:vm';
 import {validateExportEnvelope,validateReleaseReview,writeDistribution,verifyDistribution,buildDistribution} from '../tools/incubator-distribution.mjs';
 import {fetchOrganizationExport} from '../tools/distribute-incubator.mjs';
+import {rejectListedPeople,validatePeopleList} from '../js/publishing.js';
 import {findRelationshipPaths,analyzeInvestorNetwork} from '../js/relationships.js';
 const root=new URL('../',import.meta.url),load=async path=>JSON.parse(await readFile(new URL(path,root),'utf8'));
 const bundle=await load('enterprise/fixtures/alpha.json'),review=await load('enterprise/fixtures/distribution-review.json');
@@ -29,6 +30,18 @@ test('founder packages may not cite talk or podcast recordings (person-level sou
   const linked=structuredClone(envelope);profile(linked).notes='Partner explained this in a talk: '+url;assert.throws(()=>validateExportEnvelope(linked),/person-level source.*bundle\.pack\.components\.research\.profiles\.0\.notes/,url);
  }
  const lookalike=structuredClone(envelope);profile(lookalike).notes='See https://notyoutube.com.example.org/criteria';assert.equal(validateExportEnvelope(lookalike),lookalike);
+});
+
+test('the private people list blocks listed names and aliases anywhere in a package, without echoing them',()=>{
+ const list={schema_version:1,people:[{name:'Rina Okabe',aliases:['R. Okabe','岡部理奈']},{name:'Tomas Vell'}]};
+ const at=(path,text)=>{const b=structuredClone(bundle);let n=b;for(const k of path.slice(0,-1))n=n[k];n[path.at(-1)]=text;return b;};
+ const notes=['pack','components','research','profiles',0,'notes'];
+ assert.equal(rejectListedPeople(bundle,list),2);
+ for(const [path,text] of [[notes,'rina   OKABE said so'],[notes,'Ｒｉｎａ Ｏｋａｂｅ (full-width)'],[notes,'per R. Okabe at the session'],[['pack','components','matching','investor_topics',0,'statement'],'岡部理奈氏は述べた'],[['relationships','nodes',0,'name'],'Tomas Vell (partner)']]){
+  assert.throws(()=>rejectListedPeople(at(path,text),list),err=>/listed person #[12]/.test(err.message)&&err.message.includes(path.join('.'))&&!/okabe|vell|岡部/i.test(err.message),text);
+ }
+ assert.equal(rejectListedPeople(at(notes,'Okabeworks and Vellum are companies'),list),2,'Latin names match whole words only');
+ for(const bad of [null,{schema_version:1},{schema_version:1,people:[{name:'A'}]},{schema_version:1,people:[{name:'Rina Okabe',email:'x'}]},{schema_version:1,people:[{name:'Rina Okabe',aliases:'R. Okabe'}]}])assert.throws(()=>validatePeopleList(bad),/People list/);
 });
 
 test('modular distribution detects tampering, wrong paths, extra files and mismatched source notes',async t=>{

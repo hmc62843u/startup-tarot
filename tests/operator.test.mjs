@@ -19,6 +19,17 @@ test('operator prepares a concrete unapproved proposal and uses the same release
  await assert.rejects(()=>packageOperatorProposal(proposal.proposal,{root}),/Human preview review/);
  await approve(proposal);const result=await packageOperatorProposal(proposal.proposal,{root});assert.equal(result.published,false);assert.ok(result.archive.endsWith('.zip'));
  const manifest=JSON.parse(await readFile(result.manifest,'utf8'));assert.equal(manifest.kind,'startup_tarot_browser_distribution');assert.equal(manifest.source.method,'browser-local-files');assert.equal(manifest.scenario_inputs_selected,false);
+ assert.equal(result.people_check,'not run');
+});
+test('operator package blocks names from the private people list and never copies the list into the release',async()=>{
+ const planted=structuredClone(fixture);planted.pack.components.research.profiles[0].notes='Rina Okabe (invented) explained these criteria at the June session.';
+ const people=resolve(root,'people.json');await writeFile(people,JSON.stringify({schema_version:1,people:[{name:'Rina Okabe',aliases:['岡部理奈']}]}));
+ const other=resolve(root,'people-other.json');await writeFile(other,JSON.stringify({schema_version:1,people:[{name:'Tomas Vell'}]}));
+ const blocked=await prepareOperatorProposal(planted,{root});await approve(blocked);
+ await assert.rejects(()=>packageOperatorProposal(blocked.proposal,{root,people}),err=>/listed person #1.*profiles\.0\.notes/.test(err.message)&&!err.message.includes('Okabe'));
+ const clean=await prepareOperatorProposal(fixture,{root});await approve(clean);
+ const ok=await packageOperatorProposal(clean.proposal,{root,people:other});assert.equal(ok.people_check,'passed (1 people)');
+ assert.ok(!(await readFile(ok.archive)).includes(Buffer.from('Tomas Vell')),'the people list must not enter the release');
 });
 test('operator rejects changed source, preview, summary and template rather than silently reusing review',async()=>{
  for(const name of ['source.json','preview.html','summary.md']){

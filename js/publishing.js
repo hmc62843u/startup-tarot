@@ -28,6 +28,32 @@ export function rejectPersonLevelSources(value,path='bundle'){
  if(!value||typeof value!=='object')return;
  for(const [key,child] of Object.entries(value))rejectPersonLevelSources(child,path+'.'+key);
 }
+// Names of people held in the operator's graph must not reach founder packages either.
+// The people list is private operator data ({schema_version:1, people:[{name, aliases?}]}); it is
+// never written into a package, and errors cite the list position, not the name.
+const personText=s=>String(s).normalize('NFKC').toLowerCase().replace(/\s+/g,' ').trim();
+const latinWord=/[\p{Script=Latin}\p{N}]/u;
+export function validatePeopleList(list){
+ publishingRequire(list?.schema_version===1&&Array.isArray(list.people)&&Object.keys(list).every(k=>['schema_version','people'].includes(k)),'People list must be {schema_version:1, people:[{name, aliases}]}.');
+ list.people.forEach((p,i)=>{publishingRequire(p&&typeof p.name==='string'&&Object.keys(p).every(k=>['name','aliases'].includes(k))&&(p.aliases===undefined||Array.isArray(p.aliases)&&p.aliases.every(a=>typeof a==='string')),'People list entry #'+(i+1)+' needs a name and optional aliases.');
+  for(const n of [p.name,...(p.aliases||[])])publishingRequire(personText(n).length>=2,'People list entry #'+(i+1)+' has a name or alias shorter than 2 characters.');});
+ return list;
+}
+function personMatchers(list){
+ return validatePeopleList(list).people.map((p,i)=>({entry:i+1,forms:[p.name,...(p.aliases||[])].map(personText).map(form=>{
+  // Latin-script forms match whole words only, so "Okabe" doesn't match "Okabeworks"; other scripts match as substrings.
+  if(!latinWord.test(form))return text=>text.includes(form);
+  const escaped=form.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),re=new RegExp('(?<![\\p{L}\\p{N}])'+escaped+'(?![\\p{L}\\p{N}])','u');return text=>re.test(text);})}));
+}
+export function rejectListedPeople(value,list,path='bundle'){
+ const matchers=personMatchers(list);
+ (function walk(v,p){
+  if(typeof v==='string'){const text=personText(v);for(const m of matchers)publishingRequire(!m.forms.some(f=>f(text)),'Remove listed person #'+m.entry+' (person-level material; keep it in the operator graph): '+p);return;}
+  if(!v||typeof v!=='object')return;
+  for(const [key,child] of Object.entries(v))walk(child,p+'.'+key);
+ })(value,path);
+ return matchers.length;
+}
 export function validatePublishingEnvelope(envelope){
  publishingRequire(envelope?.schema_version===1&&Object.keys(envelope).every(k=>['schema_version','organization','revision','bundle'].includes(k)),'Expected an organization distribution export envelope.');
  publishingRequire(/^[a-z][a-z0-9_-]{2,63}$/.test(envelope.organization)&&typeof envelope.revision==='string'&&/^[a-zA-Z0-9_-]{1,100}$/.test(envelope.revision),'Organization and explicit revision required.');
