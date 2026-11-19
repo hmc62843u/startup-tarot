@@ -20,10 +20,18 @@ export function rejectPublishingSecrets(value,path='bundle'){
  if(!value||typeof value!=='object')return;
  for(const [key,child] of Object.entries(value)){publishingRequire(!publishingSensitive.has(key.toLowerCase()),'Remove reserved private/credential/history field: '+path+'.'+key);rejectPublishingSecrets(child,path+'.'+key);}
 }
+// Talk and podcast recordings identify the people speaking, so founder packages may not cite them.
+// Keep person-level material (names, quotes, links to talks) in the operator's own graph.
+const personLevelLink=/https?:\/\/(?:[a-z0-9-]+\.)*(?:youtube\.com|youtu\.be|vimeo\.com|podcasts\.apple\.com|open\.spotify\.com|soundcloud\.com)(?=[\/:?#\s]|$)/i;
+export function rejectPersonLevelSources(value,path='bundle'){
+ if(typeof value==='string'){publishingRequire(!personLevelLink.test(value),'Remove talk or podcast link (person-level source; keep it in the operator graph): '+path);return;}
+ if(!value||typeof value!=='object')return;
+ for(const [key,child] of Object.entries(value))rejectPersonLevelSources(child,path+'.'+key);
+}
 export function validatePublishingEnvelope(envelope){
  publishingRequire(envelope?.schema_version===1&&Object.keys(envelope).every(k=>['schema_version','organization','revision','bundle'].includes(k)),'Expected an organization distribution export envelope.');
  publishingRequire(/^[a-z][a-z0-9_-]{2,63}$/.test(envelope.organization)&&typeof envelope.revision==='string'&&/^[a-zA-Z0-9_-]{1,100}$/.test(envelope.revision),'Organization and explicit revision required.');
- validatePublishingBundle(envelope.bundle);rejectPublishingSecrets(envelope.bundle);return envelope;
+ validatePublishingBundle(envelope.bundle);rejectPublishingSecrets(envelope.bundle);rejectPersonLevelSources(envelope.bundle);return envelope;
 }
 export function validatePublishingReview(review){
  const fields=['id','version','brand','audience','reviewed_by','reviewed_date','distribution_statement','update_instructions','attribution_notice','approved','private_data_reviewed','rights_reviewed'];

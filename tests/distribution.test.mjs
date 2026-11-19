@@ -22,6 +22,15 @@ test('operator distribution requires source binding, affirmative review and no r
  assert.throws(()=>validateReleaseReview({...review,token:'secret'}),/fields only/);
 });
 
+test('founder packages may not cite talk or podcast recordings (person-level sources stay in the operator graph)',()=>{
+ const profile=e=>e.bundle.pack.components.research.profiles[0];
+ // This fixture is fictional, so its source_url fields must be local anchors; the links go in free text, which any field can carry.
+ for(const url of ['https://www.youtube.com/watch?v=abc','https://youtu.be/abc','https://vimeo.com/123','https://podcasts.apple.com/jp/podcast/x','https://open.spotify.com/episode/x','https://soundcloud.com/x']){
+  const linked=structuredClone(envelope);profile(linked).notes='Partner explained this in a talk: '+url;assert.throws(()=>validateExportEnvelope(linked),/person-level source.*bundle\.pack\.components\.research\.profiles\.0\.notes/,url);
+ }
+ const lookalike=structuredClone(envelope);profile(lookalike).notes='See https://notyoutube.com.example.org/criteria';assert.equal(validateExportEnvelope(lookalike),lookalike);
+});
+
 test('modular distribution detects tampering, wrong paths, extra files and mismatched source notes',async t=>{
  const dir=resolve(await temporary(t),'data-bundle');const manifest=await writeDistribution(dir,envelope,review);
  assert.equal(manifest.source.revision,envelope.revision);assert.equal((await verifyDistribution(dir)).envelope.bundle.pack.id,bundle.pack.id);
