@@ -1,13 +1,17 @@
-import {readFile,writeFile,mkdir,readdir,mkdtemp,copyFile} from 'node:fs/promises';
+import {readFile,writeFile,mkdir,readdir,mkdtemp,copyFile,rm} from 'node:fs/promises';
 import {resolve,sep} from 'node:path';
+import {tmpdir} from 'node:os';
 import {fileURLToPath} from 'node:url';
 import {exportRelease} from './export-release.mjs';
 
 const publisherRoot=new URL('../',import.meta.url);
 export async function buildPublisher({output=null,local=true}={}){
- const recipient=await exportRelease({rebuild:false,recipient:true}),files=[];
+ const files=[];
  async function walk(dir,prefix=''){for(const entry of await readdir(dir,{withFileTypes:true})){const path=prefix+entry.name;if(entry.isDirectory())await walk(resolve(dir,entry.name),path+'/');else files.push({path,base64:(await readFile(resolve(dir,entry.name))).toString('base64')});}}
- await walk(recipient.output);
+ // The recipient export is only read into the template, so stage it outside release/ and remove it.
+ const staging=await mkdtemp(resolve(tmpdir(),'startup-publisher-input-'));
+ try{const recipient=await exportRelease({directory:resolve(staging,'recipient'),rebuild:false,recipient:true});await walk(recipient.output);}
+ finally{await rm(staging,{recursive:true,force:true});}
  const readJSON=async name=>JSON.parse(await readFile(new URL(name,publisherRoot),'utf8'));
  const template={schema_version:1,files,samples:{openfor:await readJSON('enterprise/fixtures/openfor-research.json'),fictional:await readJSON('enterprise/fixtures/alpha.json')},scenarios:await readJSON('enterprise/fixtures/openfor-illustrative.json')};
  const paths=['js/validator.js','js/research-library.js','js/relationships.js','js/publishing.js','publisher/core.js','publisher/app.js'];

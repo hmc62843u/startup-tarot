@@ -1,12 +1,13 @@
-import test from 'node:test';
+import test,{after} from 'node:test';
 import assert from 'node:assert/strict';
-import {readFile,writeFile,mkdir,mkdtemp,copyFile} from 'node:fs/promises';
+import {readFile,writeFile,mkdir,mkdtemp,copyFile,rm} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {tmpdir} from 'node:os';
 import {buildPublisher} from '../tools/build-publisher.mjs';
 import {operatorCommand} from '../enterprise/operator.mjs';
 import {prepareOperatorProposal,packageOperatorProposal,checkOperatorInput,inspectOperatorResearch,importOperatorResearch,exportOperatorResearch} from '../enterprise/operator-service.mjs';
-const sourceRoot=new URL('../',import.meta.url),built=await buildPublisher({local:false}),root=await mkdtemp(resolve(tmpdir(),'tarot-operator-'));
+const publisherOutput=await mkdtemp(resolve(tmpdir(),'tarot-publisher-test-'));after(()=>rm(publisherOutput,{recursive:true,force:true}));
+const sourceRoot=new URL('../',import.meta.url),built=await buildPublisher({output:publisherOutput,local:false}),root=await mkdtemp(resolve(tmpdir(),'tarot-operator-'));
 await mkdir(resolve(root,'publisher'));await copyFile(resolve(built.output,'template.js'),resolve(root,'publisher/template.js'));
 const fixture=JSON.parse(await readFile(new URL('enterprise/fixtures/alpha.json',sourceRoot),'utf8')),review=JSON.parse(await readFile(new URL('enterprise/fixtures/distribution-review.json',sourceRoot),'utf8'));
 async function approve(proposal){const path=resolve(proposal.proposal,'review.json'),value=JSON.parse(await readFile(path,'utf8'));value.preview_reviewed=true;value.release_review=review;await writeFile(path,JSON.stringify(value));}

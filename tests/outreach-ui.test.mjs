@@ -224,9 +224,11 @@ test('network summary explains included evidence and retains machine-readable ex
  assert.ok(walk(empty.ids['network-results']).some(e=>e.textContent.startsWith('No investor pairs share a documented round')));
 });
 
-test('preview storage wording stays temporary on load and save while normal app stays persistent',async()=>{
+test('preview storage wording stays temporary on load and save while normal app stays persistent',async t=>{
  const {buildPublisher}=await import('../tools/build-publisher.mjs'),{publisherInput,publisherPreview}=await import('../publisher/core.js');
- const built=await buildPublisher({local:false}),context={};vm.runInNewContext(await readFile((await import('node:path')).resolve(built.output,'template.js'),'utf8'),context);
+ const {mkdtemp,rm}=await import('node:fs/promises'),{tmpdir}=await import('node:os'),{resolve}=await import('node:path');
+ const output=await mkdtemp(resolve(tmpdir(),'tarot-publisher-test-'));t.after(()=>rm(output,{recursive:true,force:true}));
+ const built=await buildPublisher({output,local:false}),context={};vm.runInNewContext(await readFile((await import('node:path')).resolve(built.output,'template.js'),'utf8'),context);
  const template=context.STARTUP_PUBLISHER_TEMPLATE,preview=await publisherPreview(template,publisherInput(template.samples.fictional));
  const scripts=[...preview.html.matchAll(/<script>([\s\S]*?)<\/script>/g)];
  const ui=startBrowserModel(new Map(),false,{html:preview.html,bundle:scripts.at(-1)[1],pack:template.samples.fictional.pack});

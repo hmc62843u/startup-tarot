@@ -1,14 +1,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFile,mkdir,mkdtemp,writeFile} from 'node:fs/promises';
+import {readFile,mkdtemp,writeFile,rm} from 'node:fs/promises';
 import {resolve} from 'node:path';
+import {tmpdir} from 'node:os';
 import {createReferenceServer,tokenHash} from '../server.mjs';
 import {distributionZip} from '../../tools/distribution-zip.mjs';
 import {inflateRawSync} from 'node:zlib';
 const root=new URL('../../',import.meta.url),bundle=JSON.parse(await readFile(new URL('enterprise/fixtures/openfor-research.json',root),'utf8')),review=JSON.parse(await readFile(new URL('enterprise/fixtures/distribution-review.json',root),'utf8'));
 function unzip(bytes){const files=new Map();let at=0;while(bytes.readUInt32LE(at)===0x04034b50){const size=bytes.readUInt32LE(at+18),nameSize=bytes.readUInt16LE(at+26),extra=bytes.readUInt16LE(at+28),name=bytes.subarray(at+30,at+30+nameSize).toString(),start=at+30+nameSize+extra;files.set(name,inflateRawSync(bytes.subarray(start,start+size)));at=start+size;}assert.equal(bytes.readUInt32LE(at),0x02014b50);assert.equal(bytes.readUInt32LE(bytes.length-22),0x06054b50);return files;}
-test('preview and reviewed ZIP enforce scopes, labels, isolation, integrity and expiry',async()=>{
- await mkdir(new URL('release/',root),{recursive:true});const parent=await mkdtemp(new URL('release/publisher-test-',root));let now=Date.now(),reads=0;
+test('preview and reviewed ZIP enforce scopes, labels, isolation, integrity and expiry',async t=>{
+ const parent=await mkdtemp(resolve(tmpdir(),'publisher-test-'));t.after(()=>rm(parent,{recursive:true,force:true}));let now=Date.now(),reads=0;
  const tokens=['a'.repeat(40),'b'.repeat(40),'c'.repeat(40)],config={credentials:tokens.map((token,i)=>({token_sha256:tokenHash(token),org:i===1?'other_org':'demo_org',subject:i===2?'member':'operator',role:i===2?'researcher':'admin'}))};
  const store={async get(org,{revision}={}){reads++;assert.equal(org,'demo_org');if(revision&&revision!=='rev1')throw Object.assign(new Error('Unknown revision'),{status:404});return {revision:'rev1',value:bundle};}};
  const app=createReferenceServer({store,config,publisherOptions:{parent,now:()=>now}}),origin=await app.listen(0);
