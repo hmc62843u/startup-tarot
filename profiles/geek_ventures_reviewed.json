@@ -1,0 +1,83 @@
+{
+  "id": "geek_ventures_private_check",
+  "name": "Geek Ventures",
+  "data_kind": "research",
+  "source_url": "https://geek.vc/",
+  "retrieved_date": "2026-11-19",
+  "funding_type": "equity",
+  "organization_type": "vc",
+  "stage_focus": [
+    "pre-seed",
+    "seed"
+  ],
+  "sector_focus": [],
+  "criteria_weights": {
+    "team_credibility": 0.2,
+    "problem_clarity": 0.2,
+    "technical_feasibility": 0.2,
+    "market_urgency": 0.2,
+    "traction_evidence": 0.2
+  },
+  "weights_basis": "editor_estimate",
+  "weight_notes": "Required schema placeholders only; not investor preferences and not used by assessInvestorFit.",
+  "comparison_enabled": true,
+  "fit_claims": [
+    {
+      "field": "stage",
+      "values": [
+        "pre-seed",
+        "seed"
+      ],
+      "statement": "Pre-seed and seed focus.",
+      "basis": "declared",
+      "strict": false,
+      "source_url": "https://geek.vc/",
+      "checked_date": "2026-11-19"
+    },
+    {
+      "field": "geography",
+      "values": [
+        "US"
+      ],
+      "statement": "US investment focus.",
+      "basis": "declared",
+      "strict": false,
+      "source_url": "https://geek.vc/",
+      "checked_date": "2026-11-19"
+    },
+    {
+      "field": "check",
+      "min": 200000,
+      "max": 800000,
+      "currency": "USD",
+      "statement": "First check USD 200,000\u2013800,000.",
+      "basis": "declared",
+      "strict": false,
+      "source_url": "https://geek.vc/",
+      "checked_date": "2026-11-19"
+    }
+  ],
+  "eligibility_requirements": [
+    "Immigrant entrepreneur focus; other requirements not fully checked."
+  ],
+  "anti_criteria": [],
+  "distribution_basis": "reviewed_sources",
+  "data_license": "CC-BY-4.0",
+  "attribution": {
+    "publisher": "Fundraising Fox",
+    "source_url": "https://huggingface.co/datasets/fundraisingfox/venture-capital",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "version": "765ce35ef97238f0dc8c93d9d97dc2fbc7bfa56c",
+    "retrieved_date": "2026-11-19",
+    "changes": "Selected stage and check range from the dataset, independently checked on geek.vc. Geography focus checked on geek.vc; no sector mandate inferred from dataset tags."
+  },
+  "distribution_review": {
+    "approved": true,
+    "reviewer": "Andrew Leung",
+    "reviewed_date": "2026-11-19",
+    "scope": "Single Geek Ventures profile for demo use; approval does not authorize publishing, sending, committing or pushing.",
+    "statement": "Publisher declares CC BY 4.0 for dataset. Selected factual summaries only; no copied website prose, logos or portfolio relationships. This is an editorial source-use assessment, not independent rights certification. Andrew approved the exact content and proposed demo scope in chat on 2026-11-19. Reviewed proposal SHA-256: 53c303b1897fff6c6d181668dbf8cd3b1f55b773fdec774edf1997dea385827f"
+  },
+  "notes": "Approved by Andrew for demo use on 2026-11-19; publication and sending require separate approval. No investor interest, endorsement, introduction or investment is implied. Sector criteria and current deployment capacity are unknown. Dataset portfolio count 87 differs from homepage 55; excluded pending reconciliation. Editorial weights are schema placeholders, not investor scoring criteria.",
+  "profile_basis": "Selected dataset facts verified against https://geek.vc/ on 2026-11-19. Public availability alone is not a reuse license."
+}

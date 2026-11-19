@@ -17,7 +17,7 @@ test('PWA icon bytes match the declared sizes and reproducible vector mark',asyn
     }
 });
 
-test('every library file is registered, explicitly fictional and linked to a local specification',async()=>{
+test('every library file is registered and passes its per-record release policy',async()=>{
     await checkReleaseLibraries();
     const worker=await readFile(new URL('../sw.js',import.meta.url),'utf8');
     for(const path of ['docs/examples.html','docs/guide.html','docs/data-license.html','docs/license.html','LICENSE','DATA_LICENSE.md','README.md','EXAMPLES.md','GUIDE.md','DEVELOPMENT.md','assets/how-it-works.svg','data/guide-pack.schema.json']) assert.ok(worker.includes("'./"+path+"'"),'Offline resource: '+path);

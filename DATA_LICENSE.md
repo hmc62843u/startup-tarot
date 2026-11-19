@@ -31,7 +31,32 @@ in the separate research repository. It retains its [editorial licence](packs/LI
 Its browser wrapper is the configured local pack. Replacing it changes the active pack; previous pack workspaces remain stored separately. Fictional demo data stays separate. No private archives or raw source material are included.
 Merely adding attribution or marking a record reviewed does not establish permission.
 
-Build checks validate the included research package and enforce fictional metadata,
-local provenance links and indexed files for the separate demo. They check release composition; they cannot establish legal rights or
+The separate demo library may include reviewed real investor profiles alongside
+fictional startup examples. Each record keeps its own kind and reuse basis;
+this does not create a mixed historical research pack. Real investor profiles
+require `distribution_basis: reviewed_sources`, dated `distribution_review`
+approval identifying the reviewer, scope and rights statement, and versioned
+`attribution` with publisher, source URL, license URL, retrieval date and changes.
+They also require declared, dated source claims and explicit limitations. A
+review declaration is not independent rights clearance. No existing real record
+is automatically approved by this policy.
+
+The registered `profiles/geek_ventures_reviewed.json` is a real investor example,
+approved by Andrew Leung for demo use on 2026-11-19. It retains Fundraising Fox
+CC BY 4.0 attribution, the selected dataset revision and separately checked
+first-party facts. Its approval covers the selected profile, not publication or
+the underlying corporate website. Fictional founder inputs are separate; missing
+sector criteria and current investment capacity remain unknown. The conflicting
+portfolio counts were excluded. This record does not replace the configured
+research pack or make fictional examples into historical evidence.
+
+Unknown investor criteria stay unknown. Editorial weight placeholders are not
+investor preferences. Hypothetical founder inputs must be labelled where shown
+or exported and must not become facts or relationship edges about real entities.
+Real startup history and preparation topics still use the reviewed research-pack
+route. Fictional records retain their local scenario links and MIT requirements.
+
+Build checks validate the included research package and enforce per-record review,
+attribution, fictional metadata, local provenance links and indexed files for the separate demo. They check release composition; they cannot establish legal rights or
 detect every instance of copied content. Contributions must be original or
 accompanied by a documented compatible reuse basis.

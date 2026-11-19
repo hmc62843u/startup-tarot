@@ -10,6 +10,13 @@ const profile=profiles.find(p=>p.id==='hustle_fund_current_001');
 const input={sector:'software as a service',stage:'pre-seed',geography:'US',check:{amount:150000,currency:'USD'}};
 const result=assessInvestorFit(input,profile,date);
 const saved=()=>saveInvestorEntry(emptyOutreachWorkspace(),input,result,pack.version,date);
+test('shortlist export keeps fictional founder disclosure and current source attribution separate from saved evidence',()=>{
+ const w=saved();w.founder={company:'Test founder (fictional)',summary:'ILLUSTRATIVE ONLY: invented founder inputs.'};
+ const p={...profile,attribution:{publisher:'Synthetic source',version:'test-revision',license_url:'https://creativecommons.org/licenses/by/4.0/'},notes:'Unknown criteria stay unknown.'};
+ const text=exportOutreachMarkdown(w,[p],date,pack);
+ for(const token of ['fictional','ILLUSTRATIVE ONLY','Synthetic source','test-revision','Current source attribution','Saved evidence','Unknown criteria stay unknown.'])assert.ok(text.includes(token),token);
+ assert.ok(exportOutreachMarkdown(w,[],date,pack).includes('Current profile attribution is not available'));
+});
 test('controlled aliases preserve direction and do not broaden a narrow mandate',()=>{
  assert.equal(canonicalSector('  Software as a Service '),'saas');
  assert.equal(sectorFitsMandate('SaaS','software'),true);

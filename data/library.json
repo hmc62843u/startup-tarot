@@ -5,6 +5,7 @@
     "../profiles/demo_workshop.json",
     "../profiles/demo_growth.json",
     "../profiles/demo_research_award.json",
-    "../profiles/demo_reference_award.json"
+    "../profiles/demo_reference_award.json",
+    "../profiles/geek_ventures_reviewed.json"
   ]
 }

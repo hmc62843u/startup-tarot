@@ -46,7 +46,8 @@ test('offline install, documentation and navigation work under a repository subp
     const index=await (await offline('data/library.json')).json();
     for(const path of index.profiles){
         const record=await (await offline(new URL(path,new URL('data/library.json',scope)).href)).json();
-        assert.equal(record.data_kind,'fictional');
+        const {assertReleaseRecord}=await import('../tools/release-policy.mjs');
+        assert.doesNotThrow(()=>assertReleaseRecord(record,'profiles'));
     }
     assert.equal(await offline('api/account'),undefined,'Account responses bypass the service-worker cache');
     assert.equal(await offline('auth/callback?code=secret'),undefined,'OAuth callbacks bypass the service-worker cache');

@@ -7,9 +7,24 @@ const moduleFrom = async path => import(new URL(path, root));
 const { validateInvestorProfile, normalizeProfile } = await moduleFrom('js/validator.js');
 const { analyzeGap, filterProfiles, buildComparison, buildPreparationTasks, preparationProgress, startupEvidenceKey, buildHistoricalSuggestions, mergeHistoricalTasks, buildWorkspaceModel } = await moduleFrom('js/analyzer.js');
 const manifest = json('data/library.json');
-const profiles = manifest.profiles.map(path => json('data/' + path));
+const libraryProfiles = manifest.profiles.map(path => json('data/' + path));
+// These behavioral fixtures intentionally remain the six invented examples.
+const profiles = libraryProfiles.filter(profile=>profile.data_kind==='fictional');
 const byName = name => profiles.find(p => p.name === name);
 const startup = { current_stage:'idea', sectors:['AI'], founders_have_domain_expertise:false, prototype_status:'idea_only', paid_pilots:0 };
+
+test('registered real investor retains explicit approval and source-backed unknowns',async()=>{
+  const {assertReviewedInvestor}=await import('../tools/release-policy.mjs');
+  const {assessInvestorFit}=await import('../js/investor-fit.js');
+  assert.equal(new Set(libraryProfiles.map(p=>p.id)).size,libraryProfiles.length);
+  const real=libraryProfiles.find(p=>p.id==='geek_ventures_private_check');
+  assert.ok(real);assert.doesNotThrow(()=>assertReviewedInvestor(real));
+  assert.equal(real.distribution_review.reviewer,'Andrew Leung');
+  assert.ok(real.attribution.version);assert.equal(real.data_kind,'research');
+  const result=assessInvestorFit({stage:'pre-seed',sector:'SaaS',geography:'US',check:{amount:400000,currency:'USD'}},real,'2026-11-19');
+  assert.equal(result.fit,'insufficient');assert.deepEqual(result.matchedFields,['stage','geography','check']);
+  assert.ok(result.unknowns.some(s=>s.startsWith('Sector:')));
+});
 
 test('all six fictional library files validate, with unique IDs and declared estimate provenance', () => {
   assert.equal(profiles.length,6);

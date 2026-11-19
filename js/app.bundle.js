@@ -721,11 +721,13 @@ function createOutreachDraft(entry,founder,review){
 function exportOutreachMarkdown(workspace,profiles,date,pack){
   const lines=['# Investor shortlist','', 'Exported: '+date,'Pack: '+pack.name+' '+pack.version,
     'Founder-provided information and editable drafts are not independently verified. Saved evidence is historical until reviewed. Nothing has been sent.','',
+    'Pack reuse terms: '+JSON.stringify(pack.license||{}),'',
     '## Startup profile','',JSON.stringify(workspace.query),'',
     'Founder: '+(workspace.founder.name||'Not supplied'),'Founder-provided progress: '+(workspace.founder.progress||'Not supplied'),
     'Company: '+(workspace.founder.company||'Not supplied'),'Summary: '+(workspace.founder.summary||'Not supplied'),''];
   for(const e of workspace.entries){
     const review=reviewInvestorEntry(e,profiles,workspace.query,date,workspace.founder);
+    const profile=profiles.find(p=>p.id===e.id);
     lines.push('## '+e.result.name,'','Saved: '+e.savedAt+' | Pack '+e.packVersion+' | '+(e.archived?'Archived':'Active'),
       'Saved alignment: '+e.result.fit+' | Evidence coverage: '+e.result.evidenceCoverage,
       'Review: '+(review.changed?'Required - startup profile or evidence changed':'Assessment unchanged'),
@@ -733,6 +735,8 @@ function exportOutreachMarkdown(workspace,profiles,date,pack){
       'Saved startup profile: '+JSON.stringify(e.input),'','### Verification questions','',
       ...verificationQuestions(review.current||e.result).map(q=>'- '+q),'','### Notes','',e.notes||'None','',
       '### Saved evidence','',...e.result.evidence.map(c=>'- '+c.statement+' | '+c.source_url+' | Checked '+c.checked_date),'',
+      '### Current source attribution','',profile?.attribution?JSON.stringify(profile.attribution):'See pack reuse terms and saved source links. Current profile attribution is not available in this collection.',
+      'Current profile limitations: '+(profile?.notes||'Not supplied.'),'',
       '### Editable outreach draft','',review.draftNeedsReview?'REVIEW REQUIRED: this draft may use an older assessment.':'Draft for founder review; nothing has been sent.',
       '',e.draft||'No draft saved.','');
   }
@@ -1845,7 +1849,8 @@ function renderMove(){
     byId('move-title').textContent=next.savedExperiment?state.taskProgress[next.taskId]?.planTitle||next.title:next.title;
     byId('move-kind').textContent=next.savedExperiment?'Your current experiment':next.generalExercise?'General exercise':next.heading||'An example to explore';
     byId('move-support').textContent=next.generalExercise?(m.support.kind==='investor_only'?'Investor interest only; no startup example.':'No supporting library connection.'):m.lensCount?next.connectionNote||'Review the evidence before adapting.':next.sources?.some(s=>s.kind==='investor')?'Preview only. No investor selected.':next.connectionNote||'';
-    byId('move-reason').textContent=short(next.savedExperiment?next.reason:next.generalExercise?next.reason:next.sources?.some(s=>s.kind==='investor')?'The startup lesson and investor topic fit your situation.':'This startup lesson fits your model, stage and question.',100);
+    const hasInvestorSource=next.sources?.some(s=>s.kind==='investor'),hasSnapshotSource=next.sources?.some(s=>s.kind==='snapshot');
+    byId('move-reason').textContent=short(next.savedExperiment?next.reason:next.generalExercise?next.reason:hasSnapshotSource?(hasInvestorSource?'The startup lesson and investor topic fit your situation.':'This startup lesson fits your model, stage and question.'):hasInvestorSource?'An investor question to investigate; no startup lesson is documented.':next.reason||'Review the available evidence before adapting.',100);
     byId('move-action').textContent=next.savedExperiment?'Continue plan':!m.lensCount&&m.libraryPreview.length?'Choose an investor':'Make a plan';
     byId('move-links').hidden=false;byId('move-evidence').textContent=next.sources?.length?'Why this fits & sources':'Why this suggestion';
     const linked=state.taskProgress[next.taskId]?.researchApplications?.at(-1);if(next.savedExperiment&&linked){byId('move-kind').textContent='Your current experiment · research linked';byId('move-support').textContent='A research proposal you accepted; review its source support and your later edits.';byId('move-evidence').textContent='Inspect linked research';}
@@ -1923,7 +1928,11 @@ function renderInvestorFit(){
         if(r.timing)card.append(node('h3','Timing (for now or for later)'),node('p',r.timing.text));
         card.append(node('p','Confirm current availability, full eligibility and portfolio conflicts before outreach.'));
         const sources=node('button','Evidence & dates',{type:'button',class:'text-button'});
-        sources.addEventListener('click',()=>showDetails(r.name+' — mandate evidence',['Assessed '+today+'. Claims older than 180 days need review; this is a product policy, not an investor rule.','Timing is a hint from the latest dated fund announcement. It does not change the alignment label or ranking.'],[...r.evidence.map(c=>({name:c.field+' · '+c.basis,statement:c.statement,url:c.source_url,retrieved_date:c.checked_date})),...(r.timing?.evidence||[]).map(c=>({name:'timing · '+c.basis,statement:c.statement,url:c.source_url,retrieved_date:c.checked_date}))]));
+        sources.addEventListener('click',()=>{
+            const profile=profiles.find(p=>p.id===r.id),a=profile?.attribution;
+            showDetails(r.name+' — mandate evidence',['Assessed '+today+'. Claims older than 180 days need review; this is a product policy, not an investor rule.','Timing is a hint from the latest dated fund announcement. It does not change the alignment label or ranking.',profile?.notes,a&&'Source attribution: '+JSON.stringify(a)],
+                [...r.evidence.map(c=>({name:c.field+' · '+c.basis,statement:c.statement,url:c.source_url,retrieved_date:c.checked_date})),...(r.timing?.evidence||[]).map(c=>({name:'timing · '+c.basis,statement:c.statement,url:c.source_url,retrieved_date:c.checked_date})),...(a?[{name:a.publisher,url:a.source_url,retrieved_date:a.retrieved_date}]:[])]);
+        });
         const save=node('button',outreach.entries.find(e=>e.id===r.id)?.archived?'Restore to shortlist':outreach.entries.some(e=>e.id===r.id)?'Update saved assessment':'Save to shortlist',{type:'button',class:'primary'});
         save.addEventListener('click',()=>{const next=saveInvestorEntry({...outreach,query:input},input,r,pack.version,new Date().toISOString().slice(0,10));next.entries.find(e=>e.id===r.id).archived=false;if(commitOutreach(next))save.textContent='Saved to shortlist';});
         const supporting=node('div','',{class:'secondary-actions',role:'group','aria-label':'Investor evidence'});supporting.append(sources);card.append(save,supporting);container.append(card);

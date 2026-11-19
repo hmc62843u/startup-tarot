@@ -35,8 +35,10 @@ function scenarioSeed(envelope,scenario){
  const state={startup:{},taskProgress:{},suggestionChoices:{},selectedInvestorIds:[],libraryWorkspaces:{},researchLibrary:envelope.bundle.pack,activeLibrary:'research'},seed=[];
  if(scenario){
   publishingRequire(scenario.entity_kind==='fictional'&&scenario.title.includes('fictional'),'Only labelled fictional scenario inputs are allowed.');
-  const research=envelope.bundle.pack.components?.research;
-  publishingRequire(research?.snapshots.some(s=>s.id===scenario.context_snapshot_id)&&research.profiles.some(p=>p.id===scenario.investor_profile_id),'This scenario requires the OpenFor research sample.');
+  const research=envelope.bundle.pack.components?.research||envelope.bundle.pack;
+  publishingRequire(research.profiles.some(p=>p.id===scenario.investor_profile_id)&&
+   (scenario.context_snapshot_id==null||research.snapshots.some(s=>s.id===scenario.context_snapshot_id)),
+   'This scenario requires its referenced investor and, when supplied, startup snapshot.');
   for(const a of Object.values(scenario.assumptions))publishingRequire(a.status==='illustrative_unverified','Every scenario assumption must remain illustrative.');
   const a=scenario.assumptions;state.startup={business_model:a.sector.value==='hardware'?'hardware':'saas',current_stage:a.stage.value,validation_focus:'customer_problem',sectors:[a.sector.value],illustrative_scenario:scenario};state.selectedInvestorIds=[scenario.investor_profile_id];
   seed.push(['startup-guide-outreach:'+JSON.stringify([envelope.bundle.pack.provider?.id||'legacy',envelope.bundle.pack.id]),JSON.stringify({schema_version:1,query:{stage:a.stage.value,sector:a.sector.value,geography:a.geography.value,check:{amount:a.fundraising_target.value,currency:a.fundraising_target.unit}},founder:{company:scenario.title,summary:'ILLUSTRATIVE ONLY: '+JSON.stringify(a)},entries:[]})]);

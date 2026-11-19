@@ -59,11 +59,13 @@ export function createOutreachDraft(entry,founder,review){
 export function exportOutreachMarkdown(workspace,profiles,date,pack){
   const lines=['# Investor shortlist','', 'Exported: '+date,'Pack: '+pack.name+' '+pack.version,
     'Founder-provided information and editable drafts are not independently verified. Saved evidence is historical until reviewed. Nothing has been sent.','',
+    'Pack reuse terms: '+JSON.stringify(pack.license||{}),'',
     '## Startup profile','',JSON.stringify(workspace.query),'',
     'Founder: '+(workspace.founder.name||'Not supplied'),'Founder-provided progress: '+(workspace.founder.progress||'Not supplied'),
     'Company: '+(workspace.founder.company||'Not supplied'),'Summary: '+(workspace.founder.summary||'Not supplied'),''];
   for(const e of workspace.entries){
     const review=reviewInvestorEntry(e,profiles,workspace.query,date,workspace.founder);
+    const profile=profiles.find(p=>p.id===e.id);
     lines.push('## '+e.result.name,'','Saved: '+e.savedAt+' | Pack '+e.packVersion+' | '+(e.archived?'Archived':'Active'),
       'Saved alignment: '+e.result.fit+' | Evidence coverage: '+e.result.evidenceCoverage,
       'Review: '+(review.changed?'Required - startup profile or evidence changed':'Assessment unchanged'),
@@ -71,6 +73,8 @@ export function exportOutreachMarkdown(workspace,profiles,date,pack){
       'Saved startup profile: '+JSON.stringify(e.input),'','### Verification questions','',
       ...verificationQuestions(review.current||e.result).map(q=>'- '+q),'','### Notes','',e.notes||'None','',
       '### Saved evidence','',...e.result.evidence.map(c=>'- '+c.statement+' | '+c.source_url+' | Checked '+c.checked_date),'',
+      '### Current source attribution','',profile?.attribution?JSON.stringify(profile.attribution):'See pack reuse terms and saved source links. Current profile attribution is not available in this collection.',
+      'Current profile limitations: '+(profile?.notes||'Not supplied.'),'',
       '### Editable outreach draft','',review.draftNeedsReview?'REVIEW REQUIRED: this draft may use an older assessment.':'Draft for founder review; nothing has been sent.',
       '',e.draft||'No draft saved.','');
   }

@@ -15,6 +15,7 @@ export async function exportRelease({directory=null,rebuild=true,recipient=false
         'templates/blank_investor.json','packs/demo-guide-pack.json',
         'tools/build-demo.mjs','tools/build-docs.mjs','tools/build-icons.mjs','tools/release-policy.mjs','tools/export-release.mjs',
         'tests/app.test.mjs','tests/library.test.mjs','tests/extensions.test.mjs','tests/snapshots.test.mjs','tests/release.test.mjs','tests/research.test.mjs','tests/provider.test.mjs','tests/research-helpers.mjs','tests/offline.test.mjs'];
+    files.push('tests/reviewed-demo.test.mjs');
     // Only registered records and these explicit public files enter the export.
     for (const [index,key] of [['data/library.json','profiles'],['data/startup-library.json','snapshots']]) {
         const manifest=JSON.parse(await readFile(new URL(index,root),'utf8'));

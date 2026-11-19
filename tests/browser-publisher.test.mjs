@@ -24,7 +24,23 @@ test('srcdoc preview is self contained, labelled and does not use browser storag
  assert.equal(preview.html.match(/<script>/g).length,3);assert.ok(!/<script[^>]+src=/.test(preview.html));assert.ok(preview.html.includes('const previewMemory=new Map'));assert.ok(preview.html.includes('const location={protocol:"file:"'));assert.ok(preview.html.includes('illustrative_unverified'));assert.ok(preview.html.includes('connect-src \'none\''));
  const safe=structuredClone(research);safe.bundle.pack.name='</script><script>UNTRUSTED_EXECUTION</script>';
  const escaped=await publisherPreview(template,safe);assert.ok(!escaped.html.includes('</script><script>UNTRUSTED_EXECUTION'));
- await assert.rejects(()=>publisherPreview(template,env,template.scenarios.cases[0]),/requires the OpenFor/);
+ await assert.rejects(()=>publisherPreview(template,env,template.scenarios.cases[0]),/requires its referenced/);
+});
+test('fictional founder inputs can preview an investor without inventing a startup snapshot',async()=>{
+ const research=publisherInput(template.samples.openfor),scenario=structuredClone(template.scenarios.cases[0]);
+ research.bundle.pack.components.research.snapshots=[];
+ research.bundle.pack.components.matching.rules=[];
+ research.bundle.pack.components.suggestions=[];
+ research.bundle.relationships.nodes=[];research.bundle.relationships.edges=[];
+ scenario.context_snapshot_id=null;
+ const before=JSON.stringify(research),preview=await publisherPreview(template,research,scenario);
+ assert.ok(preview.html.includes('Fictional scenario'));
+ assert.ok(preview.html.includes('illustrative_unverified'));
+ assert.equal(JSON.stringify(research),before);
+ const wrong=structuredClone(scenario);wrong.context_snapshot_id='invented_history';
+ await assert.rejects(()=>publisherPreview(template,research,wrong),/requires its referenced/);
+ const real=structuredClone(scenario);real.entity_kind='research';
+ await assert.rejects(()=>publisherPreview(template,research,real),/labelled fictional/);
 });
 test('reviewed browser release generates a verifiable ZIP without preview assumptions',async()=>{
  const preview=await publisherPreview(template,env);
