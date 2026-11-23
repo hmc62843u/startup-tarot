@@ -41,6 +41,9 @@ test('the private people list blocks listed names and aliases anywhere in a pack
   assert.throws(()=>rejectListedPeople(at(path,text),list),err=>/listed person #[12]/.test(err.message)&&err.message.includes(path.join('.'))&&!/okabe|vell|岡部/i.test(err.message),text);
  }
  assert.equal(rejectListedPeople(at(notes,'Okabeworks and Vellum are companies'),list),2,'Latin names match whole words only');
+ // Spacing, order and punctuation variants of a listed name are caught; other names that share letters are not.
+ for(const text of ['okabe rina told us','write to rina.okabe@fund.example','Okabe-Rina','rinaokabe on the call','岡部 理奈氏','岡部・理奈','r.okabe and team'])assert.throws(()=>rejectListedPeople(at(notes,text),list),/listed person #1/,text);
+ for(const text of ['Rina Okada backs robotics','Corina Okabeson introduced us','rokabe is a word here','Rina joined later'])assert.equal(rejectListedPeople(at(notes,text),list),2,text);
  for(const bad of [null,{schema_version:1},{schema_version:1,people:[{name:'A'}]},{schema_version:1,people:[{name:'Rina Okabe',email:'x'}]},{schema_version:1,people:[{name:'Rina Okabe',aliases:'R. Okabe'}]}])assert.throws(()=>validatePeopleList(bad),/People list/);
 });
 

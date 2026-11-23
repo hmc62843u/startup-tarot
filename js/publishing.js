@@ -39,11 +39,20 @@ export function validatePeopleList(list){
   for(const n of [p.name,...(p.aliases||[])])publishingRequire(personText(n).length>=2,'People list entry #'+(i+1)+' has a name or alias shorter than 2 characters.');});
  return list;
 }
+// Separators people put between name parts: spaces, dots, hyphens, underscores, middle dots.
+const nameSeparator='[\\s._\\-\u00b7\u30fb]';
+const escapeRegExp=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
 function personMatchers(list){
  return validatePeopleList(list).people.map((p,i)=>({entry:i+1,forms:[p.name,...(p.aliases||[])].map(personText).map(form=>{
-  // Latin-script forms match whole words only, so "Okabe" doesn't match "Okabeworks"; other scripts match as substrings.
-  if(!latinWord.test(form))return text=>text.includes(form);
-  const escaped=form.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),re=new RegExp('(?<![\\p{L}\\p{N}])'+escaped+'(?![\\p{L}\\p{N}])','u');return text=>re.test(text);})}));
+  // Other scripts (kanji, kana) match as substrings, ignoring separators between characters ("岡部 理奈").
+  if(!latinWord.test(form)){const chars=[...form.replace(new RegExp(nameSeparator,'gu'),'')];const re=new RegExp(chars.map(escapeRegExp).join(nameSeparator+'*'),'u');return text=>re.test(text);}
+  // Latin forms match whole words only, so "Okabe" doesn't match "Okabeworks". Name parts may be joined by any
+  // separator ("rina.okabe"); a two-part name also matches in reversed order ("Okabe Rina"). A single-letter part
+  // ("R. Okabe") needs a separator, so initials never glue onto a word.
+  const parts=form.split(new RegExp(nameSeparator+'+','u')).filter(Boolean);
+  const join=ps=>ps.map(escapeRegExp).join(ps.some(x=>[...x].length<2)?nameSeparator+'+':nameSeparator+'*');
+  const orders=[parts];if(parts.length===2&&parts.every(x=>[...x].length>=2))orders.push([parts[1],parts[0]]);
+  const re=new RegExp('(?<![\\p{L}\\p{N}])(?:'+orders.map(join).join('|')+')(?![\\p{L}\\p{N}])','u');return text=>re.test(text);})}));
 }
 export function rejectListedPeople(value,list,path='bundle'){
  const matchers=personMatchers(list);
