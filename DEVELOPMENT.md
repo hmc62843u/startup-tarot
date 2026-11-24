@@ -13,6 +13,10 @@ node --check sw.js
 node tools/export-release.mjs
 ```
 
+Run the tests after your last edit, and commit what `tools/build-demo.mjs` regenerates (docs, `index.html`, `sw.js`); CI fails if generated files are stale. To run the same checks before every push, enable the versioned hook once per clone: `git config core.hooksPath .githooks`.
+
+**Changing a release check** (`js/publishing.js`: talk links, listed names, the publishing envelope): put the written rule beside what the code tests and note where the code is narrower, wider or different; test with cases written by someone who hasn't seen the code, saved before running; and report results only from a full run after the last edit. A passing test shows the code does what it says, not that it covers the rule.
+
 The build validates packs/guide-pack.json, generates its trusted browser wrapper, bundles source modules in dependency order, renders documentation and updates cache versions. Edit source modules and Markdown, then rebuild. Do not hand-edit generated app.bundle.js or docs HTML. The next build replaces a manually supplied active-pack.js from the JSON.
 
 The exporter creates an allowlisted local release directory. It excludes Git metadata, browser state and private working files. Publishing and GitHub Pages configuration are separate actions.
