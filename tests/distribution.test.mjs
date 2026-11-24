@@ -30,6 +30,14 @@ test('founder packages may not cite talk or podcast recordings (person-level sou
   const linked=structuredClone(envelope);profile(linked).notes='Partner explained this in a talk: '+url;assert.throws(()=>validateExportEnvelope(linked),/person-level source.*bundle\.pack\.components\.research\.profiles\.0\.notes/,url);
  }
  const lookalike=structuredClone(envelope);profile(lookalike).notes='See https://notyoutube.com.example.org/criteria';assert.equal(validateExportEnvelope(lookalike),lookalike);
+ // Links pasted without http(s)://, embed links and other recording platforms are caught too (audit 2026-11-24).
+ for(const text of ['watch youtu.be/abc','see www.youtube.com/watch?v=x.','https://www.youtube-nocookie.com/embed/x','https://www.tiktok.com/@fund/video/1','https://x.com/i/broadcasts/1','https://www.linkedin.com/events/123','https://fb.watch/abc','https://zoom.us/rec/share/abc','https://www.nicovideo.jp/watch/sm1','voicy.jp/channel/1','https://stand.fm/episodes/1','https://music.amazon.co.jp/podcasts/x','HTTPS://YOUTU.BE/X']){
+  const linked=structuredClone(envelope);profile(linked).notes=text;assert.throws(()=>validateExportEnvelope(linked),/person-level source/,text);
+ }
+ // Naming a platform, an email address, or a site that only resembles a host is not a link to a talk.
+ for(const text of ['Upload a demo to YouTube as unlisted.','Write to press@youtube.com.example','https://www.linkedin.com/company/example-fund','https://twitter.com/examplefund','https://example.org/stand.fmx']){
+  const fine=structuredClone(envelope);profile(fine).notes=text;assert.equal(validateExportEnvelope(fine),fine,text);
+ }
 });
 
 test('the private people list blocks listed names and aliases anywhere in a package, without echoing them',()=>{
@@ -44,6 +52,12 @@ test('the private people list blocks listed names and aliases anywhere in a pack
  // Spacing, order and punctuation variants of a listed name are caught; other names that share letters are not.
  for(const text of ['okabe rina told us','write to rina.okabe@fund.example','Okabe-Rina','rinaokabe on the call','岡部 理奈氏','岡部・理奈','r.okabe and team'])assert.throws(()=>rejectListedPeople(at(notes,text),list),/listed person #1/,text);
  for(const text of ['Rina Okada backs robotics','Corina Okabeson introduced us','rokabe is a word here','Rina joined later'])assert.equal(rejectListedPeople(at(notes,text),list),2,text);
+ // A lone surname or given name is caught when a title or honorific marks it (audit 2026-11-24); a bare one is not.
+ for(const text of ['Ms. Okabe said so','okabe-san warned us','Dr Okabe','Mr. Vell agreed','岡部さんは述べた','岡部氏の意見','岡部 様'])assert.throws(()=>rejectListedPeople(at(notes,text),list),/listed person #[12]/,text);
+ for(const text of ['Okabe said so','高岡部長','Vellum Inc.'])assert.equal(rejectListedPeople(at(notes,text),list),2,text);
+ // Names used as object keys are caught as well.
+ const keyed=structuredClone(bundle);keyed.pack.components.research.profiles[0].extra={'Rina Okabe':'partner'};
+ assert.throws(()=>rejectListedPeople(keyed,list),err=>/listed person #1.*field name/.test(err.message)&&!/okabe/i.test(err.message));
  for(const bad of [null,{schema_version:1},{schema_version:1,people:[{name:'A'}]},{schema_version:1,people:[{name:'Rina Okabe',email:'x'}]},{schema_version:1,people:[{name:'Rina Okabe',aliases:'R. Okabe'}]}])assert.throws(()=>validatePeopleList(bad),/People list/);
 });
 
